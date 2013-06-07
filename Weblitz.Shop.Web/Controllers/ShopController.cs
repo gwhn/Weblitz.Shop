@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Weblitz.Shop.Web.Models.View;
 
 namespace Weblitz.Shop.Web.Controllers
 {
@@ -12,7 +14,12 @@ namespace Weblitz.Shop.Web.Controllers
         // GET: /Shop/
         public ActionResult Index()
         {
-            return View();
+            return View(new ShopFront
+                {
+                    BodyId = string.Format("{0}_{1}", RouteData.Values["Controller"], RouteData.Values["Action"]),
+                    CurrentYear = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture),
+                    Title = "Weblitz Shop"
+                });
         }
 
         //
@@ -30,6 +37,5 @@ namespace Weblitz.Shop.Web.Controllers
         {
             return PartialView();
         }
-
     }
 }

@@ -1,1 +1,36 @@
-﻿
+﻿body#main {
+  margin: 0;
+}
+.header {
+  margin: 0;
+}
+.header .account {
+  margin: 0;
+}
+.header .navigation {
+  margin: 0;
+}
+.header .menu {
+  margin: 0;
+}
+.header .search {
+  margin: 0;
+}
+.section {
+  margin: 0;
+}
+.footer {
+  margin: 0;
+}
+.footer .about {
+  margin: 0;
+}
+.footer .contact {
+  margin: 0;
+}
+.footer .sitemap {
+  margin: 0;
+}
+.footer .copyright {
+  margin: 0;
+}

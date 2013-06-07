@@ -13,9 +13,7 @@ namespace Weblitz.Shop.Web.Controllers
         [ChildActionOnly]
         public PartialViewResult Index()
         {
-            
             return PartialView();
         }
-
     }
 }
