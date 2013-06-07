@@ -9,37 +9,19 @@
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
     </head>
-    <body>
-        <div id="header">
-            <div id="account">
-                
-            </div>
-            <div id="navigation">
-                
-            </div>
-            <div id="categories">
-                
-            </div>
-            <div id="search">
-                
-            </div>
+    <body id="main">
+        <div class="header">
+            <div class="account">@{ Html.RenderAction("Index", "Account"); }</div>
+            <div class="navigation">@{ Html.RenderAction("Index", "Navigation"); }</div>
+            <div class="menu">@{ Html.RenderAction("Menu", "Navigation"); }</div>
+            <div class="search">@{ Html.RenderAction("Index", "Search"); }</div>
         </div>
-        <div id="main">
-            @RenderBody()
-        </div>
-        <div id="footer">
-            <div id="about">
-                
-            </div>
-            <div id="contact">
-                
-            </div>
-            <div id="sitemap">
-                
-            </div>
-            <div id="copyright">
-                <p>Weblitz &copy; @DateTime.Now.Year</p>
-            </div>
+        <div class="section">@RenderBody()</div>
+        <div class="footer">
+            <div class="about">@{ Html.RenderAction("About", "Shop"); }</div>
+            <div class="contact">@{ Html.RenderAction("Contact", "Shop"); }</div>
+            <div class="sitemap">@{ Html.RenderAction("SiteMap", "Navigation"); }</div>
+            <div class="copyright"><p>Weblitz &copy; @DateTime.Now.Year</p></div>
         </div>
         @Scripts.Render("~/bundles/jquery")
         @RenderSection("scripts", required: false)
