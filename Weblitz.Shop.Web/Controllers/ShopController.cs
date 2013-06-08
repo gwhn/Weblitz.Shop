@@ -37,5 +37,27 @@ namespace Weblitz.Shop.Web.Controllers
         {
             return PartialView();
         }
+
+        //
+        // GET: /Shop/Checkout
+        public ActionResult Checkout()
+        {
+            throw new NotImplementedException();
+        }
+
+        //
+        // GET: /Shop/CartSummary
+        [ChildActionOnly]
+        public PartialViewResult CartSummary()
+        {
+            return PartialView(new CartSummary());
+        }
+
+        //
+        // GET: /Shop/Category/{id}
+        public ActionResult Category(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

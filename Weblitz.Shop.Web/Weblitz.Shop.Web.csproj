@@ -133,7 +133,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ImageLinkExtensions.cs" />
+    <Compile Include="Models\View\AccountSummary.cs" />
+    <Compile Include="Models\View\CartSummary.cs" />
+    <Compile Include="Models\View\MenuItem.cs" />
     <Compile Include="Models\View\Page.cs" />
+    <Compile Include="Models\View\SearchForm.cs" />
     <Compile Include="Models\View\ShopFront.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -244,9 +249,12 @@
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Shop\About.cshtml" />
     <Content Include="Views\Shop\Contact.cshtml" />
+    <Content Include="Views\Account\Summary.cshtml" />
+    <Content Include="Views\Shop\CartSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

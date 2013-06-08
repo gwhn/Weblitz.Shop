@@ -1,3 +1,18 @@
-﻿@model dynamic
+﻿@model Weblitz.Shop.Web.Models.View.SearchForm
 
-<h1>Search/Index</h1>
+<div class="contact">
+    <ul>
+        <li class="phone">+44(0)1234 567890</li>
+        <li class="business-hours">Call us Monday - Saturday: 9am - 5pm</li>
+    </ul>
+</div>
+@using (Html.BeginForm("Results", "Search"))
+{
+    <dl>
+        <dt>@Html.LabelFor(x=> x.Expression)</dt>
+        <dd>
+            @Html.TextBoxFor(x=> x.Expression)
+            <input type="submit" value="Go"/>
+        </dd>
+    </dl>
+}

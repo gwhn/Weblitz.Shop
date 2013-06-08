@@ -10,6 +10,48 @@
 .header .navigation {
   margin: 0;
 }
+.header .navigation .logo {
+  margin: 0;
+}
+.header .navigation .home {
+  margin: 0;
+}
+.header .navigation .wish-list {
+  margin: 0;
+}
+.header .navigation .account {
+  margin: 0;
+}
+.header .navigation .checkout {
+  margin: 0;
+}
+.header .navigation .cart {
+  margin: 0;
+}
+.header .navigation .cart .summary {
+  margin: 0;
+}
+.header .navigation .cart .content {
+  margin: 0;
+}
+.header .navigation .cart .content .item {
+  margin: 0;
+}
+.header .navigation .cart .content .item .thumbnail {
+  margin: 0;
+}
+.header .navigation .cart .content .item .title {
+  margin: 0;
+}
+.header .navigation .cart .content .item .numeric {
+  margin: 0;
+}
+.header .navigation .cart .content .item .currency {
+  margin: 0;
+}
+.header .navigation .cart .content .empty {
+  margin: 0;
+}
 .header .menu {
   margin: 0;
 }

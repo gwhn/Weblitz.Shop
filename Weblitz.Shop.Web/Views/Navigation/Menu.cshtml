@@ -1,3 +1,17 @@
-﻿@model dynamic
+﻿@model ICollection<Weblitz.Shop.Web.Models.View.MenuItem>
 
-<h1>Navigation/Menu</h1>
+@if (Model.Count > 0)
+{
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                @Html.ActionLink(item.Name, "Category", "Shop", new {id = item.Id}, null)
+                @if (item.Children.Count > 0)
+                {
+                    Html.RenderPartial("Menu", item.Children);
+                }
+            </li>
+        }   
+    </ul>
+}

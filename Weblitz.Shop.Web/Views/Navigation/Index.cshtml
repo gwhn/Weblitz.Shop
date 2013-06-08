@@ -1,3 +1,8 @@
-﻿@model dynamic
-
-<h1>Navigation/Index</h1>
+﻿<ul>
+    <li>@Html.ActionLink("Weblitz Shop", "Index", "Shop", null, new {@class = "logo"})</li>
+    <li>@Html.ActionLink("Home", "Index", "Shop", null, new {@class = "home"})</li>
+    <li>@Html.ActionLink("Wish List", "WishList", "Account", null, new {@class = "wish-list"})</li>
+    <li>@Html.ActionLink("Account", "Index", "Account", null, new {@class = "account"})</li>
+    <li>@Html.ActionLink("Checkout", "Checkout", "Shop", null, new {@class = "checkout"})</li>
+    <li>@{ Html.RenderAction("CartSummary", "Shop"); }</li>
+</ul>

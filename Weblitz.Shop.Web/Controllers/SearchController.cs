@@ -16,5 +16,9 @@ namespace Weblitz.Shop.Web.Controllers
             return PartialView();
         }
 
+        public ActionResult Results(string expression)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
