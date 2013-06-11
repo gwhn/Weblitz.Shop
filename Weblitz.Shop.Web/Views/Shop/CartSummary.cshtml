@@ -1,6 +1,6 @@
 ﻿@model Weblitz.Shop.Web.Models.View.CartSummary
 
-<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<a href="#" class="dropdown-toggle cart-summary" data-toggle="dropdown">
     @Model.Items.Count item(s) - @Model.Total
     <b class="caret"></b>
 </a>
@@ -9,12 +9,12 @@
     {
         foreach (var item in Model.Items)
         {
-            <li class="item">
+            <li>
                 <ul>
-                    <li class="thumbnail">@Html.ImageLink(item.ImageUrl, item.Name, null, "Index", "Shop", null, null)</li>
-                    <li class="title">@Html.ActionLink(item.Name, "Index", "Shop")</li>
-                    <li class="numeric">@item.Quantity</li>
-                    <li class="currency">@item.Cost</li>
+                    <li>@Html.ImageLink(item.ImageUrl, item.Name, null, "Index", "Shop", null, null)</li>
+                    <li class="lead">@Html.ActionLink(item.Name, "Index", "Shop")</li>
+                    <li class="text-right">@item.Quantity</li>
+                    <li class="text-right">@item.Cost</li>
                 </ul>
             </li>
         }

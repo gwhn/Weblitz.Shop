@@ -4,15 +4,14 @@
 
 <html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width" />
         <title>@Model.Title</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         @Styles.Render("~/Content/bootstrap")
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
     </head>
-    <body id="@Model.BodyId">
+    <body>
         <div class="container">
             <header>
                 <div class="account-summary">
@@ -28,7 +27,7 @@
                     @Html.Action("Index", "Search")
                 </div>
             </header>
-            <section>
+            <section id="@Model.SectionId">
                 @RenderBody()
             </section>
             <footer>
@@ -38,7 +37,9 @@
                 <div class="sitemap">
                     @Html.Action("SiteMap", "Navigation")
                 </div>
-                <div class="copyright"><p>Weblitz &copy; @Model.CurrentYear</p></div>
+                <div class="copyright">
+                    <p>Weblitz &copy; @Model.CurrentYear</p>
+                </div>
             </footer>
         </div>
         @Scripts.Render("~/bundles/jquery")

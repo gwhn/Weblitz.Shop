@@ -3,18 +3,18 @@
 @if (Model.Count > 0)
 {
     const int columns = 3;
-    for (var i = 0; i < (Model.Count/columns) + 1; i++)
+    for (var m = 0; m < (Model.Count/columns) + 1; m++)
     {
         <div class="row">        
-            @for (var j = 0; j < columns; j++)
+            @for (var n = 0; n < columns; n++)
             {
-                var ci = (i*columns) + j;
+                var i = (m*columns) + n;
                 <div class="span4">
-                    @if (ci < Model.Count && Model[ci].Links.Count > 0)
+                    @if (i < Model.Count && Model[i].Links.Count > 0)
                     {
-                        <h3>@Model[ci].Name</h3>
+                        <h3>@Model[i].Name</h3>
                         <ul class="unstyled">
-                            @foreach (var x in Model[ci].Links)
+                            @foreach (var x in Model[i].Links)
                             {
                                 <li>@Html.ActionLink(x.LinkText, x.ActionName, x.ControllerName, x.RouteValues)</li>
                             }

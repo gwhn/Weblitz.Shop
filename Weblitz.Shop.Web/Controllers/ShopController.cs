@@ -16,7 +16,7 @@ namespace Weblitz.Shop.Web.Controllers
         {
             return View(new ShopFront
                 {
-                    BodyId = string.Format("{0}_{1}", RouteData.Values["Controller"], RouteData.Values["Action"]),
+                    SectionId = string.Format("{0}_{1}", RouteData.Values["Controller"], RouteData.Values["Action"]),
                     CurrentYear = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture),
                     Title = "Weblitz"
                 });

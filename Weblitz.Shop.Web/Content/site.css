@@ -1,1 +1,42 @@
-﻿
+﻿.account-summary {
+  background-color: red;
+}
+.navigation {
+  background-color: yellow;
+}
+.navigation .logo {
+  background-color: greenyellow;
+}
+.navigation .home {
+  background-color: lightblue;
+}
+.navigation .wish-list {
+  background-color: lightcoral;
+}
+.navigation .account {
+  background-color: lightgoldenrodyellow;
+}
+.navigation .checkout {
+  background-color: lightseagreen;
+}
+.navigation .cart-summary {
+  background-color: lightsteelblue;
+}
+.navigation .empty {
+  background-color: gray;
+}
+.menu {
+  background-color: green;
+}
+.search {
+  background-color: blue;
+}
+.about {
+  background-color: orange;
+}
+.sitemap {
+  background-color: purple;
+}
+.copyright {
+  background-color: white;
+}
