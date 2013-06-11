@@ -1,50 +1,52 @@
 ﻿@model Weblitz.Shop.Web.Models.View.AccountSummary
 
-<div class="span6">
-    @if (Model.IsAuthenticated)
-    {
-        <ul class="inline">
-            <li>You are logged in as @Model.UserName</li>
-            <li>@Html.ActionLink("Log out", "LogOut")</li>
-        </ul>
-    }
-    else
-    {
-        <ul class="inline">
-            <li>Welcome visitor</li>
-            <li>@Html.ActionLink("Log in or create and account", "LogIn")</li>
-        </ul>
-    }
-</div>
-<div class="span6">
-    @if (Model.CurrencyList.Count > 0)
-    {
-        <div class="btn-group pull-right">
-            <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                Currency
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                @foreach (var x in Model.CurrencyList)
-                {
-                    <li>@Html.ActionLink(x.Value, "Currency", "Account", new {id = x.Key}, new {tabindex = "-1"})</li>
-                }
+<div class="row">
+    <div class="span6">
+        @if (Model.IsAuthenticated)
+        {
+            <ul class="inline">
+                <li>You are logged in as @Model.UserName</li>
+                <li>@Html.ActionLink("Log out", "LogOut")</li>
             </ul>
-        </div>
-    }
-    @if (Model.LanguageList.Count > 0)
-    {
-        <div class="btn-group pull-right">
-            <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                Language
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                @foreach (var x in Model.LanguageList)
-                {
-                    <li>@Html.ActionLink(x.Value, "Language", "Account", new {id = x.Key}, new {tabindex = "-1"})</li>
-                }
+        }
+        else
+        {
+            <ul class="inline">
+                <li>Welcome visitor</li>
+                <li>@Html.ActionLink("Log in or create and account", "LogIn")</li>
             </ul>
-        </div>
-    }
+        }
+    </div>
+    <div class="span6">
+        @if (Model.CurrencyList.Count > 0)
+        {
+            <div class="btn-group pull-right">
+                <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                    Currency
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    @foreach (var x in Model.CurrencyList)
+                    {
+                        <li>@Html.ActionLink(x.Value, "Currency", "Account", new {id = x.Key}, new {tabindex = "-1"})</li>
+                    }
+                </ul>
+            </div>
+        }
+        @if (Model.LanguageList.Count > 0)
+        {
+            <div class="btn-group pull-right">
+                <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                    Language
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    @foreach (var x in Model.LanguageList)
+                    {
+                        <li>@Html.ActionLink(x.Value, "Language", "Account", new {id = x.Key}, new {tabindex = "-1"})</li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
 </div>

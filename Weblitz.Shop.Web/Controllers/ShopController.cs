@@ -23,22 +23,6 @@ namespace Weblitz.Shop.Web.Controllers
         }
 
         //
-        // GET: /Shop/About
-        [ChildActionOnly]
-        public PartialViewResult About()
-        {
-            return PartialView();
-        }
-
-        //
-        // GET: /Shop/Contact
-        [ChildActionOnly]
-        public PartialViewResult Contact()
-        {
-            return PartialView();
-        }
-
-        //
         // GET: /Shop/Checkout
         public ActionResult Checkout()
         {
@@ -58,6 +42,14 @@ namespace Weblitz.Shop.Web.Controllers
         public ActionResult Category(int id)
         {
             throw new NotImplementedException();
+        }
+
+        //
+        // GET: /Shop/About
+        [ChildActionOnly]
+        public PartialViewResult About()
+        {
+            return PartialView();
         }
     }
 }

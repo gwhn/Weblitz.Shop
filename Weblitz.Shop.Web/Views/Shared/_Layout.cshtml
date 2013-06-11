@@ -15,16 +15,16 @@
     <body id="@Model.BodyId">
         <div class="container">
             <header>
-                <div class="row">
+                <div class="account-summary">
                     @Html.Action("Summary", "Account")
                 </div>
-                <div class="row">
+                <div class="navigation">
                     @Html.Action("Index", "Navigation")
                 </div>
-                <div class="row">
+                <div class="menu">
                     @Html.Action("Menu", "Navigation")
                 </div>
-                <div class="row">
+                <div class="search">
                     @Html.Action("Index", "Search")
                 </div>
             </header>
@@ -32,15 +32,12 @@
                 @RenderBody()
             </section>
             <footer>
-                <div class="row">
-                    <div class="span8">
-                        @Html.Action("About", "Shop")                        
-                    </div>
-                    <div class="span4">
-                        @Html.Action("Contact", "Shop")
-                    </div>
+                <div class="about">
+                    @Html.Action("About", "Shop")                                            
                 </div>
-                @Html.Action("SiteMap", "Navigation")
+                <div class="sitemap">
+                    @Html.Action("SiteMap", "Navigation")
+                </div>
                 <div class="copyright"><p>Weblitz &copy; @Model.CurrentYear</p></div>
             </footer>
         </div>
