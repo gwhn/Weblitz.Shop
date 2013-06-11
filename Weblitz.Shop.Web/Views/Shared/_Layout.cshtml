@@ -2,30 +2,50 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
     <head>
         <meta name="viewport" content="width=device-width" />
         <title>@Model.Title</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        @Styles.Render("~/Content/bootstrap")
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body id="@Model.BodyId">
-        <div class="header">
-            <div class="account">@{ Html.RenderAction("Summary", "Account"); }</div>
-            <div class="navigation">@{ Html.RenderAction("Index", "Navigation"); }</div>
-            <div class="menu">@{ Html.RenderAction("Menu", "Navigation"); }</div>
-            <div class="search">@{ Html.RenderAction("Index", "Search"); }</div>
-        </div>
-        <div class="section">@RenderBody()</div>
-        <div class="footer">
-            <div class="about">@{ Html.RenderAction("About", "Shop"); }</div>
-            <div class="contact">@{ Html.RenderAction("Contact", "Shop"); }</div>
-            <div class="sitemap">@{ Html.RenderAction("SiteMap", "Navigation"); }</div>
-            <div class="copyright"><p>Weblitz &copy; @Model.CurrentYear</p></div>
+        <div class="container">
+            <header>
+                <div class="row">
+                    @Html.Action("Summary", "Account")
+                </div>
+                <div class="row">
+                    @Html.Action("Index", "Navigation")
+                </div>
+                <div class="row">
+                    @Html.Action("Menu", "Navigation")
+                </div>
+                <div class="row">
+                    @Html.Action("Index", "Search")
+                </div>
+            </header>
+            <section>
+                @RenderBody()
+            </section>
+            <footer>
+                <div class="row">
+                    <div class="span8">
+                        @Html.Action("About", "Shop")                        
+                    </div>
+                    <div class="span4">
+                        @Html.Action("Contact", "Shop")
+                    </div>
+                </div>
+                @Html.Action("SiteMap", "Navigation")
+                <div class="copyright"><p>Weblitz &copy; @Model.CurrentYear</p></div>
+            </footer>
         </div>
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
     </body>
 </html>

@@ -1,28 +1,26 @@
 ﻿@model Weblitz.Shop.Web.Models.View.CartSummary
 
-<div class="cart">
-    <ul class="summary">
-        <li>@Model.Items.Count item(s)</li>
-        <li>@Model.Total</li>
-    </ul>
-    <ul class="content">
-        @if (Model.Items.Count > 0)
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    @Model.Items.Count item(s) - @Model.Total
+    <b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+    @if (Model.Items.Count > 0)
+    {
+        foreach (var item in Model.Items)
         {
-            foreach (var item in Model.Items)
-            {
-                <li class="item">
-                    <ul>
-                        <li class="thumbnail">@Html.ImageLink(item.ImageUrl, item.Name, null, "Index", "Shop", null, null)</li>
-                        <li class="title">@Html.ActionLink(item.Name, "Index", "Shop")</li>
-                        <li class="numeric">@item.Quantity</li>
-                        <li class="currency">@item.Cost</li>
-                    </ul>
-                </li>
-            }
+            <li class="item">
+                <ul>
+                    <li class="thumbnail">@Html.ImageLink(item.ImageUrl, item.Name, null, "Index", "Shop", null, null)</li>
+                    <li class="title">@Html.ActionLink(item.Name, "Index", "Shop")</li>
+                    <li class="numeric">@item.Quantity</li>
+                    <li class="currency">@item.Cost</li>
+                </ul>
+            </li>
         }
-        else
-        {
-            <li class="empty">Your shoping cart is empty</li>
-        }
-    </ul>
-</div>
+    }
+    else
+    {
+        <li class="empty">Your shoping cart is empty</li>
+    }
+</ul>

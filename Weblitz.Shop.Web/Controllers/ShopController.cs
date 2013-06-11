@@ -18,7 +18,7 @@ namespace Weblitz.Shop.Web.Controllers
                 {
                     BodyId = string.Format("{0}_{1}", RouteData.Values["Controller"], RouteData.Values["Action"]),
                     CurrentYear = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture),
-                    Title = "Weblitz Shop"
+                    Title = "Weblitz"
                 });
         }
 

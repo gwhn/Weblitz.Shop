@@ -33,7 +33,7 @@ namespace Weblitz.Shop.Web.Helpers
             img.MergeAttribute("src", imageSrc);
             img.MergeAttribute("alt", imageAlt);
             img.MergeAttributes(imageHtmlAttributes as IDictionary<string, object>);
-            // Build a tag
+            // Build link tag
             var a = new TagBuilder("a");
             // Build action link
             var url = new UrlHelper(helper.ViewContext.RequestContext);

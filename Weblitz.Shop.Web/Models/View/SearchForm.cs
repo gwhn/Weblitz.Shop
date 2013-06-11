@@ -2,6 +2,6 @@
 {
     public class SearchForm
     {
-        public string Expression { get; set; }
+        public string Query { get; set; }
     }
 }

@@ -1,18 +1,17 @@
 ﻿@model Weblitz.Shop.Web.Models.View.SearchForm
 
-<div class="contact">
-    <ul>
+<div class="span6">
+    <ul class="contact unstyled pull-left">
         <li class="phone">+44(0)1234 567890</li>
-        <li class="business-hours">Call us Monday - Saturday: 9am - 5pm</li>
-    </ul>
+        <li class="business-hours">Call us Monday - Friday: 9am - 5pm</li>
+    </ul>        
 </div>
-@using (Html.BeginForm("Results", "Search"))
-{
-    <dl>
-        <dt>@Html.LabelFor(x=> x.Expression)</dt>
-        <dd>
-            @Html.TextBoxFor(x=> x.Expression)
-            <input type="submit" value="Go"/>
-        </dd>
-    </dl>
-}
+<div class="span6">
+    @using (Html.BeginForm("Results", "Search", FormMethod.Get, new {@class = "form-search pull-right"}))
+    {
+        <div class="input-append">
+            @Html.TextBoxFor(x => x.Query, new {@class = "input-large search-query", placeholder = "Enter a query..."})
+            <input type="submit" value="Search" class="btn"/>
+        </div>
+    }        
+</div>

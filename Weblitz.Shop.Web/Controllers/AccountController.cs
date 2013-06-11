@@ -21,18 +21,14 @@ namespace Weblitz.Shop.Web.Controllers
         public PartialViewResult Summary()
         {
             return PartialView(new AccountSummary
-            {
-                IsAuthenticated = true,
-                UserName = "test",
-                LanguageId = 1,
-                LanguageList = new SelectList(
-                               new Dictionary<int, string> { { 1, "English" }, { 2, "French" }, { 3, "Spanish" } },
-                               "Key", "Value"),
-                CurrencyId = 1,
-                CurrencyList = new SelectList(
-                               new Dictionary<int, string> { { 1, "GBP" }, { 2, "USD" }, { 3, "EUR" } },
-                               "Key", "Value")
-            });
+                {
+                    IsAuthenticated = true,
+                    UserName = "test",
+                    LanguageId = 1,
+                    LanguageList = new Dictionary<int, string> {{1, "English"}, {2, "French"}, {3, "Spanish"}},
+                    CurrencyId = 1,
+                    CurrencyList = new Dictionary<int, string> {{1, "GBP"}, {2, "USD"}, {3, "EUR"}}
+                });
         }
         
         //
