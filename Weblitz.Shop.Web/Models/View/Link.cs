@@ -7,6 +7,6 @@ namespace Weblitz.Shop.Web.Models.View
         public string LinkText { get; set; }
         public string ActionName { get; set; }
         public string ControllerName { get; set; }
-        public RouteValueDictionary RouteValues { get; set; }
+        public object RouteValues { get; set; }
     }
 }

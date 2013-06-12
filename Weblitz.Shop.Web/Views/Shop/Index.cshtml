@@ -1,5 +1,20 @@
-﻿@model dynamic
+﻿@model Weblitz.Shop.Web.Models.View.ShopFront
 
-<p class="hero-unit">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
-</p>
+<div class="row">
+    <div class="span8 medium-slider featured-products">
+        @{ Html.RenderPartial("_Carousel", Model.FeaturedProducts); }
+    </div>
+    <div class="span4">
+        <div class="small-slider new-products">
+            @{ Html.RenderPartial("_Carousel", Model.NewProducts); }            
+        </div>
+        <div class="small-slider sale-products">
+            @{ Html.RenderPartial("_Carousel", Model.SaleProducts); }            
+        </div>
+    </div>
+</div>
+
+@section onready
+{
+    $('.carousel').carousel();
+}

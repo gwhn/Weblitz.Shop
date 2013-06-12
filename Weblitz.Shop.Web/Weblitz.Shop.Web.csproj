@@ -138,7 +138,9 @@
     </Compile>
     <Compile Include="Helpers\ImageLinkExtensions.cs" />
     <Compile Include="Models\View\AccountSummary.cs" />
+    <Compile Include="Models\View\Carousel.cs" />
     <Compile Include="Models\View\CartSummary.cs" />
+    <Compile Include="Models\View\Image.cs" />
     <Compile Include="Models\View\Link.cs" />
     <Compile Include="Models\View\MenuItem.cs" />
     <Compile Include="Models\View\Page.cs" />
@@ -578,6 +580,12 @@
     <Content Include="Content\Images\glyphicons\glyphicons_417_rss.png" />
     <Content Include="Content\Images\glyphicons\glyphicons_418_skype.png" />
     <Content Include="Content\Images\glyphicons\glyphicons_419_e-mail.png" />
+    <Content Include="Content\Images\slides\large\slide_001.jpg" />
+    <Content Include="Content\Images\slides\large\slide_002.jpg" />
+    <Content Include="Content\Images\slides\large\slide_003.jpg" />
+    <Content Include="Content\Images\slides\small\slide_001.jpg" />
+    <Content Include="Content\Images\slides\small\slide_002.jpg" />
+    <Content Include="Content\Images\slides\small\slide_003.jpg" />
     <Content Include="Content\site.css">
       <DependentUpon>site.less</DependentUpon>
     </Content>
@@ -684,6 +692,7 @@
     <Content Include="Views\Account\Summary.cshtml" />
     <Content Include="Views\Shop\CartSummary.cshtml" />
     <Content Include="Views\Navigation\_SubMenu.cshtml" />
+    <Content Include="Views\Shop\_Carousel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

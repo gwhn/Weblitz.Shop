@@ -2,15 +2,15 @@
 @small-padding: 10px;
 @medium-padding: 20px;
 @large-padding: 30px;
-@xlarge-padding: 35px;
-@xxlarge-padding: 40px;
+@xlarge-padding: 40px;
+@xxlarge-padding: 60px;
 
 @mini-margin: 5px;
 @small-margin: 10px;
 @medium-margin: 20px;
 @large-margin: 30px;
-@xlarge-margin: 35px;
-@xxlarge-margin: 40px;
+@xlarge-margin: 40px;
+@xxlarge-margin: 60px;
 
 .profile {
 }
@@ -86,4 +86,43 @@
 
 .copyright {
 
+}
+
+.carousel {
+     .media {
+        margin-top: 0;
+
+        .media-object {}
+     }
+}
+
+.large-slider {
+    height: 500px;
+    .media-body {
+        padding: @large-padding;
+    }
+}
+.medium-slider {
+    height: 300px;
+    .media-body {
+        padding: @medium-padding;
+    }
+}
+.small-slider {
+    height: 150px;
+    .media-body {
+        padding: @small-padding;
+    }
+}
+
+#Shop_Index {
+    .featured-products {
+        background-color: lightblue;
+    }
+    .new-products {
+        background-color: lightgreen;
+    }
+    .sale-products {
+        background-color: lightcoral;
+    }
 }
