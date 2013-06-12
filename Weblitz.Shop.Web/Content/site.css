@@ -1,42 +1,46 @@
-﻿.account-summary {
-  background-color: red;
+﻿.navigation .navbar .logo {
+  padding-top: 35px;
 }
-.navigation {
-  background-color: yellow;
+.navigation .navbar .nav a {
+  margin-top: 10px;
+  padding-top: 35px;
 }
-.navigation .logo {
-  background-color: greenyellow;
+.navigation .navbar .nav .home {
+  background: url(Images/glyphicons/glyphicons_020_home.png) no-repeat center top;
 }
-.navigation .home {
-  background-color: lightblue;
+.navigation .navbar .nav .wish-list {
+  background: url(Images/glyphicons/glyphicons_012_heart.png) no-repeat center top;
 }
-.navigation .wish-list {
-  background-color: lightcoral;
+.navigation .navbar .nav .account {
+  background: url(Images/glyphicons/glyphicons_003_user.png) no-repeat center top;
 }
-.navigation .account {
-  background-color: lightgoldenrodyellow;
+.navigation .navbar .nav .checkout {
+  background: url(Images/glyphicons/glyphicons_267_credit_card.png) no-repeat center top;
 }
-.navigation .checkout {
-  background-color: lightseagreen;
+.navigation .navbar .nav .cart-summary {
+  background: url(Images/glyphicons/glyphicons_202_shopping_cart.png) no-repeat center top;
 }
-.navigation .cart-summary {
-  background-color: lightsteelblue;
+.search .contact {
+  padding-left: 35px;
+  background: url(Images/glyphicons/glyphicons_169_phone.png) no-repeat left center;
 }
-.navigation .empty {
-  background-color: gray;
+.about .group {
+  padding-left: 35px;
+  background: url(Images/glyphicons/glyphicons_043_group.png) no-repeat left center;
 }
-.menu {
-  background-color: green;
+.about .flag {
+  padding-left: 35px;
+  background: url(Images/glyphicons/glyphicons_266_flag.png) no-repeat left center;
 }
-.search {
-  background-color: blue;
+.about .social {
+  padding-left: 35px;
 }
-.about {
-  background-color: orange;
+.about .facebook {
+  background: url(Images/glyphicons/glyphicons_410_facebook.png) no-repeat left center;
 }
-.sitemap {
-  background-color: purple;
+.about .linkedin {
+  background: url(Images/glyphicons/glyphicons_397_linked_in.png) no-repeat left center;
 }
-.copyright {
-  background-color: white;
+.about .skype {
+  background: url(Images/glyphicons/glyphicons_418_skype.png) no-repeat left center;
 }

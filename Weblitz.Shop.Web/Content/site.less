@@ -1,62 +1,89 @@
-﻿.account-summary {
-    background-color: red;
+﻿@mini-padding: 5px;
+@small-padding: 10px;
+@medium-padding: 20px;
+@large-padding: 30px;
+@xlarge-padding: 35px;
+@xxlarge-padding: 40px;
+
+@mini-margin: 5px;
+@small-margin: 10px;
+@medium-margin: 20px;
+@large-margin: 30px;
+@xlarge-margin: 35px;
+@xxlarge-margin: 40px;
+
+.profile {
 }
 
 .navigation {
-    background-color: yellow;
-
-    .logo {
-        background-color: greenyellow;
-    }
-
-    .home {
-        background-color: lightblue;
-    }
-
-    .wish-list {
-        background-color: lightcoral;
-    }
-
-    .account {
-        background-color: lightgoldenrodyellow;
-    }
-
-    .checkout {
-        background-color: lightseagreen;
-    }
-
-    .cart-summary {
-        background-color: lightsteelblue;
+    .navbar {
+        .logo {
+            padding-top: @xlarge-padding;
+        }
+        .nav {
+            a {
+                margin-top: @small-margin;
+                padding-top: @xlarge-padding;
+            }
+            .home {
+                background: url(Images/glyphicons/glyphicons_020_home.png) no-repeat center top;
+            }
+            .wish-list {
+                background: url(Images/glyphicons/glyphicons_012_heart.png) no-repeat center top;
+            }
+            .account {
+                background: url(Images/glyphicons/glyphicons_003_user.png) no-repeat center top;
+            }
+            .checkout {
+                background: url(Images/glyphicons/glyphicons_267_credit_card.png) no-repeat center top;
+            }
+            .cart-summary {
+                background: url(Images/glyphicons/glyphicons_202_shopping_cart.png) no-repeat center top;
+            }
+        }
     }
 
     .empty {
-        background-color: gray;
     }
 }
 
 .menu {
-    background-color: green;
 }
 
 .search {
-    background-color: blue;
-
     .contact {
-
+        padding-left: @xlarge-padding;
+        background: url(Images/glyphicons/glyphicons_169_phone.png) no-repeat left center;
     }
 }
 
 .about {
-    background-color: orange;
-
+    .group {
+        padding-left: @xlarge-padding;
+        background: url(Images/glyphicons/glyphicons_043_group.png) no-repeat left center;
+    }
+    .flag {
+        padding-left: @xlarge-padding;
+        background: url(Images/glyphicons/glyphicons_266_flag.png) no-repeat left center;
+    }
+    .social {
+        padding-left: @xlarge-padding;
+    }
+    .facebook {
+        background: url(Images/glyphicons/glyphicons_410_facebook.png) no-repeat left center;
+    }
+    .linkedin {
+        background: url(Images/glyphicons/glyphicons_397_linked_in.png) no-repeat left center;
+    }
+    .skype {
+        background: url(Images/glyphicons/glyphicons_418_skype.png) no-repeat left center;
+    }
 }
 
 .sitemap {
-    background-color: purple;
 
 }
 
 .copyright {
-    background-color: white;
 
 }
