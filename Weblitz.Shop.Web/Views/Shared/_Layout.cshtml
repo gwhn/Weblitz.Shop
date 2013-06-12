@@ -20,25 +20,27 @@
                 <div class="navigation">
                     @Html.Action("Index", "Navigation")
                 </div>
-                <div class="menu">
-                    @Html.Action("Menu", "Navigation")
-                </div>
                 <div class="search">
                     @Html.Action("Index", "Search")
+                </div>
+                <div class="menu">
+                    @Html.Action("Menu", "Navigation")
                 </div>
             </header>
             <section id="@Model.SectionId">
                 @RenderBody()
             </section>
             <footer>
+                <hr/>
                 <div class="about">
                     @Html.Action("About", "Shop")                                            
                 </div>
+                <hr/>
                 <div class="sitemap">
                     @Html.Action("SiteMap", "Navigation")
                 </div>
-                <div class="copyright">
-                    <p>Weblitz &copy; @Model.CurrentYear</p>
+                <div class="copyright muted">
+                    <small>Weblitz &copy; @Model.CurrentYear</small>
                 </div>
             </footer>
         </div>

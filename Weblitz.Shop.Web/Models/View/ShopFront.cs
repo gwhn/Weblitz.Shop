@@ -6,8 +6,8 @@ namespace Weblitz.Shop.Web.Models.View
 {
     public class ShopFront : Page
     {
-        public Carousel FeaturedProducts { get; set; }
-        public Carousel NewProducts { get; set; }
-        public Carousel SaleProducts { get; set; }
+        public Carousel FeaturedCarousel { get; set; }
+        public Carousel LatestCarousel { get; set; }
+        public Carousel SaleCarousel { get; set; }
     }
 }

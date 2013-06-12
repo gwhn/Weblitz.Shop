@@ -580,12 +580,24 @@
     <Content Include="Content\Images\glyphicons\glyphicons_417_rss.png" />
     <Content Include="Content\Images\glyphicons\glyphicons_418_skype.png" />
     <Content Include="Content\Images\glyphicons\glyphicons_419_e-mail.png" />
-    <Content Include="Content\Images\slides\large\slide_001.jpg" />
-    <Content Include="Content\Images\slides\large\slide_002.jpg" />
-    <Content Include="Content\Images\slides\large\slide_003.jpg" />
-    <Content Include="Content\Images\slides\small\slide_001.jpg" />
-    <Content Include="Content\Images\slides\small\slide_002.jpg" />
-    <Content Include="Content\Images\slides\small\slide_003.jpg" />
+    <Content Include="Content\Images\products\product_1_large.jpg" />
+    <Content Include="Content\Images\products\product_1_medium.jpg" />
+    <Content Include="Content\Images\products\product_1_small.jpg" />
+    <Content Include="Content\Images\products\product_2_large.jpg" />
+    <Content Include="Content\Images\products\product_2_medium.jpg" />
+    <Content Include="Content\Images\products\product_2_small.jpg" />
+    <Content Include="Content\Images\products\product_3_large.jpg" />
+    <Content Include="Content\Images\products\product_3_medium.jpg" />
+    <Content Include="Content\Images\products\product_3_small.jpg" />
+    <Content Include="Content\Images\products\product_4_large.jpg" />
+    <Content Include="Content\Images\products\product_4_medium.jpg" />
+    <Content Include="Content\Images\products\product_4_small.jpg" />
+    <Content Include="Content\Images\products\product_5_large.jpg" />
+    <Content Include="Content\Images\products\product_5_medium.jpg" />
+    <Content Include="Content\Images\products\product_5_small.jpg" />
+    <Content Include="Content\Images\products\product_6_large.jpg" />
+    <Content Include="Content\Images\products\product_6_medium.jpg" />
+    <Content Include="Content\Images\products\product_6_small.jpg" />
     <Content Include="Content\site.css">
       <DependentUpon>site.less</DependentUpon>
     </Content>

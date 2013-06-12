@@ -1,15 +1,17 @@
 ﻿@model Weblitz.Shop.Web.Models.View.ShopFront
 
 <div class="row">
-    <div class="span8 medium-slider featured-products">
-        @{ Html.RenderPartial("_Carousel", Model.FeaturedProducts); }
+    <div class="span8">
+        <div class="medium-slider featured-carousel">
+            @{ Html.RenderPartial("_Carousel", Model.FeaturedCarousel); }
+        </div>
     </div>
     <div class="span4">
-        <div class="small-slider new-products">
-            @{ Html.RenderPartial("_Carousel", Model.NewProducts); }            
+        <div class="small-slider latest-carousel">
+            @{ Html.RenderPartial("_Carousel", Model.LatestCarousel); }            
         </div>
-        <div class="small-slider sale-products">
-            @{ Html.RenderPartial("_Carousel", Model.SaleProducts); }            
+        <div class="small-slider sale-carousel">
+            @{ Html.RenderPartial("_Carousel", Model.SaleCarousel); }            
         </div>
     </div>
 </div>

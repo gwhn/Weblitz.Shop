@@ -20,9 +20,9 @@ namespace Weblitz.Shop.Web.Controllers
                     SectionId = string.Format("{0}_{1}", RouteData.Values["Controller"], RouteData.Values["Action"]),
                     CurrentYear = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture),
                     Title = "Weblitz",
-                    FeaturedProducts = new Carousel
+                    FeaturedCarousel = new Carousel
                         {
-                            TargetId = "FeaturedProducts",
+                            TargetId = "FeaturedCarousel",
                             IndicatorsVisible = true,
                             Items = new List<Carousel.Item>
                                 {
@@ -30,7 +30,7 @@ namespace Weblitz.Shop.Web.Controllers
                                         {
                                             Image = new Image
                                                 {
-                                                    Source = "Content/Images/slides/large/slide_001.jpg"
+                                                    Source = "Content/Images/products/product_1_medium.jpg"
                                                 },
                                             Link = new Link
                                                 {
@@ -46,9 +46,8 @@ namespace Weblitz.Shop.Web.Controllers
                                         {
                                             Image = new Image
                                                 {
-                                                    Source = "Content/Images/slides/large/slide_002.jpg"
+                                                    Source = "Content/Images/products/product_2_medium.jpg"
                                                 },
-                                            ImageAlignment = Carousel.Item.Alignment.Right,
                                             Link = new Link
                                                 {
                                                     LinkText = "View",
@@ -63,7 +62,7 @@ namespace Weblitz.Shop.Web.Controllers
                                         {
                                             Image = new Image
                                                 {
-                                                    Source = "Content/Images/slides/large/slide_003.jpg"
+                                                    Source = "Content/Images/products/product_3_medium.jpg"
                                                 },
                                             Link = new Link
                                                 {
@@ -77,16 +76,16 @@ namespace Weblitz.Shop.Web.Controllers
                                         },
                                 }
                         },
-                    NewProducts = new Carousel
+                    LatestCarousel = new Carousel
                         {
-                            TargetId = "NewProducts",
+                            TargetId = "LatestCarousel",
                             Items = new List<Carousel.Item>
                                 {
                                     new Carousel.Item
                                         {
                                             Image = new Image
                                                 {
-                                                    Source = "Content/Images/slides/small/slide_001.jpg"
+                                                    Source = "Content/Images/products/product_4_small.jpg"
                                                 },
                                             ImageAlignment = Carousel.Item.Alignment.Right,
                                             Link = new Link
@@ -96,14 +95,16 @@ namespace Weblitz.Shop.Web.Controllers
                                                     ControllerName = "Shop",
                                                     RouteValues = new {id = 1}
                                                 },
-                                            Title = "New Product 1"
+                                            Title = "New Product 1",
+                                            Text = "Lorem malesuada semper mi, id sollicitudin urna ipsum"
                                         },
                                     new Carousel.Item
                                         {
                                             Image = new Image
                                                 {
-                                                    Source = "Content/Images/slides/small/slide_002.jpg"
+                                                    Source = "Content/Images/products/product_5_small.jpg"
                                                 },
+                                            ImageAlignment = Carousel.Item.Alignment.Right,
                                             Link = new Link
                                                 {
                                                     LinkText = "View",
@@ -111,13 +112,14 @@ namespace Weblitz.Shop.Web.Controllers
                                                     ControllerName = "Shop",
                                                     RouteValues = new {id = 2}
                                                 },
-                                            Title = "New Product 2"
+                                            Title = "New Product 2",
+                                            Text = "Lorem ipsum dolor sit amet vel fusce varius nisl ac"
                                         },
                                     new Carousel.Item
                                         {
                                             Image = new Image
                                                 {
-                                                    Source = "Content/Images/slides/small/slide_003.jpg"
+                                                    Source = "Content/Images/products/product_6_small.jpg"
                                                 },
                                             ImageAlignment = Carousel.Item.Alignment.Right,
                                             Link = new Link
@@ -127,20 +129,21 @@ namespace Weblitz.Shop.Web.Controllers
                                                     ControllerName = "Shop",
                                                     RouteValues = new {id = 3}
                                                 },
-                                            Title = "New Product 3"
+                                            Title = "New Product 3",
+                                            Text = "adipiscing elit fusce vel sapien elit in malesuada"
                                         },
                                 }
                         },
-                    SaleProducts = new Carousel
+                    SaleCarousel = new Carousel
                         {
-                            TargetId = "SaleProducts",
+                            TargetId = "SaleCarousel",
                             Items = new List<Carousel.Item>
                                 {
                                     new Carousel.Item
                                         {
                                             Image = new Image
                                                 {
-                                                    Source = "Content/Images/slides/small/slide_001.jpg"
+                                                    Source = "Content/Images/products/product_2_small.jpg"
                                                 },
                                             Link = new Link
                                                 {
@@ -149,15 +152,15 @@ namespace Weblitz.Shop.Web.Controllers
                                                     ControllerName = "Shop",
                                                     RouteValues = new {id = 1}
                                                 },
-                                            Title = "Sale Product 1"
+                                            Title = "Sale Product 1",
+                                            Text = "elit fusce vel sapien elit in malesuada semper mi"
                                         },
                                     new Carousel.Item
                                         {
                                             Image = new Image
                                                 {
-                                                    Source = "Content/Images/slides/small/slide_002.jpg"
+                                                    Source = "Content/Images/products/product_3_small.jpg"
                                                 },
-                                            ImageAlignment = Carousel.Item.Alignment.Right,
                                             Link = new Link
                                                 {
                                                     LinkText = "View",
@@ -165,13 +168,14 @@ namespace Weblitz.Shop.Web.Controllers
                                                     ControllerName = "Shop",
                                                     RouteValues = new {id = 2}
                                                 },
-                                            Title = "Sale Product 2"
+                                            Title = "Sale Product 2",
+                                            Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
                                         },
                                     new Carousel.Item
                                         {
                                             Image = new Image
                                                 {
-                                                    Source = "Content/Images/slides/small/slide_003.jpg"
+                                                    Source = "Content/Images/products/product_4_small.jpg"
                                                 },
                                             Link = new Link
                                                 {
@@ -180,7 +184,8 @@ namespace Weblitz.Shop.Web.Controllers
                                                     ControllerName = "Shop",
                                                     RouteValues = new {id = 3}
                                                 },
-                                            Title = "Sale Product 3"
+                                            Title = "Sale Product 3",
+                                            Text = "id sollicitudin urna fermentum ut fusce varius nisl ac"
                                         },
                                 }
                         }

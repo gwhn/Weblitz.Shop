@@ -12,6 +12,10 @@
 @xlarge-margin: 40px;
 @xxlarge-margin: 60px;
 
+body {
+    margin-top: @mini-margin;
+}
+
 .profile {
 }
 
@@ -99,30 +103,33 @@
 .large-slider {
     height: 500px;
     .media-body {
-        padding: @large-padding;
+        padding: @xlarge-padding;
     }
 }
 .medium-slider {
     height: 300px;
     .media-body {
-        padding: @medium-padding;
+        padding: @large-padding;
     }
 }
 .small-slider {
     height: 150px;
     .media-body {
         padding: @small-padding;
+        h4 {
+            font-size: 1em;
+        }
     }
 }
 
 #Shop_Index {
-    .featured-products {
+    .featured-carousel {
         background-color: lightblue;
     }
-    .new-products {
+    .latest-carousel {
         background-color: lightgreen;
     }
-    .sale-products {
+    .sale-carousel {
         background-color: lightcoral;
     }
 }
