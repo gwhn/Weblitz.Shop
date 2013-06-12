@@ -1,32 +1,21 @@
 ﻿@using Weblitz.Shop.Web.Models.View
 @model Weblitz.Shop.Web.Models.View.Carousel
 
-@helper AlignImage(Carousel.Item.Alignment alignment) 
-{
-    if (alignment == Carousel.Item.Alignment.Right)
-    {
-        <text>pull-right</text>
-    }
-    else
-    {
-        <text>pull-left</text>
-    }
-    
-}
 <div id="@Model.TargetId" class="carousel slide">
     @if (Model.IndicatorsVisible)
     {
         <ol class="carousel-indicators">
             @for (var i = 0; i < Model.Items.Count; i++)
             {
-                <li data-target="#@Model.TargetId" data-slide-to="@i"></li>
+                <li data-target="#@Model.TargetId" data-slide-to="@i" class="@IsActive(i)"></li>
             }
         </ol>        
     }
     <div class="carousel-inner">
-        @foreach (var x in Model.Items)
+        @for (var i = 0; i < Model.Items.Count; i++)
         {
-            <div class="media item">
+            var x = Model.Items[i];
+            <div class="media item @IsActive(i)">
                 <img class="media-object @AlignImage(x.ImageAlignment) " src="@x.Image.Source" alt="@x.Image.AltText" width="@x.Image.Width" height="@x.Image.Height"/>
                 <div class="media-body">
                     <h4 class="media-heading">
@@ -48,3 +37,23 @@
         <a href="#@Model.TargetId" class="carousel-control right" data-slide="next">&rsaquo;</a>        
     }
 </div>
+
+@helper AlignImage(Carousel.Item.Alignment alignment) 
+{
+    if (alignment == Carousel.Item.Alignment.Right)
+    {
+        <text>pull-right</text>
+    }
+    else
+    {
+        <text>pull-left</text>
+    }
+}
+
+@helper IsActive(int index)
+{
+    if (index == 0)
+    {
+        <text>active</text>
+    }
+}
