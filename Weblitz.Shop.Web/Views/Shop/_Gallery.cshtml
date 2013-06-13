@@ -21,14 +21,14 @@
                     {
                         var x = Model.Items[i];
                         <div class="thumbnail">
-                            <div>
+                            <div class="sticker">
                                 @if (x.IsNew)
                                 {
-                                    <div class=" sticker-new">New</div>
+                                    <div class="sticker-inner sticker-new text-center">New</div>
                                 }
                                 @if (x.IsDiscounted)
                                 {
-                                    <div class="text-right sticker-sale">Sale</div>
+                                    <div class="sticker-inner sticker-sale text-center">Sale</div>
                                 }
                                 @Html.ImageLink(x.Image.Source, x.Image.AltText, new {width = x.Image.Width, height = x.Image.Height}, x.Link.ActionName, x.Link.ControllerName, x.Link.RouteValues, null)
                             </div>
@@ -37,7 +37,7 @@
                                     @Html.ActionLink(x.Title, x.Link.ActionName, x.Link.ControllerName, x.Link.RouteValues, null)
                                 </h4>
                                 <div class="row-fluid">
-                                    <div class="span6">
+                                    <div class="span6 @if (x.IsDiscounted) {<text>muted line-through</text>}">
                                         @x.Price
                                     </div>
                                     <div class="span6 text-right">
