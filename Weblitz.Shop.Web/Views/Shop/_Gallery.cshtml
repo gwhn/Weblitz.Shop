@@ -1,0 +1,57 @@
+﻿@model Weblitz.Shop.Web.Models.View.Gallery
+
+@if (Model.Items.Count > 0)
+{
+    <div class="row">
+        <div class="span6">
+            <h3>
+                @Model.Title
+            </h3>        
+        </div>
+        <div class="span6">
+            @{ Html.RenderPartial("_Pager", Model); }
+        </div>
+    </div>
+    <div class="row-fluid">
+        <ul class="thumbnails">            
+            @for (var i = 0; i < 6; i++)
+            {
+                <li class="span2">
+                    @if (i < Model.Items.Count)
+                    {
+                        var x = Model.Items[i];
+                        <div class="thumbnail">
+                            <div>
+                                @if (x.IsNew)
+                                {
+                                    <div class=" sticker-new">New</div>
+                                }
+                                @if (x.IsDiscounted)
+                                {
+                                    <div class="text-right sticker-sale">Sale</div>
+                                }
+                                @Html.ImageLink(x.Image.Source, x.Image.AltText, new {width = x.Image.Width, height = x.Image.Height}, x.Link.ActionName, x.Link.ControllerName, x.Link.RouteValues, null)
+                            </div>
+                            <div class="caption">
+                                <h4>
+                                    @Html.ActionLink(x.Title, x.Link.ActionName, x.Link.ControllerName, x.Link.RouteValues, null)
+                                </h4>
+                                <div class="row-fluid">
+                                    <div class="span6">
+                                        @x.Price
+                                    </div>
+                                    <div class="span6 text-right">
+                                        @if (x.IsDiscounted)
+                                        {
+                                            @x.DicountedPrice
+                                        }
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+}

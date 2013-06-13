@@ -2,19 +2,22 @@
 
 <div class="row">
     <div class="span8">
-        <div class="medium-slider featured-carousel">
+        <div class="medium-slider featured">
             @{ Html.RenderPartial("_Carousel", Model.FeaturedCarousel); }
         </div>
     </div>
     <div class="span4">
-        <div class="small-slider latest-carousel">
+        <div class="small-slider latest">
             @{ Html.RenderPartial("_Carousel", Model.LatestCarousel); }            
         </div>
-        <div class="small-slider sale-carousel">
+        <div class="small-slider sale">
             @{ Html.RenderPartial("_Carousel", Model.SaleCarousel); }            
         </div>
     </div>
 </div>
+@{ Html.RenderPartial("_Gallery", Model.FeaturedGallery); }
+@{ Html.RenderPartial("_Gallery", Model.LatestGallery); }
+@{ Html.RenderPartial("_Gallery", Model.SaleGallery); }
 
 @section onready
 {

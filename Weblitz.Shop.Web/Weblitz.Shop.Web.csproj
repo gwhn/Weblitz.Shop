@@ -140,7 +140,9 @@
     <Compile Include="Models\View\AccountSummary.cs" />
     <Compile Include="Models\View\Carousel.cs" />
     <Compile Include="Models\View\CartSummary.cs" />
+    <Compile Include="Models\View\Gallery.cs" />
     <Compile Include="Models\View\Image.cs" />
+    <Compile Include="Models\View\IPageable.cs" />
     <Compile Include="Models\View\Link.cs" />
     <Compile Include="Models\View\MenuItem.cs" />
     <Compile Include="Models\View\Page.cs" />
@@ -705,6 +707,8 @@
     <Content Include="Views\Shop\CartSummary.cshtml" />
     <Content Include="Views\Navigation\_SubMenu.cshtml" />
     <Content Include="Views\Shop\_Carousel.cshtml" />
+    <Content Include="Views\Shop\_Gallery.cshtml" />
+    <Content Include="Views\Shared\_Pager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

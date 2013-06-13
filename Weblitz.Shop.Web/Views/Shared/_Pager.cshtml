@@ -1,0 +1,38 @@
+﻿@model Weblitz.Shop.Web.Models.View.IPageable
+
+@{
+    var routeValues = new RouteValueDictionary(Model.PageLink.RouteValues)
+        {
+            {"page", 0}, 
+            {"itemsPerPage", Model.ItemsPerPage}
+        };   
+}
+
+<ul class="pager pull-right">
+    @if (Model.CurrentPage > 1)
+    {
+        routeValues["page"] = Model.CurrentPage - 1;
+        <li>
+            <a href="@Url.Action(Model.PageLink.ActionName, Model.PageLink.ControllerName, routeValues)">&laquo;</a>            
+        </li>
+    }
+    else
+    {
+        <li class="disabled">
+            <a href="#">&laquo;</a>            
+        </li>
+    }
+    @if (Model.CurrentPage < Model.PageCount)
+    {
+        routeValues["page"] = Model.CurrentPage + 1;
+        <li>
+            <a href="@Url.Action(Model.PageLink.ActionName, Model.PageLink.ControllerName, routeValues)">&raquo;</a>
+        </li>
+    }
+    else
+    {
+        <li class="disabled">
+            <a href="#">&raquo;</a>
+        </li>
+    }
+</ul>

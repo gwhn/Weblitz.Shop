@@ -71,12 +71,12 @@
 .small-slider .media-body h4 {
   font-size: 1em;
 }
-#Shop_Index .featured-carousel {
+#Shop_Index .featured {
   background-color: lightblue;
 }
-#Shop_Index .latest-carousel {
+#Shop_Index .latest {
   background-color: lightgreen;
 }
-#Shop_Index .sale-carousel {
+#Shop_Index .sale {
   background-color: lightcoral;
 }
