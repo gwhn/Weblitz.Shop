@@ -8,31 +8,34 @@
         };   
 }
 
-<ul class="pager pull-right">
+<div class="pagination pagination-small">
+    
+<ul class="pull-right">
     @if (Model.CurrentPage > 1)
     {
         routeValues["page"] = Model.CurrentPage - 1;
         <li>
-            <a href="@Url.Action(Model.PageLink.ActionName, Model.PageLink.ControllerName, routeValues)">&laquo;</a>            
+            <a href="@Url.Action(Model.PageLink.ActionName, Model.PageLink.ControllerName, routeValues)">&lsaquo;</a>            
         </li>
     }
     else
     {
         <li class="disabled">
-            <a href="#">&laquo;</a>            
+            <a href="#">&lsaquo;</a>
         </li>
     }
     @if (Model.CurrentPage < Model.PageCount)
     {
         routeValues["page"] = Model.CurrentPage + 1;
         <li>
-            <a href="@Url.Action(Model.PageLink.ActionName, Model.PageLink.ControllerName, routeValues)">&raquo;</a>
+            <a href="@Url.Action(Model.PageLink.ActionName, Model.PageLink.ControllerName, routeValues)">&rsaquo;</a>
         </li>
     }
     else
     {
         <li class="disabled">
-            <a href="#">&raquo;</a>
+            <a href="#">&rsaquo;</a>
         </li>
     }
 </ul>
+</div>

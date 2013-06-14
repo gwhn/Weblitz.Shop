@@ -565,7 +565,9 @@ namespace Weblitz.Shop.Web.Controllers
         // GET: /Shop/Category/{id}
         public ActionResult Category(int id)
         {
-            throw new NotImplementedException();
+            var model = new CategoryPage();
+            model.Breadcrumbs.Add(new Link{LinkText = "Category"});
+            return View(model);
         }
 
         //

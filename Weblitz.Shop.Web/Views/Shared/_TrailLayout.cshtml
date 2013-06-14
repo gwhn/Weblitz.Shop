@@ -1,0 +1,33 @@
+﻿@model Weblitz.Shop.Web.Models.View.TrailPage
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Breadcrumbs.Count > 0)
+{
+    <ul class="breadcrumb">
+        @for (var i = 0; i < Model.Breadcrumbs.Count; i++)
+        {
+            var x = Model.Breadcrumbs[i];
+            if (i == Model.Breadcrumbs.Count-1)
+            {
+                <li class="active">
+                    @Html.ActionLink(x.LinkText, x.ActionName, x.ControllerName, x.RouteValues, null)
+                </li>
+            }
+            else
+            {
+                <li>
+                    @Html.ActionLink(x.LinkText, x.ActionName, x.ControllerName, x.RouteValues, null)
+                    <span class="divider">&rsaquo;</span>
+                </li>
+            }
+        }
+        <li class="pull-right">
+            <a href="@Request.UrlReferrer">Return to previous page</a>
+        </li>
+    </ul>
+}
+
+@RenderBody()
