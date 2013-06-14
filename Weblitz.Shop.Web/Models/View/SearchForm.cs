@@ -1,4 +1,6 @@
-﻿namespace Weblitz.Shop.Web.Models.View
+﻿using System.ComponentModel;
+
+namespace Weblitz.Shop.Web.Models.View
 {
     public class SearchForm
     {

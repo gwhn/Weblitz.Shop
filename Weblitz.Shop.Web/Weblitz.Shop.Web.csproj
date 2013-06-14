@@ -145,6 +145,7 @@
     <Compile Include="Models\View\IPageable.cs" />
     <Compile Include="Models\View\Link.cs" />
     <Compile Include="Models\View\MenuItem.cs" />
+    <Compile Include="Models\View\NewsletterForm.cs" />
     <Compile Include="Models\View\Page.cs" />
     <Compile Include="Models\View\SearchForm.cs" />
     <Compile Include="Models\View\Section.cs" />
@@ -709,6 +710,7 @@
     <Content Include="Views\Shop\_Carousel.cshtml" />
     <Content Include="Views\Shop\_Gallery.cshtml" />
     <Content Include="Views\Shared\_Pager.cshtml" />
+    <Content Include="Views\Account\Newsletter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

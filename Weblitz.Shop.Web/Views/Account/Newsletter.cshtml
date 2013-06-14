@@ -1,0 +1,17 @@
+﻿@model Weblitz.Shop.Web.Models.View.NewsletterForm
+
+<div class="row">
+    <div class="span4 lead">
+        Sign up for our newsletter
+    </div>
+    <div class="span4">
+        @using (Html.BeginForm("Newsletter", "Account", FormMethod.Get, new {@class = "form-inline"}))
+        {
+            <div class="input-append">
+                @Html.TextBoxFor(x => x.Email, new {@class = "input-large", placeholder = "Enter your email..."})
+                <input type="submit" value="Sign Up" class="btn"/>
+            </div>
+        }        
+    </div>
+</div>
+        

@@ -65,5 +65,10 @@ namespace Weblitz.Shop.Web.Controllers
         {
             throw new NotImplementedException();
         }
+
+        public PartialViewResult Newsletter()
+        {
+            return PartialView();
+        }
     }
 }
