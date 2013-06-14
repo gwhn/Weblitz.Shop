@@ -17,7 +17,6 @@ namespace Weblitz.Shop.Web.Models.View
         {
             Title = "Weblitz Shop";
             CurrentYear = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture);
-            Trail = new Trail();
         }
     }
 }

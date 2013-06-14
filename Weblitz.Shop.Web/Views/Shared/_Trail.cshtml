@@ -22,7 +22,7 @@
         }
         @if (Model.UrlReferer != null)
         {
-            <li class="pull-right">
+            <li class="@(Model.Breadcrumbs.Count == 0 ? string.Empty : "pull-right")">
                 <a href="@Model.UrlReferer">Return to previous page</a>
             </li>
         }

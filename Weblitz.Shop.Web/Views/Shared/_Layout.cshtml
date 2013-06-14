@@ -26,9 +26,12 @@
                 <div class="menu">
                     @{ Html.RenderAction("Menu", "Navigation"); }
                 </div>
-                <div class="trail">
-                    @{ Html.RenderPartial("_Trail", Model.Trail); }
-                </div>
+                @if (Model.Trail != null)
+                {
+                    <div class="trail">
+                        @{ Html.RenderPartial("_Trail", Model.Trail); }
+                    </div>
+                }
             </header>
             <section id="@Model.SectionId">
                 @RenderBody()
