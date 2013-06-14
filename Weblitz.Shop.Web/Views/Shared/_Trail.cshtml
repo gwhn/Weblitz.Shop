@@ -1,10 +1,6 @@
-﻿@model Weblitz.Shop.Web.Models.View.TrailPage
+﻿@model Weblitz.Shop.Web.Models.View.Trail
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@if (Model.Breadcrumbs.Count > 0)
+@if (Model.Breadcrumbs.Count > 0 || Model.UrlReferer != null)
 {
     <ul class="breadcrumb">
         @for (var i = 0; i < Model.Breadcrumbs.Count; i++)
@@ -24,10 +20,11 @@
                 </li>
             }
         }
-        <li class="pull-right">
-            <a href="@Request.UrlReferrer">Return to previous page</a>
-        </li>
+        @if (Model.UrlReferer != null)
+        {
+            <li class="pull-right">
+                <a href="@Model.UrlReferer">Return to previous page</a>
+            </li>
+        }
     </ul>
 }
-
-@RenderBody()

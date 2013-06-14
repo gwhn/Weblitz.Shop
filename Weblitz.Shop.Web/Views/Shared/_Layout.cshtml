@@ -15,16 +15,19 @@
         <div class="container">
             <header>
                 <div class="profile">
-                    @Html.Action("Summary", "Account")
+                    @{ Html.RenderAction("Summary", "Account"); }
                 </div>
                 <div class="navigation">
-                    @Html.Action("Index", "Navigation")
+                    @{ Html.RenderAction("Index", "Navigation"); }
                 </div>
                 <div class="search">
-                    @Html.Action("Index", "Search")
+                    @{ Html.RenderAction("Index", "Search"); }
                 </div>
                 <div class="menu">
-                    @Html.Action("Menu", "Navigation")
+                    @{ Html.RenderAction("Menu", "Navigation"); }
+                </div>
+                <div class="trail">
+                    @{ Html.RenderPartial("_Trail", Model.Trail); }
                 </div>
             </header>
             <section id="@Model.SectionId">
@@ -33,15 +36,15 @@
             <footer>
                 <hr/>
                 <div class="about">
-                    @Html.Action("About", "Shop")                                            
+                    @{ Html.RenderAction("About", "Shop"); }
                 </div>
                 <hr/>
                 <div class="newsletter">
-                    @Html.Action("Newsletter", "Account")
+                    @{ Html.RenderAction("Newsletter", "Account"); }
                 </div>
                 <hr/>
                 <div class="sitemap">
-                    @Html.Action("SiteMap", "Navigation")
+                    @{ Html.RenderAction("SiteMap", "Navigation"); }
                 </div>
                 <hr/>
                 <div class="copyright muted">

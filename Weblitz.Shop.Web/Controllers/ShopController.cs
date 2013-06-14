@@ -9,7 +9,7 @@ using Weblitz.Shop.Web.Models.View;
 
 namespace Weblitz.Shop.Web.Controllers
 {
-    public class ShopController : Controller
+    public class ShopController : ApplicationController
     {
         //
         // GET: /Shop/
@@ -17,9 +17,7 @@ namespace Weblitz.Shop.Web.Controllers
         {
             return View(new ShopFront
                 {
-                    SectionId = string.Format("{0}_{1}", RouteData.Values["Controller"], RouteData.Values["Action"]),
-                    CurrentYear = DateTime.Now.Year.ToString(CultureInfo.InvariantCulture),
-                    Title = "Weblitz",
+                    SectionId = SectionId,
                     FeaturedCarousel = new Carousel
                         {
                             TargetId = "FeaturedCarousel",
@@ -565,9 +563,28 @@ namespace Weblitz.Shop.Web.Controllers
         // GET: /Shop/Category/{id}
         public ActionResult Category(int id)
         {
-            var model = new CategoryPage();
-            model.Breadcrumbs.Add(new Link{LinkText = "Category"});
-            return View(model);
+            return View(new CategoryPage
+                {
+                    Title = "Category",
+                    SectionId = SectionId,
+                    Trail = new Trail
+                        {
+                            UrlReferer = Request.UrlReferrer,
+                            Breadcrumbs = new List<Link>
+                                {
+                                    new Link
+                                        {
+                                            LinkText = "Home",
+                                            ActionName = "Index",
+                                            ControllerName = "Shop"
+                                        },
+                                    new Link
+                                        {
+                                            LinkText = "Category"
+                                        }
+                                }
+                        }
+                });
         }
 
         //

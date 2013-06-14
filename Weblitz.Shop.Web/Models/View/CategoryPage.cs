@@ -1,6 +1,6 @@
 ﻿namespace Weblitz.Shop.Web.Models.View
 {
-    public class CategoryPage : TrailPage
+    public class CategoryPage : Page
     {
         
     }
