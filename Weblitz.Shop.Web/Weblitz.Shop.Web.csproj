@@ -134,6 +134,9 @@
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Filters\CategoryFilterAttribute.cs" />
+    <Compile Include="Filters\PageFilterAttribute.cs" />
+    <Compile Include="Filters\ShopFrontFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
