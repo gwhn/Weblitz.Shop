@@ -28,6 +28,7 @@ namespace Weblitz.Shop.Web.Controllers
                                 {
                                     new Carousel.Item
                                         {
+                                            Id = 1,
                                             Image = new Image
                                                 {
                                                     Source = "Content/Images/products/product_1_medium.jpg"
@@ -37,7 +38,6 @@ namespace Weblitz.Shop.Web.Controllers
                                                     LinkText = "View",
                                                     ActionName = "Product",
                                                     ControllerName = "Shop",
-                                                    RouteValues = new {id = 1}
                                                 },
                                             Title = "Featured Product 1",
                                             Text =
@@ -45,6 +45,7 @@ namespace Weblitz.Shop.Web.Controllers
                                         },
                                     new Carousel.Item
                                         {
+                                            Id = 2,
                                             Image = new Image
                                                 {
                                                     Source = "Content/Images/products/product_2_medium.jpg"
@@ -53,8 +54,7 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 2}
+                                                    ControllerName = "Shop"
                                                 },
                                             Title = "Featured Product 2",
                                             Text =
@@ -62,6 +62,7 @@ namespace Weblitz.Shop.Web.Controllers
                                         },
                                     new Carousel.Item
                                         {
+                                            Id = 3,
                                             Image = new Image
                                                 {
                                                     Source = "Content/Images/products/product_3_medium.jpg"
@@ -70,8 +71,7 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 3}
+                                                    ControllerName = "Shop"
                                                 },
                                             Title = "Featured Product 3",
                                             Text =
@@ -86,6 +86,7 @@ namespace Weblitz.Shop.Web.Controllers
                                 {
                                     new Carousel.Item
                                         {
+                                            Id = 1,
                                             Image = new Image
                                                 {
                                                     Source = "Content/Images/products/product_4_small.jpg"
@@ -95,14 +96,14 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 1}
+                                                    ControllerName = "Shop"
                                                 },
                                             Title = "New Product 1",
                                             Text = "Lorem malesuada semper mi, id sollicitudin urna ipsum"
                                         },
                                     new Carousel.Item
                                         {
+                                            Id = 2,
                                             Image = new Image
                                                 {
                                                     Source = "Content/Images/products/product_5_small.jpg"
@@ -112,14 +113,14 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 2}
+                                                    ControllerName = "Shop"
                                                 },
                                             Title = "New Product 2",
                                             Text = "Lorem ipsum dolor sit amet vel fusce varius nisl ac"
                                         },
                                     new Carousel.Item
                                         {
+                                            Id = 3,
                                             Image = new Image
                                                 {
                                                     Source = "Content/Images/products/product_6_small.jpg"
@@ -129,8 +130,7 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 3}
+                                                    ControllerName = "Shop"
                                                 },
                                             Title = "New Product 3",
                                             Text = "adipiscing elit fusce vel sapien elit in malesuada"
@@ -144,6 +144,7 @@ namespace Weblitz.Shop.Web.Controllers
                                 {
                                     new Carousel.Item
                                         {
+                                            Id = 1,
                                             Image = new Image
                                                 {
                                                     Source = "Content/Images/products/product_2_small.jpg"
@@ -152,14 +153,14 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 1}
+                                                    ControllerName = "Shop"
                                                 },
                                             Title = "Sale Product 1",
                                             Text = "elit fusce vel sapien elit in malesuada semper mi"
                                         },
                                     new Carousel.Item
                                         {
+                                            Id = 2,
                                             Image = new Image
                                                 {
                                                     Source = "Content/Images/products/product_3_small.jpg"
@@ -168,14 +169,14 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 2}
+                                                    ControllerName = "Shop"
                                                 },
                                             Title = "Sale Product 2",
                                             Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
                                         },
                                     new Carousel.Item
                                         {
+                                            Id = 3,
                                             Image = new Image
                                                 {
                                                     Source = "Content/Images/products/product_4_small.jpg"
@@ -184,8 +185,7 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 3}
+                                                    ControllerName = "Shop"
                                                 },
                                             Title = "Sale Product 3",
                                             Text = "id sollicitudin urna fermentum ut fusce varius nisl ac"
@@ -207,6 +207,7 @@ namespace Weblitz.Shop.Web.Controllers
                                 {
                                     new Gallery.Item
                                         {
+                                            Id = 1,
                                             Title = "Featured Product 1",
                                             Price = 1.23M,
                                             Image = new Image
@@ -217,12 +218,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 1}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 2,
                                             Title = "Featured Product 2",
                                             Price = 2.34M,
                                             Image = new Image
@@ -233,12 +234,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 2}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 3,
                                             Title = "Featured Product 3",
                                             Price = 3.45M,
                                             Image = new Image
@@ -249,12 +250,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 3}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 4,
                                             Title = "Featured Product 4",
                                             Price = 4.56M,
                                             Image = new Image
@@ -265,12 +266,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 4}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 5,
                                             Title = "Featured Product 5",
                                             Price = 5.67M,
                                             Image = new Image
@@ -281,12 +282,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 5}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 6,
                                             Title = "Featured Product 6",
                                             Price = 6.78M,
                                             Image = new Image
@@ -297,8 +298,7 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 6}
+                                                    ControllerName = "Shop"
                                                 }
                                         }
                                 }
@@ -318,6 +318,7 @@ namespace Weblitz.Shop.Web.Controllers
                                 {
                                     new Gallery.Item
                                         {
+                                            Id = 1,
                                             Title = "Latest Product 1",
                                             IsNew = true,
                                             Price = 1.23M,
@@ -329,12 +330,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 1}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 2,
                                             Title = "Latest Product 2",
                                             IsNew = true,
                                             Price = 2.34M,
@@ -346,12 +347,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 2}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 3,
                                             Title = "Latest Product 3",
                                             IsNew = true,
                                             Price = 3.45M,
@@ -363,12 +364,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 3}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 4,
                                             Title = "Latest Product 4",
                                             IsNew = true,
                                             Price = 4.56M,
@@ -380,12 +381,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 4}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 5,
                                             Title = "Latest Product 5",
                                             IsNew = true,
                                             Price = 5.67M,
@@ -397,12 +398,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 5}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 6,
                                             Title = "Latest Product 6",
                                             IsNew = true,
                                             Price = 6.78M,
@@ -414,8 +415,7 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 6}
+                                                    ControllerName = "Shop"
                                                 }
                                         }
                                 }
@@ -435,6 +435,7 @@ namespace Weblitz.Shop.Web.Controllers
                                 {
                                     new Gallery.Item
                                         {
+                                            Id = 1,
                                             Title = "Sale Product 1",
                                             IsDiscounted = true,
                                             Price = 2.34M,
@@ -447,12 +448,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 1}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 2,
                                             Title = "Sale Product 2",
                                             IsDiscounted = true,
                                             Price = 3.45M,
@@ -465,12 +466,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 2}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 3,
                                             Title = "Sale Product 3",
                                             IsDiscounted = true,
                                             Price = 4.56M,
@@ -483,12 +484,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 3}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 4,
                                             Title = "Sale Product 4",
                                             IsDiscounted = true,
                                             Price = 5.67M,
@@ -501,12 +502,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 4}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 5,
                                             Title = "Sale Product 5",
                                             IsDiscounted = true,
                                             Price = 6.78M,
@@ -519,12 +520,12 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 5}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                     new Gallery.Item
                                         {
+                                            Id = 6,
                                             Title = "Sale Product 6",
                                             IsDiscounted = true,
                                             Price = 7.89M,
@@ -537,8 +538,7 @@ namespace Weblitz.Shop.Web.Controllers
                                                 {
                                                     LinkText = "View",
                                                     ActionName = "Product",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 6}
+                                                    ControllerName = "Shop"
                                                 }
                                         },
                                 }
@@ -574,6 +574,34 @@ namespace Weblitz.Shop.Web.Controllers
         public PartialViewResult About()
         {
             return PartialView();
+        }
+
+        //
+        // GET: /Shop/Buy/{id}
+        public ActionResult Buy(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        //
+        // GET: /Shop/Wishlist/{id}
+        public ActionResult Wishlist(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        //
+        // GET: /Shop/Compare/{id}
+        public ActionResult Compare(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        //
+        // GET: /Shop/Product/{id}
+        public ActionResult Product(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

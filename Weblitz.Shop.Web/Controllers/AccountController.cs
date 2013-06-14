@@ -66,9 +66,21 @@ namespace Weblitz.Shop.Web.Controllers
             throw new NotImplementedException();
         }
 
+        // 
+        // GET: /Account/Newsletter
+        [ChildActionOnly]
         public PartialViewResult Newsletter()
         {
             return PartialView();
         }
+
+        // 
+        // POST: /Account/Newsletter/{email}
+        [HttpPost]
+        public ActionResult Newsletter(string email)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

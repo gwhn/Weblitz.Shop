@@ -25,7 +25,7 @@
                         @x.Text
                     </p>
                     <p>
-                        @Html.ActionLink(x.Link.LinkText, x.Link.ActionName, x.Link.ControllerName, x.Link.RouteValues, new { @class = "btn" })                            
+                        @Html.ActionLink(x.Link.LinkText, x.Link.ActionName, x.Link.ControllerName, new { id = x.Id }, new { @class = "btn btn-info" })                            
                     </p>
                 </div>
             </div>

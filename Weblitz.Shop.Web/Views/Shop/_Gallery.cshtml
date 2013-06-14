@@ -34,7 +34,7 @@
                             </div>
                             <div class="caption">
                                 <h4>
-                                    @Html.ActionLink(x.Title, x.Link.ActionName, x.Link.ControllerName, x.Link.RouteValues, null)
+                                    @Html.ActionLink(x.Title, x.Link.ActionName, x.Link.ControllerName, new { id = x.Id }, null)
                                 </h4>
                                 <div class="row-fluid">
                                     <div class="span6 @if (x.IsDiscounted) {<text>muted line-through</text>}">
@@ -46,7 +46,24 @@
                                             @x.DicountedPrice
                                         }
                                     </div>
-                                </div>                                
+                                    <div class="btn-group dropup">
+                                        @Html.ActionLink("Add to cart", "Buy", "Shop", new { id = x.Id }, new { @class = "btn btn-primary btn-small"})
+                                        <button class="btn btn-primary btn-small dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                @Html.ActionLink("View details", "Product", "Shop", new { id = x.Id }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Add to wishlist", "Wishlist", "Shop", new { id = x.Id }, null)
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Add to compare", "Compare", "Shop", new { id = x.Id }, null)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     }

@@ -13,6 +13,7 @@ namespace Weblitz.Shop.Web.Models.View
 
         public class Item
         {
+            public int Id { get; set; }
             public Image Image { get; set; }
             public Link Link { get; set; }
             public string Title { get; set; }
