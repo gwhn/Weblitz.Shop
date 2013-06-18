@@ -12,6 +12,10 @@
 @xlarge-margin: 40px;
 @xxlarge-margin: 60px;
 
+@featured: lightblue;
+@latest: lightgreen;
+@sale: lightcoral;
+
 body {
     margin-top: @mini-margin;
 }
@@ -180,12 +184,27 @@ body {
 
 #Shop_Index {
     .featured {
-        background-color: lightblue;
+        .media {
+            background-color: @featured;
+        }
+        .thumbnail {
+            background-color: @featured;
+        }
     }
     .latest {
-        background-color: lightgreen;
+        .media {
+            background-color: @latest;
+        }
+        .thumbnail {
+            background-color: @latest;
+        }
     }
     .sale {
-        background-color: lightcoral;
+        .media {
+            background-color: @sale;
+        }
+        .thumbnail {
+            background-color: @sale;
+        }
     }
 }

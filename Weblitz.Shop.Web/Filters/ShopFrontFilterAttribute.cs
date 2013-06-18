@@ -159,7 +159,7 @@ namespace Weblitz.Shop.Web.Filters
                                                             ControllerName = "Shop"
                                                         },
                                                     Title = "Sale Product 1",
-                                                    Text = "elit fusce vel sapien elit in malesuada semper mi"
+                                                    Text = "elit fusce vel sapien elit in semper mi"
                                                 },
                                             new ProductSummary
                                                 {
@@ -175,7 +175,7 @@ namespace Weblitz.Shop.Web.Filters
                                                             ControllerName = "Shop"
                                                         },
                                                     Title = "Sale Product 2",
-                                                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                                                    Text = "Lorem ipsum dolor sit amet, adipiscing elit"
                                                 },
                                             new ProductSummary
                                                 {
@@ -191,7 +191,7 @@ namespace Weblitz.Shop.Web.Filters
                                                             ControllerName = "Shop"
                                                         },
                                                     Title = "Sale Product 3",
-                                                    Text = "id sollicitudin urna fermentum ut fusce varius nisl ac"
+                                                    Text = "id urna fermentum ut fusce varius nisl ac"
                                                 }
                                         }
                                 },

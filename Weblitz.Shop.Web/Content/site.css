@@ -111,12 +111,21 @@
 .line-through {
   text-decoration: line-through;
 }
-#Shop_Index .featured {
-  background-color: lightblue;
+#Shop_Index .featured .media {
+  background-color: #add8e6;
 }
-#Shop_Index .latest {
-  background-color: lightgreen;
+#Shop_Index .featured .thumbnail {
+  background-color: #add8e6;
 }
-#Shop_Index .sale {
-  background-color: lightcoral;
+#Shop_Index .latest .media {
+  background-color: #90ee90;
+}
+#Shop_Index .latest .thumbnail {
+  background-color: #90ee90;
+}
+#Shop_Index .sale .media {
+  background-color: #f08080;
+}
+#Shop_Index .sale .thumbnail {
+  background-color: #f08080;
 }
