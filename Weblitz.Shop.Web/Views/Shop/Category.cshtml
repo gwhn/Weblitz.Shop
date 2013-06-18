@@ -4,8 +4,52 @@
     Layout = "~/Views/Shared/_SidebarLayout.cshtml";
 }
 
-<div class="page-header">
-    <h2>Shop <small>Category</small></h2>
+<div class="navbar">
+    <div class="navbar-inner">
+        <ul class="nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Sort <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="icon-arrow-up"></i> Name</a></li>
+                    <li><a href="#"><i class="icon-arrow-down"></i> Name</a></li>
+                    <li><a href="#"><i class="icon-arrow-up"></i> Price</a></li>
+                    <li><a href="#"><i class="icon-arrow-down"></i> Price</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    View <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="icon-th"></i> Grid</a></li>
+                    <li><a href="#"><i class="icon-th-list"></i> List</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Page <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">25</a></li>
+                    <li><a href="#">50</a></li>
+                    <li><a href="#">100</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="pagination pagination-right pull-right">
+            <ul>
+                <li class="disabled"><span>&laquo;</span></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 @section sidebar
