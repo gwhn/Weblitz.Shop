@@ -196,14 +196,14 @@ namespace Weblitz.Shop.Web.Filters
                                         }
                                 },
                         },
-                    FeaturedGallery = new Carousel
+                    FeaturedThumbnails = new Carousel
                         {
                             Title = "Featured Gallery",
-                            TargetId = "FeaturedGallery",
+                            TargetId = "FeaturedThumbnails",
                             IndicatorsVisible = true,
                             Container = new Container<ProductSummary>
                                 {
-                                    GroupCount = 3,
+                                    GroupCount = 6,
                                     Items = new List<ProductSummary>
                                         {
                                             new ProductSummary
@@ -309,14 +309,14 @@ namespace Weblitz.Shop.Web.Filters
                                         }
                                 },
                         },
-                    LatestGallery = new Carousel
+                    LatestThumbnails = new Carousel
                         {
                             Title = "Latest Gallery",
-                            TargetId = "LatestGallery",
+                            TargetId = "LatestThumbnails",
                             IndicatorsVisible = true,
                             Container = new Container<ProductSummary>
                                 {
-                                    GroupCount = 3,
+                                    GroupCount = 6,
                                     Items = new List<ProductSummary>
                                         {
                                             new ProductSummary
@@ -424,14 +424,14 @@ namespace Weblitz.Shop.Web.Filters
                                         }
                                 },
                         },
-                    SaleGallery = new Carousel
+                    SaleThumbnails = new Carousel
                         {
                             Title = "Sale Gallery",
-                            TargetId = "SaleGallery",
+                            TargetId = "SaleThumbnails",
                             IndicatorsVisible = true,
                             Container = new Container<ProductSummary>
                                 {
-                                    GroupCount = 3,
+                                    GroupCount = 6,
                                     Items = new List<ProductSummary>
                                         {
                                             new ProductSummary

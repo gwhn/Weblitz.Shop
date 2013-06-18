@@ -16,13 +16,13 @@
     </div>
 </div>
 <div class="thumbnail-slider">
-    @{ Html.RenderPartial("_Gallery", Model.FeaturedGallery); }
+    @{ Html.RenderPartial("_Thumbnails", Model.FeaturedThumbnails); }
 </div>
 <div class="thumbnail-slider">
-    @{ Html.RenderPartial("_Gallery", Model.LatestGallery); }
+    @{ Html.RenderPartial("_Thumbnails", Model.LatestThumbnails); }
 </div>
 <div class="thumbnail-slider">
-    @{ Html.RenderPartial("_Gallery", Model.SaleGallery); }
+    @{ Html.RenderPartial("_Thumbnails", Model.SaleThumbnails); }
 </div>
 
 @section onready

@@ -112,18 +112,21 @@ body {
 
 .large-slider {
     height: 500px;
+
     .media-body {
         padding: @xlarge-padding;
     }
 }
 .medium-slider {
     height: 300px;
+
     .media-body {
         padding: @large-padding;
     }
 }
 .small-slider {
     height: 150px;
+
     .media-body {
         padding: @small-padding;
         h4 {
@@ -133,15 +136,20 @@ body {
 }
 
 .thumbnail-slider {
-    .carousel-indicators {
-        padding-top: @small-padding;
+    .carousel {
+        margin-bottom: 0;
 
-        li {
-            background-color: rgba(25, 25, 25, 0.25);
-        }
+        .carousel-indicators {
+            padding-top: @small-padding;
+            right: 0;
 
-        .active {
-            background-color: rgb(25, 25, 25);
+            li {
+                background-color: rgba(51, 51, 51, 0.25);
+            }
+
+            .active {
+                background-color: rgb(51, 51, 51);
+            }
         }
     }
 }
