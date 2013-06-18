@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Weblitz.Shop.Web.Helpers
 {
@@ -32,7 +33,7 @@ namespace Weblitz.Shop.Web.Helpers
             // Merge image attributes
             img.MergeAttribute("src", imageSrc);
             img.MergeAttribute("alt", imageAlt);
-            img.MergeAttributes(imageHtmlAttributes as IDictionary<string, object>);
+            img.MergeAttributes(new RouteValueDictionary(imageHtmlAttributes));
             // Build link tag
             var a = new TagBuilder("a");
             // Build action link
@@ -40,7 +41,7 @@ namespace Weblitz.Shop.Web.Helpers
             var href = url.Action(actionName, controllerName, routeValues);
             // Merge link attributes
             a.MergeAttribute("href", href);
-            a.MergeAttributes(linkHtmlAttributes as IDictionary<string, object>);
+            a.MergeAttributes(new RouteValueDictionary(linkHtmlAttributes));
             // Embed image in link
             a.InnerHtml = img.ToString(TagRenderMode.SelfClosing);
             // Return HTML encoded string

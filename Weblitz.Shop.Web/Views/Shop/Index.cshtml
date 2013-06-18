@@ -27,7 +27,11 @@
 
 @section onready
 {
-    $('.medium-slider .carousel').carousel();
-    $('.small-slider .carousel').carousel({ 'interval': 2500 });
-    $('.thumbnail-slider .carousel').carousel({ 'interval': false });
+    <script type="text/javascript">
+        $(function() {
+            $('.medium-slider .carousel').carousel();
+            $('.small-slider .carousel').carousel({ 'interval': 2500 });
+            $('.thumbnail-slider .carousel').carousel({ 'interval': false });
+        });
+    </script>
 }

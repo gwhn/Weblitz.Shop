@@ -1,6 +1,6 @@
 ﻿@model Weblitz.Shop.Web.Models.View.ProductSummary
 
-<div class="sticker">
+<div class="sticker text-center">
     @if (Model.IsNew)
     {
         <div class="sticker-inner sticker-new text-left"><span class="label label-info">New</span></div>
@@ -9,7 +9,7 @@
     {
         <div class="sticker-inner sticker-sale text-right"><span class="label label-important">Sale</span></div>
     }
-    @Html.ImageLink(Model.Image.Source, Model.Image.AltText, new {width = Model.Image.Width, height = Model.Image.Height}, Model.Link.ActionName, Model.Link.ControllerName, Model.Link.RouteValues, null)
+    @Html.ImageLink(Model.Image.Source, Model.Image.AltText, null, Model.Link.ActionName, Model.Link.ControllerName, Model.Link.RouteValues, null)
 </div>
 <div class="caption">
     <h4>
