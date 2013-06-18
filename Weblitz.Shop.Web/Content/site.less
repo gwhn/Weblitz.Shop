@@ -71,7 +71,17 @@ body {
         background: url(Images/glyphicons/glyphicons_266_flag.png) no-repeat left center;
     }
     .social {
-        padding-left: @xlarge-padding;
+        padding-left: @large-padding;
+
+        a {
+            line-height: 2em;
+        }
+    }
+    .phone {
+        background: url(Images/glyphicons/glyphicons_169_phone.png) no-repeat left center;
+    }
+    .email {
+        background: url(Images/glyphicons/glyphicons_010_envelope.png) no-repeat left center;
     }
     .facebook {
         background: url(Images/glyphicons/glyphicons_410_facebook.png) no-repeat left center;
@@ -121,6 +131,21 @@ body {
         }
     }
 }
+
+.thumbnail-slider {
+    .carousel-indicators {
+        padding-top: @small-padding;
+
+        li {
+            background-color: rgba(25, 25, 25, 0.25);
+        }
+
+        .active {
+            background-color: rgb(25, 25, 25);
+        }
+    }
+}
+
 
 .sticker {
     position: relative;

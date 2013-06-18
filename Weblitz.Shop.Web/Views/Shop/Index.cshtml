@@ -15,12 +15,19 @@
         </div>
     </div>
 </div>
-@{ Html.RenderPartial("_Gallery", Model.FeaturedGallery); }
-@{ Html.RenderPartial("_Gallery", Model.LatestGallery); }
-@{ Html.RenderPartial("_Gallery", Model.SaleGallery); }
+<div class="thumbnail-slider">
+    @{ Html.RenderPartial("_Gallery", Model.FeaturedGallery); }
+</div>
+<div class="thumbnail-slider">
+    @{ Html.RenderPartial("_Gallery", Model.LatestGallery); }
+</div>
+<div class="thumbnail-slider">
+    @{ Html.RenderPartial("_Gallery", Model.SaleGallery); }
+</div>
 
 @section onready
 {
     $('.medium-slider .carousel').carousel();
     $('.small-slider .carousel').carousel({ 'interval': 2500 });
+    $('.thumbnail-slider .carousel').carousel({ 'interval': false });
 }

@@ -8,8 +8,8 @@ namespace Weblitz.Shop.Web.Models.View
         public Carousel FeaturedCarousel { get; set; }
         public Carousel LatestCarousel { get; set; }
         public Carousel SaleCarousel { get; set; }
-        public Gallery FeaturedGallery { get; set; }
-        public Gallery LatestGallery { get; set; }
-        public Gallery SaleGallery { get; set; }
+        public Carousel FeaturedGallery { get; set; }
+        public Carousel LatestGallery { get; set; }
+        public Carousel SaleGallery { get; set; }
     }
 }

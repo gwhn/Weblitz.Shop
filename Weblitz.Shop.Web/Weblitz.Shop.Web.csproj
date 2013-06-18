@@ -135,8 +135,10 @@
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Filters\CategoryFilterAttribute.cs" />
+    <Compile Include="Filters\MenuFilterAttribute.cs" />
     <Compile Include="Filters\PageFilterAttribute.cs" />
     <Compile Include="Filters\ShopFrontFilterAttribute.cs" />
+    <Compile Include="Filters\SiteMapFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -145,6 +147,8 @@
     <Compile Include="Models\View\Carousel.cs" />
     <Compile Include="Models\View\CartSummary.cs" />
     <Compile Include="Models\View\CategoryPage.cs" />
+    <Compile Include="Models\View\CategorySummary.cs" />
+    <Compile Include="Models\View\Container.cs" />
     <Compile Include="Models\View\Gallery.cs" />
     <Compile Include="Models\View\Image.cs" />
     <Compile Include="Models\View\IPageable.cs" />
@@ -152,9 +156,11 @@
     <Compile Include="Models\View\MenuItem.cs" />
     <Compile Include="Models\View\NewsletterForm.cs" />
     <Compile Include="Models\View\Page.cs" />
+    <Compile Include="Models\View\ProductSummary.cs" />
     <Compile Include="Models\View\SearchForm.cs" />
     <Compile Include="Models\View\Section.cs" />
     <Compile Include="Models\View\ShopFront.cs" />
+    <Compile Include="Models\View\CategorySidebar.cs" />
     <Compile Include="Models\View\Trail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -677,15 +683,16 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.less" />
-    <None Include="Scripts\jquery-2.0.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-2.0.1.js" />
-    <Content Include="Scripts\jquery-2.0.1.min.js" />
+    <None Include="Scripts\jquery-2.0.2.intellisense.js" />
+    <Content Include="Scripts\jquery-2.0.2.js" />
+    <Content Include="Scripts\jquery-2.0.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery-2.0.2.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -702,7 +709,6 @@
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Scripts\jquery-2.0.1.min.map" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Navigation\Index.cshtml" />
@@ -719,6 +725,9 @@
     <Content Include="Views\Account\Newsletter.cshtml" />
     <Content Include="Views\Shop\Category.cshtml" />
     <Content Include="Views\Shared\_Trail.cshtml" />
+    <Content Include="Views\Shared\_SidebarLayout.cshtml" />
+    <Content Include="Views\Shop\_Thumbnails.cshtml" />
+    <Content Include="Views\Shop\_ProductSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

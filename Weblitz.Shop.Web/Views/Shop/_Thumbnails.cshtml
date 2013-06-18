@@ -1,0 +1,23 @@
+﻿@model Weblitz.Shop.Web.Models.View.Container<Weblitz.Shop.Web.Models.View.ProductSummary>
+
+@if (Model != null && Model.GroupCount > 0)
+{
+    for (var m = 0; m < Model.Items.Count/Model.GroupCount; m++)
+    {
+        <div class="item @(m == 0 ? "active" : string.Empty)">
+            <ul class="thumbnails">            
+                @for (var n = 0; n < Model.GroupCount; n++)
+                {
+                    <li class="span@(12 / Model.GroupCount)">
+                        @if (m * Model.GroupCount + n < Model.Items.Count)
+                        {
+                            <div class="thumbnail">
+                                @{ Html.RenderPartial("_ProductSummary", Model.Items[m * Model.GroupCount + n]); }
+                            </div>
+                        }
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+}

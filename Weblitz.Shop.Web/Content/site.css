@@ -36,7 +36,16 @@
   background: url(Images/glyphicons/glyphicons_266_flag.png) no-repeat left center;
 }
 .about .social {
-  padding-left: 40px;
+  padding-left: 30px;
+}
+.about .social a {
+  line-height: 2em;
+}
+.about .phone {
+  background: url(Images/glyphicons/glyphicons_169_phone.png) no-repeat left center;
+}
+.about .email {
+  background: url(Images/glyphicons/glyphicons_010_envelope.png) no-repeat left center;
 }
 .about .facebook {
   background: url(Images/glyphicons/glyphicons_410_facebook.png) no-repeat left center;
@@ -70,6 +79,15 @@
 }
 .small-slider .media-body h4 {
   font-size: 1em;
+}
+.thumbnail-slider .carousel-indicators {
+  padding-top: 10px;
+}
+.thumbnail-slider .carousel-indicators li {
+  background-color: rgba(25, 25, 25, 0.25);
+}
+.thumbnail-slider .carousel-indicators .active {
+  background-color: #191919;
 }
 .sticker {
   position: relative;

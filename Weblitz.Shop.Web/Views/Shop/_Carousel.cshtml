@@ -5,18 +5,18 @@
     @if (Model.IndicatorsVisible)
     {
         <ol class="carousel-indicators">
-            @for (var i = 0; i < Model.Items.Count; i++)
+            @for (var i = 0; i < Model.Container.Items.Count; i++)
             {
                 <li data-target="#@Model.TargetId" data-slide-to="@i" class="@IsActive(i)"></li>
             }
-        </ol>        
+        </ol>
     }
     <div class="carousel-inner">
-        @for (var i = 0; i < Model.Items.Count; i++)
+        @for (var i = 0; i < Model.Container.Items.Count; i++)
         {
-            var x = Model.Items[i];
+            var x = Model.Container.Items[i];
             <div class="media item @IsActive(i)">
-                <img class="media-object @AlignImage(x.ImageAlignment) " src="@x.Image.Source" alt="@x.Image.AltText" width="@x.Image.Width" height="@x.Image.Height"/>
+                <img class="media-object @AlignImage(x.Image.Alignment) " src="@x.Image.Source" alt="@x.Image.AltText" width="@x.Image.Width" height="@x.Image.Height"/>
                 <div class="media-body">
                     <h4 class="media-heading">
                         @x.Title
@@ -38,9 +38,9 @@
     }
 </div>
 
-@helper AlignImage(Carousel.Item.Alignment alignment) 
+@helper AlignImage(Image.ImageAlignment alignment) 
 {
-    if (alignment == Carousel.Item.Alignment.Right)
+    if (alignment == Image.ImageAlignment.Right)
     {
         <text>pull-right</text>
     }

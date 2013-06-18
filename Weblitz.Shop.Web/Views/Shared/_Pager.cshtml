@@ -9,33 +9,32 @@
 }
 
 <div class="pagination pagination-small">
-    
-<ul class="pull-right">
-    @if (Model.CurrentPage > 1)
-    {
-        routeValues["page"] = Model.CurrentPage - 1;
-        <li>
-            <a href="@Url.Action(Model.PageLink.ActionName, Model.PageLink.ControllerName, routeValues)">&lsaquo;</a>            
-        </li>
-    }
-    else
-    {
-        <li class="disabled">
-            <a href="#">&lsaquo;</a>
-        </li>
-    }
-    @if (Model.CurrentPage < Model.PageCount)
-    {
-        routeValues["page"] = Model.CurrentPage + 1;
-        <li>
-            <a href="@Url.Action(Model.PageLink.ActionName, Model.PageLink.ControllerName, routeValues)">&rsaquo;</a>
-        </li>
-    }
-    else
-    {
-        <li class="disabled">
-            <a href="#">&rsaquo;</a>
-        </li>
-    }
-</ul>
+    <ul class="pull-right">
+        @if (Model.CurrentPage > 1)
+        {
+            routeValues["page"] = Model.CurrentPage - 1;
+            <li>
+                <a href="@Url.Action(Model.PageLink.ActionName, Model.PageLink.ControllerName, routeValues)">&lsaquo;</a>            
+            </li>
+        }
+        else
+        {
+            <li class="disabled">
+                <a href="#">&lsaquo;</a>
+            </li>
+        }
+        @if (Model.CurrentPage < Model.PageCount)
+        {
+            routeValues["page"] = Model.CurrentPage + 1;
+            <li>
+                <a href="@Url.Action(Model.PageLink.ActionName, Model.PageLink.ControllerName, routeValues)">&rsaquo;</a>
+            </li>
+        }
+        else
+        {
+            <li class="disabled">
+                <a href="#">&rsaquo;</a>
+            </li>
+        }
+    </ul>
 </div>

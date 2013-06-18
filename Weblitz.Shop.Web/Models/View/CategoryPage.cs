@@ -2,6 +2,6 @@
 {
     public class CategoryPage : Page
     {
-        
+        public CategorySidebar Sidebar { get; set; }
     }
 }
