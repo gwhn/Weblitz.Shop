@@ -38,23 +38,13 @@
                 </ul>
             </li>
         </ul>
-        <div class="pagination pagination-right pull-right">
-            <ul>
-                <li class="disabled"><span>&laquo;</span></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul>
-        </div>
+        @{ Html.RenderPartial("_Pager", Model); }
     </div>
 </div>
 
 @section sidebar
 {
-    <h4>@Model.Sidebar.Name</h4>
+    <h3>@Model.Sidebar.Name</h3>
     @if (Model.Sidebar.Children.Count > 0)
     {
         <ul class="unstyled">

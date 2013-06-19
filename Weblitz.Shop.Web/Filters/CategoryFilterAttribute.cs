@@ -12,6 +12,15 @@ namespace Weblitz.Shop.Web.Filters
                 {
                     Title = "Category",
                     SectionId = base.SectionId,
+                    CurrentPage = 1,
+                    PageCount = 5,
+                    ItemsPerPage = 10,
+                    PageLink = new Link
+                        {
+                            ActionName = "Category",
+                            ControllerName = "Shop"
+                        },
+                    WindowSize = 5,
                     Trail = new Trail
                         {
                             UrlReferer = filterContext.HttpContext.Request.UrlReferrer,

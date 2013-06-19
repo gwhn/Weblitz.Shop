@@ -6,5 +6,6 @@
         int PageCount { get; set; }
         int ItemsPerPage { get; set; }
         Link PageLink { get; set; }
+        int WindowSize { get; set; }
     }
 }

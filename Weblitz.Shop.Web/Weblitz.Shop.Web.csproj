@@ -149,7 +149,6 @@
     <Compile Include="Models\View\CategoryPage.cs" />
     <Compile Include="Models\View\CategorySummary.cs" />
     <Compile Include="Models\View\Container.cs" />
-    <Compile Include="Models\View\Gallery.cs" />
     <Compile Include="Models\View\Image.cs" />
     <Compile Include="Models\View\IPageable.cs" />
     <Compile Include="Models\View\Link.cs" />
