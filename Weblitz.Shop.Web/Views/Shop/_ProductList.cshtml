@@ -2,5 +2,7 @@
 
 @foreach (var x in Model.Items)
 {
-    Html.RenderPartial("_ProductMedia", x);
+    <div class="well well-small">
+        @{ Html.RenderPartial("_ProductMedia", x); }        
+    </div>
 }

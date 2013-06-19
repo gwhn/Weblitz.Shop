@@ -181,37 +181,31 @@ body {
     text-decoration: line-through;
 }
 
-#Shop_Index {
-    .featured {
-        .media {
-            background-color: @featured;
-        }
-        .thumbnail {
-            background-color: @featured;
-        }
+.featured {
+    .media {
+        background-color: @featured;
     }
-    .latest {
-        .media {
-            background-color: @latest;
-        }
-        .thumbnail {
-            background-color: @latest;
-        }
+    .thumbnail {
+        background-color: @featured;
     }
-    .sale {
-        .media {
-            background-color: @sale;
-        }
-        .thumbnail {
-            background-color: @sale;
-        }
+}
+.latest {
+    .media {
+        background-color: @latest;
+    }
+    .thumbnail {
+        background-color: @latest;
+    }
+}
+.sale {
+    .media {
+        background-color: @sale;
+    }
+    .thumbnail {
+        background-color: @sale;
     }
 }
 
 .navbar .pagination {
     margin: @mini-margin 0 0 @mini-margin;
-}
-
-.overflow {
-    overflow: visible;
 }

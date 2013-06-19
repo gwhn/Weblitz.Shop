@@ -1,7 +1,7 @@
 ﻿@model Weblitz.Shop.Web.Models.View.ProductSummary
 
-<div class="overflow media row-fluid">
-    <div class="span4 sticker media-object text-center">
+<div class="row-fluid">
+    <div class="span3 sticker">
         @if (Model.IsNew)
         {
             <div class="sticker-inner sticker-new text-left"><span class="label label-info">New</span></div>
@@ -13,10 +13,10 @@
         @Html.ImageLink(Model.Image.Source, Model.Image.AltText, null, 
                         Model.Link.ActionName, Model.Link.ControllerName, Model.Link.RouteValues, null)
     </div>
-    <div class="span8 overflow media-body">
+    <div class="span9">
         <div class="row-fluid">
             <div class="span8">
-                <h4 class="media-heading">
+                <h4>
                     @Html.ActionLink(Model.Title, Model.Link.ActionName, Model.Link.ControllerName, new { id = Model.Id }, null)
                 </h4>
                 <p>@Model.Text</p>
