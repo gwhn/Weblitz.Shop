@@ -1,0 +1,6 @@
+﻿@model Weblitz.Shop.Web.Models.View.Container<Weblitz.Shop.Web.Models.View.ProductSummary>
+
+@foreach (var x in Model.Items)
+{
+    Html.RenderPartial("_ProductMedia", x);
+}

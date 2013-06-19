@@ -32,9 +32,7 @@
                                 <li class="span@(12 / Model.Container.GroupCount)">
                                     @if (m * Model.Container.GroupCount + n < Model.Container.Items.Count)
                                     {
-                                        <div class="thumbnail">
-                                            @{ Html.RenderPartial("_ProductSummary", Model.Container.Items[m * Model.Container.GroupCount + n]); }
-                                        </div>
+                                        Html.RenderPartial("_ProductThumbnail", Model.Container.Items[m * Model.Container.GroupCount + n]);
                                     }
                                 </li>
                             }

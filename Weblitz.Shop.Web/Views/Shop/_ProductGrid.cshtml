@@ -1,0 +1,18 @@
+﻿@model Weblitz.Shop.Web.Models.View.Container<Weblitz.Shop.Web.Models.View.ProductSummary>
+
+@for (var m = 0; m <= Model.Items.Count / Model.GroupCount; m++)
+{
+    <div class="row-fluid">
+        <ul class="thumbnails">            
+            @for (var n = 0; n < Model.GroupCount; n++)
+            {
+                <li class="span@(12 / Model.GroupCount)">
+                    @if (m * Model.GroupCount + n < Model.Items.Count)
+                    {
+                        Html.RenderPartial("_ProductThumbnail", Model.Items[m * Model.GroupCount + n]);
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+}

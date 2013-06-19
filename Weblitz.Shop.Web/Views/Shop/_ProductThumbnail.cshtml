@@ -1,0 +1,49 @@
+﻿@model Weblitz.Shop.Web.Models.View.ProductSummary
+
+<div class="thumbnail">
+    <div class="sticker text-center">
+        @if (Model.IsNew)
+        {
+            <div class="sticker-inner sticker-new text-left"><span class="label label-info">New</span></div>
+        }
+        @if (Model.DicountedPrice.HasValue)
+        {
+            <div class="sticker-inner sticker-sale text-right"><span class="label label-important">Sale</span></div>
+        }
+        @Html.ImageLink(Model.Image.Source, Model.Image.AltText, null, 
+                        Model.Link.ActionName, Model.Link.ControllerName, Model.Link.RouteValues, null)
+    </div>
+    <div class="caption">
+        <h4>
+            @Html.ActionLink(Model.Title, Model.Link.ActionName, Model.Link.ControllerName, new { id = Model.Id }, null)
+        </h4>
+        <div class="row-fluid">
+            <div class="span6 @(Model.DicountedPrice.HasValue ? "muted line-through" : string.Empty)">
+                @Model.Price
+            </div>
+            <div class="span6 text-right">
+                @if (Model.DicountedPrice.HasValue)
+                {
+                    @Model.DicountedPrice
+                }
+            </div>
+            <div class="btn-group dropup">
+                @Html.ActionLink("Add to cart", "Buy", "Shop", new { id = Model.Id }, new { @class = "btn btn-primary btn-small"})
+                <button class="btn btn-primary btn-small dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        @Html.ActionLink("View details", "Product", "Shop", new { id = Model.Id }, null)
+                    </li>
+                    <li>
+                        @Html.ActionLink("Add to wishlist", "Wishlist", "Shop", new { id = Model.Id }, null)
+                    </li>
+                    <li>
+                        @Html.ActionLink("Add to compare", "Compare", "Shop", new { id = Model.Id }, null)
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

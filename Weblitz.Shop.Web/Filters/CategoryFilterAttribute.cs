@@ -63,6 +63,7 @@ namespace Weblitz.Shop.Web.Filters
                                         }
                                 }
                         },
+                    Mode = ViewMode.List,
                     Container = new Container<ProductSummary>
                         {
                             GroupCount = 4,

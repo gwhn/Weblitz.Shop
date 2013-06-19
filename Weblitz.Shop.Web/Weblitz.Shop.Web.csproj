@@ -151,6 +151,7 @@
     <Compile Include="Models\View\Container.cs" />
     <Compile Include="Models\View\Image.cs" />
     <Compile Include="Models\View\IPageable.cs" />
+    <Compile Include="Models\View\IViewable.cs" />
     <Compile Include="Models\View\Link.cs" />
     <Compile Include="Models\View\MenuItem.cs" />
     <Compile Include="Models\View\NewsletterForm.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="Models\View\ShopFront.cs" />
     <Compile Include="Models\View\CategorySidebar.cs" />
     <Compile Include="Models\View\Trail.cs" />
+    <Compile Include="Models\View\ViewMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -725,7 +727,10 @@
     <Content Include="Views\Shop\Category.cshtml" />
     <Content Include="Views\Shared\_Trail.cshtml" />
     <Content Include="Views\Shared\_SidebarLayout.cshtml" />
-    <Content Include="Views\Shop\_ProductSummary.cshtml" />
+    <Content Include="Views\Shop\_ProductThumbnail.cshtml" />
+    <Content Include="Views\Shop\_ProductGrid.cshtml" />
+    <Content Include="Views\Shop\_ProductList.cshtml" />
+    <Content Include="Views\Shop\_ProductMedia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
