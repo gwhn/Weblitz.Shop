@@ -11,10 +11,11 @@ namespace Weblitz.Shop.Web.Filters
         {
             filterContext.Controller.ViewData.Model = new ShopFront
                 {
+                    Title = "Weblitz Shop",
                     SectionId = base.SectionId,
-                    FeaturedCarousel = new Carousel
+                    FeaturedMedia = new Carousel
                         {
-                            TargetId = "FeaturedCarousel",
+                            TargetId = "FeaturedMedia",
                             IndicatorsVisible = true,
                             Container = new Container<ProductSummary>
                                 {
@@ -26,7 +27,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Id = 1,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_1_medium.jpg"
+                                                            Source = "/Content/Images/products/product_1_medium.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -43,7 +44,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Id = 2,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_2_medium.jpg"
+                                                            Source = "/Content/Images/products/product_2_medium.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -60,7 +61,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Id = 3,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_3_medium.jpg"
+                                                            Source = "/Content/Images/products/product_3_medium.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -75,9 +76,9 @@ namespace Weblitz.Shop.Web.Filters
                                         },
                                 }
                         },
-                    LatestCarousel = new Carousel
+                    LatestMedia = new Carousel
                         {
-                            TargetId = "LatestCarousel",
+                            TargetId = "LatestMedia",
                             Container = new Container<ProductSummary>
                                 {
                                     GroupCount = 1,
@@ -88,7 +89,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Id = 1,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_4_small.jpg",
+                                                            Source = "/Content/Images/products/product_4_small.jpg",
                                                             Alignment = Image.ImageAlignment.Right,
                                                         },
                                                     Link = new Link
@@ -105,7 +106,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Id = 2,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_5_small.jpg",
+                                                            Source = "/Content/Images/products/product_5_small.jpg",
                                                             Alignment = Image.ImageAlignment.Right,
                                                         },
                                                     Link = new Link
@@ -122,7 +123,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Id = 3,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_6_small.jpg",
+                                                            Source = "/Content/Images/products/product_6_small.jpg",
                                                             Alignment = Image.ImageAlignment.Right,
                                                         },
                                                     Link = new Link
@@ -137,9 +138,9 @@ namespace Weblitz.Shop.Web.Filters
                                         }
                                 },
                         },
-                    SaleCarousel = new Carousel
+                    SaleMedia = new Carousel
                         {
-                            TargetId = "SaleCarousel",
+                            TargetId = "SaleMedia",
                             Container = new Container<ProductSummary>
                                 {
                                     GroupCount = 1,
@@ -150,7 +151,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Id = 1,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_2_small.jpg"
+                                                            Source = "/Content/Images/products/product_2_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -166,7 +167,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Id = 2,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_3_small.jpg"
+                                                            Source = "/Content/Images/products/product_3_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -182,7 +183,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Id = 3,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_4_small.jpg"
+                                                            Source = "/Content/Images/products/product_4_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -215,7 +216,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     IsNew = true,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_1_small.jpg"
+                                                            Source = "/Content/Images/products/product_1_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -232,7 +233,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     IsNew = true,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_2_small.jpg"
+                                                            Source = "/Content/Images/products/product_2_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -249,7 +250,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     DicountedPrice = 4.56M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_3_small.jpg"
+                                                            Source = "/Content/Images/products/product_3_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -265,7 +266,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Price = 4.56M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_4_small.jpg"
+                                                            Source = "/Content/Images/products/product_4_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -281,7 +282,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Price = 5.67M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_5_small.jpg"
+                                                            Source = "/Content/Images/products/product_5_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -297,7 +298,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Price = 6.78M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_6_small.jpg"
+                                                            Source = "/Content/Images/products/product_6_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -327,7 +328,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Price = 1.23M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_1_small.jpg"
+                                                            Source = "/Content/Images/products/product_1_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -344,7 +345,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Price = 2.34M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_2_small.jpg"
+                                                            Source = "/Content/Images/products/product_2_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -361,7 +362,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Price = 3.45M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_3_small.jpg"
+                                                            Source = "/Content/Images/products/product_3_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -378,7 +379,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Price = 4.56M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_4_small.jpg"
+                                                            Source = "/Content/Images/products/product_4_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -395,7 +396,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Price = 5.67M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_5_small.jpg"
+                                                            Source = "/Content/Images/products/product_5_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -412,7 +413,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     Price = 6.78M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_6_small.jpg"
+                                                            Source = "/Content/Images/products/product_6_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -442,7 +443,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     DicountedPrice = 1.23M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_1_small.jpg"
+                                                            Source = "/Content/Images/products/product_1_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -459,7 +460,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     DicountedPrice = 2.34M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_2_small.jpg"
+                                                            Source = "/Content/Images/products/product_2_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -476,7 +477,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     DicountedPrice = 3.45M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_3_small.jpg"
+                                                            Source = "/Content/Images/products/product_3_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -493,7 +494,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     DicountedPrice = 4.56M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_4_small.jpg"
+                                                            Source = "/Content/Images/products/product_4_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -510,7 +511,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     DicountedPrice = 5.67M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_5_small.jpg"
+                                                            Source = "/Content/Images/products/product_5_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {
@@ -527,7 +528,7 @@ namespace Weblitz.Shop.Web.Filters
                                                     DicountedPrice = 6.78M,
                                                     Image = new Image
                                                         {
-                                                            Source = "Content/Images/products/product_6_small.jpg"
+                                                            Source = "/Content/Images/products/product_6_small.jpg"
                                                         },
                                                     Link = new Link
                                                         {

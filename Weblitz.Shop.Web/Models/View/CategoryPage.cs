@@ -8,5 +8,11 @@
         public int ItemsPerPage { get; set; }
         public Link PageLink { get; set; }
         public int WindowSize { get; set; }
+        public Container<ProductSummary> Container { get; set; }
+
+        public CategoryPage()
+        {
+            Container = new Container<ProductSummary>();
+        }
     }
 }

@@ -718,8 +718,8 @@
     <Content Include="Views\Account\Summary.cshtml" />
     <Content Include="Views\Shop\CartSummary.cshtml" />
     <Content Include="Views\Navigation\_SubMenu.cshtml" />
-    <Content Include="Views\Shop\_Carousel.cshtml" />
-    <Content Include="Views\Shop\_Thumbnails.cshtml" />
+    <Content Include="Views\Shop\_MediaCarousel.cshtml" />
+    <Content Include="Views\Shop\_ThumbnailCarousel.cshtml" />
     <Content Include="Views\Shared\_Pager.cshtml" />
     <Content Include="Views\Account\Newsletter.cshtml" />
     <Content Include="Views\Shop\Category.cshtml" />
