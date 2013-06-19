@@ -5,45 +5,11 @@
     Layout = "~/Views/Shared/_SidebarLayout.cshtml";
 }
 
-<div class="navbar">
-    <div class="navbar-inner">
-        <ul class="nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    Sort <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Name (A-Z)</a></li>
-                    <li><a href="#">Name (Z-A)</a></li>
-                    <li><a href="#">Price (lowest)</a></li>
-                    <li><a href="#">Price (highest)</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    View <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="@Url.Action("Category", new { mode = "grid" })"><i class="icon-th"></i> Grid</a></li>
-                    <li><a href="@Url.Action("Category", new { mode = "list" })"><i class="icon-th-list"></i> List</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    Page <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">25</a></li>
-                    <li><a href="#">50</a></li>
-                    <li><a href="#">100</a></li>
-                </ul>
-            </li>
-        </ul>
-        @{ Html.RenderPartial("_Pager", Model); }
-    </div>
-</div>
 
-@{ Html.RenderPartial(Model.Mode == ViewMode.Grid ? "_ProductGrid" : "_ProductList", Model.Container); }
+@{
+    Html.RenderPartial("_ListToolbar", Model);
+    Html.RenderPartial(Model.Mode == ViewMode.Grid ? "_ProductGrid" : "_ProductList", Model.Container);
+}
 
 @section sidebar
 {

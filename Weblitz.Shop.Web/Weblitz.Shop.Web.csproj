@@ -149,8 +149,10 @@
     <Compile Include="Models\View\CategoryPage.cs" />
     <Compile Include="Models\View\CategorySummary.cs" />
     <Compile Include="Models\View\Container.cs" />
+    <Compile Include="Models\View\IListable.cs" />
     <Compile Include="Models\View\Image.cs" />
     <Compile Include="Models\View\IPageable.cs" />
+    <Compile Include="Models\View\ISortable.cs" />
     <Compile Include="Models\View\IViewable.cs" />
     <Compile Include="Models\View\Link.cs" />
     <Compile Include="Models\View\MenuItem.cs" />
@@ -700,6 +702,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\r.js" />
+    <Content Include="Scripts\require.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -731,6 +735,7 @@
     <Content Include="Views\Shop\_ProductGrid.cshtml" />
     <Content Include="Views\Shop\_ProductList.cshtml" />
     <Content Include="Views\Shop\_ProductMedia.cshtml" />
+    <Content Include="Views\Shop\_ListToolbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
