@@ -735,12 +735,13 @@
     <Content Include="Views\Shop\Category.cshtml" />
     <Content Include="Views\Shared\_Trail.cshtml" />
     <Content Include="Views\Shared\_SidebarLayout.cshtml" />
-    <Content Include="Views\Shop\_ProductThumbnail.cshtml" />
-    <Content Include="Views\Shop\_ProductGrid.cshtml" />
-    <Content Include="Views\Shop\_ProductList.cshtml" />
-    <Content Include="Views\Shop\_ProductMedia.cshtml" />
-    <Content Include="Views\Shop\_ListToolbar.cshtml" />
+    <Content Include="Views\Shared\_ProductThumbnail.cshtml" />
+    <Content Include="Views\Shared\_ProductGrid.cshtml" />
+    <Content Include="Views\Shared\_ProductList.cshtml" />
+    <Content Include="Views\Shared\_ProductMedia.cshtml" />
+    <Content Include="Views\Shared\_ListToolbar.cshtml" />
     <Content Include="Views\Search\Results.cshtml" />
+    <Content Include="Views\Shared\_Sidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

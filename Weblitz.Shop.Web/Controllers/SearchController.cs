@@ -19,14 +19,17 @@ namespace Weblitz.Shop.Web.Controllers
         }
 
         //
-        // GET: /Search/Results/{expression}
+        // GET: /Search/Results/{query}
         [SetupResultsPage]
-        public ViewResult Results(string expression)
+        public ViewResult Results(string query)
         {
             var page = ViewData.Model as ResultsPage;
             if (page != null)
             {
-                
+                page.Query = query;
+                page.Sidebar.Name = "Some category";
+                page.Sidebar.Children = Db.CategorySummaries;
+                page.Container.Items = Db.ProductSummaries;
             }
             return View();
         }

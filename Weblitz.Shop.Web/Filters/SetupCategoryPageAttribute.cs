@@ -44,7 +44,7 @@ namespace Weblitz.Shop.Web.Filters
                                         }
                                 }
                         },
-                    Sidebar = new CategorySidebar {Name = "Some Category"},
+                    Sidebar = new CategorySidebar(),
                     Container = new Container<ProductSummary> {GroupCount = 4}
                 };
             base.OnActionExecuting(filterContext);

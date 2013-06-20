@@ -1,13 +1,13 @@
-﻿@model Weblitz.Shop.Web.Models.View.ResultsPage
+﻿@using Weblitz.Shop.Web.Models.View
+@model Weblitz.Shop.Web.Models.View.ResultsPage
 
 @{
-    ViewBag.Title = "title";
     Layout = "~/Views/Shared/_SidebarLayout.cshtml";
+    Html.RenderPartial("_ListToolbar", Model);
+    Html.RenderPartial(Model.ViewMode == ViewMode.Grid ? "_ProductGrid" : "_ProductList", Model.Container);
 }
-
-<h2>title</h2>
 
 @section sidebar
 {
-    <h3>sidebar</h3>
+    @{ Html.RenderPartial("_Sidebar", Model.Sidebar); }
 }

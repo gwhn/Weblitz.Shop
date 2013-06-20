@@ -53,6 +53,7 @@ namespace Weblitz.Shop.Web.Controllers
             var page = ViewData.Model as CategoryPage;
             if (page != null)
             {
+                page.Sidebar.Name = "Some Category";
                 page.Sidebar.Children = Db.CategorySummaries;
                 page.Container.Items = Db.ProductSummaries;
             }
