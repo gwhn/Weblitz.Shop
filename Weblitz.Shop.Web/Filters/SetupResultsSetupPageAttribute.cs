@@ -4,7 +4,7 @@ using Weblitz.Shop.Web.Models.View;
 
 namespace Weblitz.Shop.Web.Filters
 {
-    public class SetupResultsPageAttribute : PageFilterAttribute
+    public class SetupResultsSetupPageAttribute : SetupPageAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -15,7 +15,7 @@ namespace Weblitz.Shop.Web.Filters
                     CurrentPage = 1,
                     PageCount = 5,
                     ItemsPerPage = 25,
-                    PerPageOptions = new[] { 25, 50, 100 },
+                    PerPageOptions = new[] {25, 50, 100},
                     PageLink = new Link(),
                     WindowSize = 5,
                     ViewMode = ViewMode.List,
@@ -28,9 +28,9 @@ namespace Weblitz.Shop.Web.Filters
                             {"price_desc", "Price (highest)"}
                         },
                     Trail = new Trail
-                    {
-                        UrlReferer = filterContext.HttpContext.Request.UrlReferrer,
-                        Breadcrumbs = new List<Link>
+                        {
+                            UrlReferer = filterContext.HttpContext.Request.UrlReferrer,
+                            Breadcrumbs = new List<Link>
                                 {
                                     new Link
                                         {
@@ -40,12 +40,16 @@ namespace Weblitz.Shop.Web.Filters
                                         },
                                     new Link
                                         {
-                                            LinkText = "Results"
+                                            LinkText = "Results",
+                                            RouteValues = new
+                                                {
+                                                    query = filterContext.HttpContext.Request.Params["Query"]
+                                                }
                                         }
                                 }
-                    },
+                        },
                     Sidebar = new CategorySidebar(),
-                    Container = new Container<ProductSummary> { GroupCount = 4 }
+                    Container = new Container<ProductSummary> {GroupCount = 4}
                 };
             base.OnActionExecuting(filterContext);
         }

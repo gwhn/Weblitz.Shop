@@ -3,6 +3,10 @@
 
 @{
     Layout = "~/Views/Shared/_SidebarLayout.cshtml";
+}
+
+<h3>Search results for <strong>@Model.Query</strong></h3>
+@{
     Html.RenderPartial("_ListToolbar", Model);
     Html.RenderPartial(Model.ViewMode == ViewMode.Grid ? "_ProductGrid" : "_ProductList", Model.Container);
 }

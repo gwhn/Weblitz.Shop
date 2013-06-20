@@ -20,7 +20,7 @@ namespace Weblitz.Shop.Web.Controllers
 
         //
         // GET: /Search/Results/{query}
-        [SetupResultsPage]
+        [SetupResultsSetupPage]
         public ViewResult Results(string query)
         {
             var page = ViewData.Model as ResultsPage;

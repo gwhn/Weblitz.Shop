@@ -2,7 +2,7 @@ using System.Web.Mvc;
 
 namespace Weblitz.Shop.Web.Filters
 {
-    public class PageFilterAttribute : ActionFilterAttribute
+    public abstract class SetupPageAttribute : ActionFilterAttribute
     {
         private string _sectionId;
         

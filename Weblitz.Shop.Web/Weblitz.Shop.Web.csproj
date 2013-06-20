@@ -134,12 +134,12 @@
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
-    <Compile Include="Filters\SetupCategoryPageAttribute.cs" />
+    <Compile Include="Filters\SetupCategorySetupPageAttribute.cs" />
     <Compile Include="Controllers\Db.cs" />
     <Compile Include="Filters\MenuFilterAttribute.cs" />
-    <Compile Include="Filters\PageFilterAttribute.cs" />
-    <Compile Include="Filters\SetupHomePageAttribute.cs" />
-    <Compile Include="Filters\SetupResultsPageAttribute.cs" />
+    <Compile Include="Filters\SetupPageAttribute.cs" />
+    <Compile Include="Filters\SetupHomeSetupPageAttribute.cs" />
+    <Compile Include="Filters\SetupResultsSetupPageAttribute.cs" />
     <Compile Include="Filters\SiteMapFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

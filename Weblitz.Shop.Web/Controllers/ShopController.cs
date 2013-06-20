@@ -14,7 +14,7 @@ namespace Weblitz.Shop.Web.Controllers
     {
         //
         // GET: /Shop/
-        [SetupHomePage]
+        [SetupHomeSetupPage]
         public ViewResult Index()
         {
             var page = ViewData.Model as HomePage;
@@ -47,7 +47,7 @@ namespace Weblitz.Shop.Web.Controllers
 
         //
         // GET: /Shop/Category/{id}
-        [SetupCategoryPage]
+        [SetupCategorySetupPage]
         public ViewResult Category(int id)
         {
             var page = ViewData.Model as CategoryPage;
