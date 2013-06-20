@@ -4,7 +4,7 @@ using Weblitz.Shop.Web.Models.View;
 
 namespace Weblitz.Shop.Web.Filters
 {
-    public class MenuFilterAttribute : ActionFilterAttribute
+    public class SetupMenuAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {

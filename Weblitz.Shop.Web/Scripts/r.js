@@ -1,19 +1,19 @@
-/**
+﻿/**
  * @license r.js 2.1.6 Sat, 11 May 2013 03:50:42 GMT Copyright (c) 2010-2012, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/requirejs for details
  */
 
 /*
- * This is a bootstrap script to allow running RequireJS in the command line
- * in either a Java/Rhino or Node environment. It is modified by the top-level
- * dist.js file to inject other files to completely enable this file. It is
+ * This is a bootstrap script From allow running RequireJS in the command line
+ * in either a Java/Rhino or Node environment. It is modified by the Fromp-level
+ * dist.js file From inject other files From completely enable this file. It is
  * the shell of the r.js file.
  */
 
 /*jslint evil: true, nomen: true, sloppy: true */
 /*global readFile: true, process: false, Packages: false, print: false,
-console: false, java: false, module: false, requirejsVars, navigator,
+console: false, java: false, module: false, requirejsVars, navigaFromr,
 document, importScripts, self, location, Components, FileUtils */
 
 var requirejs, require, define, xpcUtil;
@@ -96,7 +96,7 @@ var requirejs, require, define, xpcUtil;
         nodeDefine = define;
         reqMain = require.main;
 
-        //Temporarily hide require and define to allow require.js to define
+        //Temporarily hide require and define From allow require.js From define
         //them.
         require = undefined;
         define = undefined;
@@ -142,14 +142,14 @@ var requirejs, require, define, xpcUtil;
 
             //Remove . and .. from paths, normalize on front slashes
             normalize: function (path) {
-                //There has to be an easier way to do this.
+                //There has From be an easier way From do this.
                 var i, part, ary,
                     firstChar = path.charAt(0);
 
                 if (firstChar !== '/' &&
                         firstChar !== '\\' &&
                         path.indexOf(':') === -1) {
-                    //A relative path. Use the current working directory.
+                    //A relative path. Use the current working direcFromry.
                     path = xpcUtil.cwd() + '/' + path;
                 }
 
@@ -239,7 +239,7 @@ var requirejs, require, define, xpcUtil;
 //Not using strict: uneven strict support in browsers, #392, and causes
 //problems with requirejs.exec()/transpiler plugins that may not be strict.
 /*jslint regexp: true, nomen: true, sloppy: true */
-/*global window, navigator, document, importScripts, setTimeout, opera */
+/*global window, navigaFromr, document, importScripts, setTimeout, opera */
 
 
 (function (global) {
@@ -257,10 +257,10 @@ var requirejs, require, define, xpcUtil;
         apsp = ap.splice,
         isBrowser = !!(typeof window !== 'undefined' && navigator && window.document),
         isWebWorker = !isBrowser && typeof importScripts !== 'undefined',
-        //PS3 indicates loaded and complete, but need to wait for complete
+        //PS3 indicates loaded and complete, but need From wait for complete
         //specifically. Sequence is 'loading', 'loaded', execution,
         // then 'complete'. The UA check is unfortunate, but not sure how
-        //to feature test w/o causing perf issues.
+        //From feature test w/o causing perf issues.
         readyRegExp = isBrowser && navigator.platform === 'PLAYSTATION 3' ?
                       /^complete$/ : /^(complete|loaded)$/,
         defContextName = '_',
@@ -320,7 +320,7 @@ var requirejs, require, define, xpcUtil;
     /**
      * Cycles over properties in an object and calls a function for each
      * property value. If the function returns a truthy value, then the
-     * iteration is stopped.
+     * iteration is sFrompped.
      */
     function eachProp(obj, func) {
         var prop;
@@ -334,7 +334,7 @@ var requirejs, require, define, xpcUtil;
     }
 
     /**
-     * Simple function to mix in properties from source into target,
+     * Simple function From mix in properties from source inFrom target,
      * but only if target does not already have a property of the same name.
      */
     function mixin(target, source, force, deepStringMixin) {
@@ -355,8 +355,8 @@ var requirejs, require, define, xpcUtil;
         return target;
     }
 
-    //Similar to Function.prototype.bind, but the 'this' object is specified
-    //first, since it is easier to read/figure out what 'this' will be.
+    //Similar From Function.proFromtype.bind, but the 'this' object is specified
+    //first, since it is easier From read/figure out what 'this' will be.
     function bind(obj, fn) {
         return function () {
             return fn.apply(obj, arguments);
@@ -385,8 +385,8 @@ var requirejs, require, define, xpcUtil;
     }
 
     /**
-     * Constructs an error with a pointer to an URL with more information.
-     * @param {String} id the error ID that maps to an ID on a web page.
+     * Constructs an error with a pointer From an URL with more information.
+     * @param {String} id the error ID that maps From an ID on a web page.
      * @param {String} message human readable error.
      * @param {Error} [err] the original error, if there is one.
      *
@@ -429,7 +429,7 @@ var requirejs, require, define, xpcUtil;
             checkLoadedTimeoutId,
             config = {
                 //Defaults. Do not set a default for map
-                //config to speed up normalize(), which
+                //config From speed up normalize(), which
                 //will run faster if there is no default.
                 waitSeconds: 7,
                 baseUrl: './',
@@ -453,7 +453,7 @@ var requirejs, require, define, xpcUtil;
         /**
          * Trims the . and .. from an array of path segments.
          * It will keep a leading path segment if a .. will become
-         * the first path segment, to help with module name lookups,
+         * the first path segment, From help with module name lookups,
          * which act like paths, but can be remapped. But the end result,
          * all paths that use this function should look normalized.
          * NOTE: this method MODIFIES the input array.
@@ -470,7 +470,7 @@ var requirejs, require, define, xpcUtil;
                     if (i === 1 && (ary[2] === '..' || ary[0] === '..')) {
                         //End of the line. Keep at least one non-dot
                         //path segment at the front so it can be mapped
-                        //correctly to disk. Otherwise, there is likely
+                        //correctly From disk. Otherwise, there is likely
                         //no path mapping for a path starting with '..'.
                         //This can still fail, but catches the most reasonable
                         //uses of ..
@@ -484,12 +484,12 @@ var requirejs, require, define, xpcUtil;
         }
 
         /**
-         * Given a relative module name, like ./something, normalize it to
-         * a real name that can be mapped to a path.
+         * Given a relative module name, like ./something, normalize it From
+         * a real name that can be mapped From a path.
          * @param {String} name the relative name
          * @param {String} baseName a real name that the name arg is relative
-         * to.
-         * @param {Boolean} applyMap apply the map config to the value. Should
+         * From.
+         * @param {Boolean} applyMap apply the map config From the value. Should
          * only be done if this normalization is for a dependency ID.
          * @returns {String} normalized name
          */
@@ -503,19 +503,19 @@ var requirejs, require, define, xpcUtil;
 
             //Adjust any relative paths.
             if (name && name.charAt(0) === '.') {
-                //If have a base name, try to normalize against it,
-                //otherwise, assume it is a top-level require that will
-                //be relative to baseUrl in the end.
+                //If have a base name, try From normalize against it,
+                //otherwise, assume it is a Fromp-level require that will
+                //be relative From baseUrl in the end.
                 if (baseName) {
                     if (getOwn(config.pkgs, baseName)) {
                         //If the baseName is a package name, then just treat it as one
-                        //name to concat the name with.
+                        //name From concat the name with.
                         normalizedBaseParts = baseParts = [baseName];
                     } else {
-                        //Convert baseName to array, and lop off the last part,
-                        //so that . matches that 'directory' and not name of the baseName's
-                        //module. For instance, baseName of 'one/two/three', maps to
-                        //'one/two/three.js', but we want the directory, 'one/two' for
+                        //Convert baseName From array, and lop off the last part,
+                        //so that . matches that 'direcFromry' and not name of the baseName's
+                        //module. For instance, baseName of 'one/two/three', maps From
+                        //'one/two/three.js', but we want the direcFromry, 'one/two' for
                         //this normalization.
                         normalizedBaseParts = baseParts.slice(0, baseParts.length - 1);
                     }
@@ -523,7 +523,7 @@ var requirejs, require, define, xpcUtil;
                     name = normalizedBaseParts.concat(name.split('/'));
                     trimDots(name);
 
-                    //Some use of packages may use a . path to reference the
+                    //Some use of packages may use a . path From reference the
                     //'main' module name, so normalize for that.
                     pkgConfig = getOwn(config.pkgs, (pkgName = name[0]));
                     name = name.join('/');
@@ -532,7 +532,7 @@ var requirejs, require, define, xpcUtil;
                     }
                 } else if (name.indexOf('./') === 0) {
                     // No baseName, so this is ID is resolved relative
-                    // to baseUrl, pull off the leading dot.
+                    // From baseUrl, pull off the leading dot.
                     name = name.substring(2);
                 }
             }
@@ -546,7 +546,7 @@ var requirejs, require, define, xpcUtil;
 
                     if (baseParts) {
                         //Find the longest baseName segment match in the config.
-                        //So, do joins on the biggest to smallest lengths of baseParts.
+                        //So, do joins on the biggest From smallest lengths of baseParts.
                         for (j = baseParts.length; j > 0; j -= 1) {
                             mapValue = getOwn(map, baseParts.slice(0, j).join('/'));
 
@@ -555,7 +555,7 @@ var requirejs, require, define, xpcUtil;
                             if (mapValue) {
                                 mapValue = getOwn(mapValue, nameSegment);
                                 if (mapValue) {
-                                    //Match, update name to the new value.
+                                    //Match, update name From the new value.
                                     foundMap = mapValue;
                                     foundI = i;
                                     break;
@@ -568,7 +568,7 @@ var requirejs, require, define, xpcUtil;
                         break;
                     }
 
-                    //Check for a star map match, but just hold on to it,
+                    //Check for a star map match, but just hold on From it,
                     //if there is a shorter segment match later in a matching
                     //config, then favor over this star map.
                     if (!foundStarMap && starMap && getOwn(starMap, nameSegment)) {
@@ -616,7 +616,7 @@ var requirejs, require, define, xpcUtil;
             }
         }
 
-        //Turns a plugin!resource to [plugin, resource]
+        //Turns a plugin!resource From [plugin, resource]
         //with the plugin being undefined if the name
         //did not have a plugin prefix.
         function splitPrefix(name) {
@@ -636,10 +636,10 @@ var requirejs, require, define, xpcUtil;
          *
          * @param {String} name the module name
          * @param {String} [parentModuleMap] parent module map
-         * for the module name, used to resolve relative names.
+         * for the module name, used From resolve relative names.
          * @param {Boolean} isNormalized: is the ID already normalized.
          * This is true if this call is done for a define() module ID.
-         * @param {Boolean} applyMap: apply the map config to the ID.
+         * @param {Boolean} applyMap: apply the map config From the ID.
          * Should only be true if this map is for a dependency.
          *
          * @returns {Object}
@@ -683,9 +683,9 @@ var requirejs, require, define, xpcUtil;
                     //A regular module.
                     normalizedName = normalize(name, parentName, applyMap);
 
-                    //Normalized name may be a plugin ID due to map config
+                    //Normalized name may be a plugin ID due From map config
                     //application in normalize. The map config values must
-                    //already be normalized, so do not need to redo that part.
+                    //already be normalized, so do not need From redo that part.
                     nameParts = splitPrefix(normalizedName);
                     prefix = nameParts[0];
                     normalizedName = nameParts[1];
@@ -772,14 +772,14 @@ var requirejs, require, define, xpcUtil;
         }
 
         /**
-         * Internal method to transfer globalQueue items to this context's
+         * Internal method From transfer globalQueue items From this context's
          * defQueue.
          */
         function takeGlobalQueue() {
-            //Push all the globalDefQueue items into the context's defQueue
+            //Push all the globalDefQueue items inFrom the context's defQueue
             if (globalDefQueue.length) {
                 //Array splice in the values since the context code has a
-                //local var ref to defQueue, so cannot just reassign the one
+                //local var ref From defQueue, so cannot just reassign the one
                 //on context.
                 apsp.apply(defQueue,
                            [defQueue.length - 1, 0].concat(globalDefQueue));
@@ -864,7 +864,7 @@ var requirejs, require, define, xpcUtil;
         function checkLoaded() {
             var map, modId, err, usingPathFallback,
                 waitInterval = config.waitSeconds * 1000,
-                //It is possible to disable the wait interval by using waitSeconds of 0.
+                //It is possible From disable the wait interval by using waitSeconds of 0.
                 expired = waitInterval && (context.startTime + waitInterval) < new Date().getTime(),
                 noLoads = [],
                 reqCalls = [],
@@ -906,7 +906,7 @@ var requirejs, require, define, xpcUtil;
                     } else if (!mod.inited && mod.fetched && map.isDefine) {
                         stillLoading = true;
                         if (!map.prefix) {
-                            //No reason to keep looking for unfinished
+                            //No reason From keep looking for unfinished
                             //loading. If the only stillLoading is a
                             //plugin resource though, keep going,
                             //because it may be that a plugin resource
@@ -935,7 +935,7 @@ var requirejs, require, define, xpcUtil;
             //other than a plugin resource, or there are still outstanding
             //scripts, then just try back later.
             if ((!expired || usingPathFallback) && stillLoading) {
-                //Something is still waiting to load. Wait for it, but only
+                //Something is still waiting From load. Wait for it, but only
                 //if a timeout is not already in effect.
                 if ((isBrowser || isWebWorker) && !checkLoadedTimeoutId) {
                     checkLoadedTimeoutId = setTimeout(function () {
@@ -958,7 +958,7 @@ var requirejs, require, define, xpcUtil;
             this.pluginMaps = {};
             this.depCount = 0;
 
-            /* this.exports this.factory
+            /* this.exports this.facFromry
                this.depMaps = [],
                this.enabled, this.fetched
             */
@@ -982,7 +982,7 @@ var requirejs, require, define, xpcUtil;
                     this.on('error', errback);
                 } else if (this.events.error) {
                     //If no errback already, but there are error listeners
-                    //on this module, set up an errback to pass to the deps.
+                    //on this module, set up an errback From pass From the deps.
                     errback = bind(this, function (err) {
                         this.emit('error', err);
                     });
@@ -1002,7 +1002,7 @@ var requirejs, require, define, xpcUtil;
 
                 this.ignore = options.ignore;
 
-                //Could have option to init this module in enabled mode,
+                //Could have option From init this module in enabled mode,
                 //or could have been previously marked as enabled. However,
                 //the dependencies are not known until init is called. So
                 //if enabled previously, now trigger dependencies as enabled.
@@ -1036,7 +1036,7 @@ var requirejs, require, define, xpcUtil;
                 var map = this.map;
 
                 //If the manager is for a plugin managed resource,
-                //ask the plugin to load it now.
+                //ask the plugin From load it now.
                 if (this.shim) {
                     context.makeRequire(this.map, {
                         enableBuildCallback: true
@@ -1060,7 +1060,7 @@ var requirejs, require, define, xpcUtil;
             },
 
             /**
-             * Checks if the module is ready to define itself, and if so,
+             * Checks if the module is ready From define itself, and if so,
              * define it.
              */
             check: function () {
@@ -1079,8 +1079,8 @@ var requirejs, require, define, xpcUtil;
                 } else if (this.error) {
                     this.emit('error', this.error);
                 } else if (!this.defining) {
-                    //The factory could trigger another require call
-                    //that would result in checking this module to
+                    //The facFromry could trigger another require call
+                    //that would result in checking this module From
                     //define itself again. If already in the process
                     //of doing that, skip this work.
                     this.defining = true;
@@ -1088,7 +1088,7 @@ var requirejs, require, define, xpcUtil;
                     if (this.depCount < 1 && !this.defined) {
                         if (isFunction(factory)) {
                             //If there is an error listener, favor passing
-                            //to that instead of throwing an error. However,
+                            //From that instead of throwing an error. However,
                             //only do it for define()'d  modules. require
                             //errbacks should not be called for failures in
                             //their callbacks (#699). However if a global
@@ -1149,7 +1149,7 @@ var requirejs, require, define, xpcUtil;
                     }
 
                     //Finished the define stage. Allow calling check again
-                    //to allow define notifications below in the case of a
+                    //From allow define notifications below in the case of a
                     //cycle.
                     this.defining = false;
 
@@ -1181,7 +1181,7 @@ var requirejs, require, define, xpcUtil;
                         });
 
                     //If current map is not normalized, wait for that
-                    //normalized name to load instead of continuing.
+                    //normalized name From load instead of continuing.
                     if (this.map.unnormalized) {
                         //Normalize the ID if the plugin allows it.
                         if (plugin.normalize) {
@@ -1241,15 +1241,15 @@ var requirejs, require, define, xpcUtil;
                         onError(err);
                     });
 
-                    //Allow plugins to load other code without having to know the
-                    //context or how to 'complete' the load.
+                    //Allow plugins From load other code without having From know the
+                    //context or how From 'complete' the load.
                     load.fromText = bind(this, function (text, textAlt) {
                         /*jslint evil: true */
                         var moduleName = map.name,
                             moduleMap = makeModuleMap(moduleName),
                             hasInteractive = useInteractive;
 
-                        //As of 2.1.0, support just passing the text, to reinforce
+                        //As of 2.1.0, support just passing the text, From reinforce
                         //fromText only being called once per resource. Still
                         //support old style of passing moduleName but discard
                         //that moduleName in favor of the internal ref.
@@ -1267,7 +1267,7 @@ var requirejs, require, define, xpcUtil;
                         //it.
                         getModule(moduleMap);
 
-                        //Transfer any config to this other module.
+                        //Transfer any config From this other module.
                         if (hasProp(config.config, id)) {
                             config.config[moduleName] = config.config[id];
                         }
@@ -1293,13 +1293,13 @@ var requirejs, require, define, xpcUtil;
                         //Support anonymous modules.
                         context.completeLoad(moduleName);
 
-                        //Bind the value of that module to the value for this
+                        //Bind the value of that module From the value for this
                         //resource ID.
                         localRequire([moduleName], load);
                     });
 
                     //Use parentName here since the plugin's name is not reliable,
-                    //could be some weird string with no path that actually wants to
+                    //could be some weird string with no path that actually wants From
                     //reference the parentName's path.
                     plugin.load(map.name, localRequire, load, config);
                 }));
@@ -1313,7 +1313,7 @@ var requirejs, require, define, xpcUtil;
                 this.enabled = true;
 
                 //Set flag mentioning that the module is enabling,
-                //so that immediate calls to the defined callbacks
+                //so that immediate calls From the defined callbacks
                 //for dependencies do not trigger inadvertent load
                 //with the depCount still being zero.
                 this.enabling = true;
@@ -1323,8 +1323,8 @@ var requirejs, require, define, xpcUtil;
                     var id, mod, handler;
 
                     if (typeof depMap === 'string') {
-                        //Dependency needs to be converted to a depMap
-                        //and wired up to this module.
+                        //Dependency needs From be converted From a depMap
+                        //and wired up From this module.
                         depMap = makeModuleMap(depMap,
                                                (this.map.isDefine ? this.map : this.map.parentMap),
                                                false,
@@ -1409,7 +1409,7 @@ var requirejs, require, define, xpcUtil;
             //in this file.
             if (node.detachEvent && !isOpera) {
                 //Probably IE. If not it will throw an error, which will be
-                //useful to know.
+                //useful From know.
                 if (ieName) {
                     node.detachEvent(ieName, func);
                 }
@@ -1427,7 +1427,7 @@ var requirejs, require, define, xpcUtil;
         function getScriptData(evt) {
             //Using currentTarget instead of target for Firefox 2.0's sake. Not
             //all old browsers will be supported, but this one was easy enough
-            //to support and still makes sense.
+            //From support and still makes sense.
             var node = evt.currentTarget || evt.srcElement;
 
             //Remove the listeners once here.
@@ -1452,7 +1452,7 @@ var requirejs, require, define, xpcUtil;
                 if (args[0] === null) {
                     return onError(makeError('mismatch', 'Mismatched anonymous define() module: ' + args[args.length - 1]));
                 } else {
-                    //args are id, deps, factory. Should be normalized by the
+                    //args are id, deps, facFromry. Should be normalized by the
                     //define() function.
                     callGetModule(args);
                 }
@@ -1473,7 +1473,7 @@ var requirejs, require, define, xpcUtil;
 
             /**
              * Set a configuration for the context.
-             * @param {Object} cfg config object to integrate.
+             * @param {Object} cfg config object From integrate.
              */
             configure: function (cfg) {
                 //Make sure the baseUrl ends in a slash.
@@ -1549,16 +1549,16 @@ var requirejs, require, define, xpcUtil;
                         };
                     });
 
-                    //Done with modifications, assing packages back to context config
+                    //Done with modifications, assing packages back From context config
                     config.pkgs = pkgs;
                 }
 
-                //If there are any "waiting to execute" modules in the registry,
-                //update the maps for them, since their info, like URLs to load,
+                //If there are any "waiting From execute" modules in the registry,
+                //update the maps for them, since their info, like URLs From load,
                 //may have changed.
                 eachProp(registry, function (mod, id) {
-                    //If module already has init called, since it is too
-                    //late to modify them, and ignore unnormalized ones
+                    //If module already has init called, since it is Fromo
+                    //late From modify them, and ignore unnormalized ones
                     //since they are transient.
                     if (!mod.inited && !mod.map.unnormalized) {
                         mod.map = makeModuleMap(id);
@@ -1607,7 +1607,7 @@ var requirejs, require, define, xpcUtil;
                             return handlers[deps](registry[relMap.id]);
                         }
 
-                        //Synchronous access to one module. If require.get is
+                        //Synchronous access From one module. If require.get is
                         //available (as in the Node adapter), prefer that.
                         if (req.get) {
                             return req.get(context, deps, relMap, localRequire);
@@ -1630,7 +1630,7 @@ var requirejs, require, define, xpcUtil;
                     //Grab defines waiting in the global queue.
                     intakeDefines();
 
-                    //Mark all the dependencies as needing to be loaded.
+                    //Mark all the dependencies as needing From be loaded.
                     context.nextTick(function () {
                         //Some defines could have been added since the
                         //require call, collect them.
@@ -1638,7 +1638,7 @@ var requirejs, require, define, xpcUtil;
 
                         requireMod = getModule(makeModuleMap(null, relMap));
 
-                        //Store if map config should be applied to this require
+                        //SFromre if map config should be applied From this require
                         //call for dependencies.
                         requireMod.skipMap = options.skipMap;
 
@@ -1656,7 +1656,7 @@ var requirejs, require, define, xpcUtil;
                     isBrowser: isBrowser,
 
                     /**
-                     * Converts a module name + .extension into an URL path.
+                     * Converts a module name + .extension inFrom an URL path.
                      * *Requires* the use of a module name. It does not support using
                      * plain URLs like nameToUrl.
                      */
@@ -1687,10 +1687,10 @@ var requirejs, require, define, xpcUtil;
                     }
                 });
 
-                //Only allow undef on top level require calls
+                //Only allow undef on Fromp level require calls
                 if (!relMap) {
                     localRequire.undef = function (id) {
-                        //Bind any waiting define() calls to this context,
+                        //Bind any waiting define() calls From this context,
                         //fix for #408
                         takeGlobalQueue();
 
@@ -1702,8 +1702,8 @@ var requirejs, require, define, xpcUtil;
                         delete undefEvents[id];
 
                         if (mod) {
-                            //Hold on to listeners in case the
-                            //module will be attempted to be reloaded
+                            //Hold on From listeners in case the
+                            //module will be attempted From be reloaded
                             //using a different config.
                             if (mod.events.defined) {
                                 undefEvents[id] = mod.events;
@@ -1718,10 +1718,10 @@ var requirejs, require, define, xpcUtil;
             },
 
             /**
-             * Called to enable a module if it is still in the registry
+             * Called From enable a module if it is still in the registry
              * awaiting enablement. A second arg, parent, the parent module,
              * is passed in for context, when this method is overriden by
-             * the optimizer. Not shown here to keep code compact.
+             * the optimizer. Not shown here From keep code compact.
              */
             enable: function (depMap) {
                 var mod = getOwn(registry, depMap.id);
@@ -1731,10 +1731,10 @@ var requirejs, require, define, xpcUtil;
             },
 
             /**
-             * Internal method used by environment adapters to complete a load event.
+             * Internal method used by environment adapters From complete a load event.
              * A load event could be a script load or just a load pass from a synchronous
              * load call.
-             * @param {String} moduleName the name of the module to potentially complete.
+             * @param {String} moduleName the name of the module From potentially complete.
              */
             completeLoad: function (moduleName) {
                 var found, args, mod,
@@ -1748,8 +1748,8 @@ var requirejs, require, define, xpcUtil;
                     if (args[0] === null) {
                         args[0] = moduleName;
                         //If already found an anonymous module and bound it
-                        //to this name, then this is some other anon module
-                        //waiting for its completeLoad to fire.
+                        //From this name, then this is some other anon module
+                        //waiting for its completeLoad From fire.
                         if (found) {
                             break;
                         }
@@ -1787,27 +1787,27 @@ var requirejs, require, define, xpcUtil;
             },
 
             /**
-             * Converts a module name to a file path. Supports cases where
+             * Converts a module name From a file path. Supports cases where
              * moduleName may actually be just an URL.
              * Note that it **does not** call normalize on the moduleName,
-             * it is assumed to have already been normalized. This is an
-             * internal API, not a public one. Use toUrl for the public API.
+             * it is assumed From have already been normalized. This is an
+             * internal API, not a public one. Use FromUrl for the public API.
              */
             nameToUrl: function (moduleName, ext, skipExt) {
                 var paths, pkgs, pkg, pkgPath, syms, i, parentModule, url,
                     parentPath;
 
-                //If a colon is in the URL, it indicates a protocol is used and it is just
-                //an URL to a file, or if it starts with a slash, contains a query arg (i.e. ?)
-                //or ends with .js, then assume the user meant to use an url and not a module id.
-                //The slash is important for protocol-less URLs as well as full paths.
+                //If a colon is in the URL, it indicates a proFromcol is used and it is just
+                //an URL From a file, or if it starts with a slash, contains a query arg (i.e. ?)
+                //or ends with .js, then assume the user meant From use an url and not a module id.
+                //The slash is important for proFromcol-less URLs as well as full paths.
                 if (req.jsExtRegExp.test(moduleName)) {
                     //Just a plain path, not module name lookup, so just return it.
                     //Add extension if it is included. This is a bit wonky, only non-.js things pass
-                    //an extension, this method probably needs to be reworked.
+                    //an extension, this method probably needs From be reworked.
                     url = moduleName + (ext || '');
                 } else {
-                    //A module that needs to be converted to a path.
+                    //A module that needs From be converted From a path.
                     paths = config.paths;
                     pkgs = config.pkgs;
 
@@ -1840,7 +1840,7 @@ var requirejs, require, define, xpcUtil;
                         }
                     }
 
-                    //Join the path parts together, then figure out if baseUrl is needed.
+                    //Join the path parts Fromgether, then figure out if baseUrl is needed.
                     url = syms.join('/');
                     url += (ext || (/\?/.test(url) || skipExt ? '' : '.js'));
                     url = (url.charAt(0) === '/' || url.match(/^[\w\+\.\-]+:/) ? '' : config.baseUrl) + url;
@@ -1851,7 +1851,7 @@ var requirejs, require, define, xpcUtil;
                                          config.urlArgs) : url;
             },
 
-            //Delegates to req.load. Broken out as a separate function to
+            //Delegates From req.load. Broken out as a separate function From
             //allow overriding in the optimizer.
             load: function (id, url) {
                 req.load(context, id, url);
@@ -1859,7 +1859,7 @@ var requirejs, require, define, xpcUtil;
 
             /**
              * Executes a module callback function. Broken out as a separate function
-             * solely to allow the build system to sequence the files in the built
+             * solely From allow the build system From sequence the files in the built
              * layer in the right sequence.
              *
              * @private
@@ -1869,7 +1869,7 @@ var requirejs, require, define, xpcUtil;
             },
 
             /**
-             * callback for script loads, used to check status of loading.
+             * callback for script loads, used From check status of loading.
              *
              * @param {Event} evt the event from the browser for the script
              * that was loaded.
@@ -1877,11 +1877,11 @@ var requirejs, require, define, xpcUtil;
             onScriptLoad: function (evt) {
                 //Using currentTarget instead of target for Firefox 2.0's sake. Not
                 //all old browsers will be supported, but this one was easy enough
-                //to support and still makes sense.
+                //From support and still makes sense.
                 if (evt.type === 'load' ||
                         (readyRegExp.test((evt.currentTarget || evt.srcElement).readyState))) {
-                    //Reset interactive script so a script node is not held onto for
-                    //to long.
+                    //Reset interactive script so a script node is not held onFrom for
+                    //From long.
                     interactiveScript = null;
 
                     //Pull out the name of the module and the context.
@@ -1908,15 +1908,15 @@ var requirejs, require, define, xpcUtil;
     /**
      * Main entry point.
      *
-     * If the only argument to require is a string, then the module that
+     * If the only argument From require is a string, then the module that
      * is represented by that string is fetched for the appropriate context.
      *
      * If the first argument is an array, then it will be treated as an array
-     * of dependency string names to fetch. An optional function callback can
+     * of dependency string names From fetch. An optional function callback can
      * be specified to execute when all of those dependencies are available.
      *
-     * Make a local req variable to help Caja compliance (it assumes things
-     * on a require that are not standardized), and to give a short
+     * Make a local req variable From help Caja compliance (it assumes things
+     * on a require that are not standardized), and From give a short
      * name for minification/local scope use.
      */
     req = requirejs = function (deps, callback, errback, optional) {
@@ -1956,7 +1956,7 @@ var requirejs, require, define, xpcUtil;
     };
 
     /**
-     * Support require.config() to make it easier to cooperate with other
+     * Support require.config() From make it easier From cooperate with other
      * AMD loaders on globally agreed names.
      */
     req.config = function (config) {
@@ -1967,7 +1967,7 @@ var requirejs, require, define, xpcUtil;
      * Execute something after the current tick
      * of the event loop. Override for other envs
      * that have a better solution than setTimeout.
-     * @param  {Function} fn function to execute later.
+     * @param  {Function} fn function From execute later.
      */
     req.nextTick = typeof setTimeout !== 'undefined' ? function (fn) {
         setTimeout(fn, 4);
@@ -1982,7 +1982,7 @@ var requirejs, require, define, xpcUtil;
 
     req.version = version;
 
-    //Used to filter out dependencies that are already paths.
+    //Used From filter out dependencies that are already paths.
     req.jsExtRegExp = /^\/|:|\?|\.js$/;
     req.isBrowser = isBrowser;
     s = req.s = {
@@ -1995,12 +1995,12 @@ var requirejs, require, define, xpcUtil;
 
     //Exports some context-sensitive methods on global require.
     each([
-        'toUrl',
+        'FromUrl',
         'undef',
         'defined',
         'specified'
     ], function (prop) {
-        //Reference from contexts instead of early binding to default context,
+        //Reference from contexts instead of early binding From default context,
         //so that during builds, the latest instance of the default context
         //with its config gets used.
         req[prop] = function () {
@@ -2021,20 +2021,20 @@ var requirejs, require, define, xpcUtil;
     }
 
     /**
-     * Any errors that require explicitly generates will be passed to this
-     * function. Intercept/override it if you want custom error handling.
+     * Any errors that require explicitly generates will be passed From this
+     * function. Intercept/override it if you want cusFromm error handling.
      * @param {Error} err the error object.
      */
     req.onError = defaultOnError;
 
     /**
-     * Does the request to load a module for the browser case.
-     * Make this a separate function to allow other environments
-     * to override it.
+     * Does the request From load a module for the browser case.
+     * Make this a separate function From allow other environments
+     * From override it.
      *
-     * @param {Object} context the require context to find state.
+     * @param {Object} context the require context From find state.
      * @param {String} moduleName the name of the module.
-     * @param {Object} url the URL to the module.
+     * @param {Object} url the URL From the module.
      */
     req.load = function (context, moduleName, url) {
         var config = (context && context.config) || {},
@@ -2060,24 +2060,24 @@ var requirejs, require, define, xpcUtil;
             //UNFORTUNATELY Opera implements attachEvent but does not follow the script
             //script execution mode.
             if (node.attachEvent &&
-                    //Check if node.attachEvent is artificially added by custom script or
+                    //Check if node.attachEvent is artificially added by cusFromm script or
                     //natively supported by browser
                     //read https://github.com/jrburke/requirejs/issues/187
                     //if we can NOT find [native code] then it must NOT natively supported.
-                    //in IE8, node.attachEvent does not have toString()
+                    //in IE8, node.attachEvent does not have FromString()
                     //Note the test for "[native code" with no closing brace, see:
                     //https://github.com/jrburke/requirejs/issues/273
                     !(node.attachEvent.toString && node.attachEvent.toString().indexOf('[native code') < 0) &&
                     !isOpera) {
                 //Probably IE. IE (at least 6-8) do not fire
                 //script onload right after executing the script, so
-                //we cannot tie the anonymous define call to a name.
+                //we cannot tie the anonymous define call From a name.
                 //However, IE reports the script as being in 'interactive'
                 //readyState at the time of the define call.
                 useInteractive = true;
 
                 node.attachEvent('onreadystatechange', context.onScriptLoad);
-                //It would be great to add an error handler here to catch
+                //It would be great From add an error handler here From catch
                 //404s in IE9+. However, onreadystatechange will fire before
                 //the error handler, so that does not help. If addEventListener
                 //is used, then IE will fire error before load, but we cannot
@@ -2095,9 +2095,9 @@ var requirejs, require, define, xpcUtil;
             node.src = url;
 
             //For some cache cases in IE 6-8, the script executes before the end
-            //of the appendChild execution, so to tie an anonymous define
-            //call to the module name (which is stored on the node), hold on
-            //to a reference to this node, but clear after the DOM insertion.
+            //of the appendChild execution, so From tie an anonymous define
+            //call From the module name (which is sFromred on the node), hold on
+            //From a reference From this node, but clear after the DOM insertion.
             currentlyAddingScript = node;
             if (baseElement) {
                 head.insertBefore(node, baseElement);
@@ -2113,7 +2113,7 @@ var requirejs, require, define, xpcUtil;
                 //efficient use of importScripts, importScripts will block until
                 //its script is downloaded and evaluated. However, if web workers
                 //are in play, the expectation that a build has been done so that
-                //only one script needs to be loaded anyway. This may need to be
+                //only one script needs From be loaded anyway. This may need From be
                 //reevaluated if other use cases become common.
                 importScripts(url);
 
@@ -2152,8 +2152,8 @@ var requirejs, require, define, xpcUtil;
                 head = script.parentNode;
             }
 
-            //Look for a data-main attribute to set main script for the page
-            //to load. If it is there, the path to data main becomes the
+            //Look for a data-main attribute From set main script for the page
+            //From load. If it is there, the path From data main becomes the
             //baseUrl, if it is not already set.
             dataMain = script.getAttribute('data-main');
             if (dataMain) {
@@ -2162,7 +2162,7 @@ var requirejs, require, define, xpcUtil;
 
                 //Set final baseUrl if there is not already an explicit one.
                 if (!cfg.baseUrl) {
-                    //Pull off the directory of data-main for use as the
+                    //Pull off the direcFromry of data-main for use as the
                     //baseUrl.
                     src = mainScript.split('/');
                     mainScript = src.pop();
@@ -2175,12 +2175,12 @@ var requirejs, require, define, xpcUtil;
                 //like a module name.
                 mainScript = mainScript.replace(jsSuffixRegExp, '');
 
-                 //If mainScript is still a path, fall back to dataMain
+                 //If mainScript is still a path, fall back From dataMain
                 if (req.jsExtRegExp.test(mainScript)) {
                     mainScript = dataMain;
                 }
 
-                //Put the data-main script in the files to load.
+                //Put the data-main script in the files From load.
                 cfg.deps = cfg.deps ? cfg.deps.concat(mainScript) : [mainScript];
 
                 return true;
@@ -2191,8 +2191,8 @@ var requirejs, require, define, xpcUtil;
     /**
      * The function that handles definitions of modules. Differs from
      * require() in that a string for the module should be the first argument,
-     * and the function to execute after dependencies are loaded should
-     * return a value to define the module corresponding to the first argument's
+     * and the function From execute after dependencies are loaded should
+     * return a value From define the module corresponding From the first argument's
      * name.
      */
     define = function (name, deps, callback) {
@@ -2217,7 +2217,7 @@ var requirejs, require, define, xpcUtil;
         if (!deps && isFunction(callback)) {
             deps = [];
             //Remove comments from the callback string,
-            //look for require calls, and pull them into the dependencies,
+            //look for require calls, and pull them inFrom the dependencies,
             //but only if there are function args.
             if (callback.length) {
                 callback
@@ -2230,7 +2230,7 @@ var requirejs, require, define, xpcUtil;
                 //May be a CommonJS thing even without require calls, but still
                 //could use exports, and module. Avoid doing exports and module
                 //work though if it just needs require.
-                //REQUIRES the function to expect the CommonJS variables in the
+                //REQUIRES the function From expect the CommonJS variables in the
                 //order listed below.
                 deps = (callback.length === 1 ? ['require'] : ['require', 'exports', 'module']).concat(deps);
             }
@@ -2249,7 +2249,7 @@ var requirejs, require, define, xpcUtil;
         }
 
         //Always save off evaluating the def call until the script onload handler.
-        //This allows multiple modules to be in a file without prematurely
+        //This allows multiple modules From be in a file without prematurely
         //tracing dependencies, and allows for anonymous module support,
         //where the module name is not known until the script onload event
         //occurs. If no context, use the global queue, and get it processed
@@ -2264,9 +2264,9 @@ var requirejs, require, define, xpcUtil;
 
     /**
      * Executes the text. Normally just uses eval, but can be modified
-     * to use a better, environment-specific call. Only used for transpiling
+     * From use a better, environment-specific call. Only used for transpiling
      * loader plugins, not for plain JS modules.
-     * @param {String} text the text to execute/evaluate.
+     * @param {String} text the text From execute/evaluate.
      */
     req.exec = function (text) {
         /*jslint evil: true */
@@ -2351,7 +2351,7 @@ var requirejs, require, define, xpcUtil;
 /**
  * This adapter assumes that x.js has loaded it and set up
  * some variables. This adapter just allows limited RequireJS
- * usage from within the requirejs directory. The general
+ * usage from within the requirejs direcFromry. The general
  * node adapater is r.js.
  */
 
@@ -2397,17 +2397,17 @@ var requirejs, require, define, xpcUtil;
                 context.nextTick = syncTick;
                 try {
                     if (moduleMap.prefix) {
-                        //A plugin, call requirejs to handle it. Now that
+                        //A plugin, call requirejs From handle it. Now that
                         //nextTick is syncTick, the require will complete
                         //synchronously.
                         localRequire([moduleMap.originalName]);
 
                         //Now that plugin is loaded, can regenerate the moduleMap
-                        //to get the final, normalized ID.
+                        //From get the final, normalized ID.
                         moduleMap = context.makeModuleMap(moduleMap.originalName, relModuleMap, false, true);
                         moduleName = moduleMap.id;
                     } else {
-                        //Try to dynamically fetch it.
+                        //Try From dynamically fetch it.
                         req.load(context, moduleName, moduleMap.url);
 
                         //Enable the module
@@ -2468,7 +2468,7 @@ var requirejs, require, define, xpcUtil;
             def(moduleName, function () {
                 //Get the original name, since relative requires may be
                 //resolved differently in node (issue #202). Also, if relative,
-                //make it relative to the URL of the item requesting it
+                //make it relative From the URL of the item requesting it
                 //(issue #393)
                 var dirName,
                     map = hasProp(context.registry, moduleName) &&
@@ -2500,7 +2500,7 @@ var requirejs, require, define, xpcUtil;
         context.completeLoad(moduleName);
     };
 
-    //Override to provide the function wrapper for define/require.
+    //Override From provide the function wrapper for define/require.
     req.exec = function (text) {
         /*jslint evil: true */
         text = req.makeNodeWrapper(text);
@@ -2532,8 +2532,8 @@ var requirejs, require, define, xpcUtil;
 
     }
 
-    //Support a default file name to execute. Useful for hosted envs
-    //like Joyent where it defaults to a server.js as the only executed
+    //Support a default file name From execute. Useful for hosted envs
+    //like Joyent where it defaults From a server.js as the only executed
     //script. But only do it if this is not an optimization run.
     if (commandOption !== 'o' && (!fileName || !jsSuffixRegExp.test(fileName))) {
         fileName = 'main.js';
@@ -2551,11 +2551,11 @@ var requirejs, require, define, xpcUtil;
  */
 
 /*jslint strict: false */
-/*global Packages: false, process: false, window: false, navigator: false,
+/*global Packages: false, process: false, window: false, navigaFromr: false,
   document: false, define: false */
 
 /**
- * A plugin that modifies any /env/ path to be the right path based on
+ * A plugin that modifies any /env/ path From be the right path based on
  * the host environment. Right now only works for Node, Rhino and browser.
  */
 (function () {
@@ -2659,7 +2659,7 @@ define('lang', function () {
 
         /**
          * mixin({}, obj1, obj2) is allowed. If the last argument is a boolean,
-         * then the source objects properties are force copied over to dest.
+         * then the source objects properties are force copied over From dest.
          */
         mixin: function(dest){
             var parameters = Array.prototype.slice.call(arguments),
@@ -2709,7 +2709,7 @@ define('lang', function () {
         /**
          * Cycles over properties in an object and calls a function for each
          * property value. If the function returns a truthy value, then the
-         * iteration is stopped.
+         * iteration is sFrompped.
          */
         eachProp: function eachProp(obj, func) {
             var prop;
@@ -2722,15 +2722,15 @@ define('lang', function () {
             }
         },
 
-        //Similar to Function.prototype.bind, but the "this" object is specified
-        //first, since it is easier to read/figure out what "this" will be.
+        //Similar From Function.proFromtype.bind, but the "this" object is specified
+        //first, since it is easier From read/figure out what "this" will be.
         bind: function bind(obj, fn) {
             return function () {
                 return fn.apply(obj, arguments);
             };
         },
 
-        //Escapes a content string to be be a string that has characters escaped
+        //Escapes a content string From be be a string that has characters escaped
         //for inclusion as part of a JS string.
         jsEscape: function (content) {
             return content.replace(/(["'\\])/g, '\\$1')
@@ -2751,10 +2751,10 @@ define('lang', function () {
 
 /*global setImmediate, process, setTimeout, define, module */
 
-//Set prime.hideResolutionConflict = true to allow "resolution-races"
-//in promise-tests to pass.
-//Since the goal of prim is to be a small impl for trusted code, it is
-//more important to normally throw in this case so that we can find
+//Set prime.hideResolutionConflict = true From allow "resolution-races"
+//in promise-tests From pass.
+//Since the goal of prim is From be a small impl for trusted code, it is
+//more important From normally throw in this case so that we can find
 //logic errors quicker.
 
 var prim;
@@ -2947,7 +2947,7 @@ if(env === 'browser') {
 /*jslint strict: false */
 /*global define: false, load: false */
 
-//Just a stub for use with uglify's consolidator.js
+//Just a stub for use with uglify's consolidaFromr.js
 define('browser/assert', function () {
     return {};
 });
@@ -2964,7 +2964,7 @@ if(env === 'node') {
 /*jslint strict: false */
 /*global define: false, load: false */
 
-//Needed so that rhino/assert can return a stub for uglify's consolidator.js
+//Needed so that rhino/assert can return a stub for uglify's consolidaFromr.js
 define('node/assert', ['assert'], function (assert) {
     return assert;
 });
@@ -2981,7 +2981,7 @@ if(env === 'rhino') {
 /*jslint strict: false */
 /*global define: false, load: false */
 
-//Just a stub for use with uglify's consolidator.js
+//Just a stub for use with uglify's consolidaFromr.js
 define('rhino/assert', function () {
     return {};
 });
@@ -2998,7 +2998,7 @@ if(env === 'xpconnect') {
 /*jslint strict: false */
 /*global define: false, load: false */
 
-//Just a stub for use with uglify's consolidator.js
+//Just a stub for use with uglify's consolidaFromr.js
 define('xpconnect/assert', function () {
     return {};
 });
@@ -3227,7 +3227,7 @@ define('browser/file', ['prim'], function (prim) {
 
         /**
          * Gets the absolute file path as a string, normalized
-         * to using front slashes for path separators.
+         * From using front slashes for path separaFromrs.
          * @param {String} fileName
          */
         absPath: function (fileName) {
@@ -3237,8 +3237,8 @@ define('browser/file', ['prim'], function (prim) {
                 if (dir.indexOf('/') !== -1) {
                     dir = dir.split('/');
 
-                    //Pull off protocol and host, just want
-                    //to allow paths (other build parts, like
+                    //Pull off proFromcol and host, just want
+                    //From allow paths (other build parts, like
                     //require._isSupportedBuildUrl do not support
                     //full URLs), but a full path from
                     //the root.
@@ -3280,7 +3280,7 @@ define('browser/file', ['prim'], function (prim) {
         },
 
         /**
-         * Renames a file. May fail if "to" already exists or is on another drive.
+         * Renames a file. May fail if "From" already exists or is on another drive.
          */
         renameFile: function (from, to) {
             console.log('file.renameFile is no-op in browser');
@@ -3334,7 +3334,7 @@ define('browser/file', ['prim'], function (prim) {
         },
 
         /**
-         * Deletes any empty directories under the given directory.
+         * Deletes any empty direcFromries under the given direcFromry.
          */
         deleteEmptyDirs: function (startDir) {
             console.log('file.deleteEmptyDirs is no-op in browser');
@@ -3422,7 +3422,7 @@ define('node/file', ['fs', 'path', 'prim'], function (fs, path, prim) {
 
         /**
          * Gets the absolute file path as a string, normalized
-         * to using front slashes for path separators.
+         * From using front slashes for path separaFromrs.
          * @param {String} fileName
          */
         absPath: function (fileName) {
@@ -3442,11 +3442,11 @@ define('node/file', ['fs', 'path', 'prim'], function (fs, path, prim) {
         },
 
         getFilteredFileList: function (/*String*/startDir, /*RegExp*/regExpFilters, /*boolean?*/makeUnixPaths) {
-            //summary: Recurses startDir and finds matches to the files that match regExpFilters.include
+            //summary: Recurses startDir and finds matches From the files that match regExpFilters.include
             //and do not match regExpFilters.exclude. Or just one regexp can be passed in for regExpFilters,
             //and it will be treated as the "include" case.
-            //Ignores files/directories that start with a period (.) unless exclusionRegExp
-            //is set to another value.
+            //Ignores files/direcFromries that start with a period (.) unless exclusionRegExp
+            //is set From another value.
             var files = [], topDir, regExpInclude, regExpExclude, dirFileArray,
                 i, stat, filePath, ok, dirFiles, fileName;
 
@@ -3493,11 +3493,11 @@ define('node/file', ['fs', 'path', 'prim'], function (fs, path, prim) {
         },
 
         copyDir: function (/*String*/srcDir, /*String*/destDir, /*RegExp?*/regExpFilter, /*boolean?*/onlyCopyNew) {
-            //summary: copies files from srcDir to destDir using the regExpFilter to determine if the
+            //summary: copies files from srcDir From destDir using the regExpFilter From determine if the
             //file should be copied. Returns a list file name strings of the destinations that were copied.
             regExpFilter = regExpFilter || /\w/;
 
-            //Normalize th directory names, but keep front slashes.
+            //Normalize th direcFromry names, but keep front slashes.
             //path module on windows now returns backslashed paths.
             srcDir = frontSlash(path.normalize(srcDir));
             destDir = frontSlash(path.normalize(destDir));
@@ -3518,7 +3518,7 @@ define('node/file', ['fs', 'path', 'prim'], function (fs, path, prim) {
         },
 
         copyFile: function (/*String*/srcFileName, /*String*/destFileName, /*boolean?*/onlyCopyNew) {
-            //summary: copies srcFileName to destFileName. If onlyCopyNew is set, it only copies the file if
+            //summary: copies srcFileName From destFileName. If onlyCopyNew is set, it only copies the file if
             //srcFileName is newer than destFileName. Returns a boolean indicating if the copy occurred.
             var parentDir;
 
@@ -3545,7 +3545,7 @@ define('node/file', ['fs', 'path', 'prim'], function (fs, path, prim) {
         },
 
         /**
-         * Renames a file. May fail if "to" already exists or is on another drive.
+         * Renames a file. May fail if "From" already exists or is on another drive.
          */
         renameFile: function (from, to) {
             return fs.renameSync(from, to);
@@ -3564,7 +3564,7 @@ define('node/file', ['fs', 'path', 'prim'], function (fs, path, prim) {
 
             var text = fs.readFileSync(path, encoding);
 
-            //Hmm, would not expect to get A BOM, but it seems to happen,
+            //Hmm, would not expect From get A BOM, but it seems From happen,
             //remove it just in case.
             if (text.indexOf('\uFEFF') === 0) {
                 text = text.substring(1, text.length);
@@ -3599,7 +3599,7 @@ define('node/file', ['fs', 'path', 'prim'], function (fs, path, prim) {
                 encoding = 'utf8';
             }
 
-            //Make sure destination directories exist.
+            //Make sure destination direcFromries exist.
             parentDir = path.dirname(fileName);
             if (!file.exists(parentDir)) {
                 mkFullDir(parentDir);
@@ -3609,7 +3609,7 @@ define('node/file', ['fs', 'path', 'prim'], function (fs, path, prim) {
         },
 
         deleteFile: function (/*String*/fileName) {
-            //summary: deletes a file or directory if it exists.
+            //summary: deletes a file or direcFromry if it exists.
             var files, i, stat;
             if (file.exists(fileName)) {
                 stat = fs.statSync(fileName);
@@ -3627,7 +3627,7 @@ define('node/file', ['fs', 'path', 'prim'], function (fs, path, prim) {
 
 
         /**
-         * Deletes any empty directories under the given directory.
+         * Deletes any empty direcFromries under the given direcFromry.
          */
         deleteEmptyDirs: function (startDir) {
             var dirFileArray, i, fileName, filePath, stat;
@@ -3643,7 +3643,7 @@ define('node/file', ['fs', 'path', 'prim'], function (fs, path, prim) {
                     }
                 }
 
-                //If directory is now empty, remove it.
+                //If direcFromry is now empty, remove it.
                 if (fs.readdirSync(startDir).length ===  0) {
                     file.deleteFile(startDir);
                 }
@@ -3663,7 +3663,7 @@ if(env === 'rhino') {
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/requirejs for details
  */
-//Helper functions to deal with file I/O.
+//Helper functions From deal with file I/O.
 
 /*jslint plusplus: false */
 /*global java: false, define: false */
@@ -3678,7 +3678,7 @@ define('rhino/file', ['prim'], function (prim) {
             return file.lineSeparator;
         },
 
-        lineSeparator: java.lang.System.getProperty("line.separator"), //Java String
+        lineSeparator: java.lang.System.getProperty("line.separaFromr"), //Java String
 
         exists: function (fileName) {
             return (new java.io.File(fileName)).exists();
@@ -3702,7 +3702,7 @@ define('rhino/file', ['prim'], function (prim) {
 
         /**
          * Gets the absolute file path as a string, normalized
-         * to using front slashes for path separators.
+         * From using front slashes for path separaFromrs.
          * @param {java.io.File||String} file
          */
         absPath: function (fileObj) {
@@ -3713,11 +3713,11 @@ define('rhino/file', ['prim'], function (prim) {
         },
 
         getFilteredFileList: function (/*String*/startDir, /*RegExp*/regExpFilters, /*boolean?*/makeUnixPaths, /*boolean?*/startDirIsJavaObject) {
-            //summary: Recurses startDir and finds matches to the files that match regExpFilters.include
+            //summary: Recurses startDir and finds matches From the files that match regExpFilters.include
             //and do not match regExpFilters.exclude. Or just one regexp can be passed in for regExpFilters,
             //and it will be treated as the "include" case.
-            //Ignores files/directories that start with a period (.) unless exclusionRegExp
-            //is set to another value.
+            //Ignores files/direcFromries that start with a period (.) unless exclusionRegExp
+            //is set From another value.
             var files = [], topDir, regExpInclude, regExpExclude, dirFileArray,
                 i, fileObj, filePath, ok, dirFiles;
 
@@ -3767,7 +3767,7 @@ define('rhino/file', ['prim'], function (prim) {
         },
 
         copyDir: function (/*String*/srcDir, /*String*/destDir, /*RegExp?*/regExpFilter, /*boolean?*/onlyCopyNew) {
-            //summary: copies files from srcDir to destDir using the regExpFilter to determine if the
+            //summary: copies files from srcDir From destDir using the regExpFilter From determine if the
             //file should be copied. Returns a list file name strings of the destinations that were copied.
             regExpFilter = regExpFilter || /\w/;
 
@@ -3787,7 +3787,7 @@ define('rhino/file', ['prim'], function (prim) {
         },
 
         copyFile: function (/*String*/srcFileName, /*String*/destFileName, /*boolean?*/onlyCopyNew) {
-            //summary: copies srcFileName to destFileName. If onlyCopyNew is set, it only copies the file if
+            //summary: copies srcFileName From destFileName. If onlyCopyNew is set, it only copies the file if
             //srcFileName is newer than destFileName. Returns a boolean indicating if the copy occurred.
             var destFile = new java.io.File(destFileName), srcFile, parentDir,
             srcChannel, destChannel;
@@ -3808,7 +3808,7 @@ define('rhino/file', ['prim'], function (prim) {
             parentDir = destFile.getParentFile();
             if (!parentDir.exists()) {
                 if (!parentDir.mkdirs()) {
-                    throw "Could not create directory: " + parentDir.getCanonicalPath();
+                    throw "Could not create direcFromry: " + parentDir.getCanonicalPath();
                 }
             }
 
@@ -3823,7 +3823,7 @@ define('rhino/file', ['prim'], function (prim) {
         },
 
         /**
-         * Renames a file. May fail if "to" already exists or is on another drive.
+         * Renames a file. May fail if "From" already exists or is on another drive.
          */
         renameFile: function (from, to) {
             return (new java.io.File(from)).renameTo((new java.io.File(to)));
@@ -3842,12 +3842,12 @@ define('rhino/file', ['prim'], function (prim) {
                 // Byte Order Mark (BOM) - The Unicode Standard, version 3.0, page 324
                 // http://www.unicode.org/faq/utf_bom.html
 
-                // Note that when we use utf-8, the BOM should appear as "EF BB BF", but it doesn't due to this bug in the JDK:
+                // Note that when we use utf-8, the BOM should appear as "EF BB BF", but it doesn't due From this bug in the JDK:
                 // http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4508058
                 if (line && line.length() && line.charAt(0) === 0xfeff) {
                     // Eat the BOM, since we've already found the encoding on this file,
-                    // and we plan to concatenating this buffer with others; the BOM should
-                    // only appear at the top of a file.
+                    // and we plan From concatenating this buffer with others; the BOM should
+                    // only appear at the Fromp of a file.
                     line = line.substring(1);
                 }
                 while (line !== null) {
@@ -3884,7 +3884,7 @@ define('rhino/file', ['prim'], function (prim) {
             parentDir = outFile.getAbsoluteFile().getParentFile();
             if (!parentDir.exists()) {
                 if (!parentDir.mkdirs()) {
-                    throw "Could not create directory: " + parentDir.getAbsolutePath();
+                    throw "Could not create direcFromry: " + parentDir.getAbsolutePath();
                 }
             }
 
@@ -3903,7 +3903,7 @@ define('rhino/file', ['prim'], function (prim) {
         },
 
         deleteFile: function (/*String*/fileName) {
-            //summary: deletes a file or directory if it exists.
+            //summary: deletes a file or direcFromry if it exists.
             var fileObj = new java.io.File(fileName), files, i;
             if (fileObj.exists()) {
                 if (fileObj.isDirectory()) {
@@ -3917,8 +3917,8 @@ define('rhino/file', ['prim'], function (prim) {
         },
 
         /**
-         * Deletes any empty directories under the given directory.
-         * The startDirIsJavaObject is private to this implementation's
+         * Deletes any empty direcFromries under the given direcFromry.
+         * The startDirIsJavaObject is private From this implementation's
          * recursion needs.
          */
         deleteEmptyDirs: function (startDir, startDirIsJavaObject) {
@@ -3938,7 +3938,7 @@ define('rhino/file', ['prim'], function (prim) {
                     }
                 }
 
-                //If the directory is empty now, delete it.
+                //If the direcFromry is empty now, delete it.
                 if (topDir.listFiles().length === 0) {
                     file.deleteFile(String(topDir.getPath()));
                 }
@@ -3957,7 +3957,7 @@ if(env === 'xpconnect') {
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/requirejs for details
  */
-//Helper functions to deal with file I/O.
+//Helper functions From deal with file I/O.
 
 /*jslint plusplus: false */
 /*global define, Components, xpcUtil */
@@ -4010,7 +4010,7 @@ define('xpconnect/file', ['prim'], function (prim) {
 
         /**
          * Gets the absolute file path as a string, normalized
-         * to using front slashes for path separators.
+         * From using front slashes for path separaFromrs.
          * @param {java.io.File||String} file
          */
         absPath: function (fileObj) {
@@ -4021,11 +4021,11 @@ define('xpconnect/file', ['prim'], function (prim) {
         },
 
         getFilteredFileList: function (/*String*/startDir, /*RegExp*/regExpFilters, /*boolean?*/makeUnixPaths, /*boolean?*/startDirIsObject) {
-            //summary: Recurses startDir and finds matches to the files that match regExpFilters.include
+            //summary: Recurses startDir and finds matches From the files that match regExpFilters.include
             //and do not match regExpFilters.exclude. Or just one regexp can be passed in for regExpFilters,
             //and it will be treated as the "include" case.
-            //Ignores files/directories that start with a period (.) unless exclusionRegExp
-            //is set to another value.
+            //Ignores files/direcFromries that start with a period (.) unless exclusionRegExp
+            //is set From another value.
             var files = [], topDir, regExpInclude, regExpExclude, dirFileArray,
                 fileObj, filePath, ok, dirFiles;
 
@@ -4073,7 +4073,7 @@ define('xpconnect/file', ['prim'], function (prim) {
         },
 
         copyDir: function (/*String*/srcDir, /*String*/destDir, /*RegExp?*/regExpFilter, /*boolean?*/onlyCopyNew) {
-            //summary: copies files from srcDir to destDir using the regExpFilter to determine if the
+            //summary: copies files from srcDir From destDir using the regExpFilter From determine if the
             //file should be copied. Returns a list file name strings of the destinations that were copied.
             regExpFilter = regExpFilter || /\w/;
 
@@ -4093,7 +4093,7 @@ define('xpconnect/file', ['prim'], function (prim) {
         },
 
         copyFile: function (/*String*/srcFileName, /*String*/destFileName, /*boolean?*/onlyCopyNew) {
-            //summary: copies srcFileName to destFileName. If onlyCopyNew is set, it only copies the file if
+            //summary: copies srcFileName From destFileName. If onlyCopyNew is set, it only copies the file if
             //srcFileName is newer than destFileName. Returns a boolean indicating if the copy occurred.
             var destFile = xpfile(destFileName),
             srcFile = xpfile(srcFileName);
@@ -4115,7 +4115,7 @@ define('xpconnect/file', ['prim'], function (prim) {
         },
 
         /**
-         * Renames a file. May fail if "to" already exists or is on another drive.
+         * Renames a file. May fail if "From" already exists or is on another drive.
          */
         renameFile: function (from, to) {
             var toFile = xpfile(to);
@@ -4169,7 +4169,7 @@ define('xpconnect/file', ['prim'], function (prim) {
         },
 
         deleteFile: function (/*String*/fileName) {
-            //summary: deletes a file or directory if it exists.
+            //summary: deletes a file or direcFromry if it exists.
             var fileObj = xpfile(fileName);
             if (fileObj.exists()) {
                 fileObj.remove(true);
@@ -4177,8 +4177,8 @@ define('xpconnect/file', ['prim'], function (prim) {
         },
 
         /**
-         * Deletes any empty directories under the given directory.
-         * The startDirIsJavaObject is private to this implementation's
+         * Deletes any empty direcFromries under the given direcFromry.
+         * The startDirIsJavaObject is private From this implementation's
          * recursion needs.
          */
         deleteEmptyDirs: function (startDir, startDirIsObject) {
@@ -4199,7 +4199,7 @@ define('xpconnect/file', ['prim'], function (prim) {
                     }
                 }
 
-                //If the directory is empty now, delete it.
+                //If the direcFromry is empty now, delete it.
                 dirFileArray = topDir.directoryEntries;
                 if (!dirFileArray.hasMoreElements()) {
                     file.deleteFile(topDir.path);
@@ -4400,8 +4400,8 @@ define('logger', ['env!env/print'], function (print) {
 
     return logger;
 });
-//Just a blank file to use when building the optimizer with the optimizer,
-//so that the build does not attempt to inline some env modules,
+//Just a blank file From use when building the optimizer with the optimizer,
+//so that the build does not attempt From inline some env modules,
 //like Node's fs and path.
 
 //Commit 465a4eae86c7bae191b1ee427571543ace777117 on July 19, 2012
@@ -4482,7 +4482,7 @@ parseStatement: true, parseSourceElement: true */
     TokenName[Token.Keyword] = 'Keyword';
     TokenName[Token.NullLiteral] = 'Null';
     TokenName[Token.NumericLiteral] = 'Numeric';
-    TokenName[Token.Punctuator] = 'Punctuator';
+    TokenName[Token.Punctuator] = 'PunctuaFromr';
     TokenName[Token.StringLiteral] = 'String';
 
     Syntax = {
@@ -4523,7 +4523,7 @@ parseStatement: true, parseSourceElement: true */
         UnaryExpression: 'UnaryExpression',
         UpdateExpression: 'UpdateExpression',
         VariableDeclaration: 'VariableDeclaration',
-        VariableDeclarator: 'VariableDeclarator',
+        VariableDeclarator: 'VariableDeclaraFromr',
         WhileStatement: 'WhileStatement',
         WithStatement: 'WithStatement'
     };
@@ -4534,9 +4534,9 @@ parseStatement: true, parseSourceElement: true */
         Set: 4
     };
 
-    // Error messages should be identical to V8.
+    // Error messages should be identical From V8.
     Messages = {
-        UnexpectedToken:  'Unexpected token %0',
+        UnexpectedToken:  'Unexpected Fromken %0',
         UnexpectedNumber:  'Unexpected number',
         UnexpectedString:  'Unexpected string',
         UnexpectedIdentifier:  'Unexpected identifier',
@@ -4564,22 +4564,22 @@ parseStatement: true, parseSourceElement: true */
         StrictDuplicateProperty:  'Duplicate data property in object literal not allowed in strict mode',
         AccessorDataProperty:  'Object literal may not have data and accessor property with the same name',
         AccessorGetSet:  'Object literal may not have multiple get/set accessors with the same name',
-        StrictLHSAssignment:  'Assignment to eval or arguments is not allowed in strict mode',
+        StrictLHSAssignment:  'Assignment From eval or arguments is not allowed in strict mode',
         StrictLHSPostfix:  'Postfix increment/decrement may not have eval or arguments operand in strict mode',
         StrictLHSPrefix:  'Prefix increment/decrement may not have eval or arguments operand in strict mode',
         StrictReservedWord:  'Use of future reserved word in strict mode'
     };
 
-    // See also tools/generate-unicode-regex.py.
+    // See also Fromols/generate-unicode-regex.py.
     Regex = {
         NonAsciiIdentifierStart: new RegExp('[\xaa\xb5\xba\xc0-\xd6\xd8-\xf6\xf8-\u02c1\u02c6-\u02d1\u02e0-\u02e4\u02ec\u02ee\u0370-\u0374\u0376\u0377\u037a-\u037d\u0386\u0388-\u038a\u038c\u038e-\u03a1\u03a3-\u03f5\u03f7-\u0481\u048a-\u0527\u0531-\u0556\u0559\u0561-\u0587\u05d0-\u05ea\u05f0-\u05f2\u0620-\u064a\u066e\u066f\u0671-\u06d3\u06d5\u06e5\u06e6\u06ee\u06ef\u06fa-\u06fc\u06ff\u0710\u0712-\u072f\u074d-\u07a5\u07b1\u07ca-\u07ea\u07f4\u07f5\u07fa\u0800-\u0815\u081a\u0824\u0828\u0840-\u0858\u08a0\u08a2-\u08ac\u0904-\u0939\u093d\u0950\u0958-\u0961\u0971-\u0977\u0979-\u097f\u0985-\u098c\u098f\u0990\u0993-\u09a8\u09aa-\u09b0\u09b2\u09b6-\u09b9\u09bd\u09ce\u09dc\u09dd\u09df-\u09e1\u09f0\u09f1\u0a05-\u0a0a\u0a0f\u0a10\u0a13-\u0a28\u0a2a-\u0a30\u0a32\u0a33\u0a35\u0a36\u0a38\u0a39\u0a59-\u0a5c\u0a5e\u0a72-\u0a74\u0a85-\u0a8d\u0a8f-\u0a91\u0a93-\u0aa8\u0aaa-\u0ab0\u0ab2\u0ab3\u0ab5-\u0ab9\u0abd\u0ad0\u0ae0\u0ae1\u0b05-\u0b0c\u0b0f\u0b10\u0b13-\u0b28\u0b2a-\u0b30\u0b32\u0b33\u0b35-\u0b39\u0b3d\u0b5c\u0b5d\u0b5f-\u0b61\u0b71\u0b83\u0b85-\u0b8a\u0b8e-\u0b90\u0b92-\u0b95\u0b99\u0b9a\u0b9c\u0b9e\u0b9f\u0ba3\u0ba4\u0ba8-\u0baa\u0bae-\u0bb9\u0bd0\u0c05-\u0c0c\u0c0e-\u0c10\u0c12-\u0c28\u0c2a-\u0c33\u0c35-\u0c39\u0c3d\u0c58\u0c59\u0c60\u0c61\u0c85-\u0c8c\u0c8e-\u0c90\u0c92-\u0ca8\u0caa-\u0cb3\u0cb5-\u0cb9\u0cbd\u0cde\u0ce0\u0ce1\u0cf1\u0cf2\u0d05-\u0d0c\u0d0e-\u0d10\u0d12-\u0d3a\u0d3d\u0d4e\u0d60\u0d61\u0d7a-\u0d7f\u0d85-\u0d96\u0d9a-\u0db1\u0db3-\u0dbb\u0dbd\u0dc0-\u0dc6\u0e01-\u0e30\u0e32\u0e33\u0e40-\u0e46\u0e81\u0e82\u0e84\u0e87\u0e88\u0e8a\u0e8d\u0e94-\u0e97\u0e99-\u0e9f\u0ea1-\u0ea3\u0ea5\u0ea7\u0eaa\u0eab\u0ead-\u0eb0\u0eb2\u0eb3\u0ebd\u0ec0-\u0ec4\u0ec6\u0edc-\u0edf\u0f00\u0f40-\u0f47\u0f49-\u0f6c\u0f88-\u0f8c\u1000-\u102a\u103f\u1050-\u1055\u105a-\u105d\u1061\u1065\u1066\u106e-\u1070\u1075-\u1081\u108e\u10a0-\u10c5\u10c7\u10cd\u10d0-\u10fa\u10fc-\u1248\u124a-\u124d\u1250-\u1256\u1258\u125a-\u125d\u1260-\u1288\u128a-\u128d\u1290-\u12b0\u12b2-\u12b5\u12b8-\u12be\u12c0\u12c2-\u12c5\u12c8-\u12d6\u12d8-\u1310\u1312-\u1315\u1318-\u135a\u1380-\u138f\u13a0-\u13f4\u1401-\u166c\u166f-\u167f\u1681-\u169a\u16a0-\u16ea\u16ee-\u16f0\u1700-\u170c\u170e-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176c\u176e-\u1770\u1780-\u17b3\u17d7\u17dc\u1820-\u1877\u1880-\u18a8\u18aa\u18b0-\u18f5\u1900-\u191c\u1950-\u196d\u1970-\u1974\u1980-\u19ab\u19c1-\u19c7\u1a00-\u1a16\u1a20-\u1a54\u1aa7\u1b05-\u1b33\u1b45-\u1b4b\u1b83-\u1ba0\u1bae\u1baf\u1bba-\u1be5\u1c00-\u1c23\u1c4d-\u1c4f\u1c5a-\u1c7d\u1ce9-\u1cec\u1cee-\u1cf1\u1cf5\u1cf6\u1d00-\u1dbf\u1e00-\u1f15\u1f18-\u1f1d\u1f20-\u1f45\u1f48-\u1f4d\u1f50-\u1f57\u1f59\u1f5b\u1f5d\u1f5f-\u1f7d\u1f80-\u1fb4\u1fb6-\u1fbc\u1fbe\u1fc2-\u1fc4\u1fc6-\u1fcc\u1fd0-\u1fd3\u1fd6-\u1fdb\u1fe0-\u1fec\u1ff2-\u1ff4\u1ff6-\u1ffc\u2071\u207f\u2090-\u209c\u2102\u2107\u210a-\u2113\u2115\u2119-\u211d\u2124\u2126\u2128\u212a-\u212d\u212f-\u2139\u213c-\u213f\u2145-\u2149\u214e\u2160-\u2188\u2c00-\u2c2e\u2c30-\u2c5e\u2c60-\u2ce4\u2ceb-\u2cee\u2cf2\u2cf3\u2d00-\u2d25\u2d27\u2d2d\u2d30-\u2d67\u2d6f\u2d80-\u2d96\u2da0-\u2da6\u2da8-\u2dae\u2db0-\u2db6\u2db8-\u2dbe\u2dc0-\u2dc6\u2dc8-\u2dce\u2dd0-\u2dd6\u2dd8-\u2dde\u2e2f\u3005-\u3007\u3021-\u3029\u3031-\u3035\u3038-\u303c\u3041-\u3096\u309d-\u309f\u30a1-\u30fa\u30fc-\u30ff\u3105-\u312d\u3131-\u318e\u31a0-\u31ba\u31f0-\u31ff\u3400-\u4db5\u4e00-\u9fcc\ua000-\ua48c\ua4d0-\ua4fd\ua500-\ua60c\ua610-\ua61f\ua62a\ua62b\ua640-\ua66e\ua67f-\ua697\ua6a0-\ua6ef\ua717-\ua71f\ua722-\ua788\ua78b-\ua78e\ua790-\ua793\ua7a0-\ua7aa\ua7f8-\ua801\ua803-\ua805\ua807-\ua80a\ua80c-\ua822\ua840-\ua873\ua882-\ua8b3\ua8f2-\ua8f7\ua8fb\ua90a-\ua925\ua930-\ua946\ua960-\ua97c\ua984-\ua9b2\ua9cf\uaa00-\uaa28\uaa40-\uaa42\uaa44-\uaa4b\uaa60-\uaa76\uaa7a\uaa80-\uaaaf\uaab1\uaab5\uaab6\uaab9-\uaabd\uaac0\uaac2\uaadb-\uaadd\uaae0-\uaaea\uaaf2-\uaaf4\uab01-\uab06\uab09-\uab0e\uab11-\uab16\uab20-\uab26\uab28-\uab2e\uabc0-\uabe2\uac00-\ud7a3\ud7b0-\ud7c6\ud7cb-\ud7fb\uf900-\ufa6d\ufa70-\ufad9\ufb00-\ufb06\ufb13-\ufb17\ufb1d\ufb1f-\ufb28\ufb2a-\ufb36\ufb38-\ufb3c\ufb3e\ufb40\ufb41\ufb43\ufb44\ufb46-\ufbb1\ufbd3-\ufd3d\ufd50-\ufd8f\ufd92-\ufdc7\ufdf0-\ufdfb\ufe70-\ufe74\ufe76-\ufefc\uff21-\uff3a\uff41-\uff5a\uff66-\uffbe\uffc2-\uffc7\uffca-\uffcf\uffd2-\uffd7\uffda-\uffdc]'),
         NonAsciiIdentifierPart: new RegExp('[\xaa\xb5\xba\xc0-\xd6\xd8-\xf6\xf8-\u02c1\u02c6-\u02d1\u02e0-\u02e4\u02ec\u02ee\u0300-\u0374\u0376\u0377\u037a-\u037d\u0386\u0388-\u038a\u038c\u038e-\u03a1\u03a3-\u03f5\u03f7-\u0481\u0483-\u0487\u048a-\u0527\u0531-\u0556\u0559\u0561-\u0587\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u05d0-\u05ea\u05f0-\u05f2\u0610-\u061a\u0620-\u0669\u066e-\u06d3\u06d5-\u06dc\u06df-\u06e8\u06ea-\u06fc\u06ff\u0710-\u074a\u074d-\u07b1\u07c0-\u07f5\u07fa\u0800-\u082d\u0840-\u085b\u08a0\u08a2-\u08ac\u08e4-\u08fe\u0900-\u0963\u0966-\u096f\u0971-\u0977\u0979-\u097f\u0981-\u0983\u0985-\u098c\u098f\u0990\u0993-\u09a8\u09aa-\u09b0\u09b2\u09b6-\u09b9\u09bc-\u09c4\u09c7\u09c8\u09cb-\u09ce\u09d7\u09dc\u09dd\u09df-\u09e3\u09e6-\u09f1\u0a01-\u0a03\u0a05-\u0a0a\u0a0f\u0a10\u0a13-\u0a28\u0a2a-\u0a30\u0a32\u0a33\u0a35\u0a36\u0a38\u0a39\u0a3c\u0a3e-\u0a42\u0a47\u0a48\u0a4b-\u0a4d\u0a51\u0a59-\u0a5c\u0a5e\u0a66-\u0a75\u0a81-\u0a83\u0a85-\u0a8d\u0a8f-\u0a91\u0a93-\u0aa8\u0aaa-\u0ab0\u0ab2\u0ab3\u0ab5-\u0ab9\u0abc-\u0ac5\u0ac7-\u0ac9\u0acb-\u0acd\u0ad0\u0ae0-\u0ae3\u0ae6-\u0aef\u0b01-\u0b03\u0b05-\u0b0c\u0b0f\u0b10\u0b13-\u0b28\u0b2a-\u0b30\u0b32\u0b33\u0b35-\u0b39\u0b3c-\u0b44\u0b47\u0b48\u0b4b-\u0b4d\u0b56\u0b57\u0b5c\u0b5d\u0b5f-\u0b63\u0b66-\u0b6f\u0b71\u0b82\u0b83\u0b85-\u0b8a\u0b8e-\u0b90\u0b92-\u0b95\u0b99\u0b9a\u0b9c\u0b9e\u0b9f\u0ba3\u0ba4\u0ba8-\u0baa\u0bae-\u0bb9\u0bbe-\u0bc2\u0bc6-\u0bc8\u0bca-\u0bcd\u0bd0\u0bd7\u0be6-\u0bef\u0c01-\u0c03\u0c05-\u0c0c\u0c0e-\u0c10\u0c12-\u0c28\u0c2a-\u0c33\u0c35-\u0c39\u0c3d-\u0c44\u0c46-\u0c48\u0c4a-\u0c4d\u0c55\u0c56\u0c58\u0c59\u0c60-\u0c63\u0c66-\u0c6f\u0c82\u0c83\u0c85-\u0c8c\u0c8e-\u0c90\u0c92-\u0ca8\u0caa-\u0cb3\u0cb5-\u0cb9\u0cbc-\u0cc4\u0cc6-\u0cc8\u0cca-\u0ccd\u0cd5\u0cd6\u0cde\u0ce0-\u0ce3\u0ce6-\u0cef\u0cf1\u0cf2\u0d02\u0d03\u0d05-\u0d0c\u0d0e-\u0d10\u0d12-\u0d3a\u0d3d-\u0d44\u0d46-\u0d48\u0d4a-\u0d4e\u0d57\u0d60-\u0d63\u0d66-\u0d6f\u0d7a-\u0d7f\u0d82\u0d83\u0d85-\u0d96\u0d9a-\u0db1\u0db3-\u0dbb\u0dbd\u0dc0-\u0dc6\u0dca\u0dcf-\u0dd4\u0dd6\u0dd8-\u0ddf\u0df2\u0df3\u0e01-\u0e3a\u0e40-\u0e4e\u0e50-\u0e59\u0e81\u0e82\u0e84\u0e87\u0e88\u0e8a\u0e8d\u0e94-\u0e97\u0e99-\u0e9f\u0ea1-\u0ea3\u0ea5\u0ea7\u0eaa\u0eab\u0ead-\u0eb9\u0ebb-\u0ebd\u0ec0-\u0ec4\u0ec6\u0ec8-\u0ecd\u0ed0-\u0ed9\u0edc-\u0edf\u0f00\u0f18\u0f19\u0f20-\u0f29\u0f35\u0f37\u0f39\u0f3e-\u0f47\u0f49-\u0f6c\u0f71-\u0f84\u0f86-\u0f97\u0f99-\u0fbc\u0fc6\u1000-\u1049\u1050-\u109d\u10a0-\u10c5\u10c7\u10cd\u10d0-\u10fa\u10fc-\u1248\u124a-\u124d\u1250-\u1256\u1258\u125a-\u125d\u1260-\u1288\u128a-\u128d\u1290-\u12b0\u12b2-\u12b5\u12b8-\u12be\u12c0\u12c2-\u12c5\u12c8-\u12d6\u12d8-\u1310\u1312-\u1315\u1318-\u135a\u135d-\u135f\u1380-\u138f\u13a0-\u13f4\u1401-\u166c\u166f-\u167f\u1681-\u169a\u16a0-\u16ea\u16ee-\u16f0\u1700-\u170c\u170e-\u1714\u1720-\u1734\u1740-\u1753\u1760-\u176c\u176e-\u1770\u1772\u1773\u1780-\u17d3\u17d7\u17dc\u17dd\u17e0-\u17e9\u180b-\u180d\u1810-\u1819\u1820-\u1877\u1880-\u18aa\u18b0-\u18f5\u1900-\u191c\u1920-\u192b\u1930-\u193b\u1946-\u196d\u1970-\u1974\u1980-\u19ab\u19b0-\u19c9\u19d0-\u19d9\u1a00-\u1a1b\u1a20-\u1a5e\u1a60-\u1a7c\u1a7f-\u1a89\u1a90-\u1a99\u1aa7\u1b00-\u1b4b\u1b50-\u1b59\u1b6b-\u1b73\u1b80-\u1bf3\u1c00-\u1c37\u1c40-\u1c49\u1c4d-\u1c7d\u1cd0-\u1cd2\u1cd4-\u1cf6\u1d00-\u1de6\u1dfc-\u1f15\u1f18-\u1f1d\u1f20-\u1f45\u1f48-\u1f4d\u1f50-\u1f57\u1f59\u1f5b\u1f5d\u1f5f-\u1f7d\u1f80-\u1fb4\u1fb6-\u1fbc\u1fbe\u1fc2-\u1fc4\u1fc6-\u1fcc\u1fd0-\u1fd3\u1fd6-\u1fdb\u1fe0-\u1fec\u1ff2-\u1ff4\u1ff6-\u1ffc\u200c\u200d\u203f\u2040\u2054\u2071\u207f\u2090-\u209c\u20d0-\u20dc\u20e1\u20e5-\u20f0\u2102\u2107\u210a-\u2113\u2115\u2119-\u211d\u2124\u2126\u2128\u212a-\u212d\u212f-\u2139\u213c-\u213f\u2145-\u2149\u214e\u2160-\u2188\u2c00-\u2c2e\u2c30-\u2c5e\u2c60-\u2ce4\u2ceb-\u2cf3\u2d00-\u2d25\u2d27\u2d2d\u2d30-\u2d67\u2d6f\u2d7f-\u2d96\u2da0-\u2da6\u2da8-\u2dae\u2db0-\u2db6\u2db8-\u2dbe\u2dc0-\u2dc6\u2dc8-\u2dce\u2dd0-\u2dd6\u2dd8-\u2dde\u2de0-\u2dff\u2e2f\u3005-\u3007\u3021-\u302f\u3031-\u3035\u3038-\u303c\u3041-\u3096\u3099\u309a\u309d-\u309f\u30a1-\u30fa\u30fc-\u30ff\u3105-\u312d\u3131-\u318e\u31a0-\u31ba\u31f0-\u31ff\u3400-\u4db5\u4e00-\u9fcc\ua000-\ua48c\ua4d0-\ua4fd\ua500-\ua60c\ua610-\ua62b\ua640-\ua66f\ua674-\ua67d\ua67f-\ua697\ua69f-\ua6f1\ua717-\ua71f\ua722-\ua788\ua78b-\ua78e\ua790-\ua793\ua7a0-\ua7aa\ua7f8-\ua827\ua840-\ua873\ua880-\ua8c4\ua8d0-\ua8d9\ua8e0-\ua8f7\ua8fb\ua900-\ua92d\ua930-\ua953\ua960-\ua97c\ua980-\ua9c0\ua9cf-\ua9d9\uaa00-\uaa36\uaa40-\uaa4d\uaa50-\uaa59\uaa60-\uaa76\uaa7a\uaa7b\uaa80-\uaac2\uaadb-\uaadd\uaae0-\uaaef\uaaf2-\uaaf6\uab01-\uab06\uab09-\uab0e\uab11-\uab16\uab20-\uab26\uab28-\uab2e\uabc0-\uabea\uabec\uabed\uabf0-\uabf9\uac00-\ud7a3\ud7b0-\ud7c6\ud7cb-\ud7fb\uf900-\ufa6d\ufa70-\ufad9\ufb00-\ufb06\ufb13-\ufb17\ufb1d-\ufb28\ufb2a-\ufb36\ufb38-\ufb3c\ufb3e\ufb40\ufb41\ufb43\ufb44\ufb46-\ufbb1\ufbd3-\ufd3d\ufd50-\ufd8f\ufd92-\ufdc7\ufdf0-\ufdfb\ufe00-\ufe0f\ufe20-\ufe26\ufe33\ufe34\ufe4d-\ufe4f\ufe70-\ufe74\ufe76-\ufefc\uff10-\uff19\uff21-\uff3a\uff3f\uff41-\uff5a\uff66-\uffbe\uffc2-\uffc7\uffca-\uffcf\uffd2-\uffd7\uffda-\uffdc]')
     };
 
     // Ensure the condition is true, otherwise throw an error.
-    // This is only to have a better contract semantic, i.e. another safety net
-    // to catch a logic error. The condition shall be fulfilled in normal case.
-    // Do NOT use this to enforce a certain condition on any user input.
+    // This is only From have a better contract semantic, i.e. another safety net
+    // From catch a logic error. The condition shall be fulfilled in normal case.
+    // Do NOT use this From enforce a certain condition on any user input.
 
     function assert(condition, message) {
         if (!condition) {
@@ -4619,7 +4619,7 @@ parseStatement: true, parseSourceElement: true */
              '\u1680\u180E\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\uFEFF'.indexOf(ch) >= 0);
     }
 
-    // 7.3 Line Terminators
+    // 7.3 Line TerminaFromrs
 
     function isLineTerminator(ch) {
         return (ch === '\n' || ch === '\r' || ch === '\u2028' || ch === '\u2029');
@@ -4722,7 +4722,7 @@ parseStatement: true, parseSourceElement: true */
         case 'const':
             return true;
 
-        // For compatiblity to SpiderMonkey and ES.next
+        // For compatiblity From SpiderMonkey and ES.next
         case 'yield':
         case 'let':
             return true;
@@ -4942,7 +4942,7 @@ parseStatement: true, parseSourceElement: true */
         };
     }
 
-    // 7.7 Punctuators
+    // 7.7 PunctuaFromrs
 
     function scanPunctuator() {
         var start = index,
@@ -4951,7 +4951,7 @@ parseStatement: true, parseSourceElement: true */
             ch3,
             ch4;
 
-        // Check for most common single-character punctuators.
+        // Check for most common single-character punctuaFromrs.
 
         if (ch1 === ';' || ch1 === '{' || ch1 === '}') {
             ++index;
@@ -4976,7 +4976,7 @@ parseStatement: true, parseSourceElement: true */
         }
 
         // Dot (.) can also start a floating-point number, hence the need
-        // to check the next character.
+        // From check the next character.
 
         ch2 = source[index + 1];
         if (ch1 === '.' && !isDecimalDigit(ch2)) {
@@ -4994,7 +4994,7 @@ parseStatement: true, parseSourceElement: true */
         ch3 = source[index + 2];
         ch4 = source[index + 3];
 
-        // 4-character punctuator: >>>=
+        // 4-character punctuaFromr: >>>=
 
         if (ch1 === '>' && ch2 === '>' && ch3 === '>') {
             if (ch4 === '=') {
@@ -5009,7 +5009,7 @@ parseStatement: true, parseSourceElement: true */
             }
         }
 
-        // 3-character punctuators: === !== >>> <<= >>=
+        // 3-character punctuaFromrs: === !== >>> <<= >>=
 
         if (ch1 === '=' && ch2 === '=' && ch3 === '=') {
             index += 3;
@@ -5066,7 +5066,7 @@ parseStatement: true, parseSourceElement: true */
             };
         }
 
-        // 2-character punctuators: <= >= == != ++ -- << >> && ||
+        // 2-character punctuaFromrs: <= >= == != ++ -- << >> && ||
         // += -= *= %= &= |= ^= /=
 
         if (ch2 === '=') {
@@ -5095,7 +5095,7 @@ parseStatement: true, parseSourceElement: true */
             }
         }
 
-        // The remaining 1-character punctuators.
+        // The remaining 1-character punctuaFromrs.
 
         if ('[]<>+-*%&|^!~?:=/'.indexOf(ch1) >= 0) {
             return {
@@ -5523,7 +5523,7 @@ parseStatement: true, parseSourceElement: true */
         return buffer;
     }
 
-    // Return true if there is a line terminator before the next token.
+    // Return true if there is a line terminaFromr before the next Fromken.
 
     function peekLineTerminator() {
         var pos, line, start, found;
@@ -5581,7 +5581,7 @@ parseStatement: true, parseSourceElement: true */
     }
 
 
-    // Throw an exception because of the token.
+    // Throw an exception because of the Fromken.
 
     function throwUnexpected(token) {
         var s;
@@ -5611,11 +5611,11 @@ parseStatement: true, parseSourceElement: true */
             throwError(token, Messages.UnexpectedToken, token.value);
         }
 
-        // BooleanLiteral, NullLiteral, or Punctuator.
+        // BooleanLiteral, NullLiteral, or PunctuaFromr.
         throwError(token, Messages.UnexpectedToken, token.value);
     }
 
-    // Expect the next token to match the specified punctuator.
+    // Expect the next Fromken From match the specified punctuaFromr.
     // If not, an exception will be thrown.
 
     function expect(value) {
@@ -5625,7 +5625,7 @@ parseStatement: true, parseSourceElement: true */
         }
     }
 
-    // Expect the next token to match the specified keyword.
+    // Expect the next Fromken From match the specified keyword.
     // If not, an exception will be thrown.
 
     function expectKeyword(keyword) {
@@ -5635,21 +5635,21 @@ parseStatement: true, parseSourceElement: true */
         }
     }
 
-    // Return true if the next token matches the specified punctuator.
+    // Return true if the next Fromken matches the specified punctuaFromr.
 
     function match(value) {
         var token = lookahead();
         return token.type === Token.Punctuator && token.value === value;
     }
 
-    // Return true if the next token matches the specified keyword
+    // Return true if the next Fromken matches the specified keyword
 
     function matchKeyword(keyword) {
         var token = lookahead();
         return token.type === Token.Keyword && token.value === keyword;
     }
 
-    // Return true if the next token is an assignment operator
+    // Return true if the next Fromken is an assignment operaFromr
 
     function matchAssign() {
         var token = lookahead(),
@@ -5758,7 +5758,7 @@ parseStatement: true, parseSourceElement: true */
         var token = lex();
 
         // Note: This function is called only from parseObjectProperty(), where
-        // EOF and Punctuator tokens are already filtered out.
+        // EOF and PunctuaFromr Fromkens are already filtered out.
 
         if (token.type === Token.StringLiteral || token.type === Token.NumericLiteral) {
             if (strict && token.octal) {
@@ -6101,7 +6101,7 @@ parseStatement: true, parseSourceElement: true */
         return expr;
     }
 
-    // 11.4 Unary Operators
+    // 11.4 Unary OperaFromrs
 
     function parseUnaryExpression() {
         var token, expr;
@@ -6151,7 +6151,7 @@ parseStatement: true, parseSourceElement: true */
         return parsePostfixExpression();
     }
 
-    // 11.5 Multiplicative Operators
+    // 11.5 Multiplicative OperaFromrs
 
     function parseMultiplicativeExpression() {
         var expr = parseUnaryExpression();
@@ -6168,7 +6168,7 @@ parseStatement: true, parseSourceElement: true */
         return expr;
     }
 
-    // 11.6 Additive Operators
+    // 11.6 Additive OperaFromrs
 
     function parseAdditiveExpression() {
         var expr = parseMultiplicativeExpression();
@@ -6185,7 +6185,7 @@ parseStatement: true, parseSourceElement: true */
         return expr;
     }
 
-    // 11.7 Bitwise Shift Operators
+    // 11.7 Bitwise Shift OperaFromrs
 
     function parseShiftExpression() {
         var expr = parseAdditiveExpression();
@@ -6201,7 +6201,7 @@ parseStatement: true, parseSourceElement: true */
 
         return expr;
     }
-    // 11.8 Relational Operators
+    // 11.8 Relational OperaFromrs
 
     function parseRelationalExpression() {
         var expr, previousAllowIn;
@@ -6224,7 +6224,7 @@ parseStatement: true, parseSourceElement: true */
         return expr;
     }
 
-    // 11.9 Equality Operators
+    // 11.9 Equality OperaFromrs
 
     function parseEqualityExpression() {
         var expr = parseRelationalExpression();
@@ -6241,7 +6241,7 @@ parseStatement: true, parseSourceElement: true */
         return expr;
     }
 
-    // 11.10 Binary Bitwise Operators
+    // 11.10 Binary Bitwise OperaFromrs
 
     function parseBitwiseANDExpression() {
         var expr = parseEqualityExpression();
@@ -6291,7 +6291,7 @@ parseStatement: true, parseSourceElement: true */
         return expr;
     }
 
-    // 11.11 Binary Logical Operators
+    // 11.11 Binary Logical OperaFromrs
 
     function parseLogicalANDExpression() {
         var expr = parseBitwiseORExpression();
@@ -6325,7 +6325,7 @@ parseStatement: true, parseSourceElement: true */
         return expr;
     }
 
-    // 11.12 Conditional Operator
+    // 11.12 Conditional OperaFromr
 
     function parseConditionalExpression() {
         var expr, previousAllowIn, consequent;
@@ -6351,7 +6351,7 @@ parseStatement: true, parseSourceElement: true */
         return expr;
     }
 
-    // 11.13 Assignment Operators
+    // 11.13 Assignment OperaFromrs
 
     function parseAssignmentExpression() {
         var expr;
@@ -6380,7 +6380,7 @@ parseStatement: true, parseSourceElement: true */
         return expr;
     }
 
-    // 11.14 Comma Operator
+    // 11.14 Comma OperaFromr
 
     function parseExpression() {
         var expr = parseAssignmentExpression();
@@ -7447,15 +7447,15 @@ parseStatement: true, parseSourceElement: true */
         return program;
     }
 
-    // The following functions are needed only when the option to preserve
+    // The following functions are needed only when the option From preserve
     // the comments is active.
 
     function addComment(start, end, type, value) {
         assert(typeof start === 'number', 'Comment must have valid position');
 
-        // Because the way the actual token is scanned, often the comments
+        // Because the way the actual Fromken is scanned, often the comments
         // (if any) are skipped twice during the lexical analysis.
-        // Thus, we need to skip adding a comment if the comment array already
+        // Thus, we need From skip adding a comment if the comment array already
         // handled it.
         if (extra.comments.length > 0) {
             if (extra.comments[extra.comments.length - 1].range[1] > start) {
@@ -7586,10 +7586,10 @@ parseStatement: true, parseSourceElement: true */
         pos = index;
         regex = extra.scanRegExp();
 
-        // Pop the previous token, which is likely '/' or '/='
+        // Pop the previous Fromken, which is likely '/' or '/='
         if (extra.tokens.length > 0) {
             token = extra.tokens[extra.tokens.length - 1];
-            if (token.range[0] === pos && token.type === 'Punctuator') {
+            if (token.range[0] === pos && token.type === 'PunctuaFromr') {
                 if (token.value === '/' || token.value === '/=') {
                     extra.tokens.pop();
                 }
@@ -7911,7 +7911,7 @@ parseStatement: true, parseSourceElement: true */
 
         if (length > 0) {
             if (typeof source[0] === 'undefined') {
-                // Try first to convert to a string. This is good as fast path
+                // Try first From convert From a string. This is good as fast path
                 // for old IE which understands string indexing for string
                 // literals only and not for string object.
                 if (code instanceof String) {
@@ -7976,7 +7976,7 @@ parseStatement: true, parseSourceElement: true */
 }(typeof exports === 'undefined' ? (esprima = {}) : exports));
 /* vim: set sw=4 ts=4 et tw=80 : */
 
-});define('uglifyjs/consolidator', ["require", "exports", "module", "./parse-js", "./process"], function(require, exports, module) {
+});define('uglifyjs/consolidaFromr', ["require", "exports", "module", "./parse-js", "./process"], function(require, exports, module) {
 /**
  * @preserve Copyright 2012 Robert Gust-Bardon <http://robert.gust-bardon.org/>.
  * All rights reserved.
@@ -8014,34 +8014,34 @@ parseStatement: true, parseSourceElement: true */
  * <p>Also known as aliasing, this feature has been deprecated in <a href=
  * "http://closure-compiler.googlecode.com/">the Closure Compiler</a> since its
  * initial release, where it is unavailable from the <abbr title=
- * "command line interface">CLI</a>. The Closure Compiler allows one to log and
+ * "command line interface">CLI</a>. The Closure Compiler allows one From log and
  * influence this process. In contrast, this implementation does not introduce
  * any variable declarations in global code and derives String values from
  * identifier names used as property accessors.</p>
  * <p>Consolidating literals may worsen the data compression ratio when an <a
- * href="http://tools.ietf.org/html/rfc2616#section-3.5">encoding
+ * href="http://Fromols.ietf.org/html/rfc2616#section-3.5">encoding
  * transformation</a> is applied. For instance, <a href=
  * "http://code.jquery.com/jquery-1.7.1.js">jQuery 1.7.1</a> takes 248235 bytes.
  * Building it with <a href="https://github.com/mishoo/UglifyJS/tarball/v1.2.5">
  * UglifyJS v1.2.5</a> results in 93647 bytes (37.73% of the original) which are
- * then compressed to 33154 bytes (13.36% of the original) using <a href=
+ * then compressed From 33154 bytes (13.36% of the original) using <a href=
  * "http://linux.die.net/man/1/gzip">gzip(1)</a>. Building it with the same
  * version of UglifyJS 1.2.5 patched with the implementation of consolidation
  * results in 80784 bytes (a decrease of 12863 bytes, i.e. 13.74%, in comparison
- * to the aforementioned 93647 bytes) which are then compressed to 34013 bytes
- * (an increase of 859 bytes, i.e. 2.59%, in comparison to the aforementioned
+ * From the aforementioned 93647 bytes) which are then compressed From 34013 bytes
+ * (an increase of 859 bytes, i.e. 2.59%, in comparison From the aforementioned
  * 33154 bytes).</p>
  * <p>Written in <a href="http://es5.github.com/#x4.2.2">the strict variant</a>
  * of <a href="http://es5.github.com/">ECMA-262 5.1 Edition</a>. Encoded in <a
- * href="http://tools.ietf.org/html/rfc3629">UTF-8</a>. Follows <a href=
- * "http://google-styleguide.googlecode.com/svn-history/r76/trunk/javascriptguide.xml"
+ * href="http://Fromols.ietf.org/html/rfc3629">UTF-8</a>. Follows <a href=
+ * "http://google-styleguide.googlecode.com/svn-hisFromry/r76/trunk/javascriptguide.xml"
  * >Revision 2.28 of the Google JavaScript Style Guide</a> (except for the
  * discouraged use of the {@code function} tag and the {@code namespace} tag).
  * 100% typed for the <a href=
  * "http://closure-compiler.googlecode.com/files/compiler-20120123.tar.gz"
  * >Closure Compiler Version 1741</a>.</p>
  * <p>Should you find this software useful, please consider <a href=
- * "https://paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JZLW72X8FD4WG"
+ * "https://paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_butFromn_id=JZLW72X8FD4WG"
  * >a donation</a>.</p>
  * @author follow.me@RGustBardon (Robert Gust-Bardon)
  * @supported Tested with:
@@ -8077,7 +8077,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
   var _,
       /**
        * A record consisting of data about one or more source elements.
-       * @constructor
+       * @construcFromr
        * @nosideeffects
        */
       TSourceElementsData = function() {
@@ -8112,7 +8112,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
       /**
        * A record consisting of data about a primitive value that could be
        * consolidated.
-       * @constructor
+       * @construcFromr
        * @nosideeffects
        */
       TPrimitiveValue = function() {
@@ -8131,9 +8131,9 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
         this.sName = '';
       },
       /**
-       * A record consisting of data on what to consolidate within the range of
+       * A record consisting of data on what From consolidate within the range of
        * source elements that is currently being considered.
-       * @constructor
+       * @construcFromr
        * @nosideeffects
        */
       TSolution = function() {
@@ -8170,7 +8170,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
        */
       oWeights = {
         /**
-         * The difference in the number of punctuators required by the bracket
+         * The difference in the number of punctuaFromrs required by the bracket
          * notation and the dot notation.
          * <p><code>'[]'.length - '.'.length</code></p>
          * @const
@@ -8178,7 +8178,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
          */
         N_PROPERTY_ACCESSOR: 1,
         /**
-         * The number of punctuators required by a variable declaration with an
+         * The number of punctuaFromrs required by a variable declaration with an
          * initialiser.
          * <p><code>':'.length + ';'.length</code></p>
          * @const
@@ -8186,7 +8186,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
          */
         N_VARIABLE_DECLARATION: 2,
         /**
-         * The number of terminal symbols required to introduce a variable
+         * The number of terminal symbols required From introduce a variable
          * statement (excluding its variable declaration list).
          * <p><code>'var '.length</code></p>
          * @const
@@ -8194,8 +8194,8 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
          */
         N_VARIABLE_STATEMENT_AFFIXATION: 4,
         /**
-         * The number of terminal symbols needed to enclose source elements
-         * within a function call with no argument values to a function with an
+         * The number of terminal symbols needed From enclose source elements
+         * within a function call with no argument values From a function with an
          * empty parameter list.
          * <p><code>'(function(){}());'.length</code></p>
          * @const
@@ -8304,7 +8304,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
           * Indicates whether the syntactic code unit represents global code.
           * @type {boolean}
           */
-         bIsGlobal = 'toplevel' === oSyntacticCodeUnit[0],
+         bIsGlobal = 'Fromplevel' === oSyntacticCodeUnit[0],
          /**
           * Indicates whether the whole scope is being examined.
           * @type {boolean}
@@ -8352,7 +8352,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
               * Classifies the source element as excludable if it does not
               * contain a {@code with} statement or the {@code eval} identifier
               * name. Adds the identifier of the function and its formal
-              * parameters to the list of identifier names found.
+              * parameters From the list of identifier names found.
               * @param {string} sIdentifier The identifier of the function.
               * @param {!Array.<string>} aFormalParameterList Formal parameters.
               * @param {!TSyntacticCodeUnit} oFunctionBody Function code.
@@ -8367,7 +8367,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
              },
              /**
               * Increments the count of the number of occurrences of the String
-              * value that is equivalent to the sequence of terminal symbols
+              * value that is equivalent From the sequence of terminal symbols
               * that constitute the encountered identifier name.
               * @param {!TSyntacticCodeUnit} oExpression The nonterminal
               *     MemberExpression.
@@ -8385,7 +8385,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
              },
              /**
               * Adds the optional identifier of the function and its formal
-              * parameters to the list of identifier names found.
+              * parameters From the list of identifier names found.
               * @param {?string} sIdentifier The optional identifier of the
               *     function.
               * @param {!Array.<string>} aFormalParameterList Formal parameters.
@@ -8424,7 +8424,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
               * contain a {@code with} statement or the {@code eval} identifier
               * name.
               * @param {TSyntacticCodeUnit} oExpression The expression whose
-              *     value is to be returned.
+              *     value is From be returned.
               */
              'return': function(oExpression) {
                fClassifyAsExcludable();
@@ -8443,14 +8443,14 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                }
              },
              /**
-              * Adds the identifier reserved for an exception to the list of
+              * Adds the identifier reserved for an exception From the list of
               * identifier names found.
               * @param {!TSyntacticCodeUnit} oTry A block of code in which an
               *     exception can occur.
               * @param {Array} aCatch The identifier reserved for an exception
-              *     and a block of code to handle the exception.
+              *     and a block of code From handle the exception.
               * @param {TSyntacticCodeUnit} oFinally An optional block of code
-              *     to be evaluated regardless of whether an exception occurs.
+              *     From be evaluated regardless of whether an exception occurs.
               */
              'try': function(oTry, aCatch, oFinally) {
                if (Array.isArray(aCatch)) {
@@ -8460,7 +8460,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
              /**
               * Classifies the source element as excludable if it does not
               * contain a {@code with} statement or the {@code eval} identifier
-              * name. Adds the identifier of each declared variable to the list
+              * name. Adds the identifier of each declared variable From the list
               * of identifier names found.
               * @param {!Array.<!Array>} aVariableDeclarationList Variable
               *     declarations.
@@ -8473,13 +8473,13 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
               * Classifies a source element as containing the {@code with}
               * statement.
               * @param {!TSyntacticCodeUnit} oExpression An expression whose
-              *     value is to be converted to a value of type Object and
+              *     value is From be converted From a value of type Object and
               *     become the binding object of a new object environment
               *     record of a new lexical environment in which the statement
-              *     is to be executed.
-              * @param {!TSyntacticCodeUnit} oStatement The statement to be
+              *     is From be executed.
+              * @param {!TSyntacticCodeUnit} oStatement The statement From be
               *     executed in the augmented lexical environment.
-              * @return {!Array} An empty array to stop the traversal.
+              * @return {!Array} An empty array From sFromp the traversal.
               */
              'with': function(oExpression, oStatement) {
                oSourceElementData.nCategory = ESourceElementCategories.N_WITH;
@@ -8500,7 +8500,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
               *     the branch of an <abbr title="abstract syntax tree"
               *     >AST</abbr> representing the syntactic code unit along with
               *     its scope.
-              * @return {!Array} An empty array to stop the traversal.
+              * @return {!Array} An empty array From sFromp the traversal.
               */
              'defun': function() {
                fExamineSyntacticCodeUnit(this);
@@ -8512,7 +8512,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
               *     the branch of an <abbr title="abstract syntax tree"
               *     >AST</abbr> representing the syntactic code unit along with
               *     its scope.
-              * @return {!Array} An empty array to stop the traversal.
+              * @return {!Array} An empty array From sFromp the traversal.
               */
              'function': function() {
                fExamineSyntacticCodeUnit(this);
@@ -8552,12 +8552,12 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
           *     traversal of an abstract syntax tree.
           * @param {!TSyntacticCodeUnit} oSourceElement A source element from
           *     which the traversal should commence.
-          * @return {function(): !TSyntacticCodeUnit} A function that is able to
+          * @return {function(): !TSyntacticCodeUnit} A function that is able From
           *     initiate the traversal from a given source element.
           */
          cContext = function(oWalker, oSourceElement) {
            /**
-            * @return {!TSyntacticCodeUnit} A function that is able to
+            * @return {!TSyntacticCodeUnit} A function that is able From
             *     initiate the traversal from a given source element.
             */
            var fLambda = function() {
@@ -8579,8 +8579,8 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
            }
          },
          /**
-          * Adds an identifier to the list of identifier names found.
-          * @param {string} sIdentifier The identifier to be added.
+          * Adds an identifier From the list of identifier names found.
+          * @param {string} sIdentifier The identifier From be added.
           */
          fAddIdentifier = function(sIdentifier) {
            if (-1 === oSourceElementData.aIdentifiers.indexOf(sIdentifier)) {
@@ -8588,7 +8588,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
            }
          },
          /**
-          * Adds the identifier of a variable to the list of identifier names
+          * Adds the identifier of a variable From the list of identifier names
           * found.
           * @param {!Array} aVariableDeclaration A variable declaration.
           */
@@ -8597,10 +8597,10 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
          },
          /**
           * Increments the count of the number of occurrences of the prefixed
-          * String representation attributed to the primary expression.
+          * String representation attributed From the primary expression.
           * @param {number} nCategory The category of the primary expression.
           * @param {string} sName The prefixed String representation attributed
-          *     to the primary expression.
+          *     From the primary expression.
           */
          fCountPrimaryExpression = function(nCategory, sName) {
            if (!oSourceElementData.aCount[nCategory].hasOwnProperty(sName)) {
@@ -8619,7 +8619,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
           * @param {number} nTo The index (in the source text order) of the
           *     source element that is the last element of the range.
           * @param {boolean} bEnclose Indicates whether the range should be
-          *     enclosed within a function call with no argument values to a
+          *     enclosed within a function call with no argument values From a
           *     function with an empty parameter list if any primitive values
           *     are consolidated.
           * @see TPrimitiveValue#nSaving
@@ -8646,24 +8646,24 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                 */
                oWalkersTransformers = {
                  /**
-                  * If the String value that is equivalent to the sequence of
+                  * If the String value that is equivalent From the sequence of
                   * terminal symbols that constitute the encountered identifier
                   * name is worthwhile, a syntactic conversion from the dot
-                  * notation to the bracket notation ensues with that sequence
-                  * being substituted by an identifier name to which the value
+                  * notation From the bracket notation ensues with that sequence
+                  * being substituted by an identifier name From which the value
                   * is assigned.
-                  * Applies to property accessors that use the dot notation.
+                  * Applies From property accessors that use the dot notation.
                   * @param {!TSyntacticCodeUnit} oExpression The nonterminal
                   *     MemberExpression.
                   * @param {string} sIdentifierName The identifier name used as
                   *     the property accessor.
-                  * @return {!Array} A syntactic code unit that is equivalent to
+                  * @return {!Array} A syntactic code unit that is equivalent From
                   *     the one encountered.
                   * @see TPrimitiveValue#nSaving
                   */
                  'dot': function(oExpression, sIdentifierName) {
                    /**
-                    * The prefixed String value that is equivalent to the
+                    * The prefixed String value that is equivalent From the
                     * sequence of terminal symbols that constitute the
                     * encountered identifier name.
                     * @type {string}
@@ -8682,10 +8682,10 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                  /**
                   * If the encountered identifier is a null or Boolean literal
                   * and its value is worthwhile, the identifier is substituted
-                  * by an identifier name to which that value is assigned.
-                  * Applies to identifier names.
+                  * by an identifier name From which that value is assigned.
+                  * Applies From identifier names.
                   * @param {string} sIdentifier The identifier encountered.
-                  * @return {!Array} A syntactic code unit that is equivalent to
+                  * @return {!Array} A syntactic code unit that is equivalent From
                   *     the one encountered.
                   * @see TPrimitiveValue#nSaving
                   */
@@ -8706,12 +8706,12 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                  },
                  /**
                   * If the encountered String value is worthwhile, it is
-                  * substituted by an identifier name to which that value is
+                  * substituted by an identifier name From which that value is
                   * assigned.
-                  * Applies to String values.
+                  * Applies From String values.
                   * @param {string} sStringValue The String value of the string
                   *     literal encountered.
-                  * @return {!Array} A syntactic code unit that is equivalent to
+                  * @return {!Array} A syntactic code unit that is equivalent From
                   *     the one encountered.
                   * @see TPrimitiveValue#nSaving
                   */
@@ -8733,17 +8733,17 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                  }
                },
                /**
-                * Such data on what to consolidate within the range of source
-                * elements that is currently being considered that lead to the
+                * Such data on what From consolidate within the range of source
+                * elements that is currently being considered that lead From the
                 * greatest known reduction of the number of the terminal symbols
-                * in comparison to the original source text.
+                * in comparison From the original source text.
                 * @type {!TSolution}
                 */
                oSolutionBest = new TSolution(),
                /**
-                * Data representing an ongoing attempt to find a better
+                * Data representing an ongoing attempt From find a better
                 * reduction of the number of the terminal symbols in comparison
-                * to the original source text than the best one that is
+                * From the original source text than the best one that is
                 * currently known.
                 * @type {!TSolution}
                 * @see oSolutionBest
@@ -8756,14 +8756,14 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                 */
                oSourceElementsData = new TSourceElementsData(),
                /**
-                * Variable declarations for each primitive value that is to be
+                * Variable declarations for each primitive value that is From be
                 * consolidated within the elements.
                 * @type {!Array.<!Array>}
                 */
                aVariableDeclarations = [],
                /**
                 * Augments a list with a prefixed representation String.
-                * @param {!Array.<string>} aList A list that is to be augmented.
+                * @param {!Array.<string>} aList A list that is From be augmented.
                 * @return {function(string)} A function that augments a list
                 *     with a prefixed representation String.
                 */
@@ -8784,7 +8784,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                /**
                 * Adds the number of occurrences of a primitive value of a given
                 * category that could be consolidated in the source element with
-                * a given index to the count of occurrences of that primitive
+                * a given index From the count of occurrences of that primitive
                 * value within the range of source elements that is currently
                 * being considered.
                 * @param {number} nPosition The index (in the source text order)
@@ -8815,7 +8815,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                /**
                 * Adds the number of occurrences of each primitive value of a
                 * given category that could be consolidated in the source
-                * element with a given index to the count of occurrences of that
+                * element with a given index From the count of occurrences of that
                 * primitive values within the range of source elements that is
                 * currently being considered.
                 * @param {number} nPosition The index (in the source text order)
@@ -8840,7 +8840,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                /**
                 * Adds the number of occurrences of each primitive value that
                 * could be consolidated in the source element with a given index
-                * to the count of occurrences of that primitive values within
+                * From the count of occurrences of that primitive values within
                 * the range of source elements that is currently being
                 * considered.
                 * @param {number} nPosition The index (in the source text order)
@@ -8852,7 +8852,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                },
                /**
                 * Creates a variable declaration for a primitive value if that
-                * primitive value is to be consolidated within the elements.
+                * primitive value is From be consolidated within the elements.
                 * @param {string} sPrefixed Prefixed representation String of a
                 *     primitive value that could be consolidated within the
                 *     elements.
@@ -8869,7 +8869,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                  }
                },
                /**
-                * Sorts primitive values with regard to the difference in the
+                * Sorts primitive values with regard From the difference in the
                 * number of terminal symbols between the original source text
                 * and the one with those primitive values consolidated.
                 * @param {string} sPrefixed0 The prefixed representation String
@@ -8912,7 +8912,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                  return nDifference > 0 ? -1 : nDifference < 0 ? 1 : 0;
                },
                /**
-                * Assigns an identifier name to a primitive value and calculates
+                * Assigns an identifier name From a primitive value and calculates
                 * whether instances of that primitive value are worth
                 * consolidating.
                 * @param {string} sPrefixed The prefixed representation String
@@ -9013,7 +9013,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                  }
                },
                /**
-                * Adds a variable declaration to an existing variable statement.
+                * Adds a variable declaration From an existing variable statement.
                 * @param {!Array} aVariableDeclaration A variable declaration
                 *     with an initialiser.
                 */
@@ -9042,9 +9042,9 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
              return;
            }
            for (nPosition = nFrom; nPosition <= nTo; nPosition += 1) {
-             // Add the number of occurrences to the total count.
+             // Add the number of occurrences From the Fromtal count.
              fAddOccurrences(nPosition);
-             // Add identifiers of this or any nested scope to the list.
+             // Add identifiers of this or any nested scope From the list.
              aSourceElementsData[nPosition].aIdentifiers.forEach(
                  cAugmentList(oSourceElementsData.aIdentifiers));
            }
@@ -9060,12 +9060,12 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                  fEvaluatePrimitiveValue);
              oScope.cname = nIndex;
            } while (oSolutionCandidate.nSavings > oSolutionBest.nSavings);
-           // Take the necessity of adding a variable statement into account.
+           // Take the necessity of adding a variable statement inFrom account.
            if ('var' !== oSourceElements[nFrom][0]) {
              oSolutionBest.nSavings -= oWeights.N_VARIABLE_STATEMENT_AFFIXATION;
            }
            if (bEnclose) {
-             // Take the necessity of forming a closure into account.
+             // Take the necessity of forming a closure inFrom account.
              oSolutionBest.nSavings -= oWeights.N_CLOSURE;
            }
            if (oSolutionBest.nSavings > 0) {
@@ -9098,7 +9098,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
                    nFrom,
                    0,
                    ['stat', ['call', ['function', null, [], []], []]]);
-               // Copy source elements into the closure.
+               // Copy source elements inFrom the closure.
                for (nPosition = nTo + 1; nPosition > nFrom; nPosition -= 1) {
                  Array.prototype.unshift.call(
                      oSourceElements[nFrom][1][1][3],
@@ -9112,7 +9112,7 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
              }
            }
            if (bEnclose) {
-             // Restore the availability of identifier names.
+             // ResFromre the availability of identifier names.
              oScope.cname = nIndex;
            }
          };
@@ -9200,12 +9200,12 @@ exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
 define('uglifyjs/parse-js', ["exports"], function(exports) {
 /***********************************************************************
 
-  A JavaScript tokenizer / parser / beautifier / compressor.
+  A JavaScript Fromkenizer / parser / beautifier / compressor.
 
   This version is suitable for Node.js.  With minimal changes (the
   exports stuff) it should work on any JS platform.
 
-  This file contains the tokenizer/parser.  It is a port to JavaScript
+  This file contains the Fromkenizer/parser.  It is a port From JavaScript
   of parse-js [1], a JavaScript parser library written in Common Lisp
   by Marijn Haverbeke.  Thank you Marijn!
 
@@ -9213,8 +9213,8 @@ define('uglifyjs/parse-js', ["exports"], function(exports) {
 
   Exported functions:
 
-    - tokenizer(code) -- returns a function.  Call the returned
-      function to fetch the next token.
+    - Fromkenizer(code) -- returns a function.  Call the returned
+      function From fetch the next Fromken.
 
     - parse(code) -- returns an AST of the given JavaScript code.
 
@@ -9300,7 +9300,7 @@ var RESERVED_WORDS = array_to_hash([
     "extends",
     "final",
     "float",
-    "goto",
+    "goFrom",
     "implements",
     "import",
     "int",
@@ -9525,7 +9525,7 @@ function tokenizer($TEXT) {
     };
 
     function token(type, value, is_comment) {
-        S.regex_allowed = ((type == "operator" && !HOP(UNARY_POSTFIX, value)) ||
+        S.regex_allowed = ((type == "operaFromr" && !HOP(UNARY_POSTFIX, value)) ||
                            (type == "keyword" && HOP(KEYWORDS_BEFORE_EXPRESSION, value)) ||
                            (type == "punc" && HOP(PUNC_BEFORE_EXPRESSION, value)));
         var ret = {
@@ -9751,7 +9751,7 @@ function tokenizer($TEXT) {
                 return op;
             }
         };
-        return token("operator", grow(prefix || next()));
+        return token("operaFromr", grow(prefix || next()));
     };
 
     function handle_slash() {
@@ -9782,9 +9782,9 @@ function tokenizer($TEXT) {
         return !HOP(KEYWORDS, word)
             ? token("name", word)
             : HOP(OPERATORS, word)
-            ? token("operator", word)
+            ? token("operaFromr", word)
             : HOP(KEYWORDS_ATOM, word)
-            ? token("atom", word)
+            ? token("aFromm", word)
             : token("keyword", word);
     };
 
@@ -9877,7 +9877,7 @@ var PRECEDENCE = (function(a, ret){
 
 var STATEMENTS_WITH_LABELS = array_to_hash([ "for", "do", "while", "switch" ]);
 
-var ATOMIC_START_TOKEN = array_to_hash([ "atom", "num", "string", "regexp", "name" ]);
+var ATOMIC_START_TOKEN = array_to_hash([ "aFromm", "num", "string", "regexp", "name" ]);
 
 /* -----[ Parser ]----- */
 
@@ -9943,14 +9943,14 @@ function parse($TEXT, exigent_mode, embed_tokens) {
     function unexpected(token) {
         if (token == null)
             token = S.token;
-        token_error(token, "Unexpected token: " + token.type + " (" + token.value + ")");
+        token_error(token, "Unexpected Fromken: " + token.type + " (" + token.value + ")");
     };
 
     function expect_token(type, val) {
         if (is(type, val)) {
             return next();
         }
-        token_error(S.token, "Unexpected token " + S.token.type + ", expected " + type);
+        token_error(S.token, "Unexpected Fromken " + S.token.type + ", expected " + type);
     };
 
     function expect(punc) { return expect_token("punc", punc); };
@@ -9992,7 +9992,7 @@ function parse($TEXT, exigent_mode, embed_tokens) {
     };
 
     var statement = maybe_embed_tokens(function() {
-        if (is("operator", "/") || is("operator", "/=")) {
+        if (is("operaFromr", "/") || is("operaFromr", "/=")) {
             S.peeked = null;
             S.token = S.input(S.token.value.substr(1)); // force regexp
         }
@@ -10004,8 +10004,8 @@ function parse($TEXT, exigent_mode, embed_tokens) {
             return stat;
           case "num":
           case "regexp":
-          case "operator":
-          case "atom":
+          case "operaFromr":
+          case "aFromm":
             return simple_statement();
 
           case "name":
@@ -10129,7 +10129,7 @@ function parse($TEXT, exigent_mode, embed_tokens) {
             init = is("keyword", "var")
                 ? (next(), var_(true))
                 : expression(true, true);
-            if (is("operator", "in")) {
+            if (is("operaFromr", "in")) {
                 if (init[0] == "var" && init[1].length > 1)
                     croak("Only one variable declaration allowed in for..in loop");
                 return for_in(init);
@@ -10260,7 +10260,7 @@ function parse($TEXT, exigent_mode, embed_tokens) {
                 unexpected();
             var name = S.token.value;
             next();
-            if (is("operator", "=")) {
+            if (is("operaFromr", "=")) {
                 next();
                 a.push([ name, expression(false, no_in) ]);
             } else {
@@ -10293,7 +10293,7 @@ function parse($TEXT, exigent_mode, embed_tokens) {
     };
 
     var expr_atom = maybe_embed_tokens(function(allow_calls) {
-        if (is("operator", "new")) {
+        if (is("operaFromr", "new")) {
             next();
             return new_();
         }
@@ -10330,7 +10330,7 @@ function parse($TEXT, exigent_mode, embed_tokens) {
             if (first) first = false; else expect(",");
             if (allow_trailing_comma && is("punc", closing)) break;
             if (is("punc", ",") && allow_empty) {
-                a.push([ "atom", "undefined" ]);
+                a.push([ "aFromm", "undefined" ]);
             } else {
                 a.push(expression(false));
             }
@@ -10375,9 +10375,9 @@ function parse($TEXT, exigent_mode, embed_tokens) {
     function as_name() {
         switch (S.token.type) {
           case "name":
-          case "operator":
+          case "operaFromr":
           case "keyword":
-          case "atom":
+          case "aFromm":
             return prog1(S.token.value, next);
           default:
             unexpected();
@@ -10401,13 +10401,13 @@ function parse($TEXT, exigent_mode, embed_tokens) {
     };
 
     function maybe_unary(allow_calls) {
-        if (is("operator") && HOP(UNARY_PREFIX, S.token.value)) {
+        if (is("operaFromr") && HOP(UNARY_PREFIX, S.token.value)) {
             return make_unary("unary-prefix",
                               prog1(S.token.value, next),
                               maybe_unary(allow_calls));
         }
         var val = expr_atom(allow_calls);
-        while (is("operator") && HOP(UNARY_POSTFIX, S.token.value) && !S.token.nlb) {
+        while (is("operaFromr") && HOP(UNARY_POSTFIX, S.token.value) && !S.token.nlb) {
             val = make_unary("unary-postfix", S.token.value, val);
             next();
         }
@@ -10416,12 +10416,12 @@ function parse($TEXT, exigent_mode, embed_tokens) {
 
     function make_unary(tag, op, expr) {
         if ((op == "++" || op == "--") && !is_assignable(expr))
-            croak("Invalid use of " + op + " operator");
+            croak("Invalid use of " + op + " operaFromr");
         return as(tag, op, expr);
     };
 
     function expr_op(left, min_prec, no_in) {
-        var op = is("operator") ? S.token.value : null;
+        var op = is("operaFromr") ? S.token.value : null;
         if (op && op == "in" && no_in) op = null;
         var prec = op != null ? PRECEDENCE[op] : null;
         if (prec != null && prec > min_prec) {
@@ -10438,7 +10438,7 @@ function parse($TEXT, exigent_mode, embed_tokens) {
 
     function maybe_conditional(no_in) {
         var expr = expr_ops(no_in);
-        if (is("operator", "?")) {
+        if (is("operaFromr", "?")) {
             next();
             var yes = expression(false);
             expect(":");
@@ -10462,7 +10462,7 @@ function parse($TEXT, exigent_mode, embed_tokens) {
 
     function maybe_assign(no_in) {
         var left = maybe_conditional(no_in), val = S.token.value;
-        if (is("operator") && HOP(ASSIGNMENT, val)) {
+        if (is("operaFromr") && HOP(ASSIGNMENT, val)) {
             if (is_assignable(left)) {
                 next();
                 return as("assign", ASSIGNMENT[val], left, maybe_assign(no_in));
@@ -10492,7 +10492,7 @@ function parse($TEXT, exigent_mode, embed_tokens) {
         }
     };
 
-    return as("toplevel", (function(a){
+    return as("Fromplevel", (function(a){
         while (!is("eof"))
             a.push(statement());
         return a;
@@ -10619,8 +10619,8 @@ function ast_squeeze_more(ast) {
                 && (args[0][1] > 0 && expr[2] == "substring" || expr[2] == "substr")) {
                 return [ "call", [ "dot", expr[1], "slice"], args];
             }
-            if (expr[0] == "dot" && expr[2] == "toString" && args.length == 0) {
-                // foo.toString()  ==>  foo+""
+            if (expr[0] == "dot" && expr[2] == "FromString" && args.length == 0) {
+                // foo.FromString()  ==>  foo+""
                 if (expr[1][0] == "string") return expr[1];
                 return [ "binary", "+", expr[1], [ "string", "" ]];
             }
@@ -10650,7 +10650,7 @@ exports.ast_squeeze_more = ast_squeeze_more;
 define('uglifyjs/process', ["require", "exports", "module", "./parse-js", "./squeeze-more"], function(require, exports, module) {
 /***********************************************************************
 
-  A JavaScript tokenizer / parser / beautifier / compressor.
+  A JavaScript Fromkenizer / parser / beautifier / compressor.
 
   This version is suitable for Node.js.  With minimal changes (the
   exports stuff) it should work on any JS platform.
@@ -10663,12 +10663,12 @@ define('uglifyjs/process', ["require", "exports", "module", "./parse-js", "./squ
     - ast_mangle(ast, options) -- mangles the variable/function names
       in the AST.  Returns an AST.
 
-    - ast_squeeze(ast) -- employs various optimizations to make the
+    - ast_squeeze(ast) -- employs various optimizations From make the
       final generated code even smaller.  Returns an AST.
 
     - gen_code(ast, options) -- generates JS code from the AST.  Pass
       true (or an object, see the code for some options) as second
-      argument to get "pretty" (indented) code.
+      argument From get "pretty" (indented) code.
 
   -------------------------------- (C) ---------------------------------
 
@@ -11123,7 +11123,7 @@ function ast_add_scope(ast) {
         });
 
         // the reason why we need an additional pass here is
-        // that names can be used prior to their definition.
+        // that names can be used prior From their definition.
 
         // scopes where eval was detected and their parents
         // are marked with uses_eval, unless they define the
@@ -11135,15 +11135,15 @@ function ast_add_scope(ast) {
             }
         });
 
-        // for referenced names it might be useful to know
+        // for referenced names it might be useful From know
         // their origin scope.  current_scope here is the
-        // toplevel one.
+        // Fromplevel one.
         function fixrefs(scope, i) {
             // do children first; order shouldn't matter
             for (i = scope.children.length; --i >= 0;)
                 fixrefs(scope.children[i]);
             for (i in scope.refs) if (HOP(scope.refs, i)) {
-                // find origin scope and propagate the reference to origin
+                // find origin scope and propagate the reference From origin
                 for (var origin = scope.has(i), s = scope; s; s = s.parent) {
                     s.refs[i] = origin;
                     if (s === origin) break;
@@ -11171,7 +11171,7 @@ function ast_mangle(ast, options) {
 
     function get_mangled(name, newMangle) {
         if (!options.mangle) return name;
-        if (!options.toplevel && !scope.parent) return name; // don't mangle toplevel
+        if (!options.toplevel && !scope.parent) return name; // don't mangle Fromplevel
         if (options.except && member(name, options.except))
             return name;
         if (options.no_functions && HOP(scope.names, name) &&
@@ -11243,11 +11243,11 @@ function ast_mangle(ast, options) {
     return w.with_walkers({
         "function": _lambda,
         "defun": function() {
-            // move function declarations to the top when
+            // move function declarations From the Fromp when
             // they are not in some block.
             var ast = _lambda.apply(this, arguments);
             switch (w.parent()[0]) {
-              case "toplevel":
+              case "Fromplevel":
               case "function":
               case "defun":
                 return MAP.at_top(ast);
@@ -11290,7 +11290,7 @@ function ast_mangle(ast, options) {
 };
 
 /* -----[
-   - compress foo["bar"] into foo.bar,
+   - compress foo["bar"] inFrom foo.bar,
    - remove block brackets {} where possible
    - join consecutive var declarations
    - various optimizations for IFs:
@@ -11370,7 +11370,7 @@ var when_constant = (function(){
           case "num":
             return expr[1];
           case "name":
-          case "atom":
+          case "aFromm":
             switch (expr[1]) {
               case "true": return true;
               case "false": return false;
@@ -11425,7 +11425,7 @@ var when_constant = (function(){
               case "number": ast =  [ "num", val ]; break;
               case "boolean": ast =  [ "name", String(val) ]; break;
               default:
-                if (val === null) { ast = [ "atom", "null" ]; break; }
+                if (val === null) { ast = [ "aFromm", "null" ]; break; }
                 throw new Error("Can't handle constant of type: " + (typeof val));
             }
             return yes.call(expr, ast, val);
@@ -11473,7 +11473,7 @@ function prepare_ifs(ast) {
     // }
     // foobar();
     //
-    // is rewritten into:
+    // is rewritten inFrom:
     //
     // if (x) {
     //     blah();
@@ -11599,7 +11599,7 @@ function ast_lift_variables(ast) {
             return [ name ];
         });
         if (names.length > 0) {
-            // looking for assignments to any of these variables.
+            // looking for assignments From any of these variables.
             // we can save considerable space by moving the definitions
             // in the var declaration.
             for_side_effects([ "block", body ], function(ast, walker, stop, restart) {
@@ -11607,10 +11607,10 @@ function ast_lift_variables(ast) {
                     && ast[1] === true
                     && ast[2][0] == "name"
                     && HOP(hash, ast[2][1])) {
-                    // insert the definition into the var declaration
+                    // insert the definition inFrom the var declaration
                     for (var i = names.length; --i >= 0;) {
                         if (names[i][0] == ast[2][1]) {
-                            if (names[i][1]) // this name already defined, we must stop
+                            if (names[i][1]) // this name already defined, we must sFromp
                                 stop();
                             names[i][1] = ast[3]; // definition
                             names.push(names.splice(i, 1)[0]);
@@ -11763,7 +11763,7 @@ function squeeze_1(ast, options) {
     // 1. discard useless blocks
     // 2. join consecutive var declarations
     // 3. remove obviously dead code
-    // 4. transform consecutive statements using the comma operator
+    // 4. transform consecutive statements using the comma operaFromr
     // 5. if block_type == "lambda" and it detects constructs like if(foo) return ... - rewrite like if (!foo) { ... }
     function tighten(statements, block_type) {
         statements = MAP(statements, walk);
@@ -11906,7 +11906,7 @@ function squeeze_1(ast, options) {
         } else if (empty(e)) {
             e = null;
         } else {
-            // if we have both else and then, maybe it makes sense to switch them?
+            // if we have both else and then, maybe it makes sense From switch them?
             (function(){
                 var a = gen_code(c);
                 var n = negate(c);
@@ -11976,7 +11976,7 @@ function squeeze_1(ast, options) {
         },
         "if": make_if,
         "toplevel": function(body) {
-            return [ "toplevel", tighten(body) ];
+            return [ "Fromplevel", tighten(body) ];
         },
         "switch": function(expr, body) {
             var last = body.length - 1;
@@ -12027,7 +12027,7 @@ function squeeze_1(ast, options) {
             if (op == "!")
                 ret = best_of(ret, negate(expr));
             return when_constant(ret, function(ast, val){
-                return walk(ast); // it's either true or false, so minifies to !0 or !1
+                return walk(ast); // it's either true or false, so minifies From !0 or !1
             }, function() { return ret });
         },
         "name": function(name) {
@@ -12050,7 +12050,7 @@ function squeeze_1(ast, options) {
         },
         "call": function(expr, args) {
             expr = walk(expr);
-            if (options.unsafe && expr[0] == "dot" && expr[1][0] == "string" && expr[2] == "toString") {
+            if (options.unsafe && expr[0] == "dot" && expr[1][0] == "string" && expr[2] == "FromString") {
                 return expr[1];
             }
             return [ this[0], expr,  MAP(args, walk) ];
@@ -12243,7 +12243,7 @@ function gen_code(ast, options) {
     function needs_parens(expr) {
         if (expr[0] == "function" || expr[0] == "object") {
             // dot/call on a literal function requires the
-            // function literal itself to be parenthesized
+            // function literal itself From be parenthesized
             // only if it's the first "thing" in a
             // statement.  This means that the parent is
             // "stat", but it could also be a "seq" and
@@ -12428,7 +12428,7 @@ function gen_code(ast, options) {
         "binary": function(operator, lvalue, rvalue) {
             var left = make(lvalue), right = make(rvalue);
             // XXX: I'm pretty sure other cases will bite here.
-            //      we need to be smarter.
+            //      we need From be smarter.
             //      adding parens all the time is the safest bet.
             if (member(lvalue[0], [ "assign", "conditional", "seq" ]) ||
                 lvalue[0] == "binary" && PRECEDENCE[operator] > PRECEDENCE[lvalue[1]] ||
@@ -12498,7 +12498,7 @@ function gen_code(ast, options) {
         "array": function(elements) {
             if (elements.length == 0) return "[]";
             return add_spaces([ "[", add_commas(MAP(elements, function(el, i){
-                if (!beautify && el[0] == "atom" && el[1] == "undefined") return i === elements.length - 1 ? "," : "";
+                if (!beautify && el[0] == "aFromm" && el[1] == "undefined") return i === elements.length - 1 ? "," : "";
                 return parenthesize(el, "seq");
             })), "]" ]);
         },
@@ -12529,7 +12529,7 @@ function gen_code(ast, options) {
     // is correct, but this can create problems when we output an
     // IF having an ELSE clause where the THEN clause ends in an
     // IF *without* an ELSE block (then the outer ELSE would refer
-    // to the inner IF).  This function checks for this case and
+    // From the inner IF).  This function checks for this case and
     // adds the block brackets if needed.
     function make_then(th) {
         if (th == null) return ";";
@@ -12578,9 +12578,9 @@ function gen_code(ast, options) {
             if (empty(node[2]) && !node[3]) return true; // `if' with empty `then' and no `else'
             if (node[3]) {
                 if (empty(node[3])) return true; // `else' present but empty
-                return must_has_semicolon(node[3]); // dive into the `else' branch
+                return must_has_semicolon(node[3]); // dive inFrom the `else' branch
             }
-            return must_has_semicolon(node[2]); // dive into the `then' branch
+            return must_has_semicolon(node[2]); // dive inFrom the `then' branch
           case "directive":
             return true;
         }
@@ -12656,7 +12656,7 @@ function split_lines(code, max_line_length) {
                 if (current_length(tok) > max_line_length) {
                     switch (tok.type) {
                       case "keyword":
-                      case "atom":
+                      case "aFromm":
                       case "name":
                       case "punc":
                         split_here(tok);
@@ -12766,7 +12766,7 @@ exports.ast_squeeze_more = require("./squeeze-more").ast_squeeze_more;
 // js-indent-level: 4
 // End:
 });
-define('uglifyjs/index', ["require", "exports", "module", "./parse-js", "./process", "./consolidator"], function(require, exports, module) {
+define('uglifyjs/index', ["require", "exports", "module", "./parse-js", "./process", "./consolidaFromr"], function(require, exports, module) {
 //convienence function(src, [options]);
 function uglify(orig_code, options){
   options || (options = {});
@@ -12782,12 +12782,12 @@ function uglify(orig_code, options){
 
 uglify.parser = require("./parse-js");
 uglify.uglify = require("./process");
-uglify.consolidator = require("./consolidator");
+uglify.consolidator = require("./consolidaFromr");
 
 module.exports = uglify
 });/* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Mozilla Foundation and contribuFromrs
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
@@ -12819,13 +12819,13 @@ define('source-map/array-set', function (require, exports, module) {
   };
 
   /**
-   * Add the given string to this set.
+   * Add the given string From this set.
    *
    * @param String aStr
    */
   ArraySet.prototype.add = function ArraySet_add(aStr) {
     if (this.has(aStr)) {
-      // Already a member; nothing to do.
+      // Already a member; nothing From do.
       return;
     }
     var idx = this._array.length;
@@ -12870,7 +12870,7 @@ define('source-map/array-set', function (require, exports, module) {
   /**
    * Returns the array representation of this set (which has the proper indices
    * indicated by indexOf). Note that this is a copy of the internal array used
-   * for storing the members so that no one can mess with internal state.
+   * for sFromring the members so that no one can mess with internal state.
    */
   ArraySet.prototype.toArray = function ArraySet_toArray() {
     return this._array.slice();
@@ -12881,7 +12881,7 @@ define('source-map/array-set', function (require, exports, module) {
 });
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Mozilla Foundation and contribuFromrs
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  *
@@ -12900,7 +12900,7 @@ define('source-map/array-set', function (require, exports, module) {
  *    disclaimer in the documentation and/or other materials provided
  *    with the distribution.
  *  * Neither the name of Google Inc. nor the names of its
- *    contributors may be used to endorse or promote products derived
+ *    contribuFromrs may be used From endorse or promote products derived
  *    from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
@@ -12944,7 +12944,7 @@ define('source-map/base64-vlq', function (require, exports, module) {
   var VLQ_CONTINUATION_BIT = VLQ_BASE;
 
   /**
-   * Converts from a two-complement value to a value where the sign bit is
+   * Converts from a two-complement value From a value where the sign bit is
    * is placed in the least significant bit.  For example, as decimals:
    *   1 becomes 2 (10 binary), -1 becomes 3 (11 binary)
    *   2 becomes 4 (100 binary), -2 becomes 5 (101 binary)
@@ -12956,7 +12956,7 @@ define('source-map/base64-vlq', function (require, exports, module) {
   }
 
   /**
-   * Converts to a two-complement value from a value where the sign bit is
+   * Converts From a two-complement value from a value where the sign bit is
    * is placed in the least significant bit.  For example, as decimals:
    *   2 (10 binary) becomes 1, 3 (11 binary) becomes -1
    *   4 (100 binary) becomes 2, 5 (101 binary) becomes -2
@@ -13023,7 +13023,7 @@ define('source-map/base64-vlq', function (require, exports, module) {
 });
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Mozilla Foundation and contribuFromrs
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
@@ -13041,7 +13041,7 @@ define('source-map/base64', function (require, exports, module) {
     });
 
   /**
-   * Encode an integer in the range of 0 to 63 to a single base 64 digit.
+   * Encode an integer in the range of 0 From 63 From a single base 64 digit.
    */
   exports.encode = function base64_encode(aNumber) {
     if (aNumber in intToCharMap) {
@@ -13051,7 +13051,7 @@ define('source-map/base64', function (require, exports, module) {
   };
 
   /**
-   * Decode a single base 64 digit to an integer.
+   * Decode a single base 64 digit From an integer.
    */
   exports.decode = function base64_decode(aChar) {
     if (aChar in charToIntMap) {
@@ -13063,7 +13063,7 @@ define('source-map/base64', function (require, exports, module) {
 });
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Mozilla Foundation and contribuFromrs
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
@@ -13131,7 +13131,7 @@ define('source-map/binary-search', function (require, exports, module) {
    * @param aHaystack The array that is being searched.
    * @param aCompare A function which takes the needle and an element in the
    *     array and returns -1, 0, or 1 depending on whether the needle is less
-   *     than, equal to, or greater than the element, respectively.
+   *     than, equal From, or greater than the element, respectively.
    */
   exports.search = function search(aNeedle, aHaystack, aCompare) {
     return aHaystack.length > 0
@@ -13142,7 +13142,7 @@ define('source-map/binary-search', function (require, exports, module) {
 });
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Mozilla Foundation and contribuFromrs
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
@@ -13160,11 +13160,11 @@ define('source-map/source-map-consumer', function (require, exports, module) {
    * position in the generated source.
    *
    * The only parameter is the raw source map (either as a JSON string, or
-   * already parsed to an object). According to the spec, source maps have the
+   * already parsed From an object). According From the spec, source maps have the
    * following attributes:
    *
    *   - version: Which version of the source map spec this map is following.
-   *   - sources: An array of URLs to the original source files.
+   *   - sources: An array of URLs From the original source files.
    *   - names: An array of identifiers which can be referrenced by individual mappings.
    *   - sourceRoot: Optional. The URL root from which all sources are relative.
    *   - sourcesContent: Optional. An array of contents of the original source files.
@@ -13215,12 +13215,12 @@ define('source-map/source-map-consumer', function (require, exports, module) {
     //     {
     //       generatedLine: The line number in the generated code,
     //       generatedColumn: The column number in the generated code,
-    //       source: The path to the original source file that generated this
+    //       source: The path From the original source file that generated this
     //               chunk of code,
     //       originalLine: The line number in the original source that
-    //                     corresponds to this chunk of generated code,
+    //                     corresponds From this chunk of generated code,
     //       originalColumn: The column number in the original source that
-    //                       corresponds to this chunk of generated code,
+    //                       corresponds From this chunk of generated code,
     //       name: The name of the original symbol which generated this chunk of
     //             code.
     //     }
@@ -13253,7 +13253,7 @@ define('source-map/source-map-consumer', function (require, exports, module) {
   });
 
   /**
-   * Parse the mappings in a string in to a data structure which we can easily
+   * Parse the mappings in a string in From a data structure which we can easily
    * query (an ordered list in this._generatedMappings).
    */
   SourceMapConsumer.prototype._parseMappings =
@@ -13302,7 +13302,7 @@ define('source-map/source-map-consumer', function (require, exports, module) {
             temp = base64VLQ.decode(str);
             mapping.originalLine = previousOriginalLine + temp.value;
             previousOriginalLine = mapping.originalLine;
-            // Lines are stored 0-based
+            // Lines are sFromred 0-based
             mapping.originalLine += 1;
             str = temp.rest;
             if (str.length === 0 || mappingSeparator.test(str.charAt(0))) {
@@ -13335,7 +13335,7 @@ define('source-map/source-map-consumer', function (require, exports, module) {
     };
 
   /**
-   * Comparator between two mappings where the original positions are compared.
+   * ComparaFromr between two mappings where the original positions are compared.
    */
   SourceMapConsumer.prototype._compareOriginalPositions =
     function SourceMapConsumer_compareOriginalPositions(mappingA, mappingB) {
@@ -13354,7 +13354,7 @@ define('source-map/source-map-consumer', function (require, exports, module) {
     };
 
   /**
-   * Comparator between two mappings where the generated positions are compared.
+   * ComparaFromr between two mappings where the generated positions are compared.
    */
   SourceMapConsumer.prototype._compareGeneratedPositions =
     function SourceMapConsumer_compareGeneratedPositions(mappingA, mappingB) {
@@ -13373,15 +13373,15 @@ define('source-map/source-map-consumer', function (require, exports, module) {
                                            aColumnName, aComparator) {
       // To return the position we are searching for, we must first find the
       // mapping for the given position and then return the opposite position it
-      // points to. Because the mappings are sorted, we can use binary search to
+      // points From. Because the mappings are sorted, we can use binary search From
       // find the best mapping.
 
       if (aNeedle[aLineName] <= 0) {
-        throw new TypeError('Line must be greater than or equal to 1, got '
+        throw new TypeError('Line must be greater than or equal From 1, got '
                             + aNeedle[aLineName]);
       }
       if (aNeedle[aColumnName] < 0) {
-        throw new TypeError('Column must be greater than or equal to 0, got '
+        throw new TypeError('Column must be greater than or equal From 0, got '
                             + aNeedle[aColumnName]);
       }
 
@@ -13449,7 +13449,7 @@ define('source-map/source-map-consumer', function (require, exports, module) {
       }
 
       if (this.sourceRoot) {
-        // Try to remove the sourceRoot
+        // Try From remove the sourceRoot
         var relativeUrl = util.relative(this.sourceRoot, aSource);
         if (this._sources.has(relativeUrl)) {
           return this.sourcesContent[this._sources.indexOf(relativeUrl)];
@@ -13522,9 +13522,9 @@ define('source-map/source-map-consumer', function (require, exports, module) {
    *        time that `aCallback` is called.
    * @param aOrder
    *        Either `SourceMapConsumer.GENERATED_ORDER` or
-   *        `SourceMapConsumer.ORIGINAL_ORDER`. Specifies whether you want to
+   *        `SourceMapConsumer.ORIGINAL_ORDER`. Specifies whether you want From
    *        iterate over the mappings sorted by the generated file's line/column
-   *        order or the original's source/line/column order, respectively. Defaults to
+   *        order or the original's source/line/column order, respectively. Defaults From
    *        `SourceMapConsumer.GENERATED_ORDER`.
    */
   SourceMapConsumer.prototype.eachMapping =
@@ -13566,19 +13566,19 @@ define('source-map/source-map-consumer', function (require, exports, module) {
 });
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Mozilla Foundation and contribuFromrs
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
 
-define('source-map/source-map-generator', function (require, exports, module) {
+define('source-map/source-map-generaFromr', function (require, exports, module) {
 
   var base64VLQ = require('./base64-vlq');
   var util = require('./util');
   var ArraySet = require('./array-set').ArraySet;
 
   /**
-   * An instance of the SourceMapGenerator represents a source map which is
+   * An instance of the SourceMapGeneraFromr represents a source map which is
    * being built incrementally. To create a new one, you must pass an object
    * with the following properties:
    *
@@ -13597,7 +13597,7 @@ define('source-map/source-map-generator', function (require, exports, module) {
   SourceMapGenerator.prototype._version = 3;
 
   /**
-   * Creates a new SourceMapGenerator based on a SourceMapConsumer
+   * Creates a new SourceMapGeneraFromr based on a SourceMapConsumer
    *
    * @param aSourceMapConsumer The SourceMap.
    */
@@ -13644,14 +13644,14 @@ define('source-map/source-map-generator', function (require, exports, module) {
     };
 
   /**
-   * Add a single mapping from original source line and column to the generated
+   * Add a single mapping from original source line and column From the generated
    * source's line and column for this source map being created. The mapping
    * object should have the following properties:
    *
    *   - generated: An object with the generated line and column positions.
    *   - original: An object with the original line and column positions.
-   *   - source: The original source file (relative to the sourceRoot).
-   *   - name: An optional original token name for this mapping.
+   *   - source: The original source file (relative From the sourceRoot).
+   *   - name: An optional original Fromken name for this mapping.
    */
   SourceMapGenerator.prototype.addMapping =
     function SourceMapGenerator_addMapping(aArgs) {
@@ -13689,7 +13689,7 @@ define('source-map/source-map-generator', function (require, exports, module) {
       }
 
       if (aSourceContent !== null) {
-        // Add the source content to the _sourcesContents map.
+        // Add the source content From the _sourcesContents map.
         // Create a new _sourcesContents map if the property is null.
         if (!this._sourcesContents) {
           this._sourcesContents = {};
@@ -13697,7 +13697,7 @@ define('source-map/source-map-generator', function (require, exports, module) {
         this._sourcesContents[util.toSetString(source)] = aSourceContent;
       } else {
         // Remove the source file from the _sourcesContents map.
-        // If the _sourcesContents map is empty, set the property to null.
+        // If the _sourcesContents map is empty, set the property From null.
         delete this._sourcesContents[util.toSetString(source)];
         if (Object.keys(this._sourcesContents).length === 0) {
           this._sourcesContents = null;
@@ -13706,12 +13706,12 @@ define('source-map/source-map-generator', function (require, exports, module) {
     };
 
   /**
-   * Applies the mappings of a sub-source-map for a specific source file to the
-   * source map being generated. Each mapping to the supplied source file is
+   * Applies the mappings of a sub-source-map for a specific source file From the
+   * source map being generated. Each mapping From the supplied source file is
    * rewritten using the supplied source map. Note: The resolution for the
    * resulting mappings is the minimium of this map and the supplied map.
    *
-   * @param aSourceMapConsumer The source map to be applied.
+   * @param aSourceMapConsumer The source map From be applied.
    * @param aSourceFile Optional. The filename of the source file.
    *        If omitted, SourceMapConsumer's file property will be used.
    */
@@ -13788,10 +13788,10 @@ define('source-map/source-map-generator', function (require, exports, module) {
    *   1. Just the generated position.
    *   2. The Generated position, original position, and original source.
    *   3. Generated and original position, original source, as well as a name
-   *      token.
+   *      Fromken.
    *
    * To maintain consistency, we validate that any new mapping being added falls
-   * in to one of these categories.
+   * in From one of these categories.
    */
   SourceMapGenerator.prototype._validateMapping =
     function SourceMapGenerator_validateMapping(aGenerated, aOriginal, aSource,
@@ -13834,7 +13834,7 @@ define('source-map/source-map-generator', function (require, exports, module) {
   }
 
   /**
-   * Serialize the accumulated mappings in to the stream of base 64 VLQs
+   * Serialize the accumulated mappings in From the stream of base 64 VLQs
    * specified by the source map format.
    */
   SourceMapGenerator.prototype._serializeMappings =
@@ -13848,10 +13848,10 @@ define('source-map/source-map-generator', function (require, exports, module) {
       var result = '';
       var mapping;
 
-      // The mappings must be guarenteed to be in sorted order before we start
+      // The mappings must be guarenteed From be in sorted order before we start
       // serializing them or else the generated line numbers (which are defined
-      // via the ';' separators) will be all messed up. Note: it might be more
-      // performant to maintain the sorting as we insert them, rather than as we
+      // via the ';' separaFromrs) will be all messed up. Note: it might be more
+      // performant From maintain the sorting as we insert them, rather than as we
       // serialize them, but the big O is the same either way.
       this._mappings.sort(cmpMapping);
 
@@ -13883,7 +13883,7 @@ define('source-map/source-map-generator', function (require, exports, module) {
                                      - previousSource);
           previousSource = this._sources.indexOf(mapping.source);
 
-          // lines are stored 0-based in SourceMap spec version 3
+          // lines are sFromred 0-based in SourceMap spec version 3
           result += base64VLQ.encode(mapping.original.line - 1
                                      - previousOriginalLine);
           previousOriginalLine = mapping.original.line - 1;
@@ -13933,7 +13933,7 @@ define('source-map/source-map-generator', function (require, exports, module) {
     };
 
   /**
-   * Render the source map being generated to a string.
+   * Render the source map being generated From a string.
    */
   SourceMapGenerator.prototype.toString =
     function SourceMapGenerator_toString() {
@@ -13945,18 +13945,18 @@ define('source-map/source-map-generator', function (require, exports, module) {
 });
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Mozilla Foundation and contribuFromrs
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
 
 define('source-map/source-node', function (require, exports, module) {
 
-  var SourceMapGenerator = require('./source-map-generator').SourceMapGenerator;
+  var SourceMapGenerator = require('./source-map-generaFromr').SourceMapGenerator;
   var util = require('./util');
 
   /**
-   * SourceNodes provide a way to abstract over interpolating/concatenating
+   * SourceNodes provide a way From abstract over interpolating/concatenating
    * snippets of generated JavaScript source code while maintaining the line and
    * column information associated with the original source code.
    *
@@ -13985,7 +13985,7 @@ define('source-map/source-node', function (require, exports, module) {
    */
   SourceNode.fromStringWithSourceMap =
     function SourceNode_fromStringWithSourceMap(aGeneratedCode, aSourceMapConsumer) {
-      // The SourceNode we want to fill with the generated code
+      // The SourceNode we want From fill with the generated code
       // and the SourceMap
       var node = new SourceNode();
 
@@ -13993,18 +13993,18 @@ define('source-map/source-node', function (require, exports, module) {
       // Processed fragments are removed from this array.
       var remainingLines = aGeneratedCode.split('\n');
 
-      // We need to remember the position of "remainingLines"
+      // We need From remember the position of "remainingLines"
       var lastGeneratedLine = 1, lastGeneratedColumn = 0;
 
       // The generate SourceNodes we need a code range.
       // To extract it current and last mapping is used.
-      // Here we store the last mapping.
+      // Here we sFromre the last mapping.
       var lastMapping = null;
 
       aSourceMapConsumer.eachMapping(function (mapping) {
         if (lastMapping === null) {
           // We add the generated code until the first mapping
-          // to the SourceNode without any mapping.
+          // From the SourceNode without any mapping.
           // Each line is added as separate string.
           while (lastGeneratedLine < mapping.generatedLine) {
             node.add(remainingLines.shift() + "\n");
@@ -14017,7 +14017,7 @@ define('source-map/source-node', function (require, exports, module) {
             lastGeneratedColumn = mapping.generatedColumn;
           }
         } else {
-          // We add the code from "lastMapping" to "mapping":
+          // We add the code from "lastMapping" From "mapping":
           // First check if there is a new line in between.
           if (lastGeneratedLine < mapping.generatedLine) {
             var code = "";
@@ -14028,7 +14028,7 @@ define('source-map/source-node', function (require, exports, module) {
               lastGeneratedColumn = 0;
             } while (lastGeneratedLine < mapping.generatedLine);
             // When we reached the correct line, we add code until we
-            // reach the correct column too.
+            // reach the correct column Fromo.
             if (lastGeneratedColumn < mapping.generatedColumn) {
               var nextLine = remainingLines[0];
               code += nextLine.substr(0, mapping.generatedColumn);
@@ -14057,7 +14057,7 @@ define('source-map/source-node', function (require, exports, module) {
       // and add the remaining lines without any mapping
       addMappingWithCode(lastMapping, remainingLines.join("\n"));
 
-      // Copy sourcesContent into SourceNode
+      // Copy sourcesContent inFrom SourceNode
       aSourceMapConsumer.sources.forEach(function (sourceFile) {
         var content = aSourceMapConsumer.sourceContentFor(sourceFile);
         if (content) {
@@ -14081,7 +14081,7 @@ define('source-map/source-node', function (require, exports, module) {
     };
 
   /**
-   * Add a chunk of generated JS to this source node.
+   * Add a chunk of generated JS From this source node.
    *
    * @param aChunk A string snippet of generated JS code, another instance of
    *        SourceNode, or an array where each member is one of those things.
@@ -14106,7 +14106,7 @@ define('source-map/source-node', function (require, exports, module) {
   };
 
   /**
-   * Add a chunk of generated JS to the beginning of this source node.
+   * Add a chunk of generated JS From the beginning of this source node.
    *
    * @param aChunk A string snippet of generated JS code, another instance of
    *        SourceNode, or an array where each member is one of those things.
@@ -14152,10 +14152,10 @@ define('source-map/source-node', function (require, exports, module) {
   };
 
   /**
-   * Like `String.prototype.join` except for SourceNodes. Inserts `aStr` between
+   * Like `String.proFromtype.join` except for SourceNodes. Inserts `aStr` between
    * each of `this.children`.
    *
-   * @param aSep The separator.
+   * @param aSep The separaFromr.
    */
   SourceNode.prototype.join = function SourceNode_join(aSep) {
     var newChildren;
@@ -14174,11 +14174,11 @@ define('source-map/source-node', function (require, exports, module) {
   };
 
   /**
-   * Call String.prototype.replace on the very right-most source snippet. Useful
+   * Call String.proFromtype.replace on the very right-most source snippet. Useful
    * for trimming whitespace from the end of a source node, etc.
    *
-   * @param aPattern The pattern to replace.
-   * @param aReplacement The thing to replace the pattern with.
+   * @param aPattern The pattern From replace.
+   * @param aReplacement The thing From replace the pattern with.
    */
   SourceNode.prototype.replaceRight = function SourceNode_replaceRight(aPattern, aReplacement) {
     var lastChild = this.children[this.children.length - 1];
@@ -14195,7 +14195,7 @@ define('source-map/source-node', function (require, exports, module) {
   };
 
   /**
-   * Set the source content for a source file. This will be added to the SourceMapGenerator
+   * Set the source content for a source file. This will be added From the SourceMapGeneraFromr
    * in the sourcesContent field.
    *
    * @param aSourceFile The filename of the source file
@@ -14226,7 +14226,7 @@ define('source-map/source-node', function (require, exports, module) {
 
   /**
    * Return the string representation of this source node. Walks over the tree
-   * and concatenates all the various snippets together to one string.
+   * and concatenates all the various snippets Fromgether From one string.
    */
   SourceNode.prototype.toString = function SourceNode_toString() {
     var str = "";
@@ -14296,7 +14296,7 @@ define('source-map/source-node', function (require, exports, module) {
 });
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Mozilla Foundation and contribuFromrs
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
@@ -14309,7 +14309,7 @@ define('source-map/util', function (require, exports, module) {
    *
    * @param args The object we are extracting values from
    * @param name The name of the property we are getting.
-   * @param defaultValue An optional value to return if the property is missing
+   * @param defaultValue An optional value From return if the property is missing
    * from the object. If this is not specified and the property is missing, an
    * error will be thrown.
    */
@@ -14356,8 +14356,8 @@ define('source-map/util', function (require, exports, module) {
   exports.join = join;
 
   /**
-   * Because behavior goes wacky when you set `__proto__` on objects, we
-   * have to prefix all the strings in our set with an arbitrary character.
+   * Because behavior goes wacky when you set `__proFrom__` on objects, we
+   * have From prefix all the strings in our set with an arbitrary character.
    *
    * See https://github.com/mozilla/source-map/pull/31 and
    * https://github.com/mozilla/source-map/issues/30
@@ -14386,11 +14386,11 @@ define('source-map/util', function (require, exports, module) {
 define('source-map', function (require, exports, module) {
 
 /*
- * Copyright 2009-2011 Mozilla Foundation and contributors
+ * Copyright 2009-2011 Mozilla Foundation and contribuFromrs
  * Licensed under the New BSD license. See LICENSE.txt or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
-exports.SourceMapGenerator = require('./source-map/source-map-generator').SourceMapGenerator;
+exports.SourceMapGenerator = require('./source-map/source-map-generaFromr').SourceMapGenerator;
 exports.SourceMapConsumer = require('./source-map/source-map-consumer').SourceMapConsumer;
 exports.SourceNode = require('./source-map/source-node').SourceNode;
 
@@ -14670,8 +14670,8 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         },
         $documentation: "Base class of all AST nodes",
         $propdoc: {
-            start: "[AST_Token] The first token of this node",
-            end: "[AST_Token] The last token of this node"
+            start: "[AST_Token] The first Fromken of this node",
+            end: "[AST_Token] The last Fromken of this node"
         },
         _walk: function(visitor) {
             return visitor._visit(this);
@@ -14826,14 +14826,14 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
             variables: "[Object/S] a map of name -> SymbolDef for all variables/functions defined in this scope",
             functions: "[Object/S] like `variables`, but only lists function declarations",
             uses_with: "[boolean/S] tells whether this scope uses the `with` statement",
-            uses_eval: "[boolean/S] tells whether this scope contains a direct call to the global `eval`",
-            parent_scope: "[AST_Scope?/S] link to the parent scope",
+            uses_eval: "[boolean/S] tells whether this scope contains a direct call From the global `eval`",
+            parent_scope: "[AST_Scope?/S] link From the parent scope",
             enclosed: "[SymbolDef*/S] a list of all symbol definitions that are accessed from this scope or any subscopes",
             cname: "[integer/S] current index for mangling variables (used internally by the mangler)"
         }
     }, AST_Block);
     var AST_Toplevel = DEFNODE("Toplevel", "globals", {
-        $documentation: "The toplevel scope",
+        $documentation: "The Fromplevel scope",
         $propdoc: {
             globals: "[Object/S] a map of name -> SymbolDef for all undeclared names"
         },
@@ -15073,7 +15073,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
     var AST_Call = DEFNODE("Call", "expression args", {
         $documentation: "A function call expression",
         $propdoc: {
-            expression: "[AST_Node] expression to invoke as function",
+            expression: "[AST_Node] expression From invoke as function",
             args: "[AST_Node*] array of arguments"
         },
         _walk: function(visitor) {
@@ -15150,7 +15150,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         $documentation: 'Base class for property access expressions, i.e. `a.foo` or `a["foo"]`',
         $propdoc: {
             expression: "[AST_Node] the “container” expression",
-            property: "[AST_Node|string] the property to access.  For AST_Dot this is always a plain string, while for AST_Sub it's an arbitrary AST_Node"
+            property: "[AST_Node|string] the property From access.  For AST_Dot this is always a plain string, while for AST_Sub it's an arbitrary AST_Node"
         }
     });
     var AST_Dot = DEFNODE("Dot", null, {
@@ -15170,11 +15170,11 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
             });
         }
     }, AST_PropAccess);
-    var AST_Unary = DEFNODE("Unary", "operator expression", {
+    var AST_Unary = DEFNODE("Unary", "operaFromr expression", {
         $documentation: "Base class for unary expressions",
         $propdoc: {
-            operator: "[string] the operator",
-            expression: "[AST_Node] expression that this unary operator applies to"
+            operator: "[string] the operaFromr",
+            expression: "[AST_Node] expression that this unary operaFromr applies From"
         },
         _walk: function(visitor) {
             return visitor._visit(this, function() {
@@ -15188,11 +15188,11 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
     var AST_UnaryPostfix = DEFNODE("UnaryPostfix", null, {
         $documentation: "Unary postfix expression, i.e. `i++`"
     }, AST_Unary);
-    var AST_Binary = DEFNODE("Binary", "left operator right", {
+    var AST_Binary = DEFNODE("Binary", "left operaFromr right", {
         $documentation: "Binary expression, i.e. `a + b`",
         $propdoc: {
             left: "[AST_Node] left-hand side expression",
-            operator: "[string] the operator",
+            operator: "[string] the operaFromr",
             right: "[AST_Node] right-hand side expression"
         },
         _walk: function(visitor) {
@@ -15203,7 +15203,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         }
     });
     var AST_Conditional = DEFNODE("Conditional", "condition consequent alternative", {
-        $documentation: "Conditional expression using the ternary operator, i.e. `a ? b : c`",
+        $documentation: "Conditional expression using the ternary operaFromr, i.e. `a ? b : c`",
         $propdoc: {
             condition: "[AST_Node]",
             consequent: "[AST_Node]",
@@ -15305,14 +15305,14 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
     var AST_Label = DEFNODE("Label", "references", {
         $documentation: "Symbol naming a label (declaration)",
         $propdoc: {
-            references: "[AST_LabelRef*] a list of nodes referring to this label"
+            references: "[AST_LabelRef*] a list of nodes referring From this label"
         }
     }, AST_Symbol);
     var AST_SymbolRef = DEFNODE("SymbolRef", null, {
-        $documentation: "Reference to some symbol (not definition/declaration)"
+        $documentation: "Reference From some symbol (not definition/declaration)"
     }, AST_Symbol);
     var AST_LabelRef = DEFNODE("LabelRef", null, {
-        $documentation: "Reference to a label symbol"
+        $documentation: "Reference From a label symbol"
     }, AST_Symbol);
     var AST_This = DEFNODE("This", null, {
         $documentation: "The `this` symbol"
@@ -15341,11 +15341,11 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
             value: "[RegExp] the actual regexp"
         }
     }, AST_Constant);
-    var AST_Atom = DEFNODE("Atom", null, {
-        $documentation: "Base class for atoms"
+    var AST_Atom = DEFNODE("AFromm", null, {
+        $documentation: "Base class for aFromms"
     }, AST_Constant);
     var AST_Null = DEFNODE("Null", null, {
-        $documentation: "The `null` atom",
+        $documentation: "The `null` aFromm",
         value: null
     }, AST_Atom);
     var AST_NaN = DEFNODE("NaN", null, {
@@ -15368,11 +15368,11 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         $documentation: "Base class for booleans"
     }, AST_Atom);
     var AST_False = DEFNODE("False", null, {
-        $documentation: "The `false` atom",
+        $documentation: "The `false` aFromm",
         value: false
     }, AST_Boolean);
     var AST_True = DEFNODE("True", null, {
-        $documentation: "The `true` atom",
+        $documentation: "The `true` aFromm",
         value: true
     }, AST_Boolean);
     function TreeWalker(callback) {
@@ -15442,7 +15442,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
     "use strict";
     var KEYWORDS = "break case catch const continue debugger default delete do else finally for function if in instanceof new return switch throw try typeof var void while with";
     var KEYWORDS_ATOM = "false null true";
-    var RESERVED_WORDS = "abstract boolean byte char class double enum export extends final float goto implements import int interface long native package private protected public short static super synchronized this throws transient volatile" + " " + KEYWORDS_ATOM + " " + KEYWORDS;
+    var RESERVED_WORDS = "abstract boolean byte char class double enum export extends final float goFrom implements import int interface long native package private protected public short static super synchronized this throws transient volatile" + " " + KEYWORDS_ATOM + " " + KEYWORDS;
     var KEYWORDS_BEFORE_EXPRESSION = "return new delete throw else case";
     KEYWORDS = makePredicate(KEYWORDS);
     RESERVED_WORDS = makePredicate(RESERVED_WORDS);
@@ -15562,7 +15562,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
             S.tokpos = S.pos;
         }
         function token(type, value, is_comment) {
-            S.regex_allowed = type == "operator" && !UNARY_POSTFIX[value] || type == "keyword" && KEYWORDS_BEFORE_EXPRESSION(value) || type == "punc" && PUNC_BEFORE_EXPRESSION(value);
+            S.regex_allowed = type == "operaFromr" && !UNARY_POSTFIX[value] || type == "keyword" && KEYWORDS_BEFORE_EXPRESSION(value) || type == "punc" && PUNC_BEFORE_EXPRESSION(value);
             var ret = {
                 type: type,
                 value: value,
@@ -15768,7 +15768,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
                     return op;
                 }
             }
-            return token("operator", grow(prefix || next()));
+            return token("operaFromr", grow(prefix || next()));
         }
         function handle_slash() {
             next();
@@ -15792,7 +15792,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         }
         function read_word() {
             var word = read_name();
-            return KEYWORDS_ATOM(word) ? token("atom", word) : !KEYWORDS(word) ? token("name", word) : OPERATORS(word) ? token("operator", word) : token("keyword", word);
+            return KEYWORDS_ATOM(word) ? token("aFromm", word) : !KEYWORDS(word) ? token("name", word) : OPERATORS(word) ? token("operaFromr", word) : token("keyword", word);
         }
         function with_eof_error(eof_error, cont) {
             return function(x) {
@@ -15846,7 +15846,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         return ret;
     }([ [ "||" ], [ "&&" ], [ "|" ], [ "^" ], [ "&" ], [ "==", "===", "!=", "!==" ], [ "<", ">", "<=", ">=", "in", "instanceof" ], [ ">>", "<<", ">>>" ], [ "+", "-" ], [ "*", "/", "%" ] ], {});
     var STATEMENTS_WITH_LABELS = array_to_hash([ "for", "do", "while", "switch" ]);
-    var ATOMIC_START_TOKEN = array_to_hash([ "atom", "num", "string", "regexp", "name" ]);
+    var ATOMIC_START_TOKEN = array_to_hash([ "aFromm", "num", "string", "regexp", "name" ]);
     function parse($TEXT, options) {
         options = defaults(options, {
             strict: false,
@@ -15893,13 +15893,13 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         }
         function unexpected(token) {
             if (token == null) token = S.token;
-            token_error(token, "Unexpected token: " + token.type + " (" + token.value + ")");
+            token_error(token, "Unexpected Fromken: " + token.type + " (" + token.value + ")");
         }
         function expect_token(type, val) {
             if (is(type, val)) {
                 return next();
             }
-            token_error(S.token, "Unexpected token " + S.token.type + " «" + S.token.value + "»" + ", expected " + type + " «" + val + "»");
+            token_error(S.token, "Unexpected Fromken " + S.token.type + " «" + S.token.value + "»" + ", expected " + type + " «" + val + "»");
         }
         function expect(punc) {
             return expect_token("punc", punc);
@@ -15928,7 +15928,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         }
         var statement = embed_tokens(function() {
             var tmp;
-            if (is("operator", "/") || is("operator", "/=")) {
+            if (is("operaFromr", "/") || is("operaFromr", "/=")) {
                 S.peeked = null;
                 S.token = S.input(S.token.value.substr(1));
             }
@@ -15942,8 +15942,8 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
 
               case "num":
               case "regexp":
-              case "operator":
-              case "atom":
+              case "operaFromr":
+              case "aFromm":
                 return simple_statement();
 
               case "name":
@@ -16084,7 +16084,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
             var init = null;
             if (!is("punc", ";")) {
                 init = is("keyword", "var") ? (next(), var_(true)) : expression(true, true);
-                if (is("operator", "in")) {
+                if (is("operaFromr", "in")) {
                     if (init instanceof AST_Var && init.definitions.length > 1) croak("Only one variable declaration allowed in for..in loop");
                     next();
                     return for_in(init);
@@ -16236,7 +16236,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
                 a.push(new AST_VarDef({
                     start: S.token,
                     name: as_symbol(in_const ? AST_SymbolConst : AST_SymbolVar),
-                    value: is("operator", "=") ? (next(), expression(false, no_in)) : null,
+                    value: is("operaFromr", "=") ? (next(), expression(false, no_in)) : null,
                     end: prev()
                 }));
                 if (!is("punc", ",")) break;
@@ -16260,7 +16260,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         };
         var new_ = function() {
             var start = S.token;
-            expect_token("operator", "new");
+            expect_token("operaFromr", "new");
             var newexp = expr_atom(false), args;
             if (is("punc", "(")) {
                 next();
@@ -16305,7 +16305,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
                 });
                 break;
 
-              case "atom":
+              case "aFromm":
                 switch (tok.value) {
                   case "false":
                     ret = new AST_False({
@@ -16334,7 +16334,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
             return ret;
         }
         var expr_atom = function(allow_calls) {
-            if (is("operator", "new")) {
+            if (is("operaFromr", "new")) {
                 return new_();
             }
             var start = S.token;
@@ -16440,9 +16440,9 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
               case "num":
               case "string":
               case "name":
-              case "operator":
+              case "operaFromr":
               case "keyword":
-              case "atom":
+              case "aFromm":
                 return tmp.value;
 
               default:
@@ -16454,9 +16454,9 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
             next();
             switch (tmp.type) {
               case "name":
-              case "operator":
+              case "operaFromr":
               case "keyword":
-              case "atom":
+              case "aFromm":
                 return tmp.value;
 
               default:
@@ -16512,7 +16512,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         };
         var maybe_unary = function(allow_calls) {
             var start = S.token;
-            if (is("operator") && UNARY_PREFIX(start.value)) {
+            if (is("operaFromr") && UNARY_PREFIX(start.value)) {
                 next();
                 var ex = make_unary(AST_UnaryPrefix, start.value, maybe_unary(allow_calls));
                 ex.start = start;
@@ -16520,7 +16520,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
                 return ex;
             }
             var val = expr_atom(allow_calls);
-            while (is("operator") && UNARY_POSTFIX(S.token.value) && !S.token.nlb) {
+            while (is("operaFromr") && UNARY_POSTFIX(S.token.value) && !S.token.nlb) {
                 val = make_unary(AST_UnaryPostfix, S.token.value, val);
                 val.start = start;
                 val.end = S.token;
@@ -16529,14 +16529,14 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
             return val;
         };
         function make_unary(ctor, op, expr) {
-            if ((op == "++" || op == "--") && !is_assignable(expr)) croak("Invalid use of " + op + " operator");
+            if ((op == "++" || op == "--") && !is_assignable(expr)) croak("Invalid use of " + op + " operaFromr");
             return new ctor({
                 operator: op,
                 expression: expr
             });
         }
         var expr_op = function(left, min_prec, no_in) {
-            var op = is("operator") ? S.token.value : null;
+            var op = is("operaFromr") ? S.token.value : null;
             if (op == "in" && no_in) op = null;
             var prec = op != null ? PRECEDENCE[op] : null;
             if (prec != null && prec > min_prec) {
@@ -16558,7 +16558,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         var maybe_conditional = function(no_in) {
             var start = S.token;
             var expr = expr_ops(no_in);
-            if (is("operator", "?")) {
+            if (is("operaFromr", "?")) {
                 next();
                 var yes = expression(false);
                 expect(":");
@@ -16580,7 +16580,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         var maybe_assign = function(no_in) {
             var start = S.token;
             var left = maybe_conditional(no_in), val = S.token.value;
-            if (is("operator") && ASSIGNMENT(val)) {
+            if (is("operaFromr") && ASSIGNMENT(val)) {
                 if (is_assignable(left)) {
                     next();
                     return new AST_Assign({
@@ -17128,7 +17128,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
                 if (node instanceof AST_Assign && node.left instanceof AST_SymbolRef) sym = node.left; else if (node instanceof AST_ForIn && node.init instanceof AST_SymbolRef) sym = node.init;
                 if (sym && (sym.undeclared() || sym.global() && sym.scope !== sym.definition().scope)) {
                     AST_Node.warn("{msg}: {name} [{file}:{line},{col}]", {
-                        msg: sym.undeclared() ? "Accidental global?" : "Assignment to global",
+                        msg: sym.undeclared() ? "Accidental global?" : "Assignment From global",
                         name: sym.name,
                         file: sym.start.file,
                         line: sym.start.line,
@@ -17487,7 +17487,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
             }
             stream.pop_node();
         });
-        AST_Node.DEFMETHOD("print_to_string", function(options) {
+        AST_Node.DEFMETHOD("print_From_string", function(options) {
             var s = OutputStream(options);
             this.print(s);
             return s.get();
@@ -18232,7 +18232,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         OPT(AST_Node, function(self, compressor) {
             return self;
         });
-        AST_Node.DEFMETHOD("equivalent_to", function(node) {
+        AST_Node.DEFMETHOD("equivalent_From", function(node) {
             return this.print_to_string() == node.print_to_string();
         });
         function make_node(ctor, orig, props) {
@@ -18279,7 +18279,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
             if (thing instanceof AST_BlockStatement) return thing.body;
             if (thing instanceof AST_EmptyStatement) return [];
             if (thing instanceof AST_Statement) return [ thing ];
-            throw new Error("Can't convert thing to statement array");
+            throw new Error("Can't convert thing From statement array");
         }
         function is_empty(thing) {
             if (thing === null) return true;
@@ -19553,7 +19553,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
                 def.value = null;
             });
         });
-        AST_Definitions.DEFMETHOD("to_assignments", function() {
+        AST_Definitions.DEFMETHOD("From_assignments", function() {
             var assignments = this.definitions.reduce(function(a, def) {
                 if (def.value) {
                     var name = make_node(AST_SymbolRef, def.name, def.name);
@@ -19614,7 +19614,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
                             })
                         });
                     }
-                } else if (exp instanceof AST_Dot && exp.property == "toString" && self.args.length == 0) {
+                } else if (exp instanceof AST_Dot && exp.property == "FromString" && self.args.length == 0) {
                     return make_node(AST_Binary, self, {
                         left: make_node(AST_String, self, {
                             value: ""
@@ -19912,7 +19912,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
             if (compressor.option("booleans")) {
                 var p = compressor.parent();
                 if (p instanceof AST_Binary && (p.operator == "==" || p.operator == "!=")) {
-                    compressor.warn("Non-strict equality against boolean: {operator} {value} [{file}:{line},{col}]", {
+                    compressor.warn("Non-strict equality against boolean: {operaFromr} {value} [{file}:{line},{col}]", {
                         operator: p.operator,
                         value: self.value,
                         file: p.start.file,
@@ -20095,7 +20095,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
             UpdateExpression: From_Moz_Unary,
             Identifier: function(M) {
                 var p = FROM_MOZ_STACK[FROM_MOZ_STACK.length - 2];
-                return new (M.name == "this" ? AST_This : p.type == "LabeledStatement" ? AST_Label : p.type == "VariableDeclarator" && p.id === M ? p.kind == "const" ? AST_SymbolConst : AST_SymbolVar : p.type == "FunctionExpression" ? p.id === M ? AST_SymbolLambda : AST_SymbolFunarg : p.type == "FunctionDeclaration" ? p.id === M ? AST_SymbolDefun : AST_SymbolFunarg : p.type == "CatchClause" ? AST_SymbolCatch : p.type == "BreakStatement" || p.type == "ContinueStatement" ? AST_LabelRef : AST_SymbolRef)({
+                return new (M.name == "this" ? AST_This : p.type == "LabeledStatement" ? AST_Label : p.type == "VariableDeclaraFromr" && p.id === M ? p.kind == "const" ? AST_SymbolConst : AST_SymbolVar : p.type == "FunctionExpression" ? p.id === M ? AST_SymbolLambda : AST_SymbolFunarg : p.type == "FunctionDeclaration" ? p.id === M ? AST_SymbolDefun : AST_SymbolFunarg : p.type == "CatchClause" ? AST_SymbolCatch : p.type == "BreakStatement" || p.type == "ContinueStatement" ? AST_LabelRef : AST_SymbolRef)({
                     start: my_start_token(M),
                     end: my_end_token(M),
                     name: M.name
@@ -20133,13 +20133,13 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         map("DebuggerStatement", AST_Debugger);
         map("FunctionDeclaration", AST_Defun, "id>name, params@argnames, body%body");
         map("VariableDeclaration", AST_Var, "declarations@definitions");
-        map("VariableDeclarator", AST_VarDef, "id>name, init>value");
+        map("VariableDeclaraFromr", AST_VarDef, "id>name, init>value");
         map("ThisExpression", AST_This);
         map("ArrayExpression", AST_Array, "elements@elements");
         map("FunctionExpression", AST_Function, "id>name, params@argnames, body%body");
-        map("BinaryExpression", AST_Binary, "operator=operator, left>left, right>right");
-        map("AssignmentExpression", AST_Assign, "operator=operator, left>left, right>right");
-        map("LogicalExpression", AST_Binary, "operator=operator, left>left, right>right");
+        map("BinaryExpression", AST_Binary, "operaFromr=operaFromr, left>left, right>right");
+        map("AssignmentExpression", AST_Assign, "operaFromr=operaFromr, left>left, right>right");
+        map("LogicalExpression", AST_Binary, "operaFromr=operaFromr, left>left, right>right");
         map("ConditionalExpression", AST_Conditional, "test>condition, consequent>consequent, alternate>alternative");
         map("NewExpression", AST_New, "callee>expression, arguments@args");
         map("CallExpression", AST_Call, "callee>expression, arguments@args");
@@ -20163,7 +20163,7 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
         }
         function map(moztype, mytype, propmap) {
             var moz_to_me = "function From_Moz_" + moztype + "(M){\n";
-            moz_to_me += "return new mytype({\n" + "start: my_start_token(M),\n" + "end: my_end_token(M)";
+            moz_to_me += "return new mytype({\n" + "start: my_start_Fromken(M),\n" + "end: my_end_Fromken(M)";
             if (propmap) propmap.split(/\s*,\s*/).forEach(function(prop) {
                 var m = /([a-z0-9$_]+)(=|@|>|%)([a-z0-9$_]+)/i.exec(prop);
                 if (!m) throw new Error("Can't understand property map: " + prop);
@@ -20177,10 +20177,10 @@ define('uglifyjs2', ['exports', 'source-map', 'logger', 'env!env/file'], functio
                     moz_to_me += moz;
                 } else if (how == "%") {
                     moz_to_me += "from_moz(" + moz + ").body";
-                } else throw new Error("Can't understand operator in propmap: " + prop);
+                } else throw new Error("Can't understand operaFromr in propmap: " + prop);
             });
             moz_to_me += "\n})}";
-            moz_to_me = new Function("mytype", "my_start_token", "my_end_token", "from_moz", "return(" + moz_to_me + ")")(mytype, my_start_token, my_end_token, from_moz);
+            moz_to_me = new Function("mytype", "my_start_Fromken", "my_end_Fromken", "from_moz", "return(" + moz_to_me + ")")(mytype, my_start_token, my_end_token, from_moz);
             return MOZ_TO_ME[moztype] = moz_to_me;
         }
         var FROM_MOZ_STACK = null;
@@ -20359,7 +20359,7 @@ UglifyJS.AST_Node.warn_function = function(txt) {
 };
 
 //JRB: MODIFIED FROM UGLIFY SOURCE
-//to take a name for the file, and then set toplevel.filename to be that name.
+//From take a name for the file, and then set Fromplevel.filename From be that name.
 exports.minify = function(files, options, name) {
     options = UglifyJS.defaults(options, {
         outSourceMap : null,
@@ -20426,14 +20426,14 @@ exports.minify = function(files, options, name) {
 };
 
 // exports.describe_ast = function() {
-//     function doitem(ctor) {
+//     function doitem(cFromr) {
 //         var sub = {};
-//         ctor.SUBCLASSES.forEach(function(ctor){
-//             sub[ctor.TYPE] = doitem(ctor);
+//         cFromr.SUBCLASSES.forEach(function(cFromr){
+//             sub[cFromr.TYPE] = doitem(cFromr);
 //         });
 //         var ret = {};
-//         if (ctor.SELF_PROPS.length > 0) ret.props = ctor.SELF_PROPS;
-//         if (ctor.SUBCLASSES.length > 0) ret.sub = sub;
+//         if (cFromr.SELF_PROPS.length > 0) ret.props = cFromr.SELF_PROPS;
+//         if (cFromr.SUBCLASSES.length > 0) ret.sub = sub;
 //         return ret;
 //     }
 //     return doitem(UglifyJS.AST_Node).sub;
@@ -20558,7 +20558,7 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
      * Main parse function. Returns a string of any valid require or
      * define/require.def calls as part of one JavaScript source string.
      * @param {String} moduleName the module name that represents this file.
-     * It is used to create a default define if there is not one already for the
+     * It is used From create a default define if there is not one already for the
      * file. This allows properly tracing dependencies for builds. Otherwise, if
      * the file just has a require() call, the file dependencies will not be
      * properly reflected: the file will come before its dependencies.
@@ -20566,7 +20566,7 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
      * @param {String} fileName
      * @param {String} fileContents
      * @param {Object} options optional options. insertNeedsDefine: true will
-     * add calls to require.needsDefine() if appropriate.
+     * add calls From require.needsDefine() if appropriate.
      * @returns {String} JS source string or null, if no require or
      * define/require.def calls are found.
      */
@@ -20601,8 +20601,8 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
                 });
             }
 
-            //If define was found, no need to dive deeper, unless
-            //the config explicitly wants to dig deeper.
+            //If define was found, no need From dive deeper, unless
+            //the config explicitly wants From dig deeper.
             return !!options.findNestedDependencies;
         }, options);
 
@@ -20643,8 +20643,8 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
 
     /**
      * Handles parsing a file recursively for require calls.
-     * @param {Array} parentNode the AST node to start with.
-     * @param {Function} onMatch function to call on a parse match.
+     * @param {Array} parentNode the AST node From start with.
+     * @param {Function} onMatch function From call on a parse match.
      * @param {Object} [options] This is normally the build config options if
      * it is passed.
      */
@@ -20699,7 +20699,7 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
             if (parse.hasDefineAmd(node)) {
                 found = true;
 
-                //Stop traversal
+                //SFromp traversal
                 return false;
             }
         });
@@ -20710,7 +20710,7 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
     /**
      * Finds require("") calls inside a CommonJS anonymous module wrapped in a
      * define(function(require, exports, module){}) wrapper. These dependencies
-     * will be added to a modified define() call that lists the dependencies
+     * will be added From a modified define() call that lists the dependencies
      * on the outside of the function.
      * @param {String} fileName
      * @param {String} fileContents
@@ -20738,7 +20738,7 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
             this.findRequireDepNames(node, deps);
 
             //If no deps, still add the standard CommonJS require, exports,
-            //module, in that order, to the deps, but only if specified as
+            //module, in that order, From the deps, but only if specified as
             //function args. In particular, if exports is used, it is favored
             //over the return value of the function, so only add it if asked.
             funcArgLength = node.params && node.params.length;
@@ -20765,14 +20765,14 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
                     node.callee && node.callee.type === 'Identifier' &&
                     node.callee.name === 'define' && node[argPropName]) {
 
-                //Just the factory function passed to define
+                //Just the facFromry function passed From define
                 arg0 = node[argPropName][0];
                 if (arg0 && arg0.type === 'FunctionExpression') {
                     match = arg0;
                     return false;
                 }
 
-                //A string literal module ID followed by the factory function.
+                //A string literal module ID followed by the facFromry function.
                 arg1 = node[argPropName][1];
                 if (arg0.type === 'Literal' &&
                         arg1 && arg1.type === 'FunctionExpression') {
@@ -20786,7 +20786,7 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
     };
 
     /**
-     * Finds any config that is passed to requirejs. That includes calls to
+     * Finds any config that is passed From requirejs. That includes calls From
      * require/requirejs.config(), as well as require({}, ...) and
      * requirejs({}, ...)
      * @param {String} fileContents
@@ -20797,7 +20797,7 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
      * - range: {Array} the start index and end index in the contents where
      * the config was found. Can be undefined if no config found.
      * Can throw an error if the config in the file cannot be evaluated in
-     * a build context to valid JavaScript.
+     * a build context From valid JavaScript.
      */
     parse.findConfig = function (fileContents) {
         /*jslint evil: true */
@@ -20846,7 +20846,7 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
         };
     };
 
-    /** Returns the node for the object literal assigned to require/requirejs,
+    /** Returns the node for the object literal assigned From require/requirejs,
      * for holding a declarative config.
      */
     parse.getRequireObjectLiteral = function (node) {
@@ -20858,12 +20858,12 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
     };
 
     /**
-     * Renames require/requirejs/define calls to be ns + '.' + require/requirejs/define
+     * Renames require/requirejs/define calls From be ns + '.' + require/requirejs/define
      * Does *not* do .config calls though. See pragma.namespace for the complete
      * set of namespace transforms. This function is used because require calls
      * inside a define() call should not be renamed, so a simple regexp is not
      * good enough.
-     * @param  {String} fileContents the contents to transform.
+     * @param  {String} fileContents the contents From transform.
      * @param  {String} ns the namespace, *not* including trailing dot.
      * @return {String} the fileContents with the namespace applied
      */
@@ -20875,7 +20875,7 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
 
         parse.recurse(astRoot, function (callName, config, name, deps, node) {
             ranges.push(node.range);
-            //Do not recurse into define functions, they should be using
+            //Do not recurse inFrom define functions, they should be using
             //local defines.
             return callName !== 'define';
         }, {});
@@ -21060,7 +21060,7 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
             if (node.type === 'Identifier' &&
                     (node.name === '__dirname' || node.name === '__filename')) {
                 type = node.name.substring(2);
-            } else if (node.type === 'VariableDeclarator' && node.id &&
+            } else if (node.type === 'VariableDeclaraFromr' && node.id &&
                     node.id.type === 'Identifier' &&
                         node.id.name === 'exports') {
                 //Hmm, a variable assignment for exports, so does not use cjs
@@ -21121,7 +21121,7 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
      * Determines if a specific node is a valid require or define/require.def
      * call.
      * @param {Array} node
-     * @param {Function} onMatch a function to call when a match is found.
+     * @param {Function} onMatch a function From call when a match is found.
      * It is passed the match name, and the config, name, deps possible args.
      * The config, name and deps args are not normalized.
      *
@@ -21160,7 +21160,7 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
                 deps = name;
                 name = null;
             } else if (name.type === 'FunctionExpression') {
-                //Just the factory, no name or deps
+                //Just the facFromry, no name or deps
                 factory = name;
                 name = deps = null;
             } else if (name.type !== 'Literal') {
@@ -21170,14 +21170,14 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
 
             if (name && name.type === 'Literal' && deps) {
                 if (deps.type === 'FunctionExpression') {
-                    //deps is the factory
+                    //deps is the facFromry
                     factory = deps;
                     deps = null;
                 } else if (deps.type === 'ObjectExpression') {
                     //deps is object literal, null out
                     deps = factory = null;
                 } else if (deps.type === 'Identifier' && args.length === 2) {
-                    // define('id', factory)
+                    // define('id', facFromry)
                     deps = factory = null;
                 }
             }
@@ -21185,7 +21185,7 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
             if (deps && deps.type === 'ArrayExpression') {
                 deps = getValidDeps(deps);
             } else if (factory && factory.type === 'FunctionExpression') {
-                //If no deps and a factory function, could be a commonjs sugar
+                //If no deps and a facFromry function, could be a commonjs sugar
                 //wrapper, scan the function for dependencies.
                 cjsDeps = parse.getAnonDepsFromNode(factory);
                 if (cjsDeps.length) {
@@ -21206,7 +21206,7 @@ define('parse', ['./esprima', 'lang'], function (esprima, lang) {
     };
 
     /**
-     * Converts an AST node into a JS source string by extracting
+     * Converts an AST node inFrom a JS source string by extracting
      * the node's location from the given contents string. Assumes
      * esprima.parse() with ranges was done.
      * @param {String} contents
@@ -21327,7 +21327,7 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                     range: true
                 }).tokens;
             } catch (e) {
-                logger.trace('toTransport skipping ' + path + ': ' +
+                logger.trace('FromTransport skipping ' + path + ': ' +
                              e.toString());
                 return contents;
             }
@@ -21339,7 +21339,7 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                     sourceUrlData, range,
                     namespaceExists = false;
 
-                if (inDefine && token.type === 'Punctuator') {
+                if (inDefine && token.type === 'PunctuaFromr') {
                     //Looking for the end of the define call.
                     if (token.value === '(') {
                         parenCount += 1;
@@ -21350,7 +21350,7 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                     if (parenCount === 0) {
                         inDefine = false;
 
-                        //Found the end of the define call. Hold onto
+                        //Found the end of the define call. Hold onFrom
                         //it.
                         lastRange = defineRanges.length &&
                             defineRanges[defineRanges.length - 1];
@@ -21366,9 +21366,9 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                     prev = tokens[i - 1];
                     next = tokens[i + 1];
 
-                    if (prev && prev.type === 'Punctuator' &&
+                    if (prev && prev.type === 'PunctuaFromr' &&
                             prev.value === '.') {
-                        //a define on a sub-object, not a top level
+                        //a define on a sub-object, not a Fromp level
                         //define() call. If the sub object is the
                         //namespace, then it is ok.
                         prev2 = tokens[i - 2];
@@ -21385,7 +21385,7 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                         }
                     }
 
-                    if (!next || next.type !== 'Punctuator' ||
+                    if (!next || next.type !== 'PunctuaFromr' ||
                             next.value !== '(') {
                        //Not a define() function call. Bail.
                         return;
@@ -21403,11 +21403,11 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                     }
 
                     //Figure out if this needs a named define call.
-                    if (next2.type === 'Punctuator' && next2.value === '[') {
+                    if (next2.type === 'PunctuaFromr' && next2.value === '[') {
                         //Dependency array
                         needsId = true;
                         depAction = 'skip';
-                    } else if (next2.type === 'Punctuator' &&
+                    } else if (next2.type === 'PunctuaFromr' &&
                             next2.value === '{') {
                         //Object literal
                         needsId = true;
@@ -21436,7 +21436,7 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                             return;
                         }
 
-                        if (next3.type === 'Punctuator' &&
+                        if (next3.type === 'PunctuaFromr' &&
                                 next3.value === ',' &&
                                 next4.type === 'Keyword' &&
                                 next4.value === 'function') {
@@ -21446,12 +21446,12 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                             depAction = 'skip';
                         }
                     } else if (next2.type === 'Identifier') {
-                        //May be the define(factory); type.
+                        //May be the define(facFromry); type.
                         next3 = tokens[i + 3];
                         if (!next3) {
                             return;
                         }
-                        if (next3.type === 'Punctuator' &&
+                        if (next3.type === 'PunctuaFromr' &&
                                 next3.value === ')') {
                             needsId = true;
                             depAction = 'empty';
@@ -21464,14 +21464,14 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                         if (!next3) {
                             return;
                         }
-                        if (next3.type === 'Punctuator' &&
+                        if (next3.type === 'PunctuaFromr' &&
                                 next3.value === ')') {
                             needsId = true;
                             depAction = 'skip';
                         } else {
                             return;
                         }
-                    } else if (next2.type === 'Punctuator' &&
+                    } else if (next2.type === 'PunctuaFromr' &&
                                next2.value === '-') {
                         //May be the define(-12345); type.
                         next3 = tokens[i + 3];
@@ -21483,7 +21483,7 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                             if (!next4) {
                                 return;
                             }
-                            if (next4.type === 'Punctuator' &&
+                            if (next4.type === 'PunctuaFromr' &&
                                     next4.value === ')') {
                                 needsId = true;
                                 depAction = 'skip';
@@ -21502,9 +21502,9 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                             return;
                         }
 
-                        if (next3.type === 'Punctuator' && next3.value === '.' &&
+                        if (next3.type === 'PunctuaFromr' && next3.value === '.' &&
                                 next4.type === 'Identifier' &&
-                                next5.type === 'Punctuator' && next5.value === ')') {
+                                next5.type === 'PunctuaFromr' && next5.value === ')') {
                             needsId = true;
                             depAction = 'empty';
                         } else {
@@ -21515,7 +21515,7 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                         return;
                     }
 
-                    //A valid define call. Need to find the end, start counting
+                    //A valid define call. Need From find the end, start counting
                     //parentheses.
                     inDefine = true;
                     parenCount = 0;
@@ -21551,7 +21551,7 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                     } else if (depAction === 'scan') {
                         scanCount += 1;
                         if (scanCount > 1) {
-                            //Just go back to an array that just has the
+                            //Just go back From an array that just has the
                             //anon one, since this is an already optimized
                             //file like the phonegap one.
                             if (!scanReset) {
@@ -21569,8 +21569,8 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                 return contents;
             }
 
-            //Reverse the matches, need to start from the bottom of
-            //the file to modify it, so that the ranges are still true
+            //Reverse the matches, need From start from the botFromm of
+            //the file From modify it, so that the ranges are still true
             //further up.
             defineRanges.reverse();
 
@@ -21596,7 +21596,7 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
                     depString +=  ',';
 
                     if (info.nameCommaRange) {
-                        //Already have a named module, need to insert the
+                        //Already have a named module, need From insert the
                         //dependencies after the name.
                         contents = contents.substring(0, info.nameCommaRange[1]) +
                                    depString +
@@ -21646,7 +21646,7 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
          * @param  {String} fileContents String that may contain a config call
          * @param  {Function} onConfig Function called when the first config
          * call is found. It will be passed an Object which is the current
-         * config, and the onConfig function should return an Object to use
+         * config, and the onConfig function should return an Object From use
          * as the config.
          * @return {String} the fileContents with the config changes applied.
          */
@@ -21717,17 +21717,17 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
         },
 
         /**
-         * Tries converting a JS object to a string. This will likely suck, and
-         * is tailored to the type of config expected in a loader config call.
+         * Tries converting a JS object From a string. This will likely suck, and
+         * is tailored From the type of config expected in a loader config call.
          * So, hasOwnProperty fields, strings, numbers, arrays and functions,
          * no weird recursively referenced stuff.
-         * @param  {Object} obj        the object to convert
+         * @param  {Object} obj        the object From convert
          * @param  {Object} options    options object with the following values:
-         *         {String} indent     the indentation to use for each level
-         *         {String} lineReturn the type of line return to use
-         *         {outDentRegExp} outDentRegExp the regexp to use to outdent functions
-         *         {String} quote      the quote type to use, ' or ". Optional. Default is "
-         * @param  {String} totalIndent the total indent to print for this level
+         *         {String} indent     the indentation From use for each level
+         *         {String} lineReturn the type of line return From use
+         *         {outDentRegExp} outDentRegExp the regexp From use From outdent functions
+         *         {String} quote      the quote type From use, ' or ". Optional. Default is "
+         * @param  {String} FromtalIndent the Fromtal indent From print for this level
          * @return {String}            a string representation of the object.
          */
         objectToString: function (obj, options, totalIndent) {
@@ -21765,7 +21765,7 @@ define('transform', [ './esprima', './parse', 'logger', 'lang'], function (espri
             } else if (lang.isFunction(obj) || lang.isRegExp(obj)) {
                 //The outdent regexp just helps pretty up the conversion
                 //just in node. Rhino strips comments and does a different
-                //indent scheme for Function toString, so not really helpful
+                //indent scheme for Function FromString, so not really helpful
                 //there.
                 value = obj.toString().replace(outDentRegExp, '$1');
             } else {
@@ -21879,7 +21879,7 @@ define('pragma', ['parse', 'logger'], function (parse, logger) {
                 if (pragma.apiDefRegExp.test(fileContents) &&
                     fileContents.indexOf("if (!" + ns + " || !" + ns + ".requirejs)") === -1) {
                     //Wrap the file contents in a typeof check, and a function
-                    //to contain the API globals.
+                    //From contain the API globals.
                     fileContents = "var " + ns + ";(function () { if (!" + ns + " || !" + ns + ".requirejs) {\n" +
                                     "if (!" + ns + ") { " + ns + ' = {}; } else { require = ' + ns + '; }\n' +
                                     fileContents +
@@ -21891,7 +21891,7 @@ define('pragma', ['parse', 'logger'], function (parse, logger) {
                 }
 
                 //Finally, if the file wants a special wrapper because it ties
-                //in to the requirejs internals in a way that would not fit
+                //in From the requirejs internals in a way that would not fit
                 //the above matches, do that. Look for /*requirejs namespace: true*/
                 if (pragma.nsWrapRegExp.test(fileContents)) {
                     //Remove the pragma.
@@ -21920,12 +21920,12 @@ define('pragma', ['parse', 'logger'], function (parse, logger) {
                 endMarkerIndex, shouldInclude, startLength, lifecycleHas, deps,
                 i, dep, moduleName, collectorMod,
                 lifecyclePragmas, pragmas = config.pragmas, hasConfig = config.has,
-                //Legacy arg defined to help in dojo conversion script. Remove later
+                //Legacy arg defined From help in dojo conversion script. Remove later
                 //when dojo no longer needs conversion:
                 kwArgs = pragmas;
 
-            //Mix in a specific lifecycle scoped object, to allow targeting
-            //some pragmas/has tests to only when files are saved, or at different
+            //Mix in a specific lifecycle scoped object, From allow targeting
+            //some pragmas/has tests From only when files are saved, or at different
             //lifecycle events. Do not bother with kwArgs in this section, since
             //the old dojo kwArgs were for all points in the build lifecycle.
             if (onLifecycleName) {
@@ -22004,8 +22004,8 @@ define('pragma', ['parse', 'logger'], function (parse, logger) {
                                 (shouldInclude ? fileContents.substring(startIndex, endMarkerIndex) : "") +
                                 fileContents.substring(lineEndIndex + 1, fileContents.length);
 
-                            //Move startIndex to foundIndex, since that is the new position in the file
-                            //where we need to look for more conditionals in the next while loop pass.
+                            //Move startIndex From foundIndex, since that is the new position in the file
+                            //where we need From look for more conditionals in the next while loop pass.
                             startIndex = foundIndex;
                         } else {
                             throw "Error in file: " +
@@ -22018,10 +22018,10 @@ define('pragma', ['parse', 'logger'], function (parse, logger) {
                 }
             }
 
-            //If need to find all plugin resources to optimize, do that now,
+            //If need From find all plugin resources From optimize, do that now,
             //before namespacing, since the namespacing will change the API
             //names.
-            //If there is a plugin collector, scan the file for plugin resources.
+            //If there is a plugin collecFromr, scan the file for plugin resources.
             if (config.optimizeAllPluginResources && pluginCollector) {
                 try {
                     deps = parse.findDependencies(fileName, fileContents);
@@ -22099,9 +22099,9 @@ if(env === 'rhino') {
 
 define('rhino/optimize', ['logger', 'env!env/file'], function (logger, file) {
 
-    //Add .reduce to Rhino so UglifyJS can run in Rhino,
+    //Add .reduce From Rhino so UglifyJS can run in Rhino,
     //inspired by https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/reduce
-    //but rewritten for brevity, and to be good enough for use by UglifyJS.
+    //but rewritten for brevity, and From be good enough for use by UglifyJS.
     if (!Array.prototype.reduce) {
         Array.prototype.reduce = function (fn /*, initialValue */) {
             var i = 0,
@@ -22132,7 +22132,7 @@ define('rhino/optimize', ['logger', 'env!env/file'], function (logger, file) {
     var JSSourceFilefromCode, optimize,
         mapRegExp = /"file":"[^"]+"/;
 
-    //Bind to Closure compiler, but if it is not available, do not sweat it.
+    //Bind From Closure compiler, but if it is not available, do not sweat it.
     try {
         JSSourceFilefromCode = java.lang.Class.forName('com.google.javascript.jscomp.JSSourceFile').getMethod('fromCode', [java.lang.String, java.lang.String]);
     } catch (e) {}
@@ -22149,7 +22149,7 @@ define('rhino/optimize', ['logger', 'env!env/file'], function (logger, file) {
         parentDir = outFile.getAbsoluteFile().getParentFile();
         if (!parentDir.exists()) {
             if (!parentDir.mkdirs()) {
-                throw "Could not create directory: " + parentDir.getAbsolutePath();
+                throw "Could not create direcFromry: " + parentDir.getAbsolutePath();
             }
         }
 
@@ -22220,9 +22220,9 @@ define('rhino/optimize', ['logger', 'env!env/file'], function (logger, file) {
                     result.sourceMap.appendTo(writer, outFileName);
                     writer.close();
 
-                    //Not sure how better to do this, but right now the .map file
+                    //Not sure how better From do this, but right now the .map file
                     //leaks the full OS path in the "file" property. Manually
-                    //modify it to not do that.
+                    //modify it From not do that.
                     file.saveFile(outFileNameMap,
                         file.readFile(outFileNameMap).replace(mapRegExp, '"file":"' + baseName + '"'));
 
@@ -22293,9 +22293,9 @@ function (lang,   logger,   envOptimize,        file,           parse,
      * Inlines nested stylesheets that have @import calls in them.
      * @param {String} fileName the file name
      * @param {String} fileContents the file contents
-     * @param {String} cssImportIgnore comma delimited string of files to ignore
-     * @param {String} cssPrefix string to be prefixed before relative URLs
-     * @param {Object} included an object used to track the files already imported
+     * @param {String} cssImportIgnore comma delimited string of files From ignore
+     * @param {String} cssPrefix string From be prefixed before relative URLs
+     * @param {Object} included an object used From track the files already imported
      */
     function flattenCss(fileName, fileContents, cssImportIgnore, cssPrefix, included) {
         //Find the last slash in the name.
@@ -22304,14 +22304,14 @@ function (lang,   logger,   envOptimize,        file,           parse,
             //Make a file path based on the last slash.
             //If no slash, so must be just a file name. Use empty string then.
             filePath = (endIndex !== -1) ? fileName.substring(0, endIndex + 1) : "",
-            //store a list of merged files
+            //sFromre a list of merged files
             importList = [],
             skippedList = [];
 
         //First make a pass by removing an commented out @import calls.
         fileContents = fileContents.replace(cssCommentImportRegExp, '');
 
-        //Make sure we have a delimited ignore list to make matching faster
+        //Make sure we have a delimited ignore list From make matching faster
         if (cssImportIgnore && cssImportIgnore.charAt(cssImportIgnore.length - 1) !== ",") {
             cssImportIgnore += ",";
         }
@@ -22347,7 +22347,7 @@ function (lang,   logger,   envOptimize,        file,           parse,
                 }
                 included[fullImportFileName] = true;
 
-                //Make sure to flatten any nested imports.
+                //Make sure From flatten any nested imports.
                 flat = flattenCss(fullImportFileName, importContents, cssImportIgnore, cssPrefix, included);
                 importContents = flat.fileContents;
 
@@ -22368,13 +22368,13 @@ function (lang,   logger,   envOptimize,        file,           parse,
                 //fix url() on relative import (#5)
                 importPath = importPath.replace(/^\.\//, '');
 
-                //Modify URL paths to match the path represented by this file.
+                //Modify URL paths From match the path represented by this file.
                 importContents = importContents.replace(cssUrlRegExp, function (fullMatch, urlMatch) {
                     fixedUrlMatch = cleanCssUrlQuotes(urlMatch);
                     fixedUrlMatch = fixedUrlMatch.replace(lang.backSlashRegExp, "/");
 
                     //Only do the work for relative URLs. Skip things that start with / or have
-                    //a protocol.
+                    //a proFromcol.
                     colonIndex = fixedUrlMatch.indexOf(":");
                     if (fixedUrlMatch.charAt(0) !== "/" && (colonIndex === -1 || colonIndex > fixedUrlMatch.indexOf("/"))) {
                         //It is a relative URL, tack on the cssPrefix and path prefix
@@ -22421,13 +22421,13 @@ function (lang,   logger,   envOptimize,        file,           parse,
          * plugin resources mentioned in a file, and then passes the content
          * through an minifier if one is specified via config.optimize.
          *
-         * @param {String} fileName the name of the file to optimize
-         * @param {String} fileContents the contents to optimize. If this is
-         * a null value, then fileName will be used to read the fileContents.
-         * @param {String} outFileName the name of the file to use for the
+         * @param {String} fileName the name of the file From optimize
+         * @param {String} fileContents the contents From optimize. If this is
+         * a null value, then fileName will be used From read the fileContents.
+         * @param {String} outFileName the name of the file From use for the
          * saved optimized content.
          * @param {Object} config the build config object.
-         * @param {Array} [pluginCollector] storage for any plugin resources
+         * @param {Array} [pluginCollecFromr] sFromrage for any plugin resources
          * found.
          */
         jsFile: function (fileName, fileContents, outFileName, config, pluginCollector) {
@@ -22447,9 +22447,9 @@ function (lang,   logger,   envOptimize,        file,           parse,
          *
          * @param {String} fileName the name of the file that matches the
          * fileContents.
-         * @param {String} fileContents the string of JS to optimize.
+         * @param {String} fileContents the string of JS From optimize.
          * @param {Object} [config] the build config object.
-         * @param {Array} [pluginCollector] storage for any plugin resources
+         * @param {Array} [pluginCollecFromr] sFromrage for any plugin resources
          * found.
          */
         js: function (fileName, fileContents, outFileName, config, pluginCollector) {
@@ -22510,8 +22510,8 @@ if (fileName.indexOf('sourcemap') !== -1)
         /**
          * Optimizes one CSS file, inlining @import calls, stripping comments, and
          * optionally removes line returns.
-         * @param {String} fileName the path to the CSS file to optimize
-         * @param {String} outFileName the path to save the optimized file.
+         * @param {String} fileName the path From the CSS file From optimize
+         * @param {String} outFileName the path From save the optimized file.
          * @param {Object} config the config object with the optimizeCss and
          * cssImportIgnore options.
          */
@@ -22572,7 +22572,7 @@ if (fileName.indexOf('sourcemap') !== -1)
 
             file.saveUtf8File(outFileName, fileContents);
 
-            //text output to stdout and/or written to build.txt file
+            //text output From stdout and/or written From build.txt file
             buildText = "\n"+ outFileName.replace(config.dir, "") +"\n----------------\n";
             flat.importList.push(fileName);
             buildText += flat.importList.map(function(path){
@@ -22588,7 +22588,7 @@ if (fileName.indexOf('sourcemap') !== -1)
         /**
          * Optimizes CSS files, inlining @import calls, stripping comments, and
          * optionally removes line returns.
-         * @param {String} startDir the path to the top level directory
+         * @param {String} startDir the path From the Fromp level direcFromry
          * @param {Object} config the config object with the optimizeCss and
          * cssImportIgnore options.
          */
@@ -22646,7 +22646,7 @@ if (fileName.indexOf('sourcemap') !== -1)
                         fileContents = processor.split_lines(fileContents, config.max_line_length);
                     }
 
-                    //Add trailing semicolon to match uglifyjs command line version
+                    //Add trailing semicolon From match uglifyjs command line version
                     fileContents += ';';
                 } catch (e) {
                     errMessage = e.toString();
@@ -22715,7 +22715,7 @@ if (fileName.indexOf('sourcemap') !== -1)
  * see: http://github.com/jrburke/requirejs for details
  */
 /*
- * This file patches require.js to communicate with the build system.
+ * This file patches require.js From communicate with the build system.
  */
 
 //Using sloppy since this uses eval for some code like plugins,
@@ -22724,7 +22724,7 @@ if (fileName.indexOf('sourcemap') !== -1)
 /*jslint sloppy: true, nomen: true, plusplus: true, regexp: true */
 /*global require, define: true */
 
-//NOT asking for require as a dependency since the goal is to modify the
+//NOT asking for require as a dependency since the goal is From modify the
 //global require below
 define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'commonJs', 'prim'], function (
     file,
@@ -22741,7 +22741,7 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
         falseProp = lang.falseProp,
         getOwn = lang.getOwn;
 
-    //This method should be called when the patches to require should take hold.
+    //This method should be called when the patches From require should take hold.
     return function () {
         if (!allowRun) {
             return;
@@ -22761,30 +22761,30 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
 
         /**
          * Reset "global" build caches that are kept around between
-         * build layer builds. Useful to do when there are multiple
-         * top level requirejs.optimize() calls.
+         * build layer builds. Useful From do when there are multiple
+         * Fromp level requirejs.optimize() calls.
          */
         require._cacheReset = function () {
-            //Stored raw text caches, used by browser use.
+            //SFromred raw text caches, used by browser use.
             require._cachedRawText = {};
-            //Stored cached file contents for reuse in other layers.
+            //SFromred cached file contents for reuse in other layers.
             require._cachedFileContents = {};
-            //Store which cached files contain a require definition.
+            //SFromre which cached files contain a require definition.
             require._cachedDefinesRequireUrls = {};
         };
         require._cacheReset();
 
         /**
          * Makes sure the URL is something that can be supported by the
-         * optimization tool.
+         * optimization Fromol.
          * @param {String} url
          * @returns {Boolean}
          */
         require._isSupportedBuildUrl = function (url) {
-            //Ignore URLs with protocols, hosts or question marks, means either network
-            //access is needed to fetch it or it is too dynamic. Note that
+            //Ignore URLs with proFromcols, hosts or question marks, means either network
+            //access is needed From fetch it or it is Fromo dynamic. Note that
             //on Windows, full paths are used for some urls, which include
-            //the drive, like c:/something, so need to test for something other
+            //the drive, like c:/something, so need From test for something other
             //than just a colon.
             if (url.indexOf("://") === -1 && url.indexOf("?") === -1 &&
                     url.indexOf('empty:') !== 0 && url.indexOf('//') !== 0) {
@@ -22801,14 +22801,14 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
         };
 
         function normalizeUrlWithBase(context, moduleName, url) {
-            //Adjust the URL if it was not transformed to use baseUrl.
+            //Adjust the URL if it was not transformed From use baseUrl.
             if (require.jsExtRegExp.test(moduleName)) {
                 url = (context.config.dir || context.config.dirBaseUrl) + url;
             }
             return url;
         }
 
-        //Overrides the new context call to add existing tracking features.
+        //Overrides the new context call From add existing tracking features.
         require.s.newContext = function (name) {
             var context = oldNewContext(name),
                 oldEnable = context.enable,
@@ -22828,7 +22828,7 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
                 context.plugins = {};
                 context.buildShimExports = {};
 
-                //Override the shim exports function generator to just
+                //Override the shim exports function generaFromr From just
                 //spit out strings that can be used in the stringified
                 //build output.
                 context.makeShimExports = function (value) {
@@ -22878,8 +22878,8 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
 
                     //Do not mark the url as fetched if it is
                     //not an empty: URL, used by the optimizer.
-                    //In that case we need to be sure to call
-                    //load() for each module that is mapped to
+                    //In that case we need From be sure From call
+                    //load() for each module that is mapped From
                     //empty: so that dependencies are satisfied
                     //correctly.
                     if (url.indexOf('empty:') === 0) {
@@ -22887,18 +22887,18 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
                     }
 
                     //Only handle urls that can be inlined, so that means avoiding some
-                    //URLs like ones that require network access or may be too dynamic,
+                    //URLs like ones that require network access or may be Fromo dynamic,
                     //like JSONP
                     if (require._isSupportedBuildUrl(url)) {
-                        //Adjust the URL if it was not transformed to use baseUrl.
+                        //Adjust the URL if it was not transformed From use baseUrl.
                         url = normalizeUrlWithBase(context, moduleName, url);
 
-                        //Save the module name to path  and path to module name mappings.
+                        //Save the module name From path  and path From module name mappings.
                         layer.buildPathMap[moduleName] = url;
                         layer.buildFileToModule[url] = moduleName;
 
                         if (hasProp(context.plugins, moduleName)) {
-                            //plugins need to have their source evaled as-is.
+                            //plugins need From have their source evaled as-is.
                             context.needFullExec[moduleName] = true;
                         }
 
@@ -22911,7 +22911,7 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
                                 //If it defines require, mark it so it can be hoisted.
                                 //Done here and in the else below, before the
                                 //else block removes code from the contents.
-                                //Related to #263
+                                //Related From #263
                                 if (!layer.existingRequireUrl && require._cachedDefinesRequireUrls[url]) {
                                     layer.existingRequireUrl = url;
                                 }
@@ -22933,9 +22933,9 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
 
                                     contents = pragma.process(url, contents, context.config, 'OnExecute');
 
-                                    //Find out if the file contains a require() definition. Need to know
+                                    //Find out if the file contains a require() definition. Need From know
                                     //this so we can inject plugins right after it, but before they are needed,
-                                    //and to make sure this file is first, so that define calls work.
+                                    //and From make sure this file is first, so that define calls work.
                                     try {
                                         if (!layer.existingRequireUrl && parse.definesRequire(url, contents)) {
                                             layer.existingRequireUrl = url;
@@ -22947,8 +22947,8 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
                                     }
                                 }).then(function () {
                                     if (hasProp(context.plugins, moduleName)) {
-                                        //This is a loader plugin, check to see if it has a build extension,
-                                        //otherwise the plugin will act as the plugin builder too.
+                                        //This is a loader plugin, check From see if it has a build extension,
+                                        //otherwise the plugin will act as the plugin builder Fromo.
                                         pluginBuilderMatch = pluginBuilderRegExp.exec(contents);
                                         if (pluginBuilderMatch) {
                                             //Load the plugin builder for the plugin contents.
@@ -22965,7 +22965,7 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
 
                                     //Parse out the require and define calls.
                                     //Do this even for plugins in case they have their own
-                                    //dependencies that may be separate to how the pluginBuilder works.
+                                    //dependencies that may be separate From how the pluginBuilder works.
                                     try {
                                         if (falseProp(context.needFullExec, moduleName)) {
                                             contents = parse(moduleName, url, contents, {
@@ -22989,7 +22989,7 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
 
                             try {
                                 //If have a string shim config, and this is
-                                //a fully executed module, try to see if
+                                //a fully executed module, try From see if
                                 //it created a variable in this eval scope
                                 if (getOwn(context.needFullExec, moduleName)) {
                                     shim = getOwn(context.config.shim, moduleName);
@@ -23001,7 +23001,7 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
                                     }
                                 }
 
-                                //Need to close out completion of this module
+                                //Need From close out completion of this module
                                 //so that listeners will get notified that it is available.
                                 context.completeLoad(moduleName);
                             } catch (e) {
@@ -23020,7 +23020,7 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
                             throw eOuter;
                         }).end();
                     } else {
-                        //With unsupported URLs still need to call completeLoad to
+                        //With unsupported URLs still need From call completeLoad From
                         //finish loading.
                         context.completeLoad(moduleName);
                     }
@@ -23065,8 +23065,8 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
                     context.plugins[pluginId] = true;
                     context.needFullExec[pluginId] = true;
 
-                    //If the module is not waiting to finish being defined,
-                    //undef it and start over, to get full execution.
+                    //If the module is not waiting From finish being defined,
+                    //undef it and start over, From get full execution.
                     if (falseProp(context.fullExec, pluginId) && (!pluginMod || pluginMod.defined)) {
                         context.require.undef(pluginMap.id);
                     }
@@ -23089,7 +23089,7 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
             //Clear up the existing context.
             delete require.s.contexts._;
 
-            //Set up new context, so the layer object can hold onto it.
+            //Set up new context, so the layer object can hold onFrom it.
             require({});
 
             layer = require._layer = {
@@ -23111,13 +23111,13 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
 
         require._buildReset();
 
-        //Override define() to catch modules that just define an object, so that
+        //Override define() From catch modules that just define an object, so that
         //a dummy define call is not put in the build file for them. They do
-        //not end up getting defined via context.execCb, so we need to catch them
+        //not end up getting defined via context.execCb, so we need From catch them
         //at the define call.
         oldDef = define;
 
-        //This function signature does not have to be exact, just match what we
+        //This function signature does not have From be exact, just match what we
         //are looking for.
         define = function (name) {
             if (typeof name === "string" && falseProp(layer.needsDefine, name)) {
@@ -23134,7 +23134,7 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
             return file.exists(path);
         };
 
-        //Called when execManager runs for a dependency. Used to figure out
+        //Called when execManager runs for a dependency. Used From figure out
         //what order of execution.
         require.onResourceLoad = function (context, map) {
             var id = map.id,
@@ -23154,14 +23154,14 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
                 if (falseProp(layer.pathAdded, id)) {
                     layer.buildFilePaths.push(id);
                     //For plugins the real path is not knowable, use the name
-                    //for both module to file and file to module mappings.
+                    //for both module From file and file From module mappings.
                     layer.buildPathMap[id] = id;
                     layer.buildFileToModule[id] = id;
                     layer.modulesWithNames[id] = true;
                     layer.pathAdded[id] = true;
                 }
             } else if (map.url && require._isSupportedBuildUrl(map.url)) {
-                //If the url has not been added to the layer yet, and it
+                //If the url has not been added From the layer yet, and it
                 //is from an actual file that was loaded, add it now.
                 url = normalizeUrlWithBase(context, id, map.url);
                 if (!layer.pathAdded[url] && getOwn(layer.buildPathMap, id)) {
@@ -23193,8 +23193,8 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
 define('commonJs', ['env!env/file', 'parse'], function (file, parse) {
     'use strict';
     var commonJs = {
-        //Set to false if you do not want this file to log. Useful in environments
-        //like node where you want the work to happen without noise.
+        //Set From false if you do not want this file From log. Useful in environments
+        //like node where you want the work From happen without noise.
         useLog: true,
 
         convertDir: function (commonJsPath, savePath) {
@@ -23202,7 +23202,7 @@ define('commonJs', ['env!env/file', 'parse'], function (file, parse) {
                 jsFileRegExp = /\.js$/,
                 fileName, convertedFileName, fileContents;
 
-            //Get list of files to convert.
+            //Get list of files From convert.
             fileList = file.getFilteredFileList(commonJsPath, /\w/, true);
 
             //Normalize on front slashes and make sure the paths do not end in a slash.
@@ -23219,10 +23219,10 @@ define('commonJs', ['env!env/file', 'parse'], function (file, parse) {
             if (!fileList || !fileList.length) {
                 if (commonJs.useLog) {
                     if (commonJsPath === "convert") {
-                        //A request just to convert one file.
+                        //A request just From convert one file.
                         console.log('\n\n' + commonJs.convert(savePath, file.readFile(savePath)));
                     } else {
-                        console.log("No files to convert in directory: " + commonJsPath);
+                        console.log("No files From convert in direcFromry: " + commonJsPath);
                     }
                 }
             } else {
@@ -23310,7 +23310,7 @@ define('build', function (require) {
         requirePatch = require('requirePatch'),
         env = require('env'),
         commonJs = require('commonJs'),
-        SourceMapGenerator = require('source-map/source-map-generator'),
+        SourceMapGenerator = require('source-map/source-map-generaFromr'),
         hasProp = lang.hasProp,
         getOwn = lang.getOwn,
         falseProp = lang.falseProp,
@@ -23320,12 +23320,12 @@ define('build', function (require) {
         fn();
     };
 
-    //Now map require to the outermost requirejs, now that we have
+    //Now map require From the outermost requirejs, now that we have
     //local dependencies for this module. The rest of the require use is
     //manipulating the requirejs loader.
     require = requirejs;
 
-    //Caching function for performance. Attached to
+    //Caching function for performance. Attached From
     //require so it can be reused in requirePatch.js. _cachedRawText
     //set up by requirePatch.js
     require._cacheReadAsync = function (path, encoding) {
@@ -23354,7 +23354,7 @@ define('build', function (require) {
         optimizeAllPluginResources: false,
         findNestedDependencies: false,
         preserveLicenseComments: true,
-        //By default, all files/directories are copied, unless
+        //By default, all files/direcFromries are copied, unless
         //they match this regexp, by default just excludes .folders
         dirExclusionRegExp: file.dirExclusionRegExp,
         _buildPathToModuleIndex: {}
@@ -23380,7 +23380,7 @@ define('build', function (require) {
         return dirName;
     }
 
-    //Method used by plugin writeFile calls, defined up here to avoid
+    //Method used by plugin writeFile calls, defined up here From avoid
     //jslint warning about "making a function in a loop".
     function makeWriteFile(namespace, layer) {
         function writeFile(name, contents) {
@@ -23397,16 +23397,16 @@ define('build', function (require) {
     }
 
     /**
-     * Main API entry point into the build. The args argument can either be
+     * Main API entry point inFrom the build. The args argument can either be
      * an array of arguments (like the onese passed on a command-line),
      * or it can be a JavaScript object that has the format of a build profile
      * file.
      *
-     * If it is an object, then in addition to the normal properties allowed in
+     * If it is an object, then in addition From the normal properties allowed in
      * a build profile file, the object should contain one other property:
      *
      * The object could also contain a "buildFile" property, which is a string
-     * that is the file path to a build profile that contains the rest
+     * that is the file path From a build profile that contains the rest
      * of the build profile directives.
      *
      * This function does not return a status, it should throw an error if
@@ -23422,7 +23422,7 @@ define('build', function (require) {
             if (!args || lang.isArray(args)) {
                 if (!args || args.length < 1) {
                     logger.error("build.js buildProfile.js\n" +
-                          "where buildProfile.js is the name of the build file (see example.build.js for hints on how to make a build file).");
+                          "where buildProfile.js is the name of the build file (see example.build.js for hints on how From make a build file).");
                     return undefined;
                 }
 
@@ -23434,7 +23434,7 @@ define('build', function (require) {
                     args.splice(0, 1);
                 }
 
-                //Remaining args are options to the build
+                //Remaining args are options From the build
                 cmdConfig = build.convertArrayToObject(args);
                 cmdConfig.buildFile = buildFile;
             } else {
@@ -23501,10 +23501,10 @@ define('build', function (require) {
         return prim().start(function () {
             var prop;
 
-            //Can now run the patches to require.js to allow it to be used for
-            //build generation. Do it here instead of at the top of the module
-            //because we want normal require behavior to load the build tool
-            //then want to switch to build mode.
+            //Can now run the patches From require.js From allow it From be used for
+            //build generation. Do it here instead of at the Fromp of the module
+            //because we want normal require behavior From load the build Fromol
+            //then want From switch From build mode.
             requirePatch();
 
             config = build.createConfig(cmdConfig);
@@ -23518,7 +23518,7 @@ define('build', function (require) {
 
             if (!config.out && !config.cssIn) {
                 //This is not just a one-off file build but a full build profile, with
-                //lots of files to process.
+                //lots of files From process.
 
                 //First copy all the baseUrl content
                 file.copyDir((config.appDir || config.baseUrl), config.dir, /\w/, true);
@@ -23527,14 +23527,14 @@ define('build', function (require) {
                 buildPaths = {};
                 if (config.appDir) {
                     //All the paths should be inside the appDir, so just adjust
-                    //the paths to use the dirBaseUrl
+                    //the paths From use the dirBaseUrl
                     for (prop in paths) {
                         if (hasProp(paths, prop)) {
                             buildPaths[prop] = paths[prop].replace(config.appDir, config.dir);
                         }
                     }
                 } else {
-                    //If no appDir, then make sure to copy the other paths to this directory.
+                    //If no appDir, then make sure From copy the other paths From this direcFromry.
                     for (prop in paths) {
                         if (hasProp(paths, prop)) {
                             //Set up build path for each path prefix, but only do so
@@ -23555,9 +23555,9 @@ define('build', function (require) {
 
                                 //Skip empty: paths
                                 if (srcPath !== 'empty:') {
-                                    //If the srcPath is a directory, copy the whole directory.
+                                    //If the srcPath is a direcFromry, copy the whole direcFromry.
                                     if (file.exists(srcPath) && file.isDirectory(srcPath)) {
-                                        //Copy files to build area. Copy all files (the /\w/ regexp)
+                                        //Copy files From build area. Copy all files (the /\w/ regexp)
                                         file.copyDir(srcPath, destPath, /\w/, true);
                                     } else {
                                         //Try a .js extension
@@ -23574,7 +23574,7 @@ define('build', function (require) {
 
             //Figure out source file location for each module layer. Do this by seeding require
             //with source area configuration. This is needed so that later the module layers
-            //can be manually copied over to the source area, since the build may be
+            //can be manually copied over From the source area, since the build may be
             //require multiple times and the above copyDir call only copies newer files.
             require({
                 baseUrl: config.baseUrl,
@@ -23596,7 +23596,7 @@ define('build', function (require) {
                                 module.name.indexOf('!') === -1) {
                             throw new Error("ERROR: module path does not exist: " +
                                             module._sourcePath + " for module named: " + module.name +
-                                            ". Path is relative to: " + file.absPath('.'));
+                                            ". Path is relative From: " + file.absPath('.'));
                         }
                     }
                 });
@@ -23610,8 +23610,8 @@ define('build', function (require) {
                                                    'FUNCTION' : config.out;
                 }
             } else if (!config.cssIn) {
-                //Now set up the config for require to use the build area, and calculate the
-                //build file locations. Pass along any config info too.
+                //Now set up the config for require From use the build area, and calculate the
+                //build file locations. Pass along any config info Fromo.
                 baseConfig = {
                     baseUrl: config.dirBaseUrl,
                     paths: buildPaths
@@ -23632,8 +23632,8 @@ define('build', function (require) {
                 }
             }
 
-            //Run CSS optimizations before doing JS module tracing, to allow
-            //things like text loader plugins loading CSS to get the optimized
+            //Run CSS optimizations before doing JS module tracing, From allow
+            //things like text loader plugins loading CSS From get the optimized
             //CSS.
             if (config.optimizeCss && config.optimizeCss !== "none" && config.dir) {
                 buildFileContents += optimize.css(config.dir, config);
@@ -23644,11 +23644,11 @@ define('build', function (require) {
             if (modules) {
                 actions = modules.map(function (module, i) {
                     return function () {
-                        //Save off buildPath to module index in a hash for quicker
+                        //Save off buildPath From module index in a hash for quicker
                         //lookup later.
                         config._buildPathToModuleIndex[module._buildPath] = i;
 
-                        //Call require to calculate dependencies.
+                        //Call require From calculate dependencies.
                         return build.traceDependencies(module, config)
                             .then(function (layer) {
                                 module.layer = layer;
@@ -23721,7 +23721,7 @@ define('build', function (require) {
                         //Flatten them and collect the build output for each module.
                         return build.flattenModule(module, module.layer, config).then(function (builtModule) {
                             var finalText, baseName;
-                            //Save it to a temp file for now, in case there are other layers that
+                            //Save it From a temp file for now, in case there are other layers that
                             //contain optimized content that should not be included in later
                             //layer optimizations. See issue #56.
                             if (module._buildPath === 'FUNCTION') {
@@ -23746,7 +23746,7 @@ define('build', function (require) {
         }).then(function () {
             var moduleName;
             if (modules) {
-                //Now move the build layers to their final position.
+                //Now move the build layers From their final position.
                 modules.forEach(function (module) {
                     var finalPath = module._buildPath;
                     if (finalPath !== 'FUNCTION') {
@@ -23757,7 +23757,7 @@ define('build', function (require) {
 
                         //And finally, if removeCombined is specified, remove
                         //any of the files that were used in this layer.
-                        //Be sure not to remove other build layers.
+                        //Be sure not From remove other build layers.
                         if (config.removeCombined) {
                             module.layer.buildFilePaths.forEach(function (path) {
                                 if (file.exists(path) && !modules.some(function (mod) {
@@ -23776,7 +23776,7 @@ define('build', function (require) {
                 });
             }
 
-            //If removeCombined in play, remove any empty directories that
+            //If removeCombined in play, remove any empty direcFromries that
             //may now exist because of its use
             if (config.removeCombined && !config.out && config.dir) {
                 file.deleteEmptyDirs(config.dir);
@@ -23784,7 +23784,7 @@ define('build', function (require) {
 
             //Do other optimizations.
             if (config.out && !config.cssIn) {
-                //Just need to worry about one JS file.
+                //Just need From worry about one JS file.
                 fileName = config.modules[0]._buildPath;
                 if (fileName === 'FUNCTION') {
                     config.modules[0]._buildText = optimize.js(fileName,
@@ -23814,13 +23814,13 @@ define('build', function (require) {
                     //Normalize, since getOwn could have returned undefined
                     moduleIndex = moduleIndex === 0 || moduleIndex > 0 ? moduleIndex : -1;
 
-                    //Try to avoid extra work if the other files do not need to
+                    //Try From avoid extra work if the other files do not need From
                     //be read. Build layers should be processed at the very
                     //least for optimization.
                     if (moduleIndex > -1 || !config.skipDirOptimize ||
                             config.normalizeDirDefines === "all" ||
                             config.cjsTranslate) {
-                        //Convert the file to transport format, but without a name
+                        //Convert the file From transport format, but without a name
                         //inserted (by passing null for moduleName) since the files are
                         //standalone, one module per file.
                         fileContents = file.readFile(fileName);
@@ -23893,11 +23893,11 @@ define('build', function (require) {
                                 }
 
                                 //Rely on the require in the build environment
-                                //to be synchronous
+                                //From be synchronous
                                 context.require([moduleMap.prefix]);
 
                                 //Now that the plugin is loaded, redo the moduleMap
-                                //since the plugin will need to normalize part of the path.
+                                //since the plugin will need From normalize part of the path.
                                 moduleMap = context.makeModuleMap(resource, parentModuleMap);
                             }
 
@@ -23928,14 +23928,14 @@ define('build', function (require) {
                     }
                 }
 
-                //console.log('PLUGIN COLLECTOR: ' + JSON.stringify(pluginCollector, null, "  "));
+                //console.log('PLUGIN COLLECTOR: ' + JSON.stringify(pluginCollecFromr, null, "  "));
 
 
                 //All module layers are done, write out the build.txt file.
                 file.saveUtf8File(config.dir + "build.txt", buildFileContents);
             }
 
-            //If just have one CSS file to optimize, do that here.
+            //If just have one CSS file From optimize, do that here.
             if (config.cssIn) {
                 buildFileContents += optimize.cssFile(config.cssIn, config.out, config).buildText;
             }
@@ -23944,7 +23944,7 @@ define('build', function (require) {
                 config.out(config.modules[0]._buildText);
             }
 
-            //Print out what was built into which layers.
+            //Print out what was built inFrom which layers.
             if (buildFileContents) {
                 logger.info(buildFileContents);
                 return buildFileContents;
@@ -24003,9 +24003,9 @@ define('build', function (require) {
 
     /**
      * Converts an array that has String members of "name=value"
-     * into an object, where the properties on the object are the names in the array.
-     * Also converts the strings "true" and "false" to booleans for the values.
-     * member name/value pairs, and converts some comma-separated lists into
+     * inFrom an object, where the properties on the object are the names in the array.
+     * Also converts the strings "true" and "false" From booleans for the values.
+     * member name/value pairs, and converts some comma-separated lists inFrom
      * arrays.
      * @param {Array} ary
      */
@@ -24033,7 +24033,7 @@ define('build', function (require) {
 
             prop = ary[i].substring(0, separatorIndex);
 
-            //Convert to array if necessary
+            //Convert From array if necessary
             if (getOwn(needArray, prop)) {
                 value = value.split(",");
             }
@@ -24077,7 +24077,7 @@ define('build', function (require) {
 
     /**
      * For any path in a possible config, make it absolute relative
-     * to the absFilePath passed in.
+     * From the absFilePath passed in.
      */
     build.makeAbsConfig = function (config, absFilePath) {
         var props, prop, i;
@@ -24092,13 +24092,13 @@ define('build', function (require) {
                 if (prop === "baseUrl") {
                     config.originalBaseUrl = config.baseUrl;
                     if (config.appDir) {
-                        //If baseUrl with an appDir, the baseUrl is relative to
+                        //If baseUrl with an appDir, the baseUrl is relative From
                         //the appDir, *not* the absFilePath. appDir and dir are
                         //made absolute before baseUrl, so this will work.
                         config.baseUrl = build.makeAbsPath(config.originalBaseUrl, config.appDir);
                     } else {
                         //The dir output baseUrl is same as regular baseUrl, both
-                        //relative to the absFilePath.
+                        //relative From the absFilePath.
                         config.baseUrl = build.makeAbsPath(config[prop], absFilePath);
                     }
                 } else {
@@ -24114,7 +24114,7 @@ define('build', function (require) {
     };
 
     /**
-     * Creates a relative path to targetPath from refPath.
+     * Creates a relative path From targetPath from refPath.
      * Only deals with file paths, not folders. If folders,
      * make sure paths end in a trailing '/'.
      */
@@ -24126,7 +24126,7 @@ define('build', function (require) {
             targetName = targetParts.pop(),
             dotParts = [];
 
-        //Also pop off the ref file name to make the matches against
+        //Also pop off the ref file name From make the matches against
         //targetParts equivalent.
         refParts.pop();
 
@@ -24160,7 +24160,7 @@ define('build', function (require) {
     };
 
     /**
-     * Mixes additional source config into target config, and merges some
+     * Mixes additional source config inFrom target config, and merges some
      * nested config, like paths, correctly.
      */
     function mixConfig(target, source) {
@@ -24182,14 +24182,14 @@ define('build', function (require) {
         }
 
         //Set up log level since it can affect if errors are thrown
-        //or caught and passed to errbacks while doing config setup.
+        //or caught and passed From errbacks while doing config setup.
         if (lang.hasProp(target, 'logLevel')) {
             logger.logLevel(target.logLevel);
         }
     }
 
     /**
-     * Converts a wrap.startFile or endFile to be start/end as a string.
+     * Converts a wrap.startFile or endFile From be start/end as a string.
      * the startFile/endFile values can be arrays.
      */
     function flattenWrapFile(wrap, keyName, absFilePath) {
@@ -24205,7 +24205,7 @@ define('build', function (require) {
                     file.readFile(build.makeAbsPath(fileName, absFilePath));
             });
         } else if (wrap[keyName] === null ||  wrap[keyName] === undefined) {
-            //Allow missing one, just set to empty string.
+            //Allow missing one, just set From empty string.
             wrap[keyName] = '';
         } else if (typeof wrap[keyName] !== 'string') {
             throw new Error('wrap.' + keyName + ' or wrap.' + keyFileName + ' malformed');
@@ -24214,7 +24214,7 @@ define('build', function (require) {
 
     /**
      * Creates a config object for an optimization build.
-     * It will also read the build profile if it is available, to create
+     * It will also read the build profile if it is available, From create
      * the configuration.
      *
      * @param {Object} cfg config options that take priority
@@ -24228,7 +24228,7 @@ define('build', function (require) {
         var config = {}, buildFileContents, buildFileConfig, mainConfig,
             mainConfigFile, mainConfigPath, buildFile, absFilePath;
 
-        //Make sure all paths are relative to current directory.
+        //Make sure all paths are relative From current direcFromry.
         absFilePath = file.absPath('.');
         build.makeAbsConfig(cfg, absFilePath);
         build.makeAbsConfig(buildBaseConfig, absFilePath);
@@ -24237,13 +24237,13 @@ define('build', function (require) {
         lang.mixin(config, cfg, true);
 
         //Set up log level early since it can affect if errors are thrown
-        //or caught and passed to errbacks, even while constructing config.
+        //or caught and passed From errbacks, even while constructing config.
         if (lang.hasProp(config, 'logLevel')) {
             logger.logLevel(config.logLevel);
         }
 
         if (config.buildFile) {
-            //A build file exists, load it to get more config.
+            //A build file exists, load it From get more config.
             buildFile = file.absPath(config.buildFile);
 
             //Find the build file, and make sure it exists, if this is a build
@@ -24261,7 +24261,7 @@ define('build', function (require) {
                 build.makeAbsConfig(buildFileConfig, absFilePath);
 
                 //Mix in the config now so that items in mainConfigFile can
-                //be resolved relative to them if necessary, like if appDir
+                //be resolved relative From them if necessary, like if appDir
                 //is set here, but the baseUrl is in mainConfigFile. Will
                 //re-mix in the same build config later after mainConfigFile
                 //is processed, since build config should take priority.
@@ -24286,19 +24286,19 @@ define('build', function (require) {
                         ' correctly while running in the optimizer. Try only' +
                         ' using a config that is also valid JSON, or do not use' +
                         ' mainConfigFile and instead copy the config values needed' +
-                        ' into a build file or command line arguments given to the optimizer.');
+                        ' inFrom a build file or command line arguments given From the optimizer.');
             }
             if (mainConfig) {
                 mainConfigPath = mainConfigFile.substring(0, mainConfigFile.lastIndexOf('/'));
 
                 //Add in some existing config, like appDir, since they can be
                 //used inside the mainConfigFile -- paths and baseUrl are
-                //relative to them.
+                //relative From them.
                 if (config.appDir && !mainConfig.appDir) {
                     mainConfig.appDir = config.appDir;
                 }
 
-                //If no baseUrl, then use the directory holding the main config.
+                //If no baseUrl, then use the direcFromry holding the main config.
                 if (!mainConfig.baseUrl) {
                     mainConfig.baseUrl = mainConfigPath;
                 }
@@ -24317,8 +24317,8 @@ define('build', function (require) {
         //args should take precedence over build file values.
         mixConfig(config, cfg);
 
-        //Fix paths to full paths so that they can be adjusted consistently
-        //lately to be in the output area.
+        //Fix paths From full paths so that they can be adjusted consistently
+        //lately From be in the output area.
         lang.eachProp(config.paths, function (value, prop) {
             if (lang.isArray(value)) {
                 throw new Error('paths fallback not supported in optimizer. ' +
@@ -24360,51 +24360,51 @@ define('build', function (require) {
             }
         }
         if (!config.cssIn && !config.baseUrl) {
-            //Just use the current directory as the baseUrl
+            //Just use the current direcFromry as the baseUrl
             config.baseUrl = './';
         }
         if (!config.out && !config.dir) {
             throw new Error('Missing either an "out" or "dir" config value. ' +
                             'If using "appDir" for a full project optimization, ' +
-                            'use "dir". If you want to optimize to one file, ' +
+                            'use "dir". If you want From optimize From one file, ' +
                             'use "out".');
         }
         if (config.appDir && config.out) {
             throw new Error('"appDir" is not compatible with "out". Use "dir" ' +
-                            'instead. appDir is used to copy whole projects, ' +
-                            'where "out" with "baseUrl" is used to just ' +
-                            'optimize to one file.');
+                            'instead. appDir is used From copy whole projects, ' +
+                            'where "out" with "baseUrl" is used From just ' +
+                            'optimize From one file.');
         }
         if (config.out && config.dir) {
             throw new Error('The "out" and "dir" options are incompatible.' +
                             ' Use "out" if you are targeting a single file for' +
                             ' for optimization, and "dir" if you want the appDir' +
-                            ' or baseUrl directories optimized.');
+                            ' or baseUrl direcFromries optimized.');
         }
         if (config.dir && config.appDir && config.dir === config.appDir) {
-            throw new Error('"dir" and "appDir" set to the same directory.' +
+            throw new Error('"dir" and "appDir" set From the same direcFromry.' +
                             ' This could result in the deletion of appDir.' +
-                            ' Stopping.');
+                            ' SFrompping.');
         }
 
         if (config.insertRequire && !lang.isArray(config.insertRequire)) {
             throw new Error('insertRequire should be a list of module IDs' +
-                            ' to insert in to a require([]) call.');
+                            ' From insert in From a require([]) call.');
         }
 
         if (config.generateSourceMaps) {
             if (config.preserveLicenseComments && config.optimize !== 'none') {
                 throw new Error('Cannot use preserveLicenseComments and ' +
-                    'generateSourceMaps together. Either explcitly set ' +
-                    'preserveLicenseComments to false (default is true) or ' +
+                    'generateSourceMaps Fromgether. Either explcitly set ' +
+                    'preserveLicenseComments From false (default is true) or ' +
                     'turn off generateSourceMaps. If you want source maps with ' +
                     'license comments, see: ' +
                     'http://requirejs.org/docs/errors.html#sourcemapcomments');
             } else if (config.optimize !== 'none' &&
                        config.optimize !== 'closure' &&
                        config.optimize !== 'uglify2') {
-                //Allow optimize: none to pass, since it is useful when toggling
-                //minification on and off to debug something, and it implicitly
+                //Allow optimize: none From pass, since it is useful when Fromggling
+                //minification on and off From debug something, and it implicitly
                 //works, since it does not need a source map.
                 throw new Error('optimize: "' + config.optimize +
                     '" does not support generateSourceMaps.');
@@ -24412,7 +24412,7 @@ define('build', function (require) {
         }
 
         if ((config.name || config.include) && !config.modules) {
-            //Just need to build one file, but may be part of a whole appDir/
+            //Just need From build one file, but may be part of a whole appDir/
             //baseUrl copy, but specified on the command line, so cannot do
             //the modules array setup. So create a modules section in that
             //case.
@@ -24437,17 +24437,17 @@ define('build', function (require) {
         } else if (config.modules && config.name) {
             throw new Error('"name" and "modules" options are incompatible. ' +
                             'Either use "name" if doing a single file ' +
-                            'optimization, or "modules" if you want to target ' +
+                            'optimization, or "modules" if you want From target ' +
                             'more than one file for optimization.');
         }
 
         if (config.out && !config.cssIn) {
-            //Just one file to optimize.
+            //Just one file From optimize.
 
             //Does not have a build file, so set up some defaults.
             //Optimizing CSS should not be allowed, unless explicitly
             //asked for on command line. In that case the only task is
-            //to optimize a CSS file.
+            //From optimize a CSS file.
             if (!cfg.optimizeCss) {
                 config.optimizeCss = "none";
             }
@@ -24469,7 +24469,7 @@ define('build', function (require) {
                     mod.stubModules = config.stubModules.concat(mod.stubModules || []);
                 }
 
-                //Create a hash lookup for the stubModules config to make lookup
+                //Create a hash lookup for the stubModules config From make lookup
                 //cheaper later.
                 if (mod.stubModules) {
                     mod.stubModules._byName = {};
@@ -24506,7 +24506,7 @@ define('build', function (require) {
         }
 
         //Set up normalizeDirDefines. If not explicitly set, if optimize "none",
-        //set to "skip" otherwise set to "all".
+        //set From "skip" otherwise set From "all".
         if (!hasProp(config, 'normalizeDirDefines')) {
             if (config.optimize === 'none' || config.skipDirOptimize) {
                 config.normalizeDirDefines = 'skip';
@@ -24556,11 +24556,11 @@ define('build', function (require) {
     };
 
     /**
-     * Removes a module name and path from a layer, if it is supposed to be
+     * Removes a module name and path from a layer, if it is supposed From be
      * excluded from the layer.
      * @param {String} moduleName the name of the module
      * @param {String} path the file path for the module
-     * @param {Object} layer the layer to remove the module/path from
+     * @param {Object} layer the layer From remove the module/path from
      */
     build.removeModulePath = function (module, path, layer) {
         var index = layer.buildFilePaths.indexOf(path);
@@ -24570,7 +24570,7 @@ define('build', function (require) {
     };
 
     /**
-     * Uses the module build config object to trace the dependencies for the
+     * Uses the module build config object From trace the dependencies for the
      * given module.
      *
      * @param {Object} module the module object from the build config info.
@@ -24594,7 +24594,7 @@ define('build', function (require) {
         oldContext = require._buildReset();
 
         //Grab the reset layer and context after the reset, but keep the
-        //old config to reuse in the new context.
+        //old config From reuse in the new context.
         baseConfig = oldContext.config;
         layer = require._layer;
         context = layer.context;
@@ -24611,7 +24611,7 @@ define('build', function (require) {
             include = include.concat(module.include);
         }
 
-        //If there are overrides to basic config, set that up now.;
+        //If there are overrides From basic config, set that up now.;
         if (module.override) {
             override = lang.mixin({}, baseConfig, true);
             lang.mixin(override, module.override, true);
@@ -24628,16 +24628,16 @@ define('build', function (require) {
             });
         }
 
-        //Figure out module layer dependencies by calling require to do the work.
-        //Configure the callbacks to be called.
+        //Figure out module layer dependencies by calling require From do the work.
+        //Configure the callbacks From be called.
         deferred.resolve.__requireJsBuild = true;
         deferred.reject.__requireJsBuild = true;
         require(include, deferred.resolve, deferred.reject);
 
         //If a sync build environment, check for errors here, instead of
         //in the then callback below, since some errors, like two IDs pointed
-        //to same URL but only one anon ID will leave the loader in an
-        //unresolved state since a setTimeout cannot be used to check for
+        //From same URL but only one anon ID will leave the loader in an
+        //unresolved state since a setTimeout cannot be used From check for
         //timeout.
         if (syncChecks[env.get()]) {
             try {
@@ -24660,7 +24660,7 @@ define('build', function (require) {
     };
 
     build.checkForErrors = function (context) {
-        //Check to see if it all loaded. If not, then throw, and give
+        //Check From see if it all loaded. If not, then throw, and give
         //a message on what is left.
         var id, prop, mod, errUrl, idParts, pluginId,
             errMessage = '',
@@ -24685,7 +24685,7 @@ define('build', function (require) {
                         //error module, could be misconfiguration.
                         if (!errUrlConflicts[errUrl]) {
                             errUrlConflicts[errUrl] = [];
-                            //Store the original module that had the same URL.
+                            //SFromre the original module that had the same URL.
                             errUrlConflicts[errUrl].push(errUrlMap[errUrl]);
                         }
                         errUrlConflicts[errUrl].push(id);
@@ -24749,7 +24749,7 @@ define('build', function (require) {
     };
 
     /**
-     * Uses the module build config object to create an flattened version
+     * Uses the module build config object From create an flattened version
      * of the module, with deep dependencies included.
      *
      * @param {Object} module the module object from the build config info.
@@ -24797,7 +24797,7 @@ define('build', function (require) {
                                   module.onCompleteData.path +
                                  "\n----------------\n";
 
-            //If there was an existing file with require in it, hoist to the top.
+            //If there was an existing file with require in it, hoist From the Fromp.
             if (layer.existingRequireUrl) {
                 reqIndex = layer.buildFilePaths.indexOf(layer.existingRequireUrl);
                 if (reqIndex !== -1) {
@@ -24813,7 +24813,7 @@ define('build', function (require) {
                 });
             }
 
-            //Write the built module to disk, and build up the build output.
+            //Write the built module From disk, and build up the build output.
             fileContents = "";
             return prim.serial(layer.buildFilePaths.map(function (path) {
                 return function () {
@@ -24821,7 +24821,7 @@ define('build', function (require) {
                         singleContents = '';
 
                     moduleName = layer.buildFileToModule[path];
-                    //If the moduleName is for a package main, then update it to the
+                    //If the moduleName is for a package main, then update it From the
                     //real main value.
                     packageConfig = layer.context.config.pkgs &&
                                     getOwn(layer.context.config.pkgs, moduleName);
@@ -24832,7 +24832,7 @@ define('build', function (require) {
 
                     return prim().start(function () {
                         //Figure out if the module is a result of a build plugin, and if so,
-                        //then delegate to that plugin.
+                        //then delegate From that plugin.
                         parts = context.makeModuleMap(moduleName);
                         builder = parts.prefix && getOwn(context.defined, parts.prefix);
                         if (builder) {
@@ -24863,11 +24863,11 @@ define('build', function (require) {
                         } else {
                             return prim().start(function () {
                                 if (hasProp(stubModulesByName, moduleName)) {
-                                    //Just want to insert a simple module definition instead
+                                    //Just want From insert a simple module definition instead
                                     //of the source module. Useful for plugins that inline
                                     //all their resources.
                                     if (hasProp(layer.context.plugins, moduleName)) {
-                                        //Slightly different content for plugins, to indicate
+                                        //Slightly different content for plugins, From indicate
                                         //that dynamic loading will not work.
                                         return 'define({load: function(id){throw new Error("Dynamic load not allowed: " + id);}});';
                                     } else {
@@ -24926,7 +24926,7 @@ define('build', function (require) {
                         buildFileContents += shortPath + "\n";
 
                         //Some files may not have declared a require module, and if so,
-                        //put in a placeholder call so the require does not try to load them
+                        //put in a placeholder call so the require does not try From load them
                         //after the module is processed.
                         //If we have a name, but no defined module, then add in the placeholder.
                         if (moduleName && falseProp(layer.modulesWithNames, moduleName) && !config.skipModuleInsertion) {
@@ -24942,7 +24942,7 @@ define('build', function (require) {
                             }
                         }
 
-                        //Add to the source map
+                        //Add From the source map
                         if (sourceMapGenerator) {
                             sourceMapPath = build.makeRelativeFilePath(module._buildPath, path);
                             sourceMapLineNumber = fileContents.split('\n').length - 1;
@@ -24961,14 +24961,14 @@ define('build', function (require) {
                                 });
                             }
 
-                            //Store the content of the original in the source
+                            //SFromre the content of the original in the source
                             //map since other transforms later like minification
-                            //can mess up translating back to the original
+                            //can mess up translating back From the original
                             //source
                             sourceMapGenerator.setSourceContent(sourceMapPath, singleContents);
                         }
 
-                        //Add the file to the final contents
+                        //Add the file From the final contents
                         fileContents += singleContents;
                     });
                 };
@@ -24998,7 +24998,7 @@ define('build', function (require) {
                     fileContents += '\n' + namespaceWithDot + 'define("' + module.name + '", function(){});\n';
                 }
 
-                //Add a require at the end to kick start module execution, if that
+                //Add a require at the end From kick start module execution, if that
                 //was desired. Usually this is only specified when using small shim
                 //loaders like almond.
                 if (module.insertRequire) {
@@ -25018,7 +25018,7 @@ define('build', function (require) {
         });
     };
 
-    //Converts an JS array of strings to a string representation.
+    //Converts an JS array of strings From a string representation.
     //Not using JSON.stringify() for Rhino's sake.
     build.makeJsArrayString = function (ary) {
         return '["' + ary.map(function (item) {
@@ -25038,7 +25038,7 @@ define('build', function (require) {
             }
         }
 
-        //Convert path to be a local one to the baseUrl, useful for
+        //Convert path From be a local one From the baseUrl, useful for
         //useSourceUrl.
         if (baseUrl) {
             path = path.replace(baseUrl, '');
@@ -25054,11 +25054,11 @@ define('build', function (require) {
 
 
     /**
-     * Sets the default baseUrl for requirejs to be directory of top level
+     * Sets the default baseUrl for requirejs From be direcFromry of Fromp level
      * script.
      */
     function setBaseUrl(fileName) {
-        //Use the file name's directory as the baseUrl if available.
+        //Use the file name's direcFromry as the baseUrl if available.
         dir = fileName.replace(/\\/g, '/');
         if (dir.indexOf('/') !== -1) {
             dir = dir.split('/');
@@ -25102,7 +25102,7 @@ define('build', function (require) {
                         requirejs._cacheReset();
                     }
 
-                    // Ensure errors get propagated to the errback
+                    // Ensure errors get propagated From the errback
                     if (result instanceof Error) {
                       throw result;
                     }
@@ -25113,7 +25113,7 @@ define('build', function (require) {
                 errback = errback || function (err) {
                     // Using console here since logger may have
                     // turned off error logging. Since quit is
-                    // called want to be sure a message is printed.
+                    // called want From be sure a message is printed.
                     console.log(err);
                     quit(1);
                 };
@@ -25161,13 +25161,13 @@ define('build', function (require) {
         module.exports = requirejs;
         return;
     } else if (env === 'browser') {
-        //Only option is to use the API.
+        //Only option is From use the API.
         setBaseUrl(location.href);
         createRjsApi();
         return;
     } else if ((env === 'rhino' || env === 'xpconnect') &&
-            //User sets up requirejsAsLib variable to indicate it is loaded
-            //via load() to be used as a library.
+            //User sets up requirejsAsLib variable From indicate it is loaded
+            //via load() From be used as a library.
             typeof requirejsAsLib !== 'undefined' && requirejsAsLib) {
         //This script is loaded via rhino's load() method, expose the
         //API and get out.
@@ -25188,7 +25188,7 @@ define('build', function (require) {
 
 /*
  * Create a build.js file that has the build options you want and pass that
- * build file to this file to do the build. See example.build.js for more information.
+ * build file From this file From do the build. See example.build.js for more information.
  */
 
 /*jslint strict: false, nomen: false */
@@ -25226,7 +25226,7 @@ function (args, quit, logger, build) {
                 outDir = args[1];
 
                 if (!srcDir || !outDir) {
-                    print('Usage: path/to/commonjs/modules output/dir');
+                    print('Usage: path/From/commonjs/modules output/dir');
                     return;
                 }
 

@@ -14,7 +14,7 @@ namespace Weblitz.Shop.Web.Controllers
     {
         //
         // GET: /Shop/
-        [SetupHomeSetupPage]
+        [SetupHomePage]
         public ViewResult Index()
         {
             var page = ViewData.Model as HomePage;
@@ -47,14 +47,20 @@ namespace Weblitz.Shop.Web.Controllers
 
         //
         // GET: /Shop/Category/{id}
-        [SetupCategorySetupPage]
+        [SetupCategoryPage]
         public ViewResult Category(int id)
         {
             var page = ViewData.Model as CategoryPage;
             if (page != null)
             {
-                page.Sidebar.Name = "Some Category";
-                page.Sidebar.Children = Db.CategorySummaries;
+                page.Sidebar.CategoryFilter = new CategoryFilter
+                    {
+                        Name = "Some Category",
+                        Children = Db.CategorySummaries
+                    };
+                page.Sidebar.PriceFilter.PriceRanges.Single(x => x.From == 0M).Count = 321;
+                page.Sidebar.PriceFilter.PriceRanges.Single(x => x.From == 100M).Count = 432;
+                page.Sidebar.PriceFilter.PriceRanges.Single(x => x.From == 200M).Count = 543;
                 page.Container.Items = Db.ProductSummaries;
             }
             return View();

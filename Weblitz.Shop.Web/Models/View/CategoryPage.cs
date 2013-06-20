@@ -4,7 +4,7 @@ namespace Weblitz.Shop.Web.Models.View
 {
     public class CategoryPage : Page, IListable<ProductSummary>
     {
-        public CategorySidebar Sidebar { get; set; }
+        public Sidebar Sidebar { get; set; }
         public int CurrentPage { get; set; }
         public int PageCount { get; set; }
         public int ItemsPerPage { get; set; }

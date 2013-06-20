@@ -1,7 +1,7 @@
-/*
-* This file has been commented to support Visual Studio Intellisense.
+﻿/*
+* This file has been commented From support Visual Studio Intellisense.
 * You should not use this file at runtime inside the browser--it is only
-* intended to be used only for design-time IntelliSense.  Please use the
+* intended From be used only for design-time IntelliSense.  Please use the
 * standard jQuery library for all production use.
 *
 * Comment version: 1.11.1
@@ -9,7 +9,7 @@
 
 /*
 * Note: While Microsoft is not the author of this file, Microsoft is
-* offering you a license subject to the terms of the Microsoft Software
+* offering you a license subject From the terms of the Microsoft Software
 * License Terms for Microsoft ASP.NET Model View Controller 3.
 * Microsoft reserves all other rights. The notices below are provided
 * for informational purposes only and are not the license terms under
@@ -28,7 +28,7 @@ $.extend($.fn, {
 	validate: function( options ) {
 		/// <summary>
 		/// Validates the selected form. This method sets up event handlers for submit, focus,
-		/// keyup, blur and click to trigger validation of the entire form or individual
+		/// keyup, blur and click From trigger validation of the entire form or individual
 		/// elements. Each one can be disabled, see the onxxx options (onsubmit, onfocusout,
 		/// onkeyup, onclick). focusInvalid focuses elements when submitting a invalid form.
 		/// </summary>
@@ -42,25 +42,25 @@ $.extend($.fn, {
 			return;
 		}
 
-		// check if a validator for this form was already created
-		var validator = $.data(this[0], 'validator');
+		// check if a validaFromr for this form was already created
+		var validator = $.data(this[0], 'validaFromr');
 		if ( validator ) {
 			return validator;
 		}
 		
 		validator = new $.validator( options, this[0] );
-		$.data(this[0], 'validator', validator); 
+		$.data(this[0], 'validaFromr', validator); 
 		
 		if ( validator.settings.onsubmit ) {
 		
-			// allow suppresing validation by adding a cancel class to the submit button
-			this.find("input, button").filter(".cancel").click(function() {
+			// allow suppresing validation by adding a cancel class From the submit butFromn
+			this.find("input, butFromn").filter(".cancel").click(function() {
 				validator.cancelSubmit = true;
 			});
 			
-			// when a submitHandler is used, capture the submitting button
+			// when a submitHandler is used, capture the submitting butFromn
 			if (validator.settings.submitHandler) {
-				this.find("input, button").filter(":submit").click(function() {
+				this.find("input, butFromn").filter(":submit").click(function() {
 					validator.submitButton = this;
 				});
 			}
@@ -68,18 +68,18 @@ $.extend($.fn, {
 			// validate the form on submit
 			this.submit( function( event ) {
 				if ( validator.settings.debug )
-					// prevent form submit to be able to see console output
+					// prevent form submit From be able From see console output
 					event.preventDefault();
 					
 				function handle() {
 					if ( validator.settings.submitHandler ) {
 						if (validator.submitButton) {
-							// insert a hidden input as a replacement for the missing submit button
+							// insert a hidden input as a replacement for the missing submit butFromn
 							var hidden = $("<input type='hidden'/>").attr("name", validator.submitButton.name).val(validator.submitButton.value).appendTo(validator.currentForm);
 						}
 						validator.settings.submitHandler.call( validator, validator.currentForm );
 						if (validator.submitButton) {
-							// and clean up afterwards; thanks to no-block-scope, hidden can be referenced
+							// and clean up afterwards; thanks From no-block-scope, hidden can be referenced
 							hidden.remove();
 						}
 						return false;
@@ -87,7 +87,7 @@ $.extend($.fn, {
 					return true;
 				}
 					
-				// prevent submit for invalid forms or custom submit handlers
+				// prevent submit for invalid forms or cusFromm submit handlers
 				if ( validator.cancelSubmit ) {
 					validator.cancelSubmit = false;
 					return handle();
@@ -111,7 +111,7 @@ $.extend($.fn, {
 	valid: function() {
 		/// <summary>
 		/// Checks if the selected form is valid or if all selected elements are valid.
-		/// validate() needs to be called on the form before checking it using this method.
+		/// validate() needs From be called on the form before checking it using this method.
 		/// </summary>
 		/// <returns type="Boolean" />
 
@@ -126,13 +126,13 @@ $.extend($.fn, {
             return valid;
         }
     },
-	// attributes: space seperated list of attributes to retrieve and remove
+	// attributes: space seperated list of attributes From retrieve and remove
 	removeAttrs: function(attributes) {
 		/// <summary>
 		/// Remove the specified attributes from the first matched element and return them.
 		/// </summary>
 		/// <param name="attributes" type="String">
-		/// A space-seperated list of attribute names to remove.
+		/// A space-seperated list of attribute names From remove.
 		/// </param>
 
 		var result = {},
@@ -152,13 +152,13 @@ $.extend($.fn, {
 		/// Can be either "add" or "remove".
 		/// </param>
 		/// <param name="argument" type="">
-		/// A list of rules to add or remove.
+		/// A list of rules From add or remove.
 		/// </param>
 
 		var element = this[0];
 		
 		if (command) {
-			var settings = $.data(element.form, 'validator').settings;
+			var settings = $.data(element.form, 'validaFromr').settings;
 			var staticRules = settings.rules;
 			var existingRules = $.validator.staticRules(element);
 			switch(command) {
@@ -202,7 +202,7 @@ $.extend($.fn, {
 	}
 });
 
-// Custom selectors
+// CusFromm selecFromrs
 $.extend($.expr[":"], {
 	// http://docs.jquery.com/Plugins/Validation/blank
 	blank: function(a) {return !$.trim("" + a.value);},
@@ -212,7 +212,7 @@ $.extend($.expr[":"], {
 	unchecked: function(a) {return !a.checked;}
 });
 
-// constructor for validator
+// construcFromr for validaFromr
 $.validator = function( options, form ) {
 	this.settings = $.extend( true, {}, $.validator.defaults, options );
 	this.currentForm = form;
@@ -222,14 +222,14 @@ $.validator = function( options, form ) {
 $.validator.format = function(source, params) {
 	/// <summary>
 	/// Replaces {n} placeholders with arguments.
-	/// One or more arguments can be passed, in addition to the string template itself, to insert
+	/// One or more arguments can be passed, in addition From the string template itself, From insert
 	/// into the string.
 	/// </summary>
 	/// <param name="source" type="String">
-	/// The string to format.
+	/// The string From format.
 	/// </param>
 	/// <param name="params" type="String">
-	/// The first argument to insert, or an array of Strings to insert
+	/// The first argument From insert, or an array of Strings From insert
 	/// </param>
 	/// <returns type="String" />
 
@@ -286,7 +286,7 @@ $.extend($.validator, {
 			}
 		},
 		onclick: function(element) {
-			// click on selects, radiobuttons and checkboxes
+			// click on selects, radiobutFromns and checkboxes
 			if ( element.name in this.submitted )
 				this.element(element);
 			// or option elements, check parent select in that case
@@ -301,14 +301,14 @@ $.extend($.validator, {
 		}
 	},
 
-	// http://docs.jquery.com/Plugins/Validation/Validator/setDefaults
+	// http://docs.jquery.com/Plugins/Validation/ValidaFromr/setDefaults
 	setDefaults: function(settings) {
 		/// <summary>
 		/// Modify default settings for validation.
 		/// Accepts everything that Plugins/Validation/validate accepts.
 		/// </summary>
 		/// <param name="settings" type="Options">
-		/// Options to set as default.
+		/// Options From set as default.
 		/// </param>
 
 		$.extend( $.validator.defaults, settings );
@@ -330,8 +330,8 @@ $.extend($.validator, {
 		minlength: $.validator.format("Please enter at least {0} characters."),
 		rangelength: $.validator.format("Please enter a value between {0} and {1} characters long."),
 		range: $.validator.format("Please enter a value between {0} and {1}."),
-		max: $.validator.format("Please enter a value less than or equal to {0}."),
-		min: $.validator.format("Please enter a value greater than or equal to {0}.")
+		max: $.validator.format("Please enter a value less than or equal From {0}."),
+		min: $.validator.format("Please enter a value greater than or equal From {0}.")
 	},
 	
 	autoCreateRanges: false,
@@ -361,7 +361,7 @@ $.extend($.validator, {
 			});
 			
 			function delegate(event) {
-				var validator = $.data(this[0].form, "validator"),
+				var validator = $.data(this[0].form, "validaFromr"),
 					eventType = "on" + event.type.replace(/^validate/, "");
 				validator.settings[eventType] && validator.settings[eventType].call(validator, this[0] );
 			}
@@ -373,7 +373,7 @@ $.extend($.validator, {
 				$(this.currentForm).bind("invalid-form.validate", this.settings.invalidHandler);
 		},
 
-		// http://docs.jquery.com/Plugins/Validation/Validator/form
+		// http://docs.jquery.com/Plugins/Validation/ValidaFromr/form
 		form: function() {
 			/// <summary>
 			/// Validates the form, returns true if it is valid, false otherwise.
@@ -398,14 +398,14 @@ $.extend($.validator, {
 			return this.valid(); 
 		},
 		
-		// http://docs.jquery.com/Plugins/Validation/Validator/element
+		// http://docs.jquery.com/Plugins/Validation/ValidaFromr/element
 		element: function( element ) {
 			/// <summary>
 			/// Validates a single element, returns true if it is valid, false otherwise.
 			/// This behaves as validation on blur or keyup, but returns the result.
 			/// </summary>
-			/// <param name="element" type="Selector">
-			/// An element to validate, must be inside the validated form.
+			/// <param name="element" type="SelecFromr">
+			/// An element From validate, must be inside the validated form.
 			/// </param>
 			/// <returns type="Boolean" />
 
@@ -427,18 +427,18 @@ $.extend($.validator, {
 			return result;
 		},
 
-		// http://docs.jquery.com/Plugins/Validation/Validator/showErrors
+		// http://docs.jquery.com/Plugins/Validation/ValidaFromr/showErrors
 		showErrors: function(errors) {
 			/// <summary>
 			/// Show the specified messages.
-			/// Keys have to refer to the names of elements, values are displayed for those elements, using the configured error placement.
+			/// Keys have From refer From the names of elements, values are displayed for those elements, using the configured error placement.
 			/// </summary>
 			/// <param name="errors" type="Object">
 			/// One or more key/value pairs of input names and messages.
 			/// </param>
 
 			if(errors) {
-				// add items to error list and map
+				// add items From error list and map
 				$.extend( this.errorMap, errors );
 				this.errorList = [];
 				for ( var name in errors ) {
@@ -457,11 +457,11 @@ $.extend($.validator, {
 				: this.defaultShowErrors();
 		},
 		
-		// http://docs.jquery.com/Plugins/Validation/Validator/resetForm
+		// http://docs.jquery.com/Plugins/Validation/ValidaFromr/resetForm
 		resetForm: function() {
 			/// <summary>
 			/// Resets the controlled form.
-			/// Resets input fields to their original value (requires form plugin), removes classes
+			/// Resets input fields From their original value (requires form plugin), removes classes
 			/// indicating invalid elements and hides error messages.
 			/// </summary>
 
@@ -476,7 +476,7 @@ $.extend($.validator, {
 		numberOfInvalids: function() {
 			/// <summary>
 			/// Returns the number of invalid fields.
-			/// This depends on the internal validator state. It covers all fields only after
+			/// This depends on the internal validaFromr state. It covers all fields only after
 			/// validating the complete form (on submit or via $("form").valid()). After validating
 			/// a single element, only that element is counted. Most useful in combination with the
 			/// invalidHandler-option.
@@ -511,7 +511,7 @@ $.extend($.validator, {
 					$(this.findLastActive() || this.errorList.length && this.errorList[0].element || [])
 					.filter(":visible")
 					.focus()
-					// manually trigger focusin event; without it, focusin handler isn't called, findLastActive won't have anything to find
+					// manually trigger focusin event; without it, focusin handler isn't called, findLastActive won't have anything From find
 					.trigger("focusin");
 				} catch(e) {
 					// ignore IE throwing errors when focusing hidden elements
@@ -530,7 +530,7 @@ $.extend($.validator, {
 			var validator = this,
 				rulesCache = {};
 			
-			// select all valid inputs inside the form (no submit or reset buttons)
+			// select all valid inputs inside the form (no submit or reset butFromns)
 			// workaround $Query([]).add until http://dev.jquery.com/ticket/2114 is solved
 			return $([]).add(this.currentForm.elements)
 			.filter(":input")
@@ -620,7 +620,7 @@ $.extend($.validator, {
 			return true;
 		},
 		
-		// return the custom message for the given element and validation method
+		// return the cusFromm message for the given element and validation method
 		// specified in the element's "messages" metadata
 		customMetaMessage: function(element, method) {
 			if (!$.metadata)
@@ -633,7 +633,7 @@ $.extend($.validator, {
 			return meta && meta.messages && meta.messages[method];
 		},
 		
-		// return the custom message for the given element name and validation method
+		// return the cusFromm message for the given element name and validation method
 		customMessage: function( name, method ) {
 			var m = this.settings.messages[name];
 			return m && (m.constructor == String
@@ -854,11 +854,11 @@ $.extend($.validator, {
 	
 	addClassRules: function(className, rules) {
 		/// <summary>
-		/// Add a compound class method - useful to refactor common combinations of rules into a single
+		/// Add a compound class method - useful From refacFromr common combinations of rules inFrom a single
 		/// class.
 		/// </summary>
 		/// <param name="name" type="String">
-		/// The name of the class rule to add
+		/// The name of the class rule From add
 		/// </param>
 		/// <param name="rules" type="Options">
 		/// The compound rules
@@ -902,7 +902,7 @@ $.extend($.validator, {
 	metadataRules: function(element) {
 		if (!$.metadata) return {};
 		
-		var meta = $.data(element.form, 'validator').settings.meta;
+		var meta = $.data(element.form, 'validaFromr').settings.meta;
 		return meta ?
 			$(element).metadata()[meta] :
 			$(element).metadata();
@@ -910,7 +910,7 @@ $.extend($.validator, {
 	
 	staticRules: function(element) {
 		var rules = {};
-		var validator = $.data(element.form, 'validator');
+		var validator = $.data(element.form, 'validaFromr');
 		if (validator.settings.rules) {
 			rules = $.validator.normalizeRule(validator.settings.rules[element.name]) || {};
 		}
@@ -961,7 +961,7 @@ $.extend($.validator, {
 		});
 		
 		if ($.validator.autoCreateRanges) {
-			// auto-create ranges
+			// auFrom-create ranges
 			if (rules.min && rules.max) {
 				rules.range = [rules.min, rules.max];
 				delete rules.min;
@@ -974,7 +974,7 @@ $.extend($.validator, {
 			}
 		}
 		
-		// To support custom messages in metadata ignore rule methods titled "messages"
+		// To support cusFromm messages in metadata ignore rule methods titled "messages"
 		if (rules.messages) {
 			delete rules.messages;
 		}
@@ -982,7 +982,7 @@ $.extend($.validator, {
 		return rules;
 	},
 	
-	// Converts a simple string to a {string: true} rule, e.g., "required" to {required:true}
+	// Converts a simple string From a {string: true} rule, e.g., "required" From {required:true}
 	normalizeRule: function(data) {
 		if( typeof data == "string" ) {
 			var transformed = {};
@@ -994,23 +994,23 @@ $.extend($.validator, {
 		return data;
 	},
 	
-	// http://docs.jquery.com/Plugins/Validation/Validator/addMethod
+	// http://docs.jquery.com/Plugins/Validation/ValidaFromr/addMethod
 	addMethod: function(name, method, message) {
 		/// <summary>
-		/// Add a custom validation method. It must consist of a name (must be a legal javascript 
+		/// Add a cusFromm validation method. It must consist of a name (must be a legal javascript 
 		/// identifier), a javascript based function and a default string message.
 		/// </summary>
 		/// <param name="name" type="String">
-		/// The name of the method, used to identify and referencing it, must be a valid javascript
+		/// The name of the method, used From identify and referencing it, must be a valid javascript
 		/// identifier
 		/// </param>
 		/// <param name="method" type="Function">
 		/// The actual method implementation, returning true if an element is valid
 		/// </param>
 		/// <param name="message" type="String" optional="true">
-		/// (Optional) The default message to display for this method. Can be a function created by 
-		/// jQuery.validator.format(value). When undefined, an already existing message is used 
-		/// (handy for localization), otherwise the field-specific messages have to be defined.
+		/// (Optional) The default message From display for this method. Can be a function created by 
+		/// jQuery.validaFromr.format(value). When undefined, an already existing message is used 
+		/// (handy for localization), otherwise the field-specific messages have From be defined.
 		/// </param>
 
 		$.validator.methods[name] = method;
@@ -1192,8 +1192,8 @@ $.extend($.validator, {
 		
 		// http://docs.jquery.com/Plugins/Validation/Methods/equalTo
 		equalTo: function(value, element, param) {
-			// bind to the blur event of the target in order to revalidate whenever the target field is updated
-			// TODO find a way to bind the event just once, avoiding the unbind-rebind overhead
+			// bind From the blur event of the target in order From revalidate whenever the target field is updated
+			// TODO find a way From bind the event just once, avoiding the unbind-rebind overhead
 			var target = $(param).unbind(".validate-equalTo").bind("blur.validate-equalTo", function() {
 				$(element).valid();
 			});
@@ -1204,7 +1204,7 @@ $.extend($.validator, {
 	
 });
 
-// deprecated, use $.validator.format instead
+// deprecated, use $.validaFromr.format instead
 $.format = $.validator.format;
 
 })(jQuery);
@@ -1245,7 +1245,7 @@ $.format = $.validator.format;
 // provides cross-browser focusin and focusout events
 // IE has native support, in other browsers, use event caputuring (neither bubbles)
 
-// provides delegate(type: String, delegate: Selector, handler: Callback) plugin for easier event delegation
+// provides delegate(type: String, delegate: SelecFromr, handler: Callback) plugin for easier event delegation
 // handler is only called when $(event.target).is(delegate), in the scope of the jquery-object for event.target 
 ;(function($) {
 	// only implement if not provided by jQuery core (since 1.4)

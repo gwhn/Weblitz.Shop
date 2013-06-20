@@ -4,7 +4,7 @@ using Weblitz.Shop.Web.Models.View;
 
 namespace Weblitz.Shop.Web.Filters
 {
-    public class SetupCategorySetupPageAttribute : SetupPageAttribute
+    public class SetupCategoryPageAttribute : SetupPageAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -44,7 +44,30 @@ namespace Weblitz.Shop.Web.Filters
                                         }
                                 }
                         },
-                    Sidebar = new CategorySidebar(),
+                    Sidebar = new Sidebar
+                        {
+                            PriceFilter = new PriceFilter
+                                {
+                                    PriceRanges = new List<PriceRange>
+                                        {
+                                            new PriceRange
+                                                {
+                                                    Link = new Link {RouteValues = new {filter = "price", from = 0M}},
+                                                    From = 0M
+                                                },
+                                            new PriceRange
+                                                {
+                                                    Link = new Link {RouteValues = new {filter = "price", from = 100M}},
+                                                    From = 100M
+                                                },
+                                            new PriceRange
+                                                {
+                                                    Link = new Link {RouteValues = new {filter = "price", from = 200M}},
+                                                    From = 200M
+                                                }
+                                        }
+                                }
+                        },
                     Container = new Container<ProductSummary> {GroupCount = 4}
                 };
             base.OnActionExecuting(filterContext);

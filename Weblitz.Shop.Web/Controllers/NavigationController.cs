@@ -22,7 +22,7 @@ namespace Weblitz.Shop.Web.Controllers
         // 
         // GET: /Navigation/Menu
         [ChildActionOnly]
-        [MenuFilter]
+        [SetupMenu]
         public PartialViewResult Menu()
         {
             return PartialView();
@@ -31,7 +31,7 @@ namespace Weblitz.Shop.Web.Controllers
         // 
         // GET: /Navigation/SiteMap
         [ChildActionOnly]
-        [SiteMapFilter]
+        [SetupSiteMap]
         public PartialViewResult SiteMap()
         {
             return PartialView();

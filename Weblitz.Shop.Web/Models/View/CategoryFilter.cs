@@ -2,12 +2,12 @@
 
 namespace Weblitz.Shop.Web.Models.View
 {
-    public class CategorySidebar
+    public class CategoryFilter
     {
         public string Name { get; set; }
         public IList<CategorySummary> Children { get; set; }
 
-        public CategorySidebar()
+        public CategoryFilter()
         {
             Children = new List<CategorySummary>();
         }

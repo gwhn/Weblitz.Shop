@@ -20,15 +20,21 @@ namespace Weblitz.Shop.Web.Controllers
 
         //
         // GET: /Search/Results/{query}
-        [SetupResultsSetupPage]
+        [SetupResultsPage]
         public ViewResult Results(string query)
         {
             var page = ViewData.Model as ResultsPage;
             if (page != null)
             {
                 page.Query = query;
-                page.Sidebar.Name = "Some category";
-                page.Sidebar.Children = Db.CategorySummaries;
+                page.Sidebar.CategoryFilter = new CategoryFilter
+                    {
+                        Name = "Some category",
+                        Children = Db.CategorySummaries
+                    };
+                page.Sidebar.PriceFilter.PriceRanges.Single(x => x.From == 0M).Count = 54;
+                page.Sidebar.PriceFilter.PriceRanges.Single(x => x.From == 100M).Count = 43;
+                page.Sidebar.PriceFilter.PriceRanges.Single(x => x.From == 200M).Count = 32;
                 page.Container.Items = Db.ProductSummaries;
             }
             return View();

@@ -1,15 +1,43 @@
-﻿@model Weblitz.Shop.Web.Models.View.CategorySidebar
+﻿@using System.Globalization
+@using Weblitz.Shop.Web.Models.View
+@model Weblitz.Shop.Web.Models.View.Sidebar
 
-<h3>@Model.Name</h3>
-@if (Model.Children.Count > 0)
+@if (Model.CategoryFilter != null)
 {
+    <h3>@Model.CategoryFilter.Name</h3>
+    if (Model.CategoryFilter.Children.Count > 0)
+    {
+        <ul class="unstyled">
+            @foreach (var x in Model.CategoryFilter.Children)
+            {
+                <li>
+                    @Html.ActionLink(x.Link.LinkText, x.Link.ActionName, x.Link.ControllerName, x.Link.RouteValues, null)
+                    <span class="pull-right badge badge-info"><small>@x.Count</small></span>
+                </li>
+            }
+        </ul>
+    }
+}
+@if (Model.PriceFilter != null && Model.PriceFilter.PriceRanges.Count > 0)
+{
+    <h4>Price Range</h4>
     <ul class="unstyled">
-        @foreach (var x in Model.Children)
+        @for (var i = 0; i < Model.PriceFilter.PriceRanges.Count; i++)
         {
+            var x = Model.PriceFilter.PriceRanges[i];
+            var range = string.Format("{0} - ", x.From);
+            if (i + 1 < Model.PriceFilter.PriceRanges.Count)
+            {
+                range += (Model.PriceFilter.PriceRanges[i + 1].From - 1M);
+            }
+            else
+            {
+                range += "no limit";
+            }
             <li>
-                @Html.ActionLink(x.Link.LinkText, x.Link.ActionName, x.Link.ControllerName, x.Link.RouteValues, null)
+                @Html.ActionLink(range, x.Link.ActionName, x.Link.ControllerName, x.Link.RouteValues, null)
                 <span class="pull-right badge badge-info"><small>@x.Count</small></span>
             </li>
-        }
+        }        
     </ul>
 }

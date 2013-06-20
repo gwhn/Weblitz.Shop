@@ -7,7 +7,7 @@ using Weblitz.Shop.Web.Models.View;
 
 namespace Weblitz.Shop.Web.Filters
 {
-    public class SetupHomeSetupPageAttribute : SetupPageAttribute
+    public class SetupHomePageAttribute : SetupPageAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {

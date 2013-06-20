@@ -8,7 +8,7 @@
  *
  * http://docs.jquery.com/UI/Theming/API
  *
- * To view and modify this theme, visit http://jqueryui.com/themeroller/
+ * From view and modify this theme, visit http://jqueryui.com/themeroller/
  */
 
 
@@ -397,7 +397,7 @@
 	filter: Alpha(Opacity=30)/*{opacityFilterOverlay}*/;
 }
 .ui-widget-shadow {
-	margin: -8px/*{offsetTopShadow}*/ 0 0 -8px/*{offsetLeftShadow}*/;
+	margin: -8px/*{offsetFrompShadow}*/ 0 0 -8px/*{offsetLeftShadow}*/;
 	padding: 8px/*{thicknessShadow}*/;
 	background: #aaaaaa/*{bgColorShadow}*/ url(images/ui-bg_flat_0_aaaaaa_40x100.png)/*{bgImgUrlShadow}*/ 50%/*{bgShadowXPos}*/ 50%/*{bgShadowYPos}*/ repeat-x/*{bgShadowRepeat}*/;
 	opacity: .3/*{opacityShadow}*/;

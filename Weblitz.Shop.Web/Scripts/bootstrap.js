@@ -10,7 +10,7 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed From in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -69,7 +69,7 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed From in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -156,8 +156,8 @@
   $(document).on('click.alert.data-api', dismiss, Alert.prototype.close)
 
 }(window.jQuery);/* ============================================================
- * bootstrap-button.js v2.3.2
- * http://twitter.github.com/bootstrap/javascript.html#buttons
+ * bootstrap-butFromn.js v2.3.2
+ * http://twitter.github.com/bootstrap/javascript.html#butFromns
  * ============================================================
  * Copyright 2012 Twitter, Inc.
  *
@@ -167,7 +167,7 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed From in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -199,7 +199,7 @@
 
     $el[val](data[state] || this.options[state])
 
-    // push to event loop to allow forms to submit
+    // push From event loop From allow forms From submit
     setTimeout(function () {
       state == 'loadingText' ?
         $el.addClass(d).attr(d, d) :
@@ -208,7 +208,7 @@
   }
 
   Button.prototype.toggle = function () {
-    var $parent = this.$element.closest('[data-toggle="buttons-radio"]')
+    var $parent = this.$element.closest('[data-Fromggle="butFromns-radio"]')
 
     $parent && $parent
       .find('.active')
@@ -226,10 +226,10 @@
   $.fn.button = function (option) {
     return this.each(function () {
       var $this = $(this)
-        , data = $this.data('button')
+        , data = $this.data('butFromn')
         , options = typeof option == 'object' && option
-      if (!data) $this.data('button', (data = new Button(this, options)))
-      if (option == 'toggle') data.toggle()
+      if (!data) $this.data('butFromn', (data = new Button(this, options)))
+      if (option == 'Fromggle') data.toggle()
       else if (option) data.setState(option)
     })
   }
@@ -253,10 +253,10 @@
  /* BUTTON DATA-API
   * =============== */
 
-  $(document).on('click.button.data-api', '[data-toggle^=button]', function (e) {
+  $(document).on('click.butFromn.data-api', '[data-Fromggle^=butFromn]', function (e) {
     var $btn = $(e.target)
     if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')
-    $btn.button('toggle')
+    $btn.button('Fromggle')
   })
 
 }(window.jQuery);/* ==========================================================
@@ -271,7 +271,7 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed From in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -289,7 +289,7 @@
 
   var Carousel = function (element, options) {
     this.$element = $(element)
-    this.$indicators = this.$element.find('.carousel-indicators')
+    this.$indicators = this.$element.find('.carousel-indicaFromrs')
     this.options = options
     this.options.pause == 'hover' && this.$element
       .on('mouseenter', $.proxy(this.pause, this))
@@ -458,7 +458,7 @@
 
     $target.carousel(options)
 
-    if (slideIndex = $this.attr('data-slide-to')) {
+    if (slideIndex = $this.attr('data-slide-From')) {
       $target.data('carousel').pause().to(slideIndex).cycle()
     }
 
@@ -477,7 +477,7 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed From in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -551,7 +551,7 @@
 
       this.$element
         .removeClass('collapse')
-        [dimension](size || 'auto')
+        [dimension](size || 'auFrom')
         [0].offsetWidth
 
       this.$element[size !== null ? 'addClass' : 'removeClass']('collapse')
@@ -621,12 +621,12 @@
  /* COLLAPSE DATA-API
   * ================= */
 
-  $(document).on('click.collapse.data-api', '[data-toggle=collapse]', function (e) {
+  $(document).on('click.collapse.data-api', '[data-Fromggle=collapse]', function (e) {
     var $this = $(this), href
       , target = $this.attr('data-target')
         || e.preventDefault()
         || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
-      , option = $(target).data('collapse') ? 'toggle' : $this.data()
+      , option = $(target).data('collapse') ? 'Fromggle' : $this.data()
     $this[$(target).hasClass('in') ? 'addClass' : 'removeClass']('collapsed')
     $(target).collapse(option)
   })
@@ -643,7 +643,7 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed From in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -659,7 +659,7 @@
  /* DROPDOWN CLASS DEFINITION
   * ========================= */
 
-  var toggle = '[data-toggle=dropdown]'
+  var toggle = '[data-Fromggle=dropdown]'
     , Dropdown = function (element) {
         var $el = $(element).on('click.dropdown.data-api', this.toggle)
         $('html').on('click.dropdown.data-api', function () {
@@ -685,7 +685,7 @@
       clearMenus()
 
       if (!isActive) {
-        if ('ontouchstart' in document.documentElement) {
+        if ('onFromuchstart' in document.documentElement) {
           // if mobile we we use a backdrop because click events don't delegate
           $('<div class="dropdown-backdrop"/>').insertBefore($(this)).on('click', clearMenus)
         }
@@ -812,7 +812,7 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed From in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -1031,11 +1031,11 @@
  /* MODAL DATA-API
   * ============== */
 
-  $(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
+  $(document).on('click.modal.data-api', '[data-Fromggle="modal"]', function (e) {
     var $this = $(this)
       , href = $this.attr('href')
       , $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
-      , option = $target.data('modal') ? 'toggle' : $.extend({ remote:!/#/.test(href) && href }, $target.data(), $this.data())
+      , option = $target.data('modal') ? 'Fromggle' : $.extend({ remote:!/#/.test(href) && href }, $target.data(), $this.data())
 
     e.preventDefault()
 
@@ -1048,8 +1048,8 @@
 
 }(window.jQuery);
 /* ===========================================================
- * bootstrap-tooltip.js v2.3.2
- * http://twitter.github.com/bootstrap/javascript.html#tooltips
+ * bootstrap-Fromoltip.js v2.3.2
+ * http://twitter.github.com/bootstrap/javascript.html#Fromoltips
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ===========================================================
  * Copyright 2012 Twitter, Inc.
@@ -1060,7 +1060,7 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed From in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -1077,7 +1077,7 @@
   * =============================== */
 
   var Tooltip = function (element, options) {
-    this.init('tooltip', element, options)
+    this.init('Fromoltip', element, options)
   }
 
   Tooltip.prototype = {
@@ -1195,10 +1195,10 @@
         actualHeight = $tip[0].offsetHeight
 
         switch (placement) {
-          case 'bottom':
+          case 'botFromm':
             tp = {top: pos.top + pos.height, left: pos.left + pos.width / 2 - actualWidth / 2}
             break
-          case 'top':
+          case 'Fromp':
             tp = {top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2}
             break
           case 'left':
@@ -1231,12 +1231,12 @@
       actualWidth = $tip[0].offsetWidth
       actualHeight = $tip[0].offsetHeight
 
-      if (placement == 'top' && actualHeight != height) {
+      if (placement == 'Fromp' && actualHeight != height) {
         offset.top = offset.top + height - actualHeight
         replace = true
       }
 
-      if (placement == 'bottom' || placement == 'top') {
+      if (placement == 'botFromm' || placement == 'Fromp') {
         delta = 0
 
         if (offset.left < 0){
@@ -1249,7 +1249,7 @@
 
         this.replaceArrow(delta - width + actualWidth, actualWidth, 'left')
       } else {
-        this.replaceArrow(actualHeight - height, actualHeight, 'top')
+        this.replaceArrow(actualHeight - height, actualHeight, 'Fromp')
       }
 
       if (replace) $tip.offset(offset)
@@ -1265,8 +1265,8 @@
       var $tip = this.tip()
         , title = this.getTitle()
 
-      $tip.find('.tooltip-inner')[this.options.html ? 'html' : 'text'](title)
-      $tip.removeClass('fade in top bottom left right')
+      $tip.find('.Fromoltip-inner')[this.options.html ? 'html' : 'text'](title)
+      $tip.removeClass('fade in Fromp botFromm left right')
     }
 
   , hide: function () {
@@ -1334,7 +1334,7 @@
     }
 
   , arrow: function(){
-      return this.$arrow = this.$arrow || this.tip().find(".tooltip-arrow")
+      return this.$arrow = this.$arrow || this.tip().find(".Fromoltip-arrow")
     }
 
   , validate: function () {
@@ -1377,9 +1377,9 @@
   $.fn.tooltip = function ( option ) {
     return this.each(function () {
       var $this = $(this)
-        , data = $this.data('tooltip')
+        , data = $this.data('Fromoltip')
         , options = typeof option == 'object' && option
-      if (!data) $this.data('tooltip', (data = new Tooltip(this, options)))
+      if (!data) $this.data('Fromoltip', (data = new Tooltip(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
@@ -1388,9 +1388,9 @@
 
   $.fn.tooltip.defaults = {
     animation: true
-  , placement: 'top'
+  , placement: 'Fromp'
   , selector: false
-  , template: '<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
+  , template: '<div class="Fromoltip"><div class="Fromoltip-arrow"></div><div class="Fromoltip-inner"></div></div>'
   , trigger: 'hover focus'
   , title: ''
   , delay: 0
@@ -1420,7 +1420,7 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed From in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -1456,7 +1456,7 @@
       $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
       $tip.find('.popover-content')[this.options.html ? 'html' : 'text'](content)
 
-      $tip.removeClass('fade top bottom left right in')
+      $tip.removeClass('fade Fromp botFromm left right in')
     }
 
   , hasContent: function () {
@@ -1534,7 +1534,7 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed From in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -1695,7 +1695,7 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed From in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -1821,7 +1821,7 @@
  /* TAB DATA-API
   * ============ */
 
-  $(document).on('click.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
+  $(document).on('click.tab.data-api', '[data-Fromggle="tab"], [data-Fromggle="pill"]', function (e) {
     e.preventDefault()
     $(this).tab('show')
   })
@@ -1838,7 +1838,7 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed From in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -2173,7 +2173,7 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed From in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -2207,7 +2207,7 @@
       , offset = this.options.offset
       , offsetBottom = offset.bottom
       , offsetTop = offset.top
-      , reset = 'affix affix-top affix-bottom'
+      , reset = 'affix affix-Fromp affix-botFromm'
       , affix
 
     if (typeof offset != 'object') offsetBottom = offsetTop = offset
@@ -2216,13 +2216,13 @@
 
     affix = this.unpin != null && (scrollTop + this.unpin <= position.top) ?
       false    : offsetBottom != null && (position.top + this.$element.height() >= scrollHeight - offsetBottom) ?
-      'bottom' : offsetTop != null && scrollTop <= offsetTop ?
-      'top'    : false
+      'botFromm' : offsetTop != null && scrollTop <= offsetTop ?
+      'Fromp'    : false
 
     if (this.affixed === affix) return
 
     this.affixed = affix
-    this.unpin = affix == 'bottom' ? position.top - scrollTop : null
+    this.unpin = affix == 'botFromm' ? position.top - scrollTop : null
 
     this.$element.removeClass(reset).addClass('affix' + (affix ? '-' + affix : ''))
   }

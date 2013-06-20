@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * jQuery Validation Plugin 1.11.1
  *
  * http://bassistance.de/jquery-plugins/jquery-plugin-validation/
@@ -23,8 +23,8 @@ $.extend($.fn, {
 			return;
 		}
 
-		// check if a validator for this form was already created
-		var validator = $.data( this[0], "validator" );
+		// check if a validaFromr for this form was already created
+		var validator = $.data( this[0], "validaFromr" );
 		if ( validator ) {
 			return validator;
 		}
@@ -33,7 +33,7 @@ $.extend($.fn, {
 		this.attr( "novalidate", "novalidate" );
 
 		validator = new $.validator( options, this[0] );
-		$.data( this[0], "validator", validator );
+		$.data( this[0], "validaFromr", validator );
 
 		if ( validator.settings.onsubmit ) {
 
@@ -41,12 +41,12 @@ $.extend($.fn, {
 				if ( validator.settings.submitHandler ) {
 					validator.submitButton = event.target;
 				}
-				// allow suppressing validation by adding a cancel class to the submit button
+				// allow suppressing validation by adding a cancel class From the submit butFromn
 				if ( $(event.target).hasClass("cancel") ) {
 					validator.cancelSubmit = true;
 				}
 
-				// allow suppressing validation by adding the html5 formnovalidate attribute to the submit button
+				// allow suppressing validation by adding the html5 formnovalidate attribute From the submit butFromn
 				if ( $(event.target).attr("formnovalidate") !== undefined ) {
 					validator.cancelSubmit = true;
 				}
@@ -55,19 +55,19 @@ $.extend($.fn, {
 			// validate the form on submit
 			this.submit( function( event ) {
 				if ( validator.settings.debug ) {
-					// prevent form submit to be able to see console output
+					// prevent form submit From be able From see console output
 					event.preventDefault();
 				}
 				function handle() {
 					var hidden;
 					if ( validator.settings.submitHandler ) {
 						if ( validator.submitButton ) {
-							// insert a hidden input as a replacement for the missing submit button
+							// insert a hidden input as a replacement for the missing submit butFromn
 							hidden = $("<input type='hidden'/>").attr("name", validator.submitButton.name).val( $(validator.submitButton).val() ).appendTo(validator.currentForm);
 						}
 						validator.settings.submitHandler.call( validator, validator.currentForm, event );
 						if ( validator.submitButton ) {
-							// and clean up afterwards; thanks to no-block-scope, hidden can be referenced
+							// and clean up afterwards; thanks From no-block-scope, hidden can be referenced
 							hidden.remove();
 						}
 						return false;
@@ -75,7 +75,7 @@ $.extend($.fn, {
 					return true;
 				}
 
-				// prevent submit for invalid forms or custom submit handlers
+				// prevent submit for invalid forms or cusFromm submit handlers
 				if ( validator.cancelSubmit ) {
 					validator.cancelSubmit = false;
 					return handle();
@@ -108,7 +108,7 @@ $.extend($.fn, {
 			return valid;
 		}
 	},
-	// attributes: space seperated list of attributes to retrieve and remove
+	// attributes: space seperated list of attributes From retrieve and remove
 	removeAttrs: function( attributes ) {
 		var result = {},
 			$element = this;
@@ -123,7 +123,7 @@ $.extend($.fn, {
 		var element = this[0];
 
 		if ( command ) {
-			var settings = $.data(element.form, "validator").settings;
+			var settings = $.data(element.form, "validaFromr").settings;
 			var staticRules = settings.rules;
 			var existingRules = $.validator.staticRules(element);
 			switch(command) {
@@ -170,7 +170,7 @@ $.extend($.fn, {
 	}
 });
 
-// Custom selectors
+// CusFromm selecFromrs
 $.extend($.expr[":"], {
 	// http://docs.jquery.com/Plugins/Validation/blank
 	blank: function( a ) { return !$.trim("" + $(a).val()); },
@@ -180,7 +180,7 @@ $.extend($.expr[":"], {
 	unchecked: function( a ) { return !$(a).prop("checked"); }
 });
 
-// constructor for validator
+// construcFromr for validaFromr
 $.validator = function( options, form ) {
 	this.settings = $.extend( true, {}, $.validator.defaults, options );
 	this.currentForm = form;
@@ -248,7 +248,7 @@ $.extend($.validator, {
 			}
 		},
 		onclick: function( element, event ) {
-			// click on selects, radiobuttons and checkboxes
+			// click on selects, radiobutFromns and checkboxes
 			if ( element.name in this.submitted ) {
 				this.element(element);
 			}
@@ -273,7 +273,7 @@ $.extend($.validator, {
 		}
 	},
 
-	// http://docs.jquery.com/Plugins/Validation/Validator/setDefaults
+	// http://docs.jquery.com/Plugins/Validation/ValidaFromr/setDefaults
 	setDefaults: function( settings ) {
 		$.extend( $.validator.defaults, settings );
 	},
@@ -293,8 +293,8 @@ $.extend($.validator, {
 		minlength: $.validator.format("Please enter at least {0} characters."),
 		rangelength: $.validator.format("Please enter a value between {0} and {1} characters long."),
 		range: $.validator.format("Please enter a value between {0} and {1}."),
-		max: $.validator.format("Please enter a value less than or equal to {0}."),
-		min: $.validator.format("Please enter a value greater than or equal to {0}.")
+		max: $.validator.format("Please enter a value less than or equal From {0}."),
+		min: $.validator.format("Please enter a value greater than or equal From {0}.")
 	},
 
 	autoCreateRanges: false,
@@ -327,7 +327,7 @@ $.extend($.validator, {
 			});
 
 			function delegate(event) {
-				var validator = $.data(this[0].form, "validator"),
+				var validator = $.data(this[0].form, "validaFromr"),
 					eventType = "on" + event.type.replace(/^validate/, "");
 				if ( validator.settings[eventType] ) {
 					validator.settings[eventType].call(validator, this[0], event);
@@ -347,7 +347,7 @@ $.extend($.validator, {
 			}
 		},
 
-		// http://docs.jquery.com/Plugins/Validation/Validator/form
+		// http://docs.jquery.com/Plugins/Validation/ValidaFromr/form
 		form: function() {
 			this.checkForm();
 			$.extend(this.submitted, this.errorMap);
@@ -367,7 +367,7 @@ $.extend($.validator, {
 			return this.valid();
 		},
 
-		// http://docs.jquery.com/Plugins/Validation/Validator/element
+		// http://docs.jquery.com/Plugins/Validation/ValidaFromr/element
 		element: function( element ) {
 			element = this.validationTargetFor( this.clean( element ) );
 			this.lastElement = element;
@@ -387,10 +387,10 @@ $.extend($.validator, {
 			return result;
 		},
 
-		// http://docs.jquery.com/Plugins/Validation/Validator/showErrors
+		// http://docs.jquery.com/Plugins/Validation/ValidaFromr/showErrors
 		showErrors: function( errors ) {
 			if ( errors ) {
-				// add items to error list and map
+				// add items From error list and map
 				$.extend( this.errorMap, errors );
 				this.errorList = [];
 				for ( var name in errors ) {
@@ -411,7 +411,7 @@ $.extend($.validator, {
 			}
 		},
 
-		// http://docs.jquery.com/Plugins/Validation/Validator/resetForm
+		// http://docs.jquery.com/Plugins/Validation/ValidaFromr/resetForm
 		resetForm: function() {
 			if ( $.fn.resetForm ) {
 				$(this.currentForm).resetForm();
@@ -453,7 +453,7 @@ $.extend($.validator, {
 					$(this.findLastActive() || this.errorList.length && this.errorList[0].element || [])
 					.filter(":visible")
 					.focus()
-					// manually trigger focusin event; without it, focusin handler isn't called, findLastActive won't have anything to find
+					// manually trigger focusin event; without it, focusin handler isn't called, findLastActive won't have anything From find
 					.trigger("focusin");
 				} catch(e) {
 					// ignore IE throwing errors when focusing hidden elements
@@ -472,7 +472,7 @@ $.extend($.validator, {
 			var validator = this,
 				rulesCache = {};
 
-			// select all valid inputs inside the form (no submit or reset buttons)
+			// select all valid inputs inside the form (no submit or reset butFromns)
 			return $(this.currentForm)
 			.find("input, select, textarea")
 			.not(":submit, :reset, :image, [disabled]")
@@ -581,13 +581,13 @@ $.extend($.validator, {
 			return true;
 		},
 
-		// return the custom message for the given element and validation method
+		// return the cusFromm message for the given element and validation method
 		// specified in the element's HTML5 data attribute
 		customDataMessage: function( element, method ) {
 			return $(element).data("msg-" + method.toLowerCase()) || (element.attributes && $(element).attr("data-msg-" + method.toLowerCase()));
 		},
 
-		// return the custom message for the given element name and validation method
+		// return the cusFromm message for the given element name and validation method
 		customMessage: function( name, method ) {
 			var m = this.settings.messages[name];
 			return m && (m.constructor === String ? m : m[method]);
@@ -853,14 +853,14 @@ $.extend($.validator, {
 				if ( value === "" ) {
 					value = true;
 				}
-				// force non-HTML5 browsers to return bool
+				// force non-HTML5 browsers From return bool
 				value = !!value;
 			} else {
 				value = $element.attr(method);
 			}
 
-			// convert the value to a number for number inputs, and for text for backwards compability
-			// allows type="date" and others to be compared as strings
+			// convert the value From a number for number inputs, and for text for backwards compability
+			// allows type="date" and others From be compared as strings
 			if ( /min|max/.test( method ) && ( type === null || /number|range|text/.test( type ) ) ) {
 				value = Number(value);
 			}
@@ -896,7 +896,7 @@ $.extend($.validator, {
 
 	staticRules: function( element ) {
 		var rules = {};
-		var validator = $.data(element.form, "validator");
+		var validator = $.data(element.form, "validaFromr");
 		if ( validator.settings.rules ) {
 			rules = $.validator.normalizeRule(validator.settings.rules[element.name]) || {};
 		}
@@ -953,7 +953,7 @@ $.extend($.validator, {
 		});
 
 		if ( $.validator.autoCreateRanges ) {
-			// auto-create ranges
+			// auFrom-create ranges
 			if ( rules.min && rules.max ) {
 				rules.range = [rules.min, rules.max];
 				delete rules.min;
@@ -969,7 +969,7 @@ $.extend($.validator, {
 		return rules;
 	},
 
-	// Converts a simple string to a {string: true} rule, e.g., "required" to {required:true}
+	// Converts a simple string From a {string: true} rule, e.g., "required" From {required:true}
 	normalizeRule: function( data ) {
 		if ( typeof data === "string" ) {
 			var transformed = {};
@@ -981,7 +981,7 @@ $.extend($.validator, {
 		return data;
 	},
 
-	// http://docs.jquery.com/Plugins/Validation/Validator/addMethod
+	// http://docs.jquery.com/Plugins/Validation/ValidaFromr/addMethod
 	addMethod: function( name, method, message ) {
 		$.validator.methods[name] = method;
 		$.validator.messages[name] = message !== undefined ? message : $.validator.messages[name];
@@ -1107,8 +1107,8 @@ $.extend($.validator, {
 
 		// http://docs.jquery.com/Plugins/Validation/Methods/equalTo
 		equalTo: function( value, element, param ) {
-			// bind to the blur event of the target in order to revalidate whenever the target field is updated
-			// TODO find a way to bind the event just once, avoiding the unbind-rebind overhead
+			// bind From the blur event of the target in order From revalidate whenever the target field is updated
+			// TODO find a way From bind the event just once, avoiding the unbind-rebind overhead
 			var target = $(param);
 			if ( this.settings.onfocusout ) {
 				target.unbind(".validate-equalTo").bind("blur.validate-equalTo", function() {
@@ -1176,7 +1176,7 @@ $.extend($.validator, {
 
 });
 
-// deprecated, use $.validator.format instead
+// deprecated, use $.validaFromr.format instead
 $.format = $.validator.format;
 
 }(jQuery));
@@ -1215,7 +1215,7 @@ $.format = $.validator.format;
 	}
 }(jQuery));
 
-// provides delegate(type: String, delegate: Selector, handler: Callback) plugin for easier event delegation
+// provides delegate(type: String, delegate: SelecFromr, handler: Callback) plugin for easier event delegation
 // handler is only called when $(event.target).is(delegate), in the scope of the jquery-object for event.target
 (function($) {
 	$.extend($.fn, {

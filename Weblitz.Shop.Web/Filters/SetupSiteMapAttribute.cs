@@ -5,7 +5,7 @@ using Weblitz.Shop.Web.Models.View;
 
 namespace Weblitz.Shop.Web.Filters
 {
-    public class SiteMapFilterAttribute : ActionFilterAttribute
+    public class SetupSiteMapAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
