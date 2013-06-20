@@ -1,6 +1,6 @@
 ﻿namespace Weblitz.Shop.Web.Models.View
 {
-    public class Carousel
+    public class Carousel : IContainable<ProductSummary>
     {
         public string TargetId { get; set; }
         public string Title { get; set; }

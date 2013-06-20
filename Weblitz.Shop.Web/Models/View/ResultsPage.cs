@@ -2,7 +2,7 @@
 
 namespace Weblitz.Shop.Web.Models.View
 {
-    public class CategoryPage : Page, IListable<ProductSummary>
+    public class ResultsPage : Page, IListable<ProductSummary>
     {
         public CategorySidebar Sidebar { get; set; }
         public int CurrentPage { get; set; }
@@ -16,7 +16,7 @@ namespace Weblitz.Shop.Web.Models.View
         public IDictionary<string, string> SortOptions { get; set; }
         public Container<ProductSummary> Container { get; set; }
 
-        public CategoryPage()
+        public ResultsPage()
         {
             Container = new Container<ProductSummary>();
         }

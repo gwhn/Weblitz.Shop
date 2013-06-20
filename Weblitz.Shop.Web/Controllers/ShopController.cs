@@ -14,9 +14,19 @@ namespace Weblitz.Shop.Web.Controllers
     {
         //
         // GET: /Shop/
-        [ShopFrontFilter]
-        public ActionResult Index()
+        [SetupHomePage]
+        public ViewResult Index()
         {
+            var page = ViewData.Model as HomePage;
+            if (page != null)
+            {
+                page.FeaturedMedia.Container.Items = Db.ProductSummaries.Take(3).ToList();
+                page.LatestMedia.Container.Items = Db.ProductSummaries.Skip(3).Take(3).ToList();
+                page.SaleMedia.Container.Items = Db.ProductSummaries.Skip(6).Take(3).ToList();
+                page.FeaturedThumbnails.Container.Items = Db.ProductSummaries.Take(12).ToList();
+                page.LatestThumbnails.Container.Items = Db.ProductSummaries.Skip(3).Take(12).ToList();
+                page.SaleThumbnails.Container.Items = Db.ProductSummaries.Skip(6).Take(12).ToList();
+            }
             return View();
         }
 
@@ -37,9 +47,15 @@ namespace Weblitz.Shop.Web.Controllers
 
         //
         // GET: /Shop/Category/{id}
-        [CategoryFilter]
-        public ActionResult Category(int id)
+        [SetupCategoryPage]
+        public ViewResult Category(int id)
         {
+            var page = ViewData.Model as CategoryPage;
+            if (page != null)
+            {
+                page.Sidebar.Children = Db.CategorySummaries;
+                page.Container.Items = Db.ProductSummaries;
+            }
             return View();
         }
 

@@ -3,7 +3,7 @@ using System.Web;
 
 namespace Weblitz.Shop.Web.Models.View
 {
-    public class ShopFront : Page
+    public class HomePage : Page
     {
         public Carousel FeaturedMedia { get; set; }
         public Carousel LatestMedia { get; set; }

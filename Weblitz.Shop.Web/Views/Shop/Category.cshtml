@@ -8,7 +8,7 @@
 
 @{
     Html.RenderPartial("_ListToolbar", Model);
-    Html.RenderPartial(Model.Mode == ViewMode.Grid ? "_ProductGrid" : "_ProductList", Model.Container);
+    Html.RenderPartial(Model.ViewMode == ViewMode.Grid ? "_ProductGrid" : "_ProductList", Model.Container);
 }
 
 @section sidebar

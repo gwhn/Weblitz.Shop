@@ -1,5 +1,5 @@
 ﻿@using Weblitz.Shop.Web.Models.View
-@model Weblitz.Shop.Web.Models.View.IListable
+@model Weblitz.Shop.Web.Models.View.IListable<ProductSummary>
 
 <div class="navbar">
     <div class="navbar-inner">
@@ -31,7 +31,7 @@
                     View <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="@(Model.Mode == ViewMode.Grid ? "active" : string.Empty)">
+                    <li class="@(Model.ViewMode == ViewMode.Grid ? "active" : string.Empty)">
                         <a href="@Url.Action(Model.PageLink.ActionName, Model.PageLink.ControllerName, 
                                                      new RouteValueDictionary(Model.PageLink.RouteValues)
                                                          {
@@ -40,7 +40,7 @@
                                                              {"mode", "grid"}
                                                          })"><i class="icon-th"></i> Grid</a>
                     </li>
-                    <li class="@(Model.Mode == ViewMode.List ? "active" : string.Empty)">
+                    <li class="@(Model.ViewMode == ViewMode.List ? "active" : string.Empty)">
                         <a href="@Url.Action(Model.PageLink.ActionName, Model.PageLink.ControllerName, 
                                                      new RouteValueDictionary(Model.PageLink.RouteValues)
                                                          {

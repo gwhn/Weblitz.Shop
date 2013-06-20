@@ -1,82 +1,15 @@
-using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Collections.Generic;
 using Weblitz.Shop.Web.Models.View;
 
-namespace Weblitz.Shop.Web.Filters
+namespace Weblitz.Shop.Web.Controllers
 {
-    public class CategoryFilterAttribute : PageFilterAttribute
+    public static class Db
     {
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        public static IList<ProductSummary> ProductSummaries
         {
-            filterContext.Controller.ViewData.Model = new CategoryPage
-                {
-                    Title = "Category",
-                    SectionId = base.SectionId,
-                    CurrentPage = 1,
-                    PageCount = 5,
-                    ItemsPerPage = 25,
-                    PerPageOptions = new[] { 25, 50, 100 },
-                    PageLink = new Link(),
-                    WindowSize = 5,
-                    Mode = ViewMode.List,
-                    SortBy = "name_asc",
-                    SortOptions = new Dictionary<string, string>
-                        {
-                            {"name_asc", "Name (ascending)"},
-                            {"name_desc", "Name (descending)"},
-                            {"price_asc", "Price (lowest)"},
-                            {"price_desc", "Price (highest)"}
-                        },
-                    Trail = new Trail
-                        {
-                            UrlReferer = filterContext.HttpContext.Request.UrlReferrer,
-                            Breadcrumbs = new List<Link>
-                                {
-                                    new Link
-                                        {
-                                            LinkText = "Home",
-                                            ActionName = "Index",
-                                            ControllerName = "Shop"
-                                        },
-                                    new Link
-                                        {
-                                            LinkText = "Category"
-                                        }
-                                }
-                        },
-                    Sidebar = new CategorySidebar
-                        {
-                            Name = "Some Category",
-                            Children = new List<CategorySummary>
-                                {
-                                    new CategorySummary
-                                        {
-                                            Link = new Link
-                                                {
-                                                    LinkText = "Sub category 1",
-                                                    ActionName = "Category",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 1}
-                                                },
-                                            Count = 123
-                                        },
-                                    new CategorySummary
-                                        {
-                                            Link = new Link
-                                                {
-                                                    LinkText = "Sub category 2",
-                                                    ActionName = "Category",
-                                                    ControllerName = "Shop",
-                                                    RouteValues = new {id = 2}
-                                                },
-                                            Count = 234
-                                        }
-                                }
-                        },
-                    Container = new Container<ProductSummary>
-                        {
-                            GroupCount = 4,
-                            Items = new List<ProductSummary>
+            get
+            {
+                return new List<ProductSummary>
                                 {
                                     new ProductSummary
                                         {
@@ -400,10 +333,40 @@ namespace Weblitz.Shop.Web.Filters
                                                     ControllerName = "Shop"
                                                 }
                                         }
-                                }
-                        },
-                };
-            base.OnActionExecuting(filterContext);
+                                };
+            }
+        }
+
+        public static IList<CategorySummary> CategorySummaries
+        {
+            get
+            {
+                return new List<CategorySummary>
+                                {
+                                    new CategorySummary
+                                        {
+                                            Link = new Link
+                                                {
+                                                    LinkText = "Sub category 1",
+                                                    ActionName = "Category",
+                                                    ControllerName = "Shop",
+                                                    RouteValues = new {id = 1}
+                                                },
+                                            Count = 123
+                                        },
+                                    new CategorySummary
+                                        {
+                                            Link = new Link
+                                                {
+                                                    LinkText = "Sub category 2",
+                                                    ActionName = "Category",
+                                                    ControllerName = "Shop",
+                                                    RouteValues = new {id = 2}
+                                                },
+                                            Count = 234
+                                        }
+                                };
+            }
         }
     }
 }

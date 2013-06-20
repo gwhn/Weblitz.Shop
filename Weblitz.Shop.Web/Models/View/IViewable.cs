@@ -2,6 +2,6 @@
 {
     public interface IViewable
     {
-        ViewMode Mode { get; set; }
+        ViewMode ViewMode { get; set; }
     }
 }

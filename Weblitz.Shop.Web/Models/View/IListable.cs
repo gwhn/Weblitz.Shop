@@ -1,4 +1,6 @@
 ﻿namespace Weblitz.Shop.Web.Models.View
 {
-    public interface IListable : IPageable, IViewable, ISortable {}
+    public interface IListable<T> : IContainable<T>, IPageable, IViewable, ISortable
+    {
+    }
 }

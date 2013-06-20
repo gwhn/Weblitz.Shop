@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Weblitz.Shop.Web.Filters;
+using Weblitz.Shop.Web.Models.View;
 
 namespace Weblitz.Shop.Web.Controllers
 {
@@ -18,9 +20,15 @@ namespace Weblitz.Shop.Web.Controllers
 
         //
         // GET: /Search/Results/{expression}
-        public ActionResult Results(string expression)
+        [SetupResultsPage]
+        public ViewResult Results(string expression)
         {
-            throw new NotImplementedException();
+            var page = ViewData.Model as ResultsPage;
+            if (page != null)
+            {
+                
+            }
+            return View();
         }
     }
 }

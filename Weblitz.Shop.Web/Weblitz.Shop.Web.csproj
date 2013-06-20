@@ -134,10 +134,12 @@
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
-    <Compile Include="Filters\CategoryFilterAttribute.cs" />
+    <Compile Include="Filters\SetupCategoryPageAttribute.cs" />
+    <Compile Include="Controllers\Db.cs" />
     <Compile Include="Filters\MenuFilterAttribute.cs" />
     <Compile Include="Filters\PageFilterAttribute.cs" />
-    <Compile Include="Filters\ShopFrontFilterAttribute.cs" />
+    <Compile Include="Filters\SetupHomePageAttribute.cs" />
+    <Compile Include="Filters\SetupResultsPageAttribute.cs" />
     <Compile Include="Filters\SiteMapFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,6 +151,7 @@
     <Compile Include="Models\View\CategoryPage.cs" />
     <Compile Include="Models\View\CategorySummary.cs" />
     <Compile Include="Models\View\Container.cs" />
+    <Compile Include="Models\View\IContainable.cs" />
     <Compile Include="Models\View\IListable.cs" />
     <Compile Include="Models\View\Image.cs" />
     <Compile Include="Models\View\IPageable.cs" />
@@ -159,9 +162,10 @@
     <Compile Include="Models\View\NewsletterForm.cs" />
     <Compile Include="Models\View\Page.cs" />
     <Compile Include="Models\View\ProductSummary.cs" />
+    <Compile Include="Models\View\ResultsPage.cs" />
     <Compile Include="Models\View\SearchForm.cs" />
     <Compile Include="Models\View\Section.cs" />
-    <Compile Include="Models\View\ShopFront.cs" />
+    <Compile Include="Models\View\HomePage.cs" />
     <Compile Include="Models\View\CategorySidebar.cs" />
     <Compile Include="Models\View\Trail.cs" />
     <Compile Include="Models\View\ViewMode.cs" />
@@ -736,6 +740,7 @@
     <Content Include="Views\Shop\_ProductList.cshtml" />
     <Content Include="Views\Shop\_ProductMedia.cshtml" />
     <Content Include="Views\Shop\_ListToolbar.cshtml" />
+    <Content Include="Views\Search\Results.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
